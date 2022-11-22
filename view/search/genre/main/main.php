@@ -1,7 +1,7 @@
 
 <head>
     <link rel="stylesheet" href="bootstrap-5.0.0-dist/css/bootstrap.min.css">
-    <script src="bootstrap-5.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-5.0.0-dist//web/libs/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style1.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
