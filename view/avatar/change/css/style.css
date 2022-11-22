@@ -1,0 +1,8 @@
+input {
+    display: none;
+  }
+
+/*チェック中のラベルにCSSを適用*/
+  input:checked + label img {
+    border: 8px solid red;
+  }
