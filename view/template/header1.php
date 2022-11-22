@@ -18,7 +18,7 @@ $detect = new Mobile_Detect;
                 </form>
             </div>
         </div>
-        <hr style="margin:10px 0px 0px;">
+        <hr class="m-0">
     </div>
 <?php } else { ?>
     <!--スマートフォン用ヘッダ-->
@@ -27,7 +27,7 @@ $detect = new Mobile_Detect;
             <div class="header_img" style="width:400px">
                 <img src="/web/images/header/header_icon.png" onclick="location.href='/web/view/main/home/'" width="100%" height="100%">
             </div>
-            <div class="d-flex align-items-end" style="width:100px">
+            <div class="d-flex align-items-center" style="width:100px">
                 <form action="" method="post">
                     <!--新規登録-->
                     <button type="button" class="btn btn-primary" onclick="location.href='/web/view/authority/mail_certification/'" style="width:90px;">新規登録</button>
@@ -36,6 +36,6 @@ $detect = new Mobile_Detect;
                 </form>
             </div>
         </div>
-        <hr style="margin:10px 0px 0px;">
+        <hr class="m-0">
     </div>
 <?php } ?>

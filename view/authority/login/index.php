@@ -1,16 +1,16 @@
 <?php 
+/*
     session_start();
 
     $_SESSION['login'] = "0";
     $res = $_GET['login'];
 
     if($res == 'login_click'){
-        /* 仮　ログインチェック*/
         $_SESSION['login'] = "1";
         header( "Location: /web/view/main/home" ) ;
 	    exit;
     }
-    
+    */
 ?>
 
 <!DOCTYPE html>
@@ -23,11 +23,12 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
     <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/web/libs/js/jquery/jquery-3.6.0.js"></script>
+    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="js/index.js"></script>
     <title>ログイン</title>
 </head>
 
-<body background="images/c.jpg">
+<body>
     <!--ヘッダー-->
     <header>
         <?php include dirname( __FILE__ , 3)."/template/header.php" ?>
