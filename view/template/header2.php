@@ -2,8 +2,8 @@
 $res = $_GET['logout'];
 
 if ($res == 'logout_click') {
-    /* 仮　ログインチェック*/
-    $_SESSION['logout'] = "1";
+    $_SESSION['auth'] = false;
+    $_SESSION['user_account_id'] = "";
     header("Location: /web/view/main/home");
     exit;
 }

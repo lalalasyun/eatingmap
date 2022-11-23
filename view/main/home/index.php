@@ -1,12 +1,4 @@
-<?php
-    $res = $_GET['logout'];
-    session_start();
 
-    if($res == "logout_click"){
-        $_SESSION['login'] = "0";
-    }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,11 +20,7 @@
     <!--ヘッダー-->
     <header>
         <?php
-        if($_SESSION['login'] == "1"){
-            include dirname( __FILE__ , 3)."/template/header2.php";
-        }else{
-            include dirname( __FILE__ , 3)."/template/header1.php";
-        }
+        include dirname( __FILE__ , 3)."/template/include_header.php";
         ?>
         <!--
             main_user.phpとmain_owner.phpを切り替える

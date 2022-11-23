@@ -7,7 +7,7 @@ $detect = new Mobile_Detect;
     <div>
         <div class="d-flex justify-content-between">
             <div class="header_img" style="width:400px">
-                <img src="/web/images/header/header_icon.png" onclick="location.href='/web/view/main/home/'">
+            <img src="/web/images/header/header_icon.png" onclick="location.href='/web/view/main/home/'">
             </div>
             <div class="d-flex align-items-end">
                 <form action="" method="post">

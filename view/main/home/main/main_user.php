@@ -1,7 +1,11 @@
+<?php
+echo $_SESSION['user_account_id'];
+echo $_GET['shop_id'];
+?>
 <div class="d-flex">
     <div class="user_icon">
        
-            <img class="text_img" src="images/user_icon/IMG_3574 (2)_1122013734.png" style="width:100px; height:auto;margin-top:10px; margin-left:10vh">
+            <img class="text_img" src="/web/images/user_icon/IMG_3574 (2)_1122013734.png" style="width:100px; height:auto;margin-top:10px; margin-left:10vh">
         
 
     </div>
@@ -53,14 +57,14 @@
 </div>
 <div class="sample02" style="margin:0px;">
     <ul>
-        <li><img src="images/shop_image/ピザ.jpg" width="300"></li>
-        <li><img src="images/shop_image/ハンバーグ.jpg" width="300"></li>
-        <li><img src="images/shop_image/ボンゴレ.jpg" width="250"></li>
-        <li><img src="images/shop_image/ヒカル.jpg" width="300"></li>
-        <li><img src="images/shop_image/寿司.jpg" width="300"></li>
-        <li><img src="images/shop_image/そば.jpg" width="300"></li>
-        <li><img src="images/shop_image/クレープ.jpg" width="300"></li>
-        <li><img src="images/shop_image/サンドウィッチ.jpg" width="300"></li>
+        <li><img src="/web/images/shop_image/ピザ.jpg" width="300"></li>
+        <li><img src="/web/images/shop_image/ハンバーグ.jpg" width="300"></li>
+        <li><img src="/web/images/shop_image/ボンゴレ.jpg" width="250"></li>
+        <li><img src="/web/images/shop_image/ヒカル.jpg" width="300"></li>
+        <li><img src="/web/images/shop_image/寿司.jpg" width="300"></li>
+        <li><img src="/web/images/shop_image/そば.jpg" width="300"></li>
+        <li><img src="/web/images/shop_image/クレープ.jpg" width="300"></li>
+        <li><img src="/web/images/shop_image/サンドウィッチ.jpg" width="300"></li>
     </ul>
 
 </div>

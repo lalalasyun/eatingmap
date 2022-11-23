@@ -4,7 +4,7 @@
 </head>
 <div class="user_icon">
     <!--初期アイコン-->
-    <a href="/web//view//mypage/index.php">
+    <a href="/web//view/mypage/index.php">
     <img class="text_img" src="images/IMG_2934 (2)_1122014825 (1).png" style="width:100px; height:auto;margin-top:10px; margin-left:10vh">
     </a>
 </div>

@@ -1,16 +1,12 @@
 <?php 
-/*
     session_start();
 
-    $_SESSION['login'] = "0";
-    $res = $_GET['login'];
-
-    if($res == 'login_click'){
-        $_SESSION['login'] = "1";
+    if(isset($_GET['user_account_id'])){
+        $_SESSION['auth'] = true;
+        $_SESSION['user_account_id'] = $_GET['user_account_id'];
         header( "Location: /web/view/main/home" ) ;
 	    exit;
     }
-    */
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +27,7 @@
 <body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname( __FILE__ , 3)."/template/header.php" ?>
+        <?php include dirname( __FILE__ , 3)."/template/include_header.php" ?>
     </header>
 
     <!--初期メイン画面-->

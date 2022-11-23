@@ -25,7 +25,7 @@
 <body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname( __FILE__ , 3)."/template/header.php" ?>
+        <?php include dirname( __FILE__ , 3)."/template/include_header.php" ?>
     </header>
 
     <!--初期メイン画面-->

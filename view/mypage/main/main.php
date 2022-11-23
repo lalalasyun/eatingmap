@@ -40,7 +40,7 @@
 
     <div class="d-flex justify-content-around py-3">
         <button type="button" class="btn btn-primary" style="width:25%;height:20%" onclick="location.href='/web/view/avatar/buy/index.php'">アバター購入</button>
-        <button type="button" class="btn btn-primary " style="width:25%;height:20%" onclick="location.href='/web/view/profile/discription/main1.php'">プロフィール編集</button>
+        <button type="button" class="btn btn-primary " style="width:25%;height:20%" onclick="location.href='/web/view/profile/discription/index.php'">プロフィール編集</button>
 
     </div>
 </div>

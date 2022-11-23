@@ -12,10 +12,10 @@
     <title>メイン画面</title>
 </head>
 
-<body background="images/c.jpg">
+<body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname( __FILE__ , 3)."/template/header1.php"; ?>
+        <?php include dirname( __FILE__ , 3)."/template/include_header1.php"; ?>
     </header>
 
     <!--初期メイン画面-->
