@@ -1,18 +1,3 @@
-.text_img{
-    width: 10px;
-    height: 10px;
-    vertical-align: middle;
-}
-.pointtext {
-	margin: 16px auto;
-	width: 500px;
-	display: block;
-}
-
-.mytext {
-    height: 200px;
-}
-
 body {
     background-color: orangered;
 }
@@ -56,8 +41,6 @@ body {
     margin:2em 0;
     position: relative;
     padding: 0.25em 1em;
-    border: solid 2px #ffcb8a;
-    border-radius: 3px 0 3px 0;
 }
 .sample02:before,.box18:after
 {
@@ -65,8 +48,6 @@ body {
     position: absolute;
     width:10px;
     height: 10px;
-    border: solid 2px #ffcb8a;
-    border-radius: 50%;
 }
 .sample02:after {
     top:-12px;

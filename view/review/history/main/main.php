@@ -8,7 +8,7 @@
     </div>
     <div class="d-flex justify-content-end mt-3">
 
-        <input type="button" class="btn btn-success" id="next_btn" name="nextpage" value="次へ">
+        <input type="button" class="btn btn-success" id="next_btn" name="next_page" value="次へ">
     </div>
 
 </div>

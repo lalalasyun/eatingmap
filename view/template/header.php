@@ -6,7 +6,7 @@ $detect = new Mobile_Detect;
     <!--PC用ヘッダ-->
     <div>
         <div class="d-flex justify-content-between">
-            <div class="header_img" style="width:400px">
+            <div class="header_img" style="width:400px;cursor:pointer;">
                 <img src="/web/images/header/header_icon.png" onclick="location.href='/web/view/main/home/'">
             </div>
             <div class="d-flex align-items-end">

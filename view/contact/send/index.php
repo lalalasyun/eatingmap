@@ -1,3 +1,4 @@
+<?php include dirname(__FILE__, 4) . "/conf/map_conf.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,15 +15,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrCeM0xkKwrBQegrMJXkHc10UtrjLz7yo&v=weekly" defer></script>
     <script src="https://cdn.geolonia.com/community-geocoder.js"></script>
+    <script src="https://maps.google.com/maps/api/js?key=<?= $KEY;?>"></script>
+    
+
     <title>お問い合わせフォーム</title>
 </head>
 
-<body >
+<body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname( __FILE__ , 3)."/template/include_header.php";?>
+        <?php include dirname(__FILE__, 3) . "/template/include_header.php"; ?>
     </header>
 
     <!--初期メイン画面-->
@@ -32,7 +35,7 @@
 
     <!--フッター-->
     <footer>
-        <?php include dirname( __FILE__ , 3)."/template/footer.php";?>
+        <?php include dirname(__FILE__, 3) . "/template/footer.php"; ?>
     </footer>
 </body>
 

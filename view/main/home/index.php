@@ -13,10 +13,12 @@
     <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
 
     <script src="js/load_city/load_city.js"></script>
+    <script src="https://kit.fontawesome.com/2947a18ded.js" crossorigin="anonymous"></script>
+
     <title>メイン画面</title>
 </head>
 
-<body background="images/background/c.jpg">
+<body>
     <!--ヘッダー-->
     <header>
         <?php

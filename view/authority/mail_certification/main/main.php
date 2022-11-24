@@ -14,6 +14,11 @@
                 <input type="email" class="form-control" id="mail" required>
             </div>
             <button class="btn btn-primary" id="mail_send_btn" name="send" value="send_click">送信</button>
+            <div class="sessionsLayout_guide">
+                アカウントを持っている場合は
+                <a href="/web/view/authority/mail_certification/" rel="nofollow">ログイン</a>
+                から。
+            </div>
         </div>
     </div>
 </div>

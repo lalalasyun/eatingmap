@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                 </div>
             <?php endif; ?>
 
-            <form action="" method="post">
+            <form action="" method="post"id="input_area">
                 <div class="mb-3">
                     <input type="text" class="form-control" name="name" placeholder="お名前" value="<?php echo $name; ?>">
                 </div>
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                     </div>
                     <div class="d-flex justify-content-center mt-3 ">
                         <input type="text" class="form-control"  style="width:90%;" placeholder="店住所を入力してください。">
-                        <input type="button"class="form-control" name="misefrom" style="width:15%;" value="確認"onclick="from()">
+                        <input type="button"class="form-control" name="misefrom" style="width:15%;" value="確認"onclick="codefrom() " >
                     </div>
                     <div class="d-flex justify-content-center mt-3 ">
                         <input type="text" class="form-control" name="teninid" style="width:1000px;" placeholder="店員IDを入力してください">

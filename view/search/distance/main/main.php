@@ -55,5 +55,8 @@
   <h3 id="kyori"></h3>
   <h3 id="result"></h3>
   <div id="map" style="width:100%;height:500px;bottom:3px;"></div>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrCeM0xkKwrBQegrMJXkHc10UtrjLz7yo&callback=initMap&v=weekly" defer></script>
+  <?php 
+    require_once dirname(__FILE__, 5) ."/conf/map_conf.php"
+  ?>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<?= $KEY;?>&callback=initMap&v=weekly" defer></script>
 </div>

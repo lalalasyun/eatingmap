@@ -48,7 +48,7 @@ function initMap() {
           name: '現在地',
           lat: nowlat,
           lng: nowlng,
-          icon: './images/searchimg/mappin.png' // mappin 現在地のマーカーだけイメージを変更する
+          icon: '/web/images/searchimg/mappin.png' // mappin 現在地のマーカーだけイメージを変更する
 
 
         },

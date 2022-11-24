@@ -11,13 +11,14 @@
     <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
     <script src="js/index.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+   
     <title>メイン画面</title>
 </head>
 
-<body >
+<body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname( __FILE__ , 3)."/template/include_header1.php" ?>
+        <?php include dirname(__FILE__, 3) . "/template/include_header.php" ?>
     </header>
 
     <!--初期メイン画面-->
@@ -27,7 +28,7 @@
 
     <!--フッター-->
     <footer>
-        <?php include dirname( __FILE__ , 3)."/template/footer.php"?>
+        <?php include dirname(__FILE__, 3) . "/template/footer.php" ?>
     </footer>
 </body>
 

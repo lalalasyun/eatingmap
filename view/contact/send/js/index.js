@@ -28,13 +28,43 @@ function viewChange() {
             document.getElementById('Box4').style.display = "none";
         }
     }
+    
 
     window.onload = viewChange;
 }
+/////住所から緯度経度返還
+var geocoder;
+        var map;
 
-/*function from(from){
-    console.log(from.data);
-   
-}
+      
+            geocoder = new google.maps.Geocoder(); //giocoderの宣言
+           
 
-let text = document.getElementById('misefrom');*/
+        function codefrom() { //緯度経度変換の関数
+            var from = document.getElementById("from").value;
+            if (geocoder) {
+                geocoder.geocode({
+                        'address': from,
+                        'region': 'jp'
+                    },
+                    function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+
+
+
+                            for (var r in results) {
+                                if (results[r].geometry) {
+                                    var lat_lng = results[r].geometry.location;
+
+
+                                    //lat_lng.lat();
+                                    // lat_lng.lng();
+
+                                }
+                            }
+
+                        }
+                    });
+            }
+        }
+    

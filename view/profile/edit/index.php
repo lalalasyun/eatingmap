@@ -9,15 +9,14 @@
     <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
     <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
     <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
-   
-
-    <title>メイン画面</title>
+    <script src="js/index.js"></script>
+    <title>プロフィール編集画面</title>
 </head>
 
 <body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname(__FILE__, 3) . "/template/include_header.php" ?>
+        <?php include dirname( __FILE__ , 3)."/template/include_header.php" ?>
     </header>
 
     <!--初期メイン画面-->
@@ -27,7 +26,7 @@
 
     <!--フッター-->
     <footer>
-        <?php include dirname(__FILE__, 3) . "/template/footer.php" ?>
+        <?php include dirname( __FILE__ , 3)."/template/footer.php"?>
     </footer>
 </body>
 
