@@ -7,10 +7,10 @@ $(function () {
             return;
         }
         const id = window.sessionStorage.getItem(['user_account_id']);
+        console.log(id)
         if (!id) {
             $('#user_name').val("guest");
         } else {
-            $('#user_name').val(id);
             get_user(id);
         }
     });
@@ -21,11 +21,13 @@ $(function () {
         }).done(function (data) {
             console.log(data)
             if (data.code) {
+                $('#user_name').val(data.data.name);
                 $("#user_name").prop("disabled", true);
             } else {
                 $('#user_name').val("guest");
             }
-            get_shop(data.data.shop_id);
+            console.log(data.data.shop_id)
+            get_shop("1589845589640687617");
         })
             // Ajaxリクエストが失敗した場合
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
@@ -36,10 +38,13 @@ $(function () {
         if(!id)return;
         $.ajax({
             type: 'get',
-            url: `https://app.eatingmap.fun/api/shop/index.php?=${id}`,
+            url: `https://app.eatingmap.fun/api/shop/index.php?id=${id}`,
         }).done(function (data) {
             console.log(data)
             $('#del_emp').removeClass("d-none");
+            $('#i_shop_name').val(data.data.name);
+            $("#i_shop_name").prop("disabled", true);
+            
         })
             // Ajaxリクエストが失敗した場合
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {

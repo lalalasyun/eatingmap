@@ -1,5 +1,6 @@
     <?php
     header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json; charset=UTF-8');
     require_once $_SERVER['DOCUMENT_ROOT'] . '/web/conf/sql_conf.php';
     $dbh = null;
     try {

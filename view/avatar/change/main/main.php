@@ -28,9 +28,9 @@ $back = $_POST['radio3'];
                 </div>
                 <div class="headradio">
                     <?php for ($i = 0; $i < count($heads); $i++) {  ?>
-                        <input id="radio-1" type="checkbox" name="radio1"value="<?= $heads[$i]; ?>" />
-                        <label for="radio1-<?= $i+1; ?>" class="radio-label">
-                            <img src="/web/images/headimg/<?= $heads[$i]; ?>" width="300px" height="450px">
+                        <input id="radio-1" type="radio" name="radio1"value="<?= $i ;?>" />
+                        <label for="radio1-<?= $i+1; ?>" class="radio">
+                            <img src="/web/images/headimg/<?= $heads[$i]; ?>" width="300px" height="450px"class="radio_img">
                         </label>
                     <?php } ?>
                 </div>
@@ -39,9 +39,9 @@ $back = $_POST['radio3'];
                 </div>
 
                 <?php for ($i = 0; $i < count($clothes); $i++) {  ?>
-                    <input id="radio-2" type="radio" name="radio2" value="<?= $clothes[$i]; ?>"/>
-                    <label for="radio2-2" class="radio-label">
-                        <img src="/web/images/clotheimg/<?= $clothes[$i]; ?>" width="300px" height="450px">
+                    <input id="radio-2" type="radio" name="radio2" value="<?= $i ; ?>"/>
+                    <label for="radio2-2" class="radio">
+                        <img src="/web/images/clotheimg/<?= $clothes[$i]; ?>" width="300px" height="450px" class="radio_img">
                     </label>
                 <?php } ?>
             </div>
@@ -52,9 +52,9 @@ $back = $_POST['radio3'];
 
                 <div class="backradio">
                     <?php for ($i = 0; $i < count($backs); $i++) {  ?>
-                        <input id="radio-3" type="radio" name="radio3"value="<?= $backs[$i]; ?>" />
-                        <label for="radio-3" class="radio-label">
-                            <img src="/web/images/backimg/<?= $backs[$i]; ?>" width="300px" height="450px">
+                        <input id="radio-3" type="radio" name="radio3"value="<?=  $i ; ?>" />
+                        <label for="radio-3" class="radio">
+                            <img src="/web/images/backimg/<?= $backs[$i]; ?>" width="300px" height="450px"class="radio_img">
                         </label>
                     <?php } ?>
                 </div>

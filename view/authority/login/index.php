@@ -1,5 +1,4 @@
 <?php
-session_set_cookie_params(60 * 30);
 session_start();
 //現在のページの名前を取得
 $path = explode("/", __DIR__);
@@ -23,6 +22,7 @@ if (isset($_GET['user_account_id'])) {
     <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
     <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
     <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/web/libs/js/ajax.js"></script>
     <script src="js/index.js"></script>
     <title>ログイン</title>
 </head>
