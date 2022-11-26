@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
     <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
     <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
-    <title>メイン画面</title>
+    <title>エラー</title>
 </head>
 
 <body>

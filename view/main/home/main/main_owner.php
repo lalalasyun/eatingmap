@@ -1,7 +1,3 @@
-<head>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="bootstrap//web/libs/js/bootstrap.min.js"></script>
-</head>
 <div class="user_icon">
     <!--初期アイコン-->
     <a href="/web//view/mypage/index.php">

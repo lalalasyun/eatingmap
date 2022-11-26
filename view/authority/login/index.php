@@ -3,7 +3,6 @@
 
     if(isset($_GET['user_account_id'])){
         $_SESSION['auth'] = true;
-        $_SESSION['user_account_id'] = $_GET['user_account_id'];
         header( "Location: /web/view/main/home" ) ;
 	    exit;
     }
@@ -11,7 +10,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
