@@ -28,7 +28,7 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `profile` varchar(255) DEFAULT '',
   `point` varchar(255) DEFAULT NULL,
-  `email` varchar(255) NOT NULL DEFAULT '',
+  `mail` varchar(255) NOT NULL DEFAULT '',
   `shop_id` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL ON UPDATE current_timestamp(),
   `update_time` datetime DEFAULT NULL ON UPDATE current_timestamp(),
@@ -41,9 +41,9 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` (`id`, `name`, `account`, `password`, `profile`, `point`, `email`, `shop_id`, `create_time`, `update_time`, `create_user`, `update_user`) VALUES (1584733862100410370, 'vp', 'jellyman1234', '123456', '', '500', '', NULL, NULL, NULL, 0, 0);
-INSERT INTO `user` (`id`, `name`, `account`, `password`, `profile`, `point`, `email`, `shop_id`, `create_time`, `update_time`, `create_user`, `update_user`) VALUES (1584734797547642882, 'tom', 'jellyman3333', '123456', '', '500', '', NULL, NULL, NULL, 0, 0);
-INSERT INTO `user` (`id`, `name`, `account`, `password`, `profile`, `point`, `email`, `shop_id`, `create_time`, `update_time`, `create_user`, `update_user`) VALUES (1584743578595680258, 'kuma', 'jellyman3333', '123456', '', '500', '', NULL, NULL, NULL, 0, 0);
+INSERT INTO `user` (`id`, `name`, `account`, `password`, `profile`, `point`, `mail`, `shop_id`, `create_time`, `update_time`, `create_user`, `update_user`) VALUES (1584733862100410370, 'vp', 'jellyman1234', '123456', '', '500', '', NULL, NULL, NULL, 0, 0);
+INSERT INTO `user` (`id`, `name`, `account`, `password`, `profile`, `point`, `mail`, `shop_id`, `create_time`, `update_time`, `create_user`, `update_user`) VALUES (1584734797547642882, 'tom', 'jellyman3333', '123456', '', '500', '', NULL, NULL, NULL, 0, 0);
+INSERT INTO `user` (`id`, `name`, `account`, `password`, `profile`, `point`, `mail`, `shop_id`, `create_time`, `update_time`, `create_user`, `update_user`) VALUES (1584743578595680258, 'kuma', 'jellyman3333', '123456', '', '500', '', NULL, NULL, NULL, 0, 0);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
