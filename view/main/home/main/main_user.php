@@ -1,13 +1,20 @@
-
-<div class="container border rounded d-flex justify-content-center <?php if(!$isMobile){echo "w-75 my-4";} ?>" style="margin:auto;">
+<div class="container border rounded d-flex justify-content-center <?php if (!$isMobile) {
+                                                                        echo "w-75 my-4";
+                                                                    } ?>" style="margin:auto;">
     <div class="w-100 m-3">
         <div class="d-flex mb-5">
             <div class="user_icon" style="width:100px; height:100px; background:black;">
 
             </div>
-            <div class="p-3" id="user_name">
-                ユーザネーム
+            <div class="d-flex p-3">
+                <div id="user_name">
+                    ユーザネーム
+                </div>
+                <div class="px-2">
+                    さん
+                </div>
             </div>
+
         </div>
         <div class="mb-5">
             <div class="input-group mb-3 d-flex">

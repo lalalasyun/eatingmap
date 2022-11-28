@@ -1,15 +1,20 @@
-<?php 
-    session_start();
+<?php
+session_set_cookie_params(60 * 30);
+session_start();
+//現在のページの名前を取得
+$path = explode("/", __DIR__);
+$page = $path[count($path) - 1];
 
-    if(isset($_GET['user_account_id'])){
-        $_SESSION['auth'] = true;
-        header( "Location: /web/view/main/home" ) ;
-	    exit;
-    }
+if (isset($_GET['user_account_id'])) {
+    $_SESSION['auth'] = true;
+    header("Location: /web/view/main/home");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +30,7 @@
 <body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname( __FILE__ , 3)."/template/include_header.php" ?>
+        <?php include dirname(__FILE__, 3) . "/template/include_header.php" ?>
     </header>
 
     <!--初期メイン画面-->
@@ -35,7 +40,7 @@
 
     <!--フッター-->
     <footer>
-        <?php include dirname( __FILE__ , 3)."/template/footer.php"?>
+        <?php include dirname(__FILE__, 3) . "/template/footer.php" ?>
     </footer>
 </body>
 

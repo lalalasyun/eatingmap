@@ -2,3 +2,6 @@ body {
     background: #f3f3f3;
     font-family: 'Noto Sans JP', sans-serif;
 }
+.box{
+    display:none;
+}

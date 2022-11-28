@@ -16,26 +16,6 @@ $back = $_POST['radio3'];
     <h1>アバター選択</h1>
 </div>
 
-<div>
-    <div class="d-flex justify-content-around">
-        <div>
-            <img class="text_img" src="/web/images/user_icon/user_icon_sample.jpg" style="width:100px; height:100px; margin-top:10px; margin-left:10vh">
-
-
-
-        </div>
-
-
-        <div class="d-flex pt-3">
-            <div class="align-items-center">
-                <p class="fs-3">ニックネーム</p>
-            </div>
-
-
-        </div>
-    </div>
-</div>
-
 <div class="d-flex justify-content-around">
 
 

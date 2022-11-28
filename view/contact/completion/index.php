@@ -1,13 +1,3 @@
-<?php
-if ($_GET["send"] == "send_click") {
-    header('Location: /web/view/main/home/');
-    exit;
-}
-//現在のページの名前を取得
-$path = explode("/", __DIR__);
-$page = $path[count($path) - 1];
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,19 +6,17 @@ $page = $path[count($path) - 1];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-
-    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
-    <script src="js/index.js"></script>
-
     <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
     <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
-    <title>メールアドレス認証</title>
+    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="js/index.js"></script>
+    <title>テンプレート画面</title>
 </head>
 
 <body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname(__FILE__, 3) . "/template/include_header.php" ?>
+        <?php include dirname( __FILE__ , 3)."/template/include_header.php" ?>
     </header>
 
     <!--初期メイン画面-->
@@ -38,7 +26,7 @@ $page = $path[count($path) - 1];
 
     <!--フッター-->
     <footer>
-        <?php include dirname(__FILE__, 3) . "/template/footer.php" ?>
+        <?php include dirname( __FILE__ , 3)."/template/footer.php"?>
     </footer>
 </body>
 

@@ -30,7 +30,7 @@ CREATE TABLE `user` (
   `point` varchar(255) DEFAULT NULL,
   `mail` varchar(255) NOT NULL DEFAULT '',
   `shop_id` int(11) DEFAULT NULL,
-  `create_time` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `create_time` datetime DEFAULT current_timestamp(),
   `update_time` datetime DEFAULT NULL ON UPDATE current_timestamp(),
   `create_user` bigint(20) NOT NULL DEFAULT 1,
   `update_user` bigint(20) NOT NULL DEFAULT 1,

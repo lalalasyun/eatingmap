@@ -1,4 +1,10 @@
-<?php include dirname(__FILE__, 4) . "/conf/map_conf.php" ?>
+<?php 
+include dirname(__FILE__, 4) . "/conf/map_conf.php";
+
+//現在のページの名前を取得
+$path = explode("/", __DIR__);
+$page = $path[count($path)-1];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +15,20 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
     <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/web/libs/js/jquery/jquery-3.6.0.js"></script>
+    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/adress.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <script src="https://cdn.geolonia.com/community-geocoder.js"></script>
     <script src="https://maps.google.com/maps/api/js?key=<?= $KEY;?>"></script>
+
+    <script src="/web/libs/js/jquery/jquery.validate.min.js"></script>
+    <script src="/web/libs/js/jquery/additional-methods.min.js"></script>
+    <script src="js/validate_rules.js"></script>
     
 
     <title>お問い合わせフォーム</title>

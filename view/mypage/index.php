@@ -10,7 +10,7 @@
     <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
     <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
     <script src="js/index.js"></script>
-    <title>メイン画面</title>
+    <title>マイページ</title>
 </head>
 
 <body >

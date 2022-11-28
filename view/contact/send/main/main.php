@@ -1,132 +1,130 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    // POSTでのアクセスでない場合
-    $name = '';
-    $email = '';
-    $subject = '';
-    $message = '';
-    $err_msg = '';
-    $complete_msg = '';
-} else {
-    // フォームがサブミットされた場合（POST処理）
-    // 入力された値を取得する
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
-
-    // エラーメッセージ・完了メッセージの用意
-    $err_msg = '';
-    $complete_msg = '';
-
-    // 空チェック
-    if ($name == '' || $email == '' || $subject == '' || $message == '') {
-        $err_msg = '全ての項目を入力してください。';
+if (isset($_POST['name'])) {
+    $req =  $_POST['select1'];
+    $del =  $_POST['select2'];
+    $add =  $_POST['select3'];
+    $data = null;
+    if ($req == "question") {
+        $data = array(
+            "request" => "question",
+            "account" => $_POST['name'],
+            "text" =>  $_POST['question'],
+        );
     }
-
-    // エラーなし（全ての項目が入力されている）
-    if ($err_msg == '') {
-        $to = 'admin@test.com'; // 管理者のメールアドレスなど送信先を指定
-        $headers = "From: " . $email . "\r\n";
-
-        // 本文の最後に名前を追加
-        $message .= "\r\n\r\n" . $name;
-
-        // メール送信
-        mb_send_mail($to, $subject, $message, $headers);
-
-        // 完了メッセージ
-        $complete_msg = '送信されました！';
-
-        // 全てクリア
-        $name = '';
-        $email = '';
-        $subject = '';
-        $message = '';
+    if ($req == "del" && $del == "shop") {
+        $data = array(
+            "request" => "del_shop",
+            "account" => $_POST['name'],
+            "shop_name" =>  $_POST['shop_name'],
+            "text" => $_POST['note'],
+        );
     }
+    if ($req == "del" && $del == "emp") {
+        $data = array(
+            "request" => "del_emp",
+            "account" => $_POST['name'],
+            "shop_name" =>  $_POST['shop_name'],
+            "text" => $_POST['note'],
+        );
+    }
+    if ($req == "add" && $add == "shop") {
+        $data = array(
+            "request" => "add_shop",
+            "account" => $_POST['name'],
+            "shop_name" =>  $_POST['shop_name'],
+            "address" => $_POST['shop_address'],
+            "text" => $_POST['note'],
+        );
+    }
+    if ($req == "add" && $add == "emp") {
+        $data = array(
+            "request" => "add_emp",
+            "account" => $_POST['name'],
+            "shop_name" =>  $_POST['shop_name'],
+            "phone" => $_POST['phone'],
+            "text" => $_POST['note'],
+        );
+    }
+    if ($req == "other") {
+        $data = array(
+            "request" => "other",
+            "account" => $_POST['name'],
+            "text" => $_POST['message'],
+        );
+    }
+    $json = json_encode($data);
 }
 ?>
+<script>
+    let json = <?php if($json){ echo $json;} ?>;
+</script>
 <div class="container mt-3">
-        <div class="col-md-6 offset-md-3">
-            <h3 class="mb-5 text-center">お問い合わせ</h3>
+    <div class="col-md-6 offset-md-3">
+        <h3 class="mb-5 text-center">お問い合わせ</h3>
 
-            <?php if ($err_msg != '') : ?>
-                <div class="alert alert-danger">
-                    <?php echo $err_msg; ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($complete_msg != '') : ?>
-                <div class="alert alert-success">
-                    <?php echo $complete_msg; ?>
-                </div>
-            <?php endif; ?>
-
-            <form action="" method="post"id="input_area">
-                <div class="mb-3">
-                    <input type="text" class="form-control" name="name" placeholder="お名前" value="<?php echo $name; ?>">
-                </div>
-
-                <div class="mb-3">
-                    <input type="text" class="form-control" name="subject" placeholder="件名" value="<?php echo $subject; ?>">
-                </div>
+        <form action="" method="post" id="input_area">
+            <div class="mb-3">
+                <input type="text" class="form-control" name="name" id="user_name" placeholder="お名前" value="<?php echo $name; ?>">
+            </div>
 
 
-                <div class="mb-3">
-                    <select class="form-select form-control" id="sample" onchange="viewChange();">
-                        <option value="0" class="text-muted">項目を選択してください</option>
-                        <option value="1">質問</option>
-                        <option value="2">店舗・店員削除</option>
-                        <option value="3">店舗・店員登録申請</option>
-                        <option value="4">その他</option>
-                    </select>
-                </div>
-                <div class="mb-4" id="Box1" style="display:none;">
-                    <textarea class="form-control" name="message" rows="5" placeholder="質問"><?php echo $message; ?></textarea>
-                </div>
-                <div class="mb-4" id="Box2" style="display:none;">
-                    <select class="form-select form-control">
-                        <option value="td0" class="text-muted">店舗削除</option>
-                        <option value="td1">店員削除</option>
-                    </select>
-                    <div class="d-flex justify-content-center mt-3 ">
-                        <input type="text" class="form-control" name="tenponame" style="width:1000px;" placeholder="支店名を入力してください。">
-                    </div>
-                    <div class="d-flex justify-content-center mt-3 ">
-                        <input type="text" class="form-control" name="teninid" style="width:1000px;" placeholder="店員IDを入力してください">
-                    </div>
-                    <div class="d-flex justify-content-center mt-3">
-                        <textarea class="form-control" name="message" rows="5" placeholder="備考"><?php echo $message; ?></textarea>
-                    </div>
-                </div>
-                <div class="mb-4" id="Box3" style="display:none;">
-                    <select class="form-select form-control">
-                        <option value="t0" class="text-muted">店舗登録</option>
-                        <option value="t1">店員登録</option>
-                    </select>
-                    <div class="d-flex justify-content-center mt-3 ">
-                        <input type="text" class="form-control" name="tenponame" style="width:1000px;" placeholder="店名を入力してください。">
-                    </div>
-                    <div class="d-flex justify-content-center mt-3 ">
-                        <input type="text" class="form-control"  style="width:90%;" placeholder="店住所を入力してください。">
-                        <input type="button"class="form-control" name="misefrom" style="width:15%;" value="確認"onclick="codefrom() " >
-                    </div>
-                    <div class="d-flex justify-content-center mt-3 ">
-                        <input type="text" class="form-control" name="teninid" style="width:1000px;" placeholder="店員IDを入力してください">
-                    </div>
-                    
-                    <div class="d-flex justify-content-center mt-3">
-                        <textarea class="form-control" name="message" rows="5" placeholder="備考"><?php echo $message; ?></textarea>
-                    </div>
-                </div>
-                <div class="mb-4" id="Box4" style="display:none;">
-                    <textarea class="form-control" name="message" rows="5" placeholder="要件を入力してください"><?php echo $message; ?></textarea>
-                </div>
+            <div class="mb-3">
+                <select class="form-select form-control" name="select1" id="sample" onchange="viewChange();">
+                    <option value="" class="text-muted">項目を選択してください</option>
+                    <option value="question">質問</option>
+                    <option value="del">削除申請</option>
+                    <option value="add">登録申請</option>
+                    <option value="other">その他</option>
+                </select>
+            </div>
 
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-success" >送信</button>
-                </div>
+            <div class="mb-4 box" id="question">
+                <textarea class="form-control" name="question" id="i_question" placeholder="質問"></textarea>
+            </div>
 
-            </form>
-        </div>
+
+            <div class="mb-4 box" id="del">
+
+                <select class="form-select form-control" id="select_del" name="select2" onchange="del_viewChange();">
+                    <option value="" class="text-muted">項目を選択してください</option>
+                    <option value="shop">店舗削除</option>
+                    <option value="emp" class="d-none" id="del_emp">店員削除</option>
+                </select>
+            </div>
+
+            <div class="mb-4 box" id="add">
+                <select class="form-select form-control" name="select3" id="select_add" onchange="add_viewChange();">
+                    <option value="" class="text-muted">項目を選択してください</option>
+                    <option value="shop">店舗登録</option>
+                    <option value="emp">店員登録</option>
+                </select>
+            </div>
+
+
+            <div class="mt-3 box" id="shop_name">
+                <input type="text" class="form-control w-100" name="shop_name" id="i_shop_name" placeholder="店名を入力してください。">
+            </div>
+
+            <div class="mt-3 box" id="phone">
+                <input type="text" class="form-control w-100" name="phone" id="i_phone" placeholder="電話番号を入力してください。">
+            </div>
+
+            <div class="mt-3 box none" id="shop_address">
+                <input type="text" class="form-control" name="shop_address" id="i_address" style="width:85%;" placeholder="店住所を入力してください。">
+                <input type="button" class="form-control" style="width:15%;" value="確認" id="confirm">
+            </div>
+            <div class="mt-3 mb-4 box" id="note">
+                <textarea class="form-control" name="note" rows="5" id="i_note" placeholder="備考"></textarea>
+            </div>
+
+            <div class="mb-4 box" id="other">
+                <textarea class="form-control" name="message" rows="5" id="i_other" placeholder="要件を入力してください"></textarea>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success">送信</button>
+            </div>
+
+        </form>
+    </div>
 </div>

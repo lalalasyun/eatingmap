@@ -1,3 +1,8 @@
+<?php
+//現在のページの名前を取得
+$path = explode("/", __DIR__);
+$page = $path[count($path)-1];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +29,7 @@
     <!--初期メイン画面-->
     <div class="main">
         <?php
+        session_set_cookie_params(60 * 5);
         session_start();
         if (isset($_GET["id"])) {
             $_SESSION['register_event'] = true;

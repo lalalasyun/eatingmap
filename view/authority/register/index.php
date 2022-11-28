@@ -21,6 +21,7 @@
     <script src="/web/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/web/libs/js/jquery/additional-methods.min.js"></script>
     <script src="js/validate_rules.js"></script>
+    <script src="js/no_automatic.js"></script>
     <title>新規登録</title>
 </head>
 
