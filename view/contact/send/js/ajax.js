@@ -10,6 +10,7 @@ $(function () {
         if (!id) {
             $('#user_name').val("guest");
         } else {
+            $('#user_name').val(id);
             get_user(id);
         }
     });
@@ -20,7 +21,6 @@ $(function () {
         }).done(function (data) {
             console.log(data)
             if (data.code) {
-                $('#user_name').val(data.data.account);
                 $("#user_name").prop("disabled", true);
             } else {
                 $('#user_name').val("guest");

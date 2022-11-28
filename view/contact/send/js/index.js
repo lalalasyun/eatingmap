@@ -1,6 +1,7 @@
 function viewChange() {
     if (document.getElementById('sample')) {
         $("#input_area").find(".box").hide();
+        $('#shop_address').removeClass('d-flex');
         id = document.getElementById('sample').value;
         if (id == 'question') {
             $('#question').show();
