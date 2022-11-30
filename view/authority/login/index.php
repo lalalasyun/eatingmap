@@ -9,6 +9,7 @@ if (isset($_GET['user_account_id'])) {
     header("Location: /web/view/main/home");
     exit;
 }
+$page = "lowpage";
 ?>
 
 <!DOCTYPE html>

@@ -13,16 +13,17 @@
     <title>メイン画面</title>
 </head>
 
-<body>
+<body  background="../change/images/user_icon/d.jpg">
     <!--ヘッダー-->
     <header>
         <?php include dirname( __FILE__ , 3)."/template/include_header.php" ?>
     </header>
-
+ 
     <!--初期メイン画面-->
     <div class="main">
         <?php include "main/main.php" ?>
     </div>
+
 
     <!--フッター-->
     <footer>

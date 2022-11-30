@@ -1,9 +1,10 @@
 $(function () {
   $(document).ready(function () {
-    $('#input_area').find('input').prop('readonly',true);
-
+    //ブラウザの自動入力を強制的に削除
     setTimeout(function () {
-      $('#input_area').find('input').prop('readonly',false);
+      $('#input_area').find('input').each(function() {
+        $(this).val("");
+      })
     }, 100);
   });
 });

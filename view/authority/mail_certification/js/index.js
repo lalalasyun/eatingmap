@@ -12,7 +12,12 @@ $(function () {
             url: `https://app.eatingmap.fun/user/mail`,
             data: JSON.stringify(json)
         }).done(function (data) {
-            console.log(data)
+            console.log(data);
+            if(data.code){
+                window.location.href = `/web/view/authority/mail_confirm?id=1`;
+            }else{
+                window.location.href = `/web/view/authority/mail_confirm`;
+            }
         })
             // Ajaxリクエストが失敗した場合
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {

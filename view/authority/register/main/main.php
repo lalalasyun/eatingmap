@@ -26,7 +26,7 @@
             </div>
             <div class="d-flex flex-column bd-highlight mb-5 text-center">
                 <div>
-                    <button class="btn btn-primary" type="submit" style="width: 30vh; height:45px; ">新規登録</button>
+                    <button class="btn btn-primary" type="submit" style="width: 30vh; height:45px;" name="submit" value="click">新規登録</button>
                 </div>
             </div>
         </form>

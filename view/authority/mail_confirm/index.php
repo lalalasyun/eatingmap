@@ -1,7 +1,6 @@
 <?php
 //現在のページの名前を取得
-$path = explode("/", __DIR__);
-$page = $path[count($path)-1];
+$page = $path[count(explode("/", __DIR__))-1];
 ?>
 <!DOCTYPE html>
 <html lang="en">

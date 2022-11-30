@@ -38,7 +38,7 @@ $(function () {
     function set_session(id){
         let url = "https://app.eatingmap.fun/api/session/get/index.php";
         let data = get(url,{"id":id})
-        if(data){
+        if(data.code){
             window.sessionStorage.setItem(['key'], [data.key]);
             window.location.href = '/web/view/main/home/';
         }else{

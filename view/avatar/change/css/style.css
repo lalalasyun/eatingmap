@@ -1,6 +1,6 @@
 
 
-  @charset "utf-8";
+@charset "utf-8";
 
 body {
 	background-color: #ffffff;
@@ -19,16 +19,3 @@ body {
 	border: 3px #ff0000 solid;
 	background-color: #ffeeee;
 }
-
-
-
-
-input {
-  display: none;
-}
-
-/*チェック中のラベルにCSSを適用*/
-input:checked + label img {
-  border: 8px solid red;
-}
-

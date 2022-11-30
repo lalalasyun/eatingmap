@@ -2,7 +2,7 @@
 <div class="d-flex justify-content-center">
     <div class="w-75">
         <?php //お問い合わせページでは表示しない　?>
-        <?php if (!($page == "send")) { ?>
+        <?php if (!(isset($page) && $page == "send")) { ?>
             <div class="d-flex justify-content-center">
                 <a href="/web/view/contact/send/" class="inquiry">
                     お問い合わせ
@@ -28,6 +28,10 @@
             </div>
             <div style="width:100px"></div>
         </div>
-
+        <?php if (!(isset($page) && $page == "lowpage")) { ?>
+        <div class="d-flex justify-content-center">
+              <p><a href="#" ><img src="/web/images/object_icon/top.jpg" style="height:100px; width:100px;"></a></p>
+        </div>
+        <?php } ?>
     </div>
 </div>

@@ -1,3 +1,6 @@
+<?php
+$page = "lowpage"
+?>
 <!DOCTYPE html>
 <html lang="en">
 

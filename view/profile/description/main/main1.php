@@ -24,9 +24,9 @@
             </em>
             <?php
                 session_start();
-                if($_SESSION['auth']){
+                //if($_SESSION['auth']){
                     include 'edit_btn.php';
-                }
+                //}
             ?>
         </form>
 

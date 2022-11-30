@@ -1,11 +1,29 @@
 <?php
-    /* 本番環境用メールアドレス認証チェック
+/* 本番環境用メールアドレス認証チェック
     session_start();
     if(!isset($_SESSION['register_event']) || !$_SESSION['register_event']){
         header('Location: /web/view/error/404/');
         exit;
     }
     */
+if ($_POST["submit"] == "click") {
+    $data = array("name" => $_POST["name"], "account" => $_POST["id"], "password" => $_POST["pass"], "mail" => $_POST["mail"], "accessCode" => "96B03FFE95FE199A413E64AFB98BE3F9");
+    $json = json_encode($data);
+    $url = 'https://app.eatingmap.fun/user';
+    // 送信時のオプション
+
+    $context = array(
+        'http' => array(
+            'method'  => 'POST',
+            'header'  => implode("\r\n", array('Content-Type: application/json; charset=utf-8;','Content-Length:'.strlen($json))),
+            'content' => $json
+        )
+    );
+    $html = file_get_contents($url, false, stream_context_create($context));
+    header('Location: /web/view/authority/register_complite/');
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,28 +46,21 @@
 <body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname( __FILE__ , 3)."/template/include_header.php" ?>
+        <?php include dirname(__FILE__, 3) . "/template/include_header.php" ?>
     </header>
 
     <!--初期メイン画面-->
 
-    <div class="main">
+    <div class="main" id="main">
         <?php
-        $name = $_GET["submit"];
-        if ($name == "ok") {
-            include "main/confirm.php";
-        }else if($name == "confirm"){
-            include "main/complite.php";
-        }else{
-            include "main/main.php";
-        }
+        include "main/main.php";
         ?>
-        
+
     </div>
 
     <!--フッター-->
     <footer>
-        <?php include dirname( __FILE__ , 3)."/template/footer.php" ?>
+        <?php include dirname(__FILE__, 3) . "/template/footer.php" ?>
     </footer>
 </body>
 

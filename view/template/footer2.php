@@ -5,6 +5,6 @@
         <p>© ☆e-ting map☆</p>
     </div>
     <div class="pagetop" style="display: block;">
-        <a href="#top"> ::before </a>
+        <a href="#"> </a>
     </div>
 </div>
