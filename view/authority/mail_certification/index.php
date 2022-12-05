@@ -1,23 +1,20 @@
 <?php
-//現在のページの名前を取得
-$path = explode("/", __DIR__);
-$page = $path[count($path) - 1];
-
+$page = "mail";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
+    <link rel="stylesheet" type="text/css" href="/web/view/authority/mail_certification/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/web/view/authority/mail_certification/css/loader.css" />
 
-    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
-    <script src="js/index.js"></script>
-
-    <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
-    <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
+    <script src="/web/libs/js/jquery/jquery.validate.min.js"></script>
+    <script src="/web/libs/js/jquery/additional-methods.min.js"></script>
+    <script src="/web/view/authority/mail_certification/js/validate_rules.js"></script>
+    
+    <script src="/web/view/authority/mail_certification/js/index.js"></script>
+    <script src="/web/view/authority/mail_certification/js/lock.js"></script>
     <title>メールアドレス認証</title>
 </head>
 
@@ -29,7 +26,17 @@ $page = $path[count($path) - 1];
 
     <!--初期メイン画面-->
     <div class="main">
-        <?php include "main/main.php" ?>
+        <?php
+        if (isset($_GET['code'])) {
+            if ($_GET['code'] == 1) {
+                include "main/success.php";
+            }else{
+                include "main/faile.php";
+            }
+        } else {
+            include "main/main.php";
+        }
+        ?>
     </div>
 
     <!--フッター-->

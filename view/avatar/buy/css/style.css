@@ -1,3 +1,26 @@
+
+@charset "utf-8";
+
+body {
+	background-color: #ffffff;
+	padding: 20px;
+}
+
+.radio {
+	display: none;
+}
+
+.radio + .radio_image {
+	border: 3px #ffffff solid;
+	background-color: #ffffff;
+}
+.radio:checked + .radio_image {
+	border: 3px #ff0000 solid;
+	background-color: #ffeeee;
+}
+
+
+
 .flex {
     display: flex; /*横並び*/
 }

@@ -3,16 +3,18 @@
         <img src="/web/images/header/header_icon.png" onclick="location.href='/web/view/main/home/'" class="w-100 h-100">
     </div>
     <div style="width:100px;">
-        <?php if (!$_SESSION['auth']) { ?>
-            <!--新規登録-->
-            <button type="button" class="btn btn-primary btn-sm w-100" onclick="location.href='/web/view/authority/mail_certification/'">新規登録</button>
-            <!--ログイン-->
-            <button type="button" class="btn btn-primary btn-sm w-100" onclick="location.href='/web/view/authority/login/'">ログイン</button>
-        <?php } else { ?>
-            <!--ログアウト-->
-            <button type="submit" class="btn btn-primary btn-sm w-100" id="logout">ログアウト</button>
-            <!--MyPage-->
-            <button type="button" class="btn btn-primary btn-sm w-100" onclick="location.href='/web/view/mypage/'">MyPage</button>
+        <?php if ($page != 'mail') { ?>
+            <?php if (!$_SESSION['auth']) { ?>
+                <!--新規登録-->
+                <button type="button" class="btn btn-primary btn-sm w-100" onclick="location.href='/web/view/authority/mail_certification/'">新規登録</button>
+                <!--ログイン-->
+                <button type="button" class="btn btn-primary btn-sm w-100" onclick="location.href='/web/view/authority/login/'">ログイン</button>
+            <?php } else { ?>
+                <!--ログアウト-->
+                <button type="submit" class="btn btn-primary btn-sm w-100" id="logout">ログアウト</button>
+                <!--MyPage-->
+                <button type="button" class="btn btn-primary btn-sm w-100" onclick="location.href='/web/view/account/mypage/'">MyPage</button>
+            <?php } ?>
         <?php } ?>
     </div>
 </div>

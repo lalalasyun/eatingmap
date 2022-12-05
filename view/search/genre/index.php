@@ -2,14 +2,21 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
-    <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/web/libs/js/jquery/jquery-3.6.0.js"></script>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
+    <link rel="stylesheet" type="text/css" href="/web/view/search/genre/css/style.css" />
     <title>ジャンル検索</title>
+
+    <script src="https://kit.fontawesome.com/2947a18ded.js" crossorigin="anonymous"></script>
+
+    <script src="/web/libs/js/load_city/load_city.js"></script>
+    <script src="/web/libs/js/load_city/pref_city.js"></script>
+
+    <script src="/web/view/search/genre/js/select_box.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/select_box.css" />
+
+    <script src="/web/view/search/genre/js/accordion.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/accordion.css" />
+
 </head>
 
 <body >

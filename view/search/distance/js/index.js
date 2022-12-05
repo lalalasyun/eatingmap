@@ -10,8 +10,6 @@ function initMap() {
       lastTime: 0,
      
     };
-    
-
 
     // 地図の作成
     navigator.geolocation.watchPosition(successFunc); //現在の位置情報を取得
@@ -48,7 +46,7 @@ function initMap() {
           name: '現在地',
           lat: nowlat,
           lng: nowlng,
-          icon: '/web/images/searchimg/mappin.png' // mappin 現在地のマーカーだけイメージを変更する
+          icon: '/web/images/seach_img/mappin.png' // mappin 現在地のマーカーだけイメージを変更する
 
 
         },
@@ -60,7 +58,8 @@ function initMap() {
           lat: 35.71356626795214,
           lng: 139.36089373205093,
           zyanru: 'wa',
-          en: 3
+          en: 3,
+         
 
         }, {
           name: '新宿駅',

@@ -4,23 +4,28 @@ $(function() {
         rules: {
             name: {
                 required: true,
-                pattern: /^[a-zA-Z0-9あ-ん\d]{4,8}$/i
+                minlength:2,
+                maxlength:20
             },
             mail: {
                 required: true,
-                pattern: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/i
+                pattern: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/i,
             },
             id: {
                 required: true,
-                pattern: /^[a-z\d]{4,8}$/i
+                pattern: /^[a-z\d]{0,20}$/i,
+                minlength:8,
+                maxlength:20,
+                remote:'https://app.eatingmap.fun/api/check_id.php'
             },
             pass: {
                 required: true,
-                pattern: /^[a-z\d]{4,8}$/i,
+                pattern: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{0,20}$/i,
+                minlength:8,
+                maxlength:20
             },
             pass_confirm: {
                 required: true,
-                pattern: /^[a-z\d]{4,8}$/i,
                 equalTo: "#password"
             },
         },
@@ -28,9 +33,8 @@ $(function() {
         messages: {
             name: {
                 required: 'これは必須項目です！',
-                pattern: 'ニックネームが正しくありません',
-               
-                
+                minlength: 'ニックネームは2文字以上で入力してください',
+                maxlength:'ニックネームは20文字以下で入力してください'
             },
             mail: {
                 required: 'これは必須項目です！',
@@ -39,15 +43,19 @@ $(function() {
             },
             id: {
                 required: 'これは必須項目です！',
-                pattern: 'IDが正しくありません'
+                pattern: 'IDは半角英数字で入力して下さい',
+                minlength: 'IDは8文字以上で入力してください',
+                maxlength:'IDは20文字以下で入力してください',
+                remote:'このIDは既に登録されています'
             },
             pass: {
                 required: 'これは必須項目です！',
-                pattern: 'パスワードが正しくありません'
+                pattern: 'パスワードは半角英数字を含んで下さい',
+                minlength: 'パスワードは8文字以上で入力してください',
+                maxlength:'パスワードは20文字以下で入力してください'
             },
             pass_confirm: {
                 required: 'これは必須項目です！',
-                pattern: 'パスワードが正しくありません',
                 equalTo: 'パスワードが間違っています'
             },
         }

@@ -42,7 +42,7 @@ $back = $_POST['radio3'];
 
                 <?php for ($i = 0; $i < count($heads); $i++) {  ?>
 
-                    <label><input type="radio" name="radio1" value="<?= $i; ?>" class="radio"><img src="/web/images/headimg/<?= $heads[$i]; ?> " width="300px" height="450px" class="radio_image"></label>
+                    <label><input type="radio" name="radio1" value="<?= $i; ?>" class="radio"><img src="/web/images/avatar/headimg/<?= $heads[$i]; ?> " width="300px" height="450px" class="radio_image"></label>
                 <?php } ?>
 
             </div>
@@ -54,7 +54,7 @@ $back = $_POST['radio3'];
 
                 <?php for ($i = 0; $i < count($clothes); $i++) {  ?>
 
-                    <label><input type="radio" name="radio2" value="<?= $i; ?>" class="radio"><img src="/web/images/clotheimg/<?= $clothes[$i]; ?> " width="300px" height="450px" class="radio_image"></label>
+                    <label><input type="radio" name="radio2" value="<?= $i; ?>" class="radio"><img src="/web/images/avatar/clotheimg/<?= $clothes[$i]; ?> " width="300px" height="450px" class="radio_image"></label>
                 <?php } ?>
 
             </div>
@@ -66,7 +66,7 @@ $back = $_POST['radio3'];
 
                 <?php for ($i = 0; $i < count($backs); $i++) {  ?>
 
-                    <label><input type="radio" name="radio3" value="<?= $i; ?>" class="radio"><img src="/web/images/backimg/<?= $backs[$i]; ?> " width="300px" height="450px" class="radio_image"></label>
+                    <label><input type="radio" name="radio3" value="<?= $i; ?>" class="radio"><img src="/web/images/avatar/backimg/<?= $backs[$i]; ?> " width="300px" height="450px" class="radio_image"></label>
                 <?php } ?>
 
             </div>

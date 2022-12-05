@@ -1,5 +1,6 @@
 $(function () {
     $("#mail_send_btn").click(async function () {
+        screenLock();
         const account = $('#id').val();
         const mail = $('#mail').val()
         const json = { "account": account, "mail": mail }
@@ -10,13 +11,14 @@ $(function () {
             },
             type: 'POST',
             url: `https://app.eatingmap.fun/user/mail`,
-            data: JSON.stringify(json)
+            data: JSON.stringify(json),
         }).done(function (data) {
             console.log(data);
-            if(data.code){
-                window.location.href = `/web/view/authority/mail_confirm?id=1`;
-            }else{
-                window.location.href = `/web/view/authority/mail_confirm`;
+            delete_dom_obj()
+            if (data.code == 1) {
+                window.location.href = `index.php?code=1&mail=${mail}`;
+            } else {
+                window.location.href = `index.php?code=0`;
             }
         })
             // Ajaxリクエストが失敗した場合

@@ -11,7 +11,7 @@ $(function () {
             }).done(function (data) {
                 console.log(data)
                 if (data.code) {
-                    $('#user_name').html(data.data.account);
+                    $('#user_name').html(data.data.name);
                 } else {
                     $('#user_name').html("guest");
                 }

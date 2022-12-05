@@ -9,16 +9,12 @@ $page = $path[count($path)-1];
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
-    <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/ajax.js"></script>
-    <script src="js/adress.js"></script>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
+
+    <link rel="stylesheet" type="text/css" href="/web/view/contact/send/css/style.css" />
+    <script src="/web/view/contact/send/js/index.js"></script>
+    <script src="/web/view/contact/send/js/ajax.js"></script>
+    <script src="/web/view/contact/send/js/adress.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +24,7 @@ $page = $path[count($path)-1];
 
     <script src="/web/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/web/libs/js/jquery/additional-methods.min.js"></script>
-    <script src="js/validate_rules.js"></script>
+    <script src="/web/view/contact/send/js/validate_rules.js"></script>
     
 
     <title>お問い合わせフォーム</title>

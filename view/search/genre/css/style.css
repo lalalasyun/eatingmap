@@ -1,3 +1,8 @@
+
+.shopimage{
+    width: 150px;
+    height: 150px;
+}
 .text_img{
     width: 10px;
     height: 10px;
@@ -13,9 +18,7 @@
     height: 200px;
 }
 
-body {
-    background-color: orangered;
-}
+
 .sample02 {
     margin : 0 auto 40px;
     width : 100%;

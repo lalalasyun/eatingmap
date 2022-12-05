@@ -1,13 +1,14 @@
 <?php
-/* 本番環境用メールアドレス認証チェック
-    session_start();
-    if(!isset($_SESSION['register_event']) || !$_SESSION['register_event']){
-        header('Location: /web/view/error/404/');
-        exit;
-    }
-    */
+$page = "mail";
+session_start();
+if (!isset($_SESSION['register_event']) || !$_SESSION['register_event']) {
+    header('Location: /web/view/error/1510/');
+    exit;
+}
+
 if ($_POST["submit"] == "click") {
-    $data = array("name" => $_POST["name"], "account" => $_POST["id"], "password" => $_POST["pass"], "mail" => $_POST["mail"], "accessCode" => "96B03FFE95FE199A413E64AFB98BE3F9");
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/web/conf/spring_conf.php';
+    $data = array("name" => $_POST["name"], "account" => $_POST["id"], "password" => $_POST["pass"], "mail" => $_POST["mail"], "accessCode" => $CODE);
     $json = json_encode($data);
     $url = 'https://app.eatingmap.fun/user';
     // 送信時のオプション
@@ -15,13 +16,21 @@ if ($_POST["submit"] == "click") {
     $context = array(
         'http' => array(
             'method'  => 'POST',
-            'header'  => implode("\r\n", array('Content-Type: application/json; charset=utf-8;','Content-Length:'.strlen($json))),
+            'header'  => implode("\r\n", array('Content-Type: application/json; charset=utf-8;', 'Content-Length:' . strlen($json))),
             'content' => $json
         )
     );
-    $html = file_get_contents($url, false, stream_context_create($context));
-    header('Location: /web/view/authority/register_complite/');
-    exit;
+    $res = file_get_contents($url, false, stream_context_create($context));
+    $data = json_decode($res, true);
+    if ($data['code'] === 1) {
+        $_SESSION['register_event'] = false;
+        header('Location: /web/view/authority/register_complite/');
+        exit;
+    }else{
+        header('Location: /web/view/error/500/');
+        exit;
+    }
+    
 }
 
 ?>
@@ -29,17 +38,12 @@ if ($_POST["submit"] == "click") {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
-    <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
+    <link rel="stylesheet" type="text/css" href="/web/view/authority/register/css/style.css" />
     <script src="/web/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/web/libs/js/jquery/additional-methods.min.js"></script>
-    <script src="js/validate_rules.js"></script>
-    <script src="js/no_automatic.js"></script>
+    <script src="/web/view/authority/register/js/validate_rules.js"></script>
+    <script src="/web/view/authority/register/js/no_automatic.js"></script>
     <title>新規登録</title>
 </head>
 

@@ -1,13 +1,12 @@
 <?php
-require_once 'config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/web/conf/sql_conf.php';
 
 // DBに接続する
-function get_db_connect() 
+function con()
 {
-    try{
-        $dbh = new PDO(DSN,DB_USER,DB_PASSWORD);
-    }
-    catch (PDOException $e){
+    try {
+        $dbh = new PDO(DSN, DB_USER, DB_PASSWORD);
+    } catch (PDOException $e) {
         echo $e->getMessage();
         die();
     }
@@ -15,161 +14,117 @@ function get_db_connect()
     return $dbh;
 }
 
-// DBから全商品グループを取得する
-function select_goodsgroup_all($dbh)
+//店舗全件取得
+function get_shop($dbh)
 {
-    $sql = "SELECT * FROM GoodsGroup";
+    $sql = "SELECT * FROM shop";
 
     $stmt = $dbh->prepare($sql);
+    
     $stmt->execute();
-
-    $data = [];
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $data[] = $row;
-    }
-
-    return $data;
-
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-// DBから全おすすめ商品を取得する
-function select_recommend_goods($dbh)
+//IDで店舗名取得
+function get_id_shop_name($dbh,$id)
 {
-    $sql = "SELECT * FROM goods WHERE recommend = 1";
+    $sql = "SELECT name FROM shop WHERE id = :id";
 
     $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':id',$id,PDO::PARAM_STR);
+
     $stmt->execute();
 
-    $data = [];
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return $data['name'];
+}
+
+//店舗カテゴリー取得
+function get_category($dbh)
+{
+    $sql = "SELECT id,name FROM category";
+
+    $stmt = $dbh->prepare($sql);
+
+    $stmt->execute();
+    $result = [];
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $data[] = $row;
+        $ary = [];
+        $ary[] = $row['id'];
+        $ary[] = $row['name'];
+        $result[] = $ary;
     }
-
-    return $data;
+    return $result;
 }
 
-// DBから指定したグループコードの商品を取得する
-function select_goods_by_groupcode($dbh, $groupcode)
+//カテゴリー別店舗取得
+function get_category_shop($dbh, $category)
 {
-    $sql = "SELECT * FROM goods WHERE groupcode = :groupcode ORDER BY recommend DESC";
+    $sql = "SELECT * FROM shop WHERE category_id = :id";
 
     $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':id', $category, PDO::PARAM_STR);
 
-    $stmt->bindValue(':groupcode',$groupcode, PDO::PARAM_INT);
     $stmt->execute();
-
-    $data = [];
+    $result = [];
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $data[] = $row;
+        $result[] = $row;
     }
-
-    return $data;
+    return $result;
 }
 
-// DBから、引数 $goodscode の商品を取得する
-function select_goods_by_goodscode($dbh,$goodscode)
+//ジャンル別ユーザーアバターアイテム取得
+function get_genre_item($dbh, $genre)
 {
-    $sql = "SELECT * FROM goods WHERE goodscode = :goodscode";
+    $sql = "SELECT * FROM avatar_item where item_genre_id = :genre";
 
     $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':genre', $genre, PDO::PARAM_STR);
 
-    $stmt->bindValue(':goodscode',$goodscode,PDO::PARAM_STR);
     $stmt->execute();
-
-    $goods = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $goods;
-
+    $result = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $result[] = $row;
+    }
+    return $result;
 }
 
-// メールアドレス, パスワードが一致する会員データを取得する
-function select_member($dbh,$email,$password)
+//ジャンル別ユーザー所持済みアバターアイテム取得
+function get_genre_has_item($dbh, $genre, $user)
 {
-    $sql = "SELECT * FROM member WHERE email = :email AND password = :password";
+    $sql = 
+    "SELECT ITEM.id,ITEM.item_genre_id,name,image,point FROM avatar_item as ITEM 
+    INNER JOIN user_owned_item as USER 
+    ON ITEM.id != USER.item_id 
+    AND USER.user_id = :user  
+    AND ITEM.item_genre_id = :genre";
 
     $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+    $stmt->bindValue(':genre', $genre, PDO::PARAM_STR);
 
-    $stmt->bindValue(':email',$email,PDO::PARAM_STR);
-    $stmt->bindValue(':password',$password,PDO::PARAM_STR);
     $stmt->execute();
-
-    $member = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $member;
-
-
-
+    $result = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $result[] = $row;
+    }
+    return $result;
 }
 
-// Saleテーブルに引数の商品データを登録する
-function insert_sale($dbh,$memberid,$goodscode,$num,$date)
+//アイテムジャンルID取得
+//@name = genrename
+function get_genre_item_id($dbh, $name)
 {
-    $sql = "insert into sale(memberid,goodscode,num,saledate) VALUES(:memberid,:goodscode,:num,:date);";
+    $sql = "SELECT id FROM avatar_item_genre where name = :name";
 
     $stmt = $dbh->prepare($sql);
-
-    $stmt->bindValue(':num',$num,PDO::PARAM_INT);
-    $stmt->bindValue(':memberid',$memberid,PDO::PARAM_STR);
-    $stmt->bindValue(':goodscode',$goodscode,PDO::PARAM_STR);
-    $stmt->bindValue(':date',$date,PDO::PARAM_STR);
+    $stmt->bindValue(':name', $name, PDO::PARAM_STR);
 
     $stmt->execute();
-
-}
-
-// DBに会員データを登録する
-function insert_member_data($dbh,$email,$membername,$password,$zipcode,$address)
-{
-    $sql = "insert into member(email,membername,password,zipcode,address) VALUES(:email,:membername,:password,:zipcode,:address);";
-    
-    $stmt = $dbh->prepare($sql);
-    
-    $stmt->bindValue(':email',$email,PDO::PARAM_STR);
-    $stmt->bindValue(':membername',$membername,PDO::PARAM_STR);
-    $stmt->bindValue(':password',$password,PDO::PARAM_STR);
-    $stmt->bindValue(':zipcode',$zipcode,PDO::PARAM_STR);
-    $stmt->bindValue(':address',$address,PDO::PARAM_STR);
-
-    $stmt->execute();
-
-}
-
-//会員テーブルのメールアドレスの重複を調べる
-function email_exists($dbh,$email)
-{
-    $sql = "select * from member where email = :email;";
-
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':email',$email,PDO::PARAM_STR);
-
-    $stmt->execute();
-
-    $count = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    return $count != 0;
-
-}
-
-//商品検索
-function select_goods_by_keyword($dbh,$keyword)
-{
-    $sql = "SELECT * FROM goods WHERE goodsname LIKE :keyword1 OR detail LIKE :keyword2";
-
-    $stmt = $dbh->prepare($sql);
-
-    $keyword1 = '%'.$keyword.'%';
-    $keyword2 = '%'.$keyword.'%';
-
-    
-
-    $stmt->bindValue(':keyword1',$keyword1, PDO::PARAM_STR);
-    $stmt->bindValue(':keyword2',$keyword2, PDO::PARAM_STR);
-
-    $stmt->execute();
-
-    $goods = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
- 
-
-
-    return $goods;
+    $result = null;
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $result = $row['id'];
+    }
+    return $result;
 }

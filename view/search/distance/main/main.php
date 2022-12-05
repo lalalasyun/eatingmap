@@ -1,7 +1,7 @@
 
 <div class="user_icon">
     <!--初期アイコン-->
-    <img class="text_img" src="images/user_icon/user_init_icon.png"
+    <img class="text_img" src="/images/user_icon/user_init_icon.png"
         style="width:100px; height:auto;margin-top:10px; margin-left:10vh">
 </div>
 <div>
@@ -10,9 +10,6 @@
   <div class=" d-flex align-items-start justify-content-center">
     <h1 style="font-size:350%;">距離検索</h1>
   </div>
-  <p></p>
-
-
 <div class="text-center">
   <form id="form1" style="font-size:150%;">
   

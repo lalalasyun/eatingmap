@@ -4,10 +4,6 @@ $email = "aiueo@gmail.com";
 
 
 ?>
-<div>
-    <img class="text_img" src="images/user_icon/user_icon_sample.jpg" style="width:100px; height:100px; margin-top:10px; margin-left:10vh">
-    ユーザーネーム
-</div>
 <div class="container mt-3">
     <div class="col-md-6 offset-md-3">
         <h3 class="mb-5 text-center">アカウント設定</h3>

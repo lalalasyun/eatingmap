@@ -26,8 +26,7 @@ $(function () {
             } else {
                 $('#user_name').val("guest");
             }
-            console.log(data.data.shop_id)
-            get_shop("1589845589640687617");
+            get_shop(data.data.shop_id);
         })
             // Ajaxリクエストが失敗した場合
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
@@ -40,9 +39,8 @@ $(function () {
             type: 'get',
             url: `https://app.eatingmap.fun/api/shop/index.php?id=${id}`,
         }).done(function (data) {
-            console.log(data)
             $('#del_emp').removeClass("d-none");
-            $('#i_shop_name').val(data.data.name);
+            $('#i_shop_name').val(data.data);
             $("#i_shop_name").prop("disabled", true);
             
         })

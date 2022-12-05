@@ -3,8 +3,7 @@ $(function () {
         const account = $('#id').val();
         const pass = $('#pass').val();
         const json = { "account": account, "password": pass };
-        let id = get_user_account(json);
-        set_session(id);
+        get_user_account(json);
     })
 
     function get_user_account(json){
@@ -19,10 +18,11 @@ $(function () {
             url: `https://app.eatingmap.fun/user/login`,
             data: JSON.stringify(json),
         }).done(function (data) {
-
+            console.log(data)
             if (data.code) {
                 account = data.data.id;
                 window.sessionStorage.setItem(['user_account_id'], [account]);
+                window.location.href = `/web/view/authority/login/index.php?user_account_id=${account}`;
             } else {
                 $('#pass').val("");
                 $('#err_mess').load('main/err_message.html');
@@ -33,17 +33,6 @@ $(function () {
                 window.location.href = '/web/view/error/500';
             });
         return account;
-    }
-
-    function set_session(id){
-        let url = "https://app.eatingmap.fun/api/session/get/index.php";
-        let data = get(url,{"id":id})
-        if(data.code){
-            window.sessionStorage.setItem(['key'], [data.key]);
-            window.location.href = '/web/view/main/home/';
-        }else{
-            window.location.href = '/web/view/error/500';
-        }
     }
 
 })

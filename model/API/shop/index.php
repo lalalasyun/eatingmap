@@ -1,30 +1,25 @@
 <?php
+ini_set('display_errors', 1);
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json; charset=UTF-8');
 $shop_id = "null";
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $shop_id = $_GET['id'];
 }
 
-require $_SERVER['DOCUMENT_ROOT'] . '/web/model/db_connect.php';
-$sql = "SELECT * FROM shop WHERE id = :id";
-
-$stmt = $dbh->prepare($sql);
-
-$stmt->bindValue(':id',$shop_id,PDO::PARAM_STR);
-$stmt->execute();
+require $_SERVER['DOCUMENT_ROOT'] . '/web/model/db_helper.php';
+$dbh = con();
+$name = get_id_shop_name($dbh, $shop_id);
 
 $data = array(
     "code" => null,
     "data" => null
 );
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    if($row == null){
-        $data['code'] = 500;
-        break;
-    }else{
-        $data['code'] = 200;
-        $data['data'] = $row;
-    }
-    
+if ($name == null) {
+    $data['code'] = 0;
+} else {
+    $data['code'] = 1;
+    $data['data'] = $name;
 }
+
 echo json_encode($data);
-?>

@@ -1,30 +1,24 @@
 <?php
-session_start();
 //現在のページの名前を取得
 $path = explode("/", __DIR__);
 $page = $path[count($path) - 1];
 
 if (isset($_GET['user_account_id'])) {
     $_SESSION['auth'] = true;
+    $_SESSION['account'] = $_GET['user_account_id'];
     header("Location: /web/view/main/home");
     exit;
 }
-$page = "lowpage";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
-    <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
+    <link rel="stylesheet" type="text/css" href="/web/view/authority/login/css/style.css" />
     <script src="/web/libs/js/ajax.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/web/view/authority/login/js/index.js"></script>
     <title>ログイン</title>
 </head>
 

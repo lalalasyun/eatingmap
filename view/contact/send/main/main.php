@@ -57,9 +57,9 @@ if (isset($_POST['name'])) {
 ?>
 <script>
     let json = null;
-    <?php if($json){ echo "json = ".$json;} ?>;
+    <?php if($json){ echo "json = ".$json;} ?>
 </script>
-<div class="container mt-3">
+<div class="container my-3">
     <div class="col-md-6 offset-md-3">
         <h3 class="mb-5 text-center">お問い合わせ</h3>
 

@@ -1,22 +1,16 @@
 <?php
 //現在のページの名前を取得
-$page = $path[count(explode("/", __DIR__))-1];
+$page = "mail";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-
-    <script src="/web/libs/js/jquery/jquery-3.6.0.min.js"></script>
-    <script src="js/index.js"></script>
-
-    <link rel="stylesheet" href="/web/libs/css/bootstrap/bootstrap.min.css">
-    <script src="/web/libs/js/bootstrap/bootstrap.min.js"></script>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
+    
     <title>メールアドレス認証</title>
+    <script src="/web/view/authority/mail_confirm/js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="/web/view/authority/mail_confirm/css/style.css" />
 </head>
 
 <body>
@@ -28,13 +22,10 @@ $page = $path[count(explode("/", __DIR__))-1];
     <!--初期メイン画面-->
     <div class="main">
         <?php
-        session_set_cookie_params(60 * 5);
         session_start();
-        if (isset($_GET["id"])) {
-            $_SESSION['register_event'] = true;
+        if (isset($_GET["id"]) && $_SESSION['register_event']) {
             include "main/success.php";
         } else {
-            $_SESSION['register_event'] = false;
             include "main/faile.php";
         }
         ?>
