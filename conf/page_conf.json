@@ -1,7 +1,152 @@
 {
-    
-
-
-
-
+    "account": {
+        "favorite": {
+            "url": "/favorite",
+            "routing": "view/account/favorite/",
+            "level": "2",
+            "description": "お気に入り店舗画面"
+        },
+        "mypage": {
+            "url": "/mypage",
+            "routing": "view/account/mypage/",
+            "level": "2",
+            "description": "マイページ画面"
+        },
+        "review": {
+            "url": "/setting/review",
+            "routing": "view/account/review/",
+            "level": "2",
+            "description": "全レビュー編集画面"
+        },
+        "setting": {
+            "url": "/setting/account",
+            "routing": "view/account/setting/",
+            "level": "2",
+            "description": "登録データ変更画面"
+        }
+    },
+    "authority": {
+        "login": {
+            "url": "/login",
+            "routing": "view/authority/login/",
+            "level": "1",
+            "description": "ログイン画面"
+        },
+        "mail_certification": {
+            "url": "/mail",
+            "routing": "view/authority/mail_certification/",
+            "level": "1",
+            "description": "メール認証画面"
+        },
+        "mail_confirm": {
+            "url": "/mail/confirm",
+            "routing": "view/authority/mail_confirm/",
+            "level": "1",
+            "description": "メール認証完了画面"
+        },
+        "register": {
+            "url": "/register",
+            "routing": "view/authority/register/",
+            "level": "1",
+            "description": "新規登録画面"
+        },
+        "register_complite": {
+            "url": "/register/complite",
+            "routing": "view/authority/register_complite/",
+            "level": "1",
+            "description": "新規登録完了画面"
+        }
+    },
+    "avatar": {
+        "buy": {
+            "url": "/avatar/buy",
+            "routing": "view/avatar/buy/",
+            "level": "2",
+            "description": "アバター購入画面"
+        },
+        "change": {
+            "url": "/avatar/change",
+            "routing": "view/avatar/change/",
+            "level": "2",
+            "description": "アバター変更画面"
+        }
+    },
+    "contact": {
+        "completion": {
+            "url": "/contact/complite",
+            "routing": "view/contact/completion/",
+            "level": "1",
+            "description": "送信完了画面"
+        },
+        "send": {
+            "url": "/contact/send",
+            "routing": "view/contact/send/",
+            "level": "1",
+            "description": "お問い合わせ画面"
+        }
+    },
+    "error": {
+        "404": {
+            "url": "/error/404",
+            "routing": "view/error/404/",
+            "level": "1",
+            "description": "エラー画面"
+        },
+        "500": {
+            "url": "/error/500",
+            "routing": "view/error/500/",
+            "level": "1",
+            "description": "エラー画面"
+        },
+        "1510": {
+            "url": "/error/1510",
+            "routing": "view/error/1510/",
+            "level": "1",
+            "description": "エラー画面"
+        }
+    },
+    "main": {
+        "home": {
+            "url": "/",
+            "routing": "view/main/home/",
+            "level": "1",
+            "description": "メイン画面"
+        }
+    },
+    "profile": {
+        "edit": {
+            "url": "/profile/edit",
+            "routing": "view/profile/edit/",
+            "level": "2",
+            "description": "プロフィール編集画面"
+        }
+    },
+    "search": {
+        "distance": {
+            "url": "/search/distance",
+            "routing": "view/search/distance/",
+            "level": "1",
+            "description": "距離検索画面"
+        },
+        "genre": {
+            "url": "/search/genre",
+            "routing": "view/search/genre/",
+            "level": "1",
+            "description": "ジャンル検索画面"
+        }
+    },
+    "shop": {
+        "edit_review": {
+            "url": "/review/edit",
+            "routing": "view/shop/edit_review/",
+            "level": "2",
+            "description": "レビュー編集画面"
+        },
+        "register_review": {
+            "url": "/review/register",
+            "routing": "view/shop/register_review/",
+            "level": "2",
+            "description": "レビュー登録画面"
+        }
+    }
 }
