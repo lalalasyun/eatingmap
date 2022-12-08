@@ -4,7 +4,7 @@
 <head>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/web/view/account/mypage/css/style.css" />
-    <script src="/web/view/account/js/index.js"></script>
+    <script src="/web/view/account/mypage/js/index.js"></script>
     <title>マイページ</title>
 </head>
 

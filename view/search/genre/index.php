@@ -12,11 +12,12 @@
     <script src="/web/libs/js/load_city/pref_city.js"></script>
 
     <script src="/web/view/search/genre/js/select_box.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/select_box.css" />
+    <link rel="stylesheet" type="text/css" href="/web/view/search/genre/css/select_box.css" />
 
     <script src="/web/view/search/genre/js/accordion.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/accordion.css" />
+    <link rel="stylesheet" type="text/css" href="/web/view/search/genre/css/accordion.css" />
 
+    <script src="/web/view/search/genre/js/index.js"></script>
 </head>
 
 <body >
@@ -29,6 +30,7 @@
     <div class="main">
         <?php include "main/main.php" ?>
     </div>
+    
 
     <!--フッター-->
     <footer>

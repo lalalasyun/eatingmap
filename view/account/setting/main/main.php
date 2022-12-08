@@ -26,12 +26,11 @@ $email = "aiueo@gmail.com";
             </div>
             <div class="mb-4" id="hid2"style="display : none">
                 <input type="password" class="form-control" name="pass3" rows="5" placeholder="新しいパスワード(再入力)">
-
-
             </div>
-
-            <input type="submit" value="変更を適用">
-
+            <div class="mb-5">
+                <input type="submit" class="btn btn-primary" value="変更を適用">
+            </div>
+            
         </form>
     </div>
 </div>

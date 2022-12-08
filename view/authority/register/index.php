@@ -1,12 +1,7 @@
 <?php
 $page = "mail";
-session_start();
-if (!isset($_SESSION['register_event']) || !$_SESSION['register_event']) {
-    header('Location: /web/view/error/1510/');
-    exit;
-}
 
-if ($_POST["submit"] == "click") {
+if (isset($_POST["submit"]) && $_POST["submit"] == "click") {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/web/conf/spring_conf.php';
     $data = array("name" => $_POST["name"], "account" => $_POST["id"], "password" => $_POST["pass"], "mail" => $_POST["mail"], "accessCode" => $CODE);
     $json = json_encode($data);

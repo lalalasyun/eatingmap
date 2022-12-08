@@ -16,9 +16,9 @@ $(function () {
             console.log(data);
             delete_dom_obj()
             if (data.code == 1) {
-                window.location.href = `index.php?code=1&mail=${mail}`;
+                window.location.href = `/web/view/authority/mail_certification/index.php?code=1`;
             } else {
-                window.location.href = `index.php?code=0`;
+                window.location.href = `/web/view/authority/mail_certification/index.php?code=0`;
             }
         })
             // Ajaxリクエストが失敗した場合

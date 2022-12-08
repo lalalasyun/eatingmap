@@ -21,8 +21,8 @@ $(function () {
                 .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                     window.location.href = '/web/view/error/500';
                 });
+
         }
 
     });
-
 })

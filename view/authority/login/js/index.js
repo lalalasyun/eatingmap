@@ -25,7 +25,7 @@ $(function () {
                 window.location.href = `/web/view/authority/login/index.php?user_account_id=${account}`;
             } else {
                 $('#pass').val("");
-                $('#err_mess').load('main/err_message.html');
+                $('#err_mess').load('/web/view/authority/login/main/err_message.html');
             }
         })
             // Ajaxリクエストが失敗した場合

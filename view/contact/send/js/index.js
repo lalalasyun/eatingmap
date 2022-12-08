@@ -48,27 +48,28 @@ function del_viewChange() {
     }
     window.onload = add_viewChange;
 }
-/////住所から緯度経度返還
-// var geocoder;
-// var map;
-// geocoder = new google.maps.Geocoder(); //giocoderの宣言
-// function codefrom() { //緯度経度変換の関数
-//     var from = document.getElementById("from").value;
-//     if (geocoder) {
-//         geocoder.geocode({
-//             'address': from,
-//             'region': 'jp'
-//         },
-//             function (results, status) {
-//                 if (status == google.maps.GeocoderStatus.OK) {
-//                     for (var r in results) {
-//                         if (results[r].geometry) {
-//                             var lat_lng = results[r].geometry.location;
-//                             //lat_lng.lat();
-//                             // lat_lng.lng();
-//                         }
-//                     }
-//                 }
-//             });
-//     }
-// }
+function geocode() {//緯度経度変換の関数
+    /////住所から緯度経度返還
+    var geocoder;
+    var map;
+    geocoder = new google.maps.Geocoder(); //giocoderの宣言
+
+    var from = document.getElementById("from").value;//変換する住所
+    if (geocoder) {
+        geocoder.geocode({
+            'address': from,
+            'region': 'jp'
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                for (var r in results) {
+                    if (results[r].geometry) {
+                        var lat_lng = results[r].geometry.location;
+                        lat_lng.lat();//緯度
+                        lat_lng.lng();//経度
+                    }
+                }
+            }
+        });
+    }
+
+}

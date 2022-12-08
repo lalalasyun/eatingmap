@@ -6,11 +6,11 @@
         <form class="row g-3" action="" method="post" id="input_area">
             <div class="d-flex flex-column bd-highlight mb-5">
                 <label  class="leftcolor-blue">ニックネーム</label>
-                <input type="text" class="form-control" placeholder="小野大洋" name="name">
+                <input type="text" class="form-control" placeholder="ニックネーム" name="name">
             </div>
             <div class="d-flex flex-column bd-highlight mb-5">
                 <label  class="leftcolor-blue">メールアドレス</label>
-                <input type="text" class="form-control" placeholder="21xxxx@jec.ac.jp" name="mail">
+                <input type="text" class="form-control" placeholder="メールアドレス" name="mail">
             </div>
             <div class="d-flex flex-column bd-highlight mb-5">
                 <label class="leftcolor-blue">ユーザID</label>

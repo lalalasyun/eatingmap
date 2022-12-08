@@ -1,38 +1,48 @@
-
 @charset "utf-8";
 
 body {
-	background-color: #ffffff;
-	padding: 20px;
+  background-color: #ffffff;
+  padding: 20px;
 }
 
 .radio {
-	display: none;
+  display: none;
 }
 
-.radio + .radio_image {
-	border: 3px #ffffff solid;
-	background-color: #ffffff;
+.radio+.radio_image {
+  border: 3px #ffffff solid;
+  background-color: #ffffff;
 }
-.radio:checked + .radio_image {
-	border: 3px #ff0000 solid;
-	background-color: #ffeeee;
+
+.radio:checked+.radio_image {
+  border: 3px #ff0000 solid;
+  background-color: #ffeeee;
 }
 
 
 
 .flex {
-    display: flex; /*横並び*/
+  display: flex;
+  /*横並び*/
 }
-  
-  .flex .image {
-    width: 640px; /*画像サイズ指定*/
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-  }
-  .flex .text {
-    margin: center;
-    padding: 0;
-  }
+
+.flex .image {
+  width: 640px;
+  /*画像サイズ指定*/
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.flex .text {
+  margin: center;
+  padding: 0;
+}
+
+.overflow-div {
+  width: 700px;
+  height: 400px;
+  border: solid 1px;
+  overflow: scroll;
+}

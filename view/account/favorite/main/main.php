@@ -4,7 +4,7 @@
         <div class="mt-3 d-flex justify-content-center">
             <h1>お気に入りのお店一覧</h1>
         </div>
-        <div class="box1 border border-dark p-5">
+        <div class="box1 border border-dark p-5" style="overflow: scroll;">
 
             <div>
                 <ul class="list-group list-group-horizontal">

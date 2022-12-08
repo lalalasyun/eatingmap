@@ -4,6 +4,7 @@
 <head>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/web/view/profile/edit/css/style.css" />
+    <link href="https://fonts.googleapis.com/earlyaccess/nikukyu.css" rel="stylesheet">
     <script src="/web/view/profile/edit/js/index.js"></script>
     <title>プロフィール編集画面</title>
 </head>

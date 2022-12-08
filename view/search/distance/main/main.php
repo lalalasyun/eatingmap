@@ -1,32 +1,23 @@
-
-<div class="user_icon">
-    <!--初期アイコン-->
-    <img class="text_img" src="/images/user_icon/user_init_icon.png"
-        style="width:100px; height:auto;margin-top:10px; margin-left:10vh">
+<div class=" d-flex align-items-start justify-content-center">
+  <h1 style="font-size:350%;">距離検索</h1>
 </div>
-<div>
-
-
-  <div class=" d-flex align-items-start justify-content-center">
-    <h1 style="font-size:350%;">距離検索</h1>
-  </div>
 <div class="text-center">
   <form id="form1" style="font-size:150%;">
-  
-    ジャンル検索<select id="zyanrusel">
+
+    <label>ジャンル検索</label>
+    <select id="zyanrusel">
       <option value="all">すべて</option>
-      <option value="wa">和食</option>
-      <option value="you">洋食</option>
-      <option value="tyu">中華</option>
-      <option value="iza">居酒屋</option>
-      <option value="ra">ラーメン</option>
-      <option value="su">スイーツ</option>
+      <option value="yakiniku">焼肉</option>
+      <option value="そば（蕎麦）">そば（蕎麦）</option>
+      <option value="和食">和食</option>
+      <option value="日本料理">日本料理</option>
+      <option value="焼肉">焼肉</option>
 
     </select>
 
 
-
-    距離選択<select id="kmsel">
+    <label>距離選択</label>
+    <select id="kmsel">
       <option value=1>1km</option>
       <option value=3>3km</option>
       <option value=5>5km</option>
@@ -42,18 +33,18 @@
       <option value=3>￥￥￥</option>
 
     </select>
-   
+
   </form>
-  </div>
+</div>
 
 
-  
 
-  <h3 id="kyori"></h3>
-  <h3 id="result"></h3>
-  <div id="map" style="width:100%;height:500px;bottom:3px;"></div>
-  <?php 
-    require_once dirname(__FILE__, 5) ."/conf/map_conf.php"
-  ?>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<?= $KEY;?>&callback=initMap&v=weekly" defer></script>
+
+<h3 id="kyori"></h3>
+<h3 id="result"></h3>
+<div id="map" style="width:100%;height:500px;bottom:3px;"></div>
+<?php
+require_once dirname(__FILE__, 5) . "/conf/map_conf.php"
+?>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= $KEY; ?>&callback=initMap&v=weekly" defer></script>
 </div>

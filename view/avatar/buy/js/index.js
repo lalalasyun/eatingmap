@@ -4,14 +4,6 @@ function buyselect() {
         img: '画像img',
         point: 'point'
     }];
-
-
-    document.write(<img src="/web/images/headimg/>)
-
-
-
-
-
 }
 
 

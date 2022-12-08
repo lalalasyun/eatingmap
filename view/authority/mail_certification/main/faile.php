@@ -1,7 +1,3 @@
-<?php
-session_start();
-$_SESSION['register_event'] = false;
-?>
 <div class="d-flex justify-content-center ">
     <div></div>
     <div class="box5">

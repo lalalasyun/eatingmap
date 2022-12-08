@@ -6,6 +6,10 @@ $(function () {
 
     if ($(this).hasClass('close')) {//タイトル要素にクラス名closeがあれば
       $(this).removeClass('close');//クラス名を除去し
+      //検索条件をリセット
+      $('#select-pref').val("");
+      $('#select-city').val("");
+      $('#price').val("");
     } else {//それ以外は
       $(this).addClass('close');//クラス名closeを付与
     }

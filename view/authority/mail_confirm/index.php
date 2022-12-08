@@ -22,8 +22,7 @@ $page = "mail";
     <!--初期メイン画面-->
     <div class="main">
         <?php
-        session_start();
-        if (isset($_GET["id"]) && $_SESSION['register_event']) {
+        if (isset($_GET["id"])) {
             include "main/success.php";
         } else {
             include "main/faile.php";

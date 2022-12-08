@@ -1,10 +1,5 @@
 <?php   
-$page = explode("/", __DIR__)[count(explode("/", __DIR__)) - 1];
-    include $_SERVER['DOCUMENT_ROOT'] . '/web/libs/php/redirect.php';
-    session_start();
-    if($_SESSION['auth'] == false){
-
-    }
+    $page = explode("/", __DIR__)[count(explode("/", __DIR__)) - 1];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +8,7 @@ $page = explode("/", __DIR__)[count(explode("/", __DIR__)) - 1];
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/web/view/avatar/buy/css/style.css" />
     <script src="/web/view/avatar/buy/js/index.js"></script>
-    <title>メイン画面</title>
+    <title>アイテム購入画面</title>
     
 </head>
 

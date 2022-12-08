@@ -1,5 +1,4 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/web/model/db_helper.php';
 $dbh = con();
 $data = get_category($dbh);
 ?>
@@ -28,61 +27,32 @@ $data = get_category($dbh);
                         </select>
                     </div>
                     <div class="ms-3">
-                        <select name="price" class="form-select form-select w-100">
+                        <select id="price" class="form-select form-select w-100">
                             <option value="">予算</option>
-                            <option value="1000">1000円</option>
+                            <option value="1500">1000円以下</option>
+                            <option value="1500">1500円</option>
                             <option value="3000">3000円</option>
                             <option value="5000">5000円</option>
                             <option value="10000">10000円</option>
+                            <option value="1000000000">10000円以上</option>
                         </select>
                     </div>
                 </div>
             </div>
         </section>
     </div>
+    <div class="container p-3 border rounded">
+        <div id="shop_list">
 
-    <div id="shop_list">
-        <div class="container p-3 border rounded">
-            <ul class="list-group list-group-horizontal">
-                <div>
-                    <img src="/web/images/shop_image/sample1.jpg" class="shopimage">
-                </div>
-                <div>
-                    <p class="fs-3 ms-5">店名:<span class="ms-3">店名</span><br><br>
-                        評価:<span class="ms-3">2.4</span></p>
-                </div>
-            </ul>
-            <hr>
-            <ul class="list-group list-group-horizontal">
-                <div>
-                    <img src="/web/images/shop_image/sample2.jpg" class="shopimage">
-                </div>
-                <div>
-                    <p class="fs-3 ms-5">店名:<span class="ms-3">店名</span><br><br>
-                        評価:<span class="ms-3">2.4</span></p>
-                </div>
-            </ul>
-
-            <hr>
-            <ul class="list-group list-group-horizontal">
-                <div>
-                    <img src="/web/images/shop_image/sample3.jpg" class="shopimage">
-                </div>
-                <div>
-                    <p class="fs-3 ms-5">店名:<span class="ms-3">店名</span><br><br>
-                        評価:<span class="ms-3">2.4</span></p>
-                </div>
-            </ul>
-        </div>
-        <div class="d-flex justify-content-center w-100 m-3">
-
-            <div class="me-5">
-                <input type="button" class="btn btn-primary btn-lg" id="prev_btn" name="prev_page" value="前へ">
-            </div>
-            <div class="ms-5">
-                <input type="button" class="btn btn-success btn-lg" id="next_btn" name="next_page" value="次へ">
-            </div>
+            
         </div>
     </div>
-
+    <div class="d-flex justify-content-center w-100 m-3">
+        <div class="me-5">
+            <input type="button" class="btn btn-primary btn-lg" id="prev_btn" name="prev_page" value="前へ">
+        </div>
+        <div class="ms-5">
+            <input type="button" class="btn btn-success btn-lg" id="next_btn" name="next_page" value="次へ">
+        </div>
+    </div>
 </div>

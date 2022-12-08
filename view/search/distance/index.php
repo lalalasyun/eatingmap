@@ -7,7 +7,7 @@
     <script src="/web/view/search/distance/js/index.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
    
-    <title>メイン画面</title>
+    <title>距離検索</title>
 </head>
 
 <body>

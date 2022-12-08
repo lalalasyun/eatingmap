@@ -2,11 +2,10 @@
 //現在のページの名前を取得
 $path = explode("/", __DIR__);
 $page = $path[count($path) - 1];
-
 if (isset($_GET['user_account_id'])) {
     $_SESSION['auth'] = true;
     $_SESSION['account'] = $_GET['user_account_id'];
-    header("Location: /web/view/main/home");
+    header("Location: /web/view/main/home/");
     exit;
 }
 ?>

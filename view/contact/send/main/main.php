@@ -1,4 +1,5 @@
 <?php
+$json = "";
 if (isset($_POST['name'])) {
     $req =  $_POST['select1'];
     $del =  $_POST['select2'];
@@ -57,7 +58,9 @@ if (isset($_POST['name'])) {
 ?>
 <script>
     let json = null;
-    <?php if($json){ echo "json = ".$json;} ?>
+    <?php if ($json) {
+        echo "json = " . $json;
+    } ?>
 </script>
 <div class="container my-3">
     <div class="col-md-6 offset-md-3">
@@ -111,8 +114,8 @@ if (isset($_POST['name'])) {
             </div>
 
             <div class="mt-3 box none" id="shop_address">
-                <input type="text" class="form-control" name="shop_address" id="i_address" style="width:85%;" placeholder="店住所を入力してください。">
-                <input type="button" class="form-control" style="width:15%;" value="確認" id="confirm">
+                <input type="text" class="form-control" name="shop_address" id="i_address" placeholder="店住所を入力してください。">
+
             </div>
             <div class="mt-3 mb-4 box" id="note">
                 <textarea class="form-control" name="note" rows="5" id="i_note" placeholder="備考"></textarea>

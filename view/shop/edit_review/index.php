@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>
-    <link rel="stylesheet" type="text/css" href="/web/view/profile/kaku/css/style.css" />
-    <script src="/web/view/profile/kaku/js/index.js"></script>
-    <title>プロフィール編集画面</title>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/web/libs/php/include_head.php" ?>   
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/index.js"></script>
+    <title>レビュー編集</title>
 </head>
 
 <body>
