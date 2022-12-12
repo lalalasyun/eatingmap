@@ -100,7 +100,7 @@ if (isset($_POST['name'])) {
                 <select class="form-select form-control" name="select3" id="select_add" onchange="add_viewChange();">
                     <option value="" class="text-muted">項目を選択してください</option>
                     <option value="shop">店舗登録</option>
-                    <option value="emp">店員登録</option>
+                    <option value="emp" class="d-none"  id="add_emp">店員登録</option>
                 </select>
             </div>
 

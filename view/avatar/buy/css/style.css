@@ -1,12 +1,14 @@
 @charset "utf-8";
 
-body {
-  background-color: #ffffff;
-  padding: 20px;
-}
 
 .radio {
   display: none;
+}
+
+.radio_image{
+  width: 100px;
+  height: 100px;
+  cursor:pointer;
 }
 
 .radio+.radio_image {
@@ -41,8 +43,9 @@ body {
 }
 
 .overflow-div {
-  width: 700px;
-  height: 400px;
+  width: auto;
+  height: 140px;
   border: solid 1px;
   overflow: scroll;
+  overflow-x: hidden;
 }

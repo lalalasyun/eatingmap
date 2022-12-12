@@ -1,23 +1,24 @@
-<ul class="list-group list-group-horizontal">
+<ul class="list-group list-group-horizontal w-100">
 
-    <li class="container p-5 border rounded list-group-item " style="height: 100px;">
-        <div id="name"></div>
-        <div id="description"></div>
-    </li>
-    <div class="container  border rounded pt-1 d-grid gap-2" style="height: 100px; width:100px;">
-        <input type="button" class="btn btn-primary" name="change" value="変更" style="height: 35px; width:70px;">
-        <input type="button" class="btn btn-dark" name="delete" value="削除"style="height: 35px; width:70px;"></button>
-    </div>
-    
-</ul>
-<ul class="list-group list-group-horizontal mt-3">
+    <li class="container list-group-item w-100" style="height: 110px;">
+        <div id="name" class=" text-truncate "></div>
+        <div class="d-flex">
+            <div>評価:</div>
+            <div id="score"></div>
+        </div>
 
-    <li class="container p-5 border rounded list-group-item " style="height: 100px;">
-        <div id="name"></div>
-        <div id="description"></div>
+        <div class="w-100">
+            <div>レビュー内容</div>
+            <div class="d-flex">
+                <div id="review" class="text-overflow w-100"style="height:20px"></div>
+            </div>
+            
+        </div>
     </li>
-    <div class="container  border rounded pt-1 d-grid gap-2" style="height: 100px; width:100px;">
-        <input type="button" class="btn btn-primary" name="change" value="変更" style="height: 35px; width:70px;">
-        <input type="button" class="btn btn-dark" name="delete" value="削除"style="height: 35px; width:70px;"></button>
-    </div>
+    <li class="list-group-item p-1" style="width:90px">
+        <input type="button" class="btn btn-primary my-2 ms-0 change_btn" name="change" value="変更"
+            style="height: 35px; width:70px;">
+        <input type="button" class="btn btn-dark my-2 ms-0 delete_btn" name="delete" value="削除"
+            style="height: 35px; width:70px;">
+    </li>
 </ul>

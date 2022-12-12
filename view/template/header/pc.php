@@ -6,6 +6,9 @@ if (isset($_GET['logout'])) {
     exit;
 }
 ?>
+<head>
+    <script src="/view/template/header/js/logout.js"></script>
+</head>
 <div class="d-flex justify-content-center">
     <div class="d-flex justify-content-between w-75">
         <div class="header_img my-2" style="width:400px;cursor:pointer;" title="トップページへ">
@@ -33,4 +36,3 @@ if (isset($_GET['logout'])) {
     </div>
 </div>
 <hr class="m-0">
-<script src="/libs/js/logout.js"></script>

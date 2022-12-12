@@ -1,7 +1,6 @@
-$(function () {
-
+$(function () { 
     $(document).ready(function () {
-        const id = window.sessionStorage.getItem(['user_account_id']);
+        const id = user_account_id;
         if (!id) {
             $('#user_name').html("guest");
         } else {
@@ -23,6 +22,16 @@ $(function () {
                 });
 
         }
-
+    });
+    $("#search_btn").click(function() {
+        let name = $("#search_name").val();
+        let pref = $("#select-pref").val();
+        let city = $("#select-city").val();
+        let price = $("#price").val()
+        window.location.href = `/view/search/name?code=1&name=${name}&pref=${pref}&city=${city}&price=${price}`;
+    });
+    $(".user_icon2").click(function() {
+        console.log('click')
+        window.location.href = `/user/${user_account_id}`;
     });
 })

@@ -78,3 +78,8 @@
     margin: 0; 
     padding: 0;
 }
+
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

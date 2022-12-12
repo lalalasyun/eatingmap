@@ -13,19 +13,19 @@ $dbh = con();
             </div>
 
             <HR SIZE="10">
-            <div class="username"><?= $USER_DATA["name"] ?></div>
+            <div class="username"><?= $USERPAGE_DATA["name"] ?></div>
 
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center">
                     <div class="h5">
-                        レビュー数：<?= get_userid_review_count($dbh, $USER_DATA['id']) ?>
+                        レビュー数：<?= get_userid_review_count($dbh, $USERPAGE_DATA['id']) ?>
                     </div>
                 </div>
             </div>
 
-            <div class="self-introduction"><?= $USER_DATA["profile"] ?></div>
+            <div class="self-introduction"><?= $USERPAGE_DATA["profile"] ?></div>
             <?php
-            if ($_SESSION['auth'] && $USER_DATA['id'] == $_SESSION['account']) {
+            if ($_SESSION['auth'] && $USERPAGE_DATA['id'] == $_SESSION['account']) {
                 include 'edit_btn.php';
             }
             ?>

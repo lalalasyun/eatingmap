@@ -1,0 +1,35 @@
+.user_icon1{
+    position:  relative;        /* 位置指定 */
+    z-index: 0;                /* 重なり順指定 */
+}
+
+.user_icon2{
+    position:  absolute;        /* 位置指定 */
+    z-index: 20;               /* 重なり順指定 */
+    top: 5px;
+    left: 10px;
+    opacity: 0.3;
+}
+
+.user_icon2 img{
+    height:  80px;             /* 高さ指定 */
+    width:  80px;              /* 幅指定 */
+}
+
+.user_icon3{
+    position:  absolute;        /* 位置指定 */
+    z-index: 30;               /* 重なり順指定 */
+    top:-5px;
+    left: 20px;
+}
+
+.user_icon3 img{
+    height:  60px;             /* 高さ指定 */
+    width:  60px;              /* 幅指定 */
+}
+
+.user_icon4{
+    position:  absolute;        /* 位置指定 */
+    z-index: 40;               /* 重なり順指定 */
+    top: 60px;
+}

@@ -6,11 +6,12 @@ $(function () {
             window.location.href = '/view/contact/completion/';
             return;
         }
-        const id = window.sessionStorage.getItem(['user_account_id']);
+        const id = user_account_id;
         console.log(id)
         if (!id) {
             $('#user_name').val("guest");
         } else {
+            $('#add_emp').removeClass("d-none");
             get_user(id);
         }
     });
@@ -40,6 +41,7 @@ $(function () {
             url: `https://app.eatingmap.fun/api/shop/index.php?id=${id}`,
         }).done(function (data) {
             $('#del_emp').removeClass("d-none");
+            $('#add_emp').addClass("d-none");
             $('#i_shop_name').val(data.data);
             $("#i_shop_name").prop("disabled", true);
             

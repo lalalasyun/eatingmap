@@ -21,7 +21,7 @@ $page = "mail";
 <body>
     <!--ヘッダー-->
     <header>
-        <?php include dirname(__FILE__, 3) . "/template/include_header.php" ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/view/template/include_header.php" ?>
     </header>
 
     <!--初期メイン画面-->
@@ -41,7 +41,7 @@ $page = "mail";
 
     <!--フッター-->
     <footer>
-        <?php include dirname(__FILE__, 3) . "/template/footer.php" ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . "/view/template/include_footer.php" ?>
     </footer>
 </body>
 

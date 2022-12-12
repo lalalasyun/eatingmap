@@ -1,7 +1,7 @@
 $(function () {
 
     $(document).ready(function () {
-        const id = window.sessionStorage.getItem(['user_account_id']);
+        const id = user_account_id;
         if (!id) {
             $('#user_name').html("guest");
         } else {

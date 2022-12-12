@@ -1,3 +1,7 @@
+<head>
+    <script src="/view/template/header/js/logout.js"></script>
+</head>
+
 <div class="d-flex justify-content-between">
     <div class="header_img my-2" style="width:auto;height:50px;cursor:pointer;">
         <img src="/images/header/header_icon.png" onclick="location.href='/view/main/home/'" class="w-100 h-100">
@@ -20,5 +24,3 @@
 </div>
 
 <hr class="m-0">
-
-<script src="/libs/js/logout.js"></script>

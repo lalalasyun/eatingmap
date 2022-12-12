@@ -15,7 +15,6 @@ $(function () {
   });
 
   $("#next_btn").click(async function () {
-    console.log(page_index);
     page_index += 5;
     if(!await get_shop(genre)){
       page_index -=5;
@@ -23,7 +22,6 @@ $(function () {
 
   });
   $("#prev_btn").click(async function () {
-    console.log(page_index);
     page_index -= 5;
     if(!await get_shop(genre)){
       page_index +=5;
@@ -41,6 +39,7 @@ $(function () {
         $current.prepend($('<div>', {
           class: $current.attr('class').replace(/sel/g, 'sel__box')
         }));
+        
 
         var placeholder = $(this).text();
         $current.prepend($('<span>', {
@@ -81,7 +80,7 @@ $(function () {
   });
 
   function set_shop(shop) {
-    $("#shop_list").append(`<div id=${shop.id}>`);
+    $("#shop_list").append(`<div id=${shop.id} class="shop_data">`);
     //templateをloadし各種データを埋め込む
     $(`#${shop.id}`).load("/view/search/genre/main/template.html", function (myData, myStatus) {
       $(`#${shop.id}`).find(".shopname").html(shop.name);
@@ -127,7 +126,6 @@ $(function () {
       data: JSON.stringify(json),
     }).done(function (data) {
       $("#shop_list").html("");
-      console.log(data.data.length,page_index)
       if(page_index > -1 && page_index < data.data.length -5){
         $("#next_btn").show();
       }else{
@@ -140,7 +138,6 @@ $(function () {
       }
 
       for (let i = page_index; i < page_index + 5; i++) {
-        console.log(data.data.length)
         if (data.data.length <= i || i < 0) break;
         let shop = data.data[i];
         let pref = $("#select-pref").find("option").eq(Number($("#select-pref").val())).html();
@@ -155,7 +152,7 @@ $(function () {
     })
       // Ajaxリクエストが失敗した場合
       .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-        // window.location.href = '/view/error/500';
+        window.location.href = '/view/error/500';
       });
     return isSet;
   }

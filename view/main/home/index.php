@@ -14,31 +14,31 @@
     <link rel="stylesheet" type="text/css" href="/view/main/home/css/slider.css">
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <title>メイン画面</title>
+    <script src="/libs/js/accordion.js"></script>
+    <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
+
+    <title>eatingmap</title>
+    <meta name="description" content="飲食店情報サイト【eatingmap】" />
 </head>
 
 <body>
     <!--ヘッダー-->
     <header>
         <?php
-        include dirname( __FILE__ , 3)."/template/include_header.php";
+        include $_SERVER['DOCUMENT_ROOT']."/view/template/include_header.php";
         ?>
-        <!--
-            main_user.phpとmain_owner.phpを切り替える
-        -->
+        <!--main_user.phpとmain_owner.phpを切り替える-->
     </header>
 
     <!--初期メイン画面-->
     <div class="main">
         <?php include "main/main_user.php" ?>
-        <!--
-            main_user.phpとmain_owner.phpを切り替える
-        -->
+        <!--main_user.phpとmain_owner.phpを切り替える-->
     </div>
 
     <!--フッター-->
     <footer>
-        <?php include dirname( __FILE__ , 3)."/template/footer.php" ?>
+        <?php include $_SERVER['DOCUMENT_ROOT']."/view/template/include_footer.php" ?>
     </footer>
     <script src="/view/main/home/js/slider.js"></script>
 </body>

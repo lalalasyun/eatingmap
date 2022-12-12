@@ -67,6 +67,7 @@
   background-color: #FFF;
   width: calc(100% + 8px);
   box-sizing: border-box;
+  border: 1px solid #dee2e6!important;
 }
 
 .sel.active .sel__box {

@@ -20,9 +20,7 @@ $(function () {
         }).done(function (data) {
             console.log(data)
             if (data.code) {
-                account = data.data.id;
-                window.sessionStorage.setItem(['user_account_id'], [account]);
-                window.location.href = `/view/authority/login/index.php?user_account_id=${account}`;
+                window.location.href = `/view/authority/login/index.php?user_account_id=${data.data.id}`;
             } else {
                 $('#pass').val("");
                 $('#err_mess').load('/view/authority/login/main/err_message.html');

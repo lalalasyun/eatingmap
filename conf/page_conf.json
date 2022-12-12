@@ -103,6 +103,12 @@
             "routing": "view/error/1510/",
             "level": "1",
             "description": "エラー画面"
+        },
+        "not_login":{
+            "url": "/error/login",
+            "routing": "view/error/not_login/",
+            "level": "1",
+            "description": "エラー画面"
         }
     },
     "main": {
@@ -133,6 +139,12 @@
             "routing": "view/search/genre/",
             "level": "1",
             "description": "ジャンル検索画面"
+        },
+        "name":{
+            "url": "/search/name",
+            "routing": "view/search/name/",
+            "level": "1",
+            "description": "名前検索画面"
         }
     },
     "shop": {

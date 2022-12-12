@@ -1,3 +1,6 @@
+<?php
+$_SESSION['prev_page'] = "/search/genre";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,16 +17,20 @@
     <script src="/view/search/genre/js/select_box.js"></script>
     <link rel="stylesheet" type="text/css" href="/view/search/genre/css/select_box.css" />
 
-    <script src="/view/search/genre/js/accordion.js"></script>
-    <link rel="stylesheet" type="text/css" href="/view/search/genre/css/accordion.css" />
+    <script src="/libs/js/accordion.js"></script>
+    <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
 
-    <script src="/view/search/genre/js/index.js"></script>
+    <?php if($isMobile){ ?>
+        <link rel="stylesheet" type="text/css" href="/view/search/genre/css/shop_phone.css" />
+    <?php }else{ ?>
+        <link rel="stylesheet" type="text/css" href="/view/search/genre/css/shop_pc.css" />
+    <?php } ?>
 </head>
 
 <body >
     <!--ヘッダー-->
     <header>
-        <?php include dirname( __FILE__ , 3)."/template/include_header.php"; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT']."/view/template/include_header.php"; ?>
     </header>
 
     <!--初期メイン画面-->
@@ -34,7 +41,7 @@
 
     <!--フッター-->
     <footer>
-        <?php include dirname( __FILE__ , 3)."/template/footer.php";?>
+        <?php include $_SERVER['DOCUMENT_ROOT']."/view/template/include_footer.php";?>
     </footer>
 </body>
 

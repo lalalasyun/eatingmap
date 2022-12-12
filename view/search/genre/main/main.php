@@ -2,8 +2,11 @@
 $dbh = con();
 $data = get_category($dbh);
 ?>
-<div class="container">
-    <div class="sel sel--black-panther m-0 mt-2">
+<div class="container border rounded d-flex justify-content-center <?php if (!$isMobile) {
+                                                                        echo "w-75 my-4";
+                                                                    } ?>" style="margin:auto;">
+<div class="w-100 m-3">
+    <div class="sel sel--black-panther m-0">
         <select name="select-profession" id="select-profession">
             <option value="" disabled>ジャンルを選択</option>
             <?php foreach ($data as list($id, $name)) { ?>
@@ -13,7 +16,7 @@ $data = get_category($dbh);
     </div>
     <div class="accordion-area mx-0">
         <section class="my-2">
-            <h3 class="title">詳細選択</h3>
+            <div class="title">詳細選択</div>
             <div class="box">
                 <div class="d-flex">
                     <div class="search_prefectures">
@@ -41,11 +44,9 @@ $data = get_category($dbh);
             </div>
         </section>
     </div>
-    <div class="container p-3 border rounded">
-        <div id="shop_list">
+    <div id="shop_list">
 
             
-        </div>
     </div>
     <div class="d-flex justify-content-center w-100 m-3">
         <div class="me-5">
@@ -55,4 +56,5 @@ $data = get_category($dbh);
             <input type="button" class="btn btn-success btn-lg" id="next_btn" name="next_page" value="次へ">
         </div>
     </div>
+</div>
 </div>
