@@ -23,6 +23,18 @@
             "routing": "view/account/setting/",
             "level": "2",
             "description": "登録データ変更画面"
+        },
+        "mail_change": {
+            "url": "/setting/account/mail",
+            "routing": "view/account/mail_change/",
+            "level": "2",
+            "description": "メールアドレス変更画面"
+        },
+        "pass_change": {
+            "url": "/setting/account/password",
+            "routing": "view/account/pass_change/",
+            "level": "2",
+            "description": "パスワード変更画面"
         }
     },
     "authority": {

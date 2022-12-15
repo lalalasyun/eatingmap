@@ -1,10 +1,22 @@
 $(function () {
     $("#login_btn").click(async function () {
-        const account = $('#id').val();
-        const pass = $('#pass').val();
-        const json = { "account": account, "password": pass };
+        let account = $('#id').val();
+        let pass = $('#pass').val();
+        let json = { "account": account, "password": pass };
         get_user_account(json);
     })
+
+    $(".box5").keypress(function(e) {
+        if (e.keyCode == 13) {
+          // ここに処理を記述
+        console.log("enter");
+        let account = $('#id').val();
+        let pass = $('#pass').val();
+        let json = { "account": account, "password": pass };
+        get_user_account(json);
+          
+        }
+      });
 
     function get_user_account(json){
         let account = null;

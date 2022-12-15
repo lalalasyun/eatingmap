@@ -17,8 +17,10 @@ $_SESSION['prev_page'] = "/search/genre";
     <script src="/view/search/genre/js/select_box.js"></script>
     <link rel="stylesheet" type="text/css" href="/view/search/genre/css/select_box.css" />
 
-    <script src="/libs/js/accordion.js"></script>
     <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
+    <script src="/libs/js/accordion.js"></script>
+
+    <script src="/libs/js/lock.js"></script>
 
     <?php if($isMobile){ ?>
         <link rel="stylesheet" type="text/css" href="/view/search/genre/css/shop_phone.css" />

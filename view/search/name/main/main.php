@@ -8,6 +8,7 @@ $dbh = con();
 
         <div class="input-group mb-3 d-flex">
             <input id="search_name" type="text" class="form-control-lg w-75" placeholder="店名を入力">
+            <button class="btn btn-success" type="button" id="search_btn"><i class="fas fa-search"></i> 検索</button>
         </div>
         <div class="accordion-area mx-0">
             <section class="my-2">

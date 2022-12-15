@@ -1,11 +1,3 @@
-<?php
-if (isset($_GET['logout'])) {
-    $_SESSION['auth'] = false;
-    $_SESSION['user_account_id'] = "";
-    header("Location: /view/main/home/");
-    exit;
-}
-?>
 <head>
     <script src="/view/template/header/js/logout.js"></script>
 </head>

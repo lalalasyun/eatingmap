@@ -1,8 +1,9 @@
 $(function () {
     $("#mail_send_btn").click(async function () {
-        screenLock();
         const account = $('#id').val();
         const mail = $('#mail').val()
+        if(account == "" || mail == "")return;
+        screenLock();
         const json = { "account": account, "mail": mail }
         $.ajax({
             headers: {

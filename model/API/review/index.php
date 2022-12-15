@@ -9,8 +9,11 @@ if (isset($_GET['id']) && isset($_GET['index'])) {
 
     $result = get_user_review($dbh, $_GET['id'], $_GET['index']);
 
-    $result[0]['user_id'] = (string)$result[0]['user_id'];
-    $result[0]['shop_id'] = (string)$result[0]['shop_id'];
+    for($i=0;$i<count($result);$i++){
+        $result[$i]['user_id'] = (string)$result[$i]['user_id'];
+        $result[$i]['shop_id'] = (string)$result[$i]['shop_id'];
+    }
+
     $json = array(
         "code"=>1,
         "data"=>$result

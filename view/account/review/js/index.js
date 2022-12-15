@@ -1,20 +1,50 @@
 $(function () {
+    let page_index = 0;
     $("#next_btn").click(async function () {
+        console.log(page_index)
+        page_index += 1;
+        let res = await get_review(user_account_id, page_index);
 
-        $("#shop_list").load("/view/account/review/main/template.html")
-    })
-    $(document).ready(function () {
-        get_review(user_account_id, 0);
+        $("#prev_btn").prop("disabled", false);
+        $(this).prop("disabled", !res);
+    });
+    $("#prev_btn").click(async function () {
+        console.log(page_index)
+        if(page_index > 0){
+            $(this).prop("disabled", page_index == 0);
+            $("#next_btn").prop("disabled", false);
+            page_index -= 1;
+            get_review(user_account_id, page_index);
+        }
+        if(page_index == 0){
+            $(this).prop("disabled", true);
+        }
     });
 
-    function get_review(user, index) {
+    $(document).ready(function () {
+        get_review(user_account_id, page_index);
+        $("#prev_btn").prop("disabled", true);
+    });
+
+    async function get_review(user, index) {
+        let result = false;
         $.ajax({
             type: 'get',
             url: `https://app.eatingmap.fun/api/review/index.php?id=${user}&index=${index}`,
-        }).done(function (data) {
+            async: false,
+        }).done(async function (data) {
             if (data.code) {
+                $("#review_list").html("");
+                if(data.data.length == 5){
+                    result = true;
+                }
                 for (review of data.data) {
-                    set_review(review);
+                    if (review.shop_id != "") {
+                        set_review(review);
+                        $(".main_area").show();
+                    }else{
+                        $(".main_area").hide();
+                    }
                 }
             } else {
                 $('#user_name').html("guest");
@@ -25,9 +55,10 @@ $(function () {
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 window.location.href = '/view/error/500';
             });
+        return result;
     }
 
-    async function get_shop(shop){
+    async function get_shop(shop) {
         let result = "";
         $.ajax({
             type: 'get',
@@ -35,8 +66,8 @@ $(function () {
             async: false
         }).done(function (data) {
             if (data.code) {
-                result =  data.data.name;
-            } 
+                result = data.data.name;
+            }
         });
         return result;
     }

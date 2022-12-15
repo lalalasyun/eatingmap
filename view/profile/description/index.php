@@ -6,10 +6,15 @@
     <link rel="stylesheet" type="text/css" href="/view/profile/description/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Reggae+One&family=DotGothic16&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="/libs/icon/icon.css" />
+
+    <script src="/view/profile/description/js/index.js"></script>
+    
     <title>プロフィール画面</title>
 </head>
 
-<body background="/images/background/c.jpg">
+
     <!--ヘッダー-->
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT']."/view/template/include_header.php"; ?>

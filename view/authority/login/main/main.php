@@ -7,7 +7,7 @@
             </div>
             <div class="d-flex flex-column bd-highlight mb-2">
                 <label class="form-label">ユーザID</label>
-                <input type="text" class="form-control" id="id" required><br>
+                <input type="text" class="form-control" id="id" required>
             </div>
             <div class="d-flex flex-column bd-highlight mb-2">
                 <label class="form-label">パスワード</label>

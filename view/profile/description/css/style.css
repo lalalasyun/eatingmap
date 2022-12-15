@@ -44,6 +44,6 @@ div p {
 .self-introduction{
   font-family: 'DotGothic16', cursive;
 }
-.sample-box{
-  background-image: url("/web/images/background/banner.jpg");
+.haikei{
+  background-image: url("images/background/banner.jpg");
 }

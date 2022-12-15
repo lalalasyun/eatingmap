@@ -8,7 +8,11 @@ $_SESSION['prev_page'] = "/search/distance";
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/search/distance/css/style.css" />
     <script src="/view/search/distance/js/index.js"></script>
+    <script src="/view/search/distance/js/change_form.js"></script>
+    <script src="/libs/js/geolocation.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://cdn.geolonia.com/community-geocoder.js"></script>
+    
    
     <title>距離検索</title>
 </head>

@@ -2,19 +2,29 @@
 $dbh = con();
 $shop_list = get_shop($dbh);
 ?>
-<div class="container border rounded d-flex justify-content-center <?php if (!$isMobile) {
-                                                                        echo "w-75 my-4";
-                                                                    } ?>" style="margin:auto;">
+<div class="container border rounded d-flex justify-content-center m-auto <?php if (!$isMobile) {
+                                                                                echo "w-75 my-4";
+                                                                            } ?>">
     <div class="w-100 m-3">
         <div class="d-flex mb-5">
-            <div>
-                <div class="user_icon2" style="width:100px; height:100px;overflow: hidden;">
-                </div>
-                <div class="user_icon1" style="width:100px; height:100px;overflow: hidden;">
-                    <iframe src="https://www.eatingmap.fun/icon/<?= $_SESSION['account'] ?>"></iframe>
-                </div>
+            
+            <div class="user_icon">
+                <iframe src="/icon/<?= $_SESSION['account'] ?>"></iframe>
+                <script>
+                    $(".user_icon").click(function() {
+                        if(user_account_id){
+                            window.location.href = `/user/${user_account_id}`;
+                        }
+                    });
+                </script>
+                <style>
+                    .user_icon iframe{
+                        width:100px;
+                        height:100px;
+                        pointer-events:none;
+                    }
+                </style>
             </div>
-
 
             <div class="d-flex p-3">
                 <div id="user_name">
@@ -79,8 +89,8 @@ $shop_list = get_shop($dbh);
                 <?php for ($i = 0; $i < 5; $i++) { ?>
                     <?php $shop = $shop_list[$i] ?>
                     <?php if (isset($shop['image'])) { ?>
-                        <li>
-                            <a href="/shop/<?= $shop['id'] ?>">
+                        <li title="<?= $shop['name']?>">
+                            <a href="/shop/<?= $shop['id'] ?>" >
                                 <img src="/images/shopImage/<?= $shop['image'] ?>">
                             </a>
                         </li>

@@ -13,8 +13,8 @@ if (isset($_POST['user']) && isset($_POST['shop']) && isset($_POST['score']) && 
 
     $REVIEW_DATA = check_user_review($dbh, $_POST['user'], $_POST['shop']);
     if ($REVIEW_DATA == null) {
-        $init_point = 100;
-        //ポイントを付与(100ポイント+文字数ポイント)
+        $init_point = 200;
+        //ポイントを付与(200ポイント+文字数ポイント)
         $bonus_point = strlen($_POST['text']);
         add_user_point($dbh, $_POST['user'], $init_point + $bonus_point);
     }

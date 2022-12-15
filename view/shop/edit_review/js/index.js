@@ -1,8 +1,8 @@
 $(function () {
-    $(document).ready(function(){
-    
+    $(document).ready(function () {
+
         set_event();
-        
+
     });
     function set_event() {
         $('.fa').off();
@@ -15,10 +15,10 @@ $(function () {
         $('.fa').one('click', function () {
             var $this = $(this);
             $this.addClass('active').siblings().removeClass('active');
-            if($this.data().name != null){
+            if ($this.data().name != null) {
                 score = $this.data().name
             }
-            
+
             set_event();
         });
         $('.fa').on('mouseleave', function () {
@@ -31,22 +31,21 @@ $(function () {
 
     $('#submit_btn').on('click', function () {
         console.log(score);
-        let text= $('#text').val()
-        $.ajax({
-            type: 'get',
-            url: `https://app.eatingmap.fun/api/review_register/index.php?user=${user_account_id}&shop=${shop_id}&text=${text}&score=${score}`,
-        }).done(function (data) {
-            if(data){
-                window.location.href = `/view/shop/edit_review/index.php?code=1&id=${shop_id}`;
-            }else{
-                window.location.href = `/view/shop/edit_review/index.php?code=0&id=${shop_id}`;
-            }
-            
+        let text = $('#text').val();
+        $.post('https://app.eatingmap.fun/api/review_register.php', {
+            user: user_account_id,
+            shop: shop_id,
+            text: text,
+            score: score
         })
-            // Ajaxリクエストが失敗した場合
-            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                window.location.href = '/view/error/500';
-            });
+            .done(function (data) {
+                if (data) {
+                    window.location.href = `/view/shop/edit_review/index.php?code=1&id=${shop_id}`;
+                } else {
+                    window.location.href = `/view/shop/edit_review/index.php?code=0&id=${shop_id}`;
+                }
+            })
+
     });
 
 

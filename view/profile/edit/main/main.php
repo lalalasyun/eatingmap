@@ -1,36 +1,65 @@
+<?php
+$dbh = con();
+$USER_DATA = get_userid_user($dbh, $_SESSION['account']);
+if(isset($_POST['name']) && isset($_POST['text'])){
+    if($USER_DATA['profile'] !== $_POST['text'] || $USER_DATA['name'] !== $_POST['name']){
+        set_user_prof($dbh, $_SESSION['account'], $_POST['name'], $_POST['text']);
+        header("Location: /view/account/mypage/index.php");
+        exit();
+    }
+    header("Location: /view/profile/edit/index.php");
+    exit();
+}
+?>
 
-    <div class="g col text-center">
-        <div class="d-flex flex-column bd-highlight mb-3 text-left p-4">
-            <div class="mt-3">
-                <form>
-                    <div class="sample-box">
-                        <img src="/images/user_icon/hiphop.png" width="200" height="200">
-                        <div class="good">
-                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                </form>
+<div class="container border rounded d-flex justify-content-center m-auto <?php if (!$isMobile) {
+                                                                                echo "w-75 my-4";
+                                                                            } ?>">
+
+
+    <div class="w-100">
+        <div class="d-flex justify-content-center m-3">
+            <div class="user_icon">
+                <iframe src="/icon/<?= $_SESSION['account'] ?>"></iframe>
+                <style>
+                    .user_icon iframe {
+                        width: 300px;
+                        height: 300px;
+                        pointer-events: none;
+                    }
+                </style>
             </div>
         </div>
+
+        <div class="d-flex justify-content-center m-3">
+            <div class="<?php if (!$isMobile) {
+                            echo "w-75";
+                        } ?>">
+                <form id="input_area" action="" method="post">
+
+                    <div class="fs-4">
+                        <label class="form-label">ニックネーム</label>
+                        <input type="text" class="form-control" name="name" required value="<?= $USER_DATA['name'] ?>">
+                    </div>
+
+                    <div class="fs-4">
+                        <label class="form-label">自己紹介</label>
+                        <textarea class="form-control" name="text"><?= $USER_DATA['profile'] ?></textarea>
+                    </div>
+
+                    <div class="d-flex justify-content-center m-4">
+                        <div class="d-flex">
+                        <button type="button" class="btn btn-dark me-5" style="width:70px" onClick="location.href='/view/account/mypage/'">戻る</button>
+                            <input type="submit" class="btn btn-primary ms-5" style="width:70px"></button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+
     </div>
 
 </div>
-<form id="form" action="https://www.eatingmap.fun/profile/description" method="post"  enctype="multipart/form-data">
-
-    <div class="d-flex justify-content-center ">
-        ユーザー名:<input type="text" class="form-control w-50 mb-3 username" name="name" placeholder="伝説のフィッシャーマン" aria-label="First name" required>
-    </div>
-    <div class="d-flex justify-content-center font-italic">
-        自己紹介:<input type="text" class="form-control w-50 mb-3 self-introduction" name="introduction" placeholder="ごはんおいしい" aria-label="Last name" required>
-    </div>
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col text-center my-5">
-                <button type="submit" class="btn btn-primary me-5">決定</button>
-                <button type="button" class="btn btn-danger ms-5" onClick="location.href='/view/account/mypage/'">戻る</button>
-            </div>
-        </div>
-    </div>
-</form>

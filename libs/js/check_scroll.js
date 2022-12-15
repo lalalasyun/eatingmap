@@ -1,3 +1,3 @@
 $(window).scroll(function () {
-  $("#go_top_btn").show();
+  $("#go_top_btn").show(200);
 });

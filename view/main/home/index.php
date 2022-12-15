@@ -8,17 +8,18 @@
     <script src="/view/main/home/js/index.js"></script>
     <script src="/libs/js/load_city/load_city.js"></script>
     <script src="/libs/js/load_city/pref_city.js"></script>
-    <script src="https://kit.fontawesome.com/2947a18ded.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="/view/main/home/css/slider.css">
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+
     <script src="/libs/js/accordion.js"></script>
     <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
 
     <title>eatingmap</title>
-    <meta name="description" content="飲食店情報サイト【eatingmap】" />
+    <meta name="description" content="飲食店情報サイト【eatingmap】近くのお店から遠いお店まで調べられ一般の方でも
+    申請をすればお店の登録ができる便利なサイトになっております。ぜひご登録下さい！！" />
 </head>
 
 <body>

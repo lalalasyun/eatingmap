@@ -16,6 +16,8 @@
     <script src="/libs/js/accordion.js"></script>
     <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
 
+    <script src="/libs/js/lock.js"></script>
+
 
     <?php if($isMobile){ ?>
         <link rel="stylesheet" type="text/css" href="/view/search/name/css/shop_phone.css" />

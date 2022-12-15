@@ -5,6 +5,9 @@
 <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/shop/details/css/style.css" />
+
+    <script src="/view/shop/details/js/map.js"></script>
+    <script src="/view/shop/details/js/favorite.js"></script>
     
     <title>店舗詳細</title>
 </head>
@@ -18,7 +21,6 @@
     <!--初期メイン画面-->
     <div class="main">
         <?php include "main/main.php" ?>
-        <script src="/view/shop/details/js/index.js"></script>
     </div>
 
     <!--フッター-->

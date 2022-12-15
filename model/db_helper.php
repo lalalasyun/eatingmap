@@ -270,9 +270,8 @@ function get_shopid_review($dbh, $shop)
 //ユーザIDのレビューを検索
 function get_user_review($dbh, $user, $index)
 {
-    $limit = $index * 5 + 5;
     $offset = $index * 5;
-    $sql = "SELECT * FROM shop_review WHERE user_id = :user LIMIT " . $limit . " OFFSET " . $offset;
+    $sql = "SELECT * FROM shop_review WHERE user_id = :user LIMIT " . $offset . ",5";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
@@ -343,4 +342,176 @@ function get_avatar($dbh, $user, $genre)
     $stmt->execute();
 
     return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+
+//ユーザプロフィール設定
+function set_user_prof($dbh, $user, $name, $text)
+{
+    $sql = "UPDATE user SET name = :name, profile = :text WHERE id = :user";
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+    $stmt->bindValue(':text', $text, PDO::PARAM_STR);
+    $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+
+    $stmt->execute();
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+//店舗情報タグを取得
+function get_shop_tag($dbh, $shop)
+{
+    $sql = "SELECT * FROM shop_description WHERE shop_id = :shop";
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);
+
+    $stmt->execute();
+
+    $result = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $ary = array(
+            'name' => $row['name'],
+            'value' => $row['value']
+        );
+        $result[] = $ary;
+    }
+    return $result;
+}
+
+//お気に入り追加
+function add_shop_favorite($dbh, $user, $shop)
+{
+    try {
+        $sql = "INSERT INTO shop_favorite (user_id,shop_id) VALUES (:user,:shop)";
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+        $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);
+
+        $stmt->execute();
+    } catch (PDOException $e) {
+        //uniqueエラー回避用
+    }
+}
+
+//お気に入り削除
+function del_shop_favorite($dbh, $user, $shop)
+{
+    $sql = "DELETE FROM shop_favorite WHERE user_id = :user AND shop_id = :shop";
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+    $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);
+
+    $stmt->execute();
+}
+
+//ユーザ別お気に入り確認
+function get_shop_favorite_list($dbh, $user)
+{
+    $sql = "SELECT s.id,name,f.create_time FROM shop_favorite as f INNER JOIN shop as s ON f.shop_id = s.id WHERE user_id = :user";
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+
+    $stmt->execute();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $ary = array(
+            "id" => (string)$row['id'],
+            "create_time" => $row['create_time'],
+            "name" => $row['name']
+        );
+        $result[] = $ary;
+    }
+    return $result;
+}
+
+//店舗ページアクセス時ユーザお気に入り確認
+function is_user_shop_favorite($dbh, $user, $shop)
+{
+    $sql = "SELECT * FROM shop_favorite WHERE user_id = :user AND shop_id = :shop";
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+    $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);
+
+    $stmt->execute();
+    $result = "";
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $result = $row;
+    }
+    return $result;
+}
+
+//店舗検索
+function search_shop($dbh, $name, $genre, $pref, $city, $price)
+{
+    $name_sql = " name LIKE :name ";
+    $genre_sql = " category_id = :genre ";
+
+    $pref_sql = " location1 LIKE :pref ";
+    $city_sql = " location1 LIKE :city ";
+
+    $price_sql = " price < :price ";
+
+    $sep = " AND ";
+
+    $sql = "select * from shop WHERE id IS NOT NULL ";
+    if (isset($name)) {
+        $sql = $sql . $sep . $name_sql;
+    }
+    if (isset($genre)) {
+        $sql = $sql . $sep . $genre_sql;
+    }
+    if (isset($pref)) {
+        $sql = $sql . $sep . $pref_sql;
+    }
+    if (isset($city)) {
+        $sql = $sql . $sep . $city_sql;
+    }
+    if (isset($price)) {
+        $sql = $sql . $sep . $price_sql;
+    }
+
+    $stmt = $dbh->prepare($sql);
+
+    if (isset($name)) {
+        $stmt->bindValue(':name', "%" . $name . "%", PDO::PARAM_STR);
+    }
+    if (isset($genre)) {
+        $stmt->bindValue(':genre', $genre, PDO::PARAM_STR);
+    }
+    if (isset($pref)) {
+        $stmt->bindValue(':pref', "%" . $pref . "%", PDO::PARAM_STR);
+    }
+    if (isset($city)) {
+        $stmt->bindValue(':city', "%" . $city . "%", PDO::PARAM_STR);
+    }
+    if (isset($price)) {
+        $stmt->bindValue(':price', $price, PDO::PARAM_STR);
+    }
+
+    $stmt->execute();
+    $result = [];
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $row['id'] = (string)$row['id'];
+        $result[] = $row;
+    }
+    return $result;
+}
+
+
+//緯度経度登録
+function set_geocode($dbh,$user,$lat,$lng){
+    $sql = "UPDATE shop SET longitude = :lng, latitude = :lat WHERE id = :user";
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':lng', $lng, PDO::PARAM_STR);
+    $stmt->bindValue(':lat', $lat, PDO::PARAM_STR);
+    $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+    
+    $stmt->execute();
 }

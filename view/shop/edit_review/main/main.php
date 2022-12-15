@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
                             <?php if ($i == $REVIEW_DATA['score']) { ?>
                                 <span class="fa fa-star active" data-name="<?= $i ?>"></span>
                             <?php } else if ($i < $REVIEW_DATA['score']) { ?>
-                                <span class="fa fa-star data-name=" <?= $i ?>"></span>
+                                <span class="fa fa-star "data-name= "<?= $i ?>"></span>
                             <?php } else { ?>
                                 <span class="fa fa-star-o" data-name="<?= $i ?>"></span>
                             <?php } ?>

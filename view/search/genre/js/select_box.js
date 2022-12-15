@@ -1,30 +1,37 @@
 $(function () {
   let genre = 0;
   let page_index = 0;
+  let shop_data;
 
   $(document).ready(function () {
-    get_shop(genre);
+    get_shop(0);
   });
 
   $('.title').on('click', function () {//タイトル要素をクリックしたら
+    page_index = 0;
     get_shop(genre);
   });
 
   $('#select-pref,#select-city,#price').change(function () {
+    page_index = 0;
     get_shop(genre);
   });
 
   $("#next_btn").click(async function () {
-    page_index += 5;
-    if(!await get_shop(genre)){
-      page_index -=5;
+    if (shop_data.length > page_index + 5) {
+      page_index += 5;
+
+      await get_shop(genre);
+      $("#prev_btn").prop('disabled', false);
+
     }
 
   });
   $("#prev_btn").click(async function () {
-    page_index -= 5;
-    if(!await get_shop(genre)){
-      page_index +=5;
+    if (page_index > 4) {
+      page_index -= 5;
+      await get_shop(genre);
+      $("#next_btn").prop('disabled', false);
     }
   });
 
@@ -39,7 +46,7 @@ $(function () {
         $current.prepend($('<div>', {
           class: $current.attr('class').replace(/sel/g, 'sel__box')
         }));
-        
+
 
         var placeholder = $(this).text();
         $current.prepend($('<span>', {
@@ -76,84 +83,69 @@ $(function () {
     $currentSel.children('select').prop('selectedIndex', index + 1);
 
     genre = $(`#select-profession option:nth-child(${index + 2})`).val();
+    page_index = 0;
     get_shop(genre);
   });
 
-  function set_shop(shop) {
-    $("#shop_list").append(`<div id=${shop.id} class="shop_data">`);
-    //templateをloadし各種データを埋め込む
-    $(`#${shop.id}`).load("/view/search/genre/main/template.html", function (myData, myStatus) {
-      $(`#${shop.id}`).find(".shopname").html(shop.name);
-      $(`#${shop.id}`).find(".shopscore").html(shop.score);
-      $(`#${shop.id}`).find(".shopimage").attr('src', `/images/shopImage/${shop.image}`);
-    });
-    //buttonにshopページへのリンクイベントを付与
-    $(`#${shop.id}`).on("click", ".shopbtn", function () {
-      window.location.href = `/shop/${shop.id}`;
-    });
-  }
-
-  function check_area(location, pref, city) {
-    var result = location.replace(/\s+/g, "").match(/^(.+?)(?:県|都)(.+?)(?:市|区|町)(.+?)$/);
-    if (pref === "都道府県") return true;
-    if (result == null) return false;
-    if (pref.indexOf(result[1]) == -1) return false;
-    if (city !== "市区町村") {
-      if (city.indexOf(result[2]) == -1) return false;
+  async function set_shop(shop_data) {
+    let count = 0;
+    $("#shop_list").html("");
+    for (let i = page_index; i < shop_data.length; i++) {
+      let shop = shop_data[i];
+      $("#shop_list").append(`<div id=${shop.id} class="shop_data">`);
+      //templateをloadし各種データを埋め込む
+      $(`#${shop.id}`).load("/view/search/genre/main/template.html", function (myData, myStatus) {
+        $(`#${shop.id}`).find(".shopname").html(shop.name);
+        $(`#${shop.id}`).find(".shopscore").html(shop.score);
+        $(`#${shop.id}`).find(".shopimage").attr('src', `/images/shopImage/${shop.image}`);
+      });
+      //buttonにshopページへのリンクイベントを付与
+      $(`#${shop.id}`).on("click", ".shopbtn", function () {
+        window.location.href = `/shop/${shop.id}`;
+      });
+      if (count == 4) {
+        break;
+      }
+      count++;
     }
-    return true;
-  }
 
-  function check_price(shop_price, price) {
-    if (shop_price == null || price == "") {
-      return true;
-    }
-    return shop_price <= price;
   }
 
   async function get_shop(genre) {
-    //https://app.eatingmap.fun/shop/list
-    let json = { "categoryId": genre };
-    let isSet = false;
-    await $.ajax({
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      async: true,
-      type: 'POST',
-      url: 'https://app.eatingmap.fun/shop/list',
-      data: JSON.stringify(json),
-    }).done(function (data) {
-      $("#shop_list").html("");
-      if(page_index > -1 && page_index < data.data.length -5){
-        $("#next_btn").show();
-      }else{
-        $("#next_btn").hide();
-      }
-      if(page_index > 4){
-        $("#prev_btn").show();
-      }else{
-        $("#prev_btn").hide();
-      }
+    screenLock();
+    let pref = $("#select-pref").find("option").eq(Number($("#select-pref").val())).html();
+    let city = $("#select-city").val() != "" ? $("#select-city").find("option").eq(Number($("#select-city").val()) + 1).html() : "市区町村";
+    let price = $("#price").val();
+    let json = {
+      genre: genre
+    }
+    if (pref !== "都道府県") {
+      json['pref'] = pref;
+    }
 
-      for (let i = page_index; i < page_index + 5; i++) {
-        if (data.data.length <= i || i < 0) break;
-        let shop = data.data[i];
-        let pref = $("#select-pref").find("option").eq(Number($("#select-pref").val())).html();
-        let city = $("#select-city").val() != "" ? $("#select-city").find("option").eq(Number($("#select-city").val()) + 1).html() : "市区町村";
-        let price = $("#price").val();
-        let location = shop.location1;
-        if (check_area(location, pref, city) && check_price(shop.price, price)) {
-          set_shop(shop);
-          isSet = true;
-        }
-      }
-    })
-      // Ajaxリクエストが失敗した場合
-      .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-        window.location.href = '/view/error/500';
-      });
-    return isSet;
+    if (city !== "市区町村") {
+      json['city'] = city;
+    }
+
+    if (price !== "") {
+      json['price'] = price;
+    }
+    await $.get("https://app.eatingmap.fun/api/shop/search/index.php", json 
+    ).done(async function (data) {
+      shop_data = data;
+
+      $("#shop_list").html("");
+
+      await set_shop(shop_data);
+
+      //6件以下だとnextをdisabled
+      let is_next = shop_data.length < 6 || (shop_data.length - page_index) < 6;
+      let is_prev = page_index < 4;
+      $("#next_btn").prop('disabled', is_next);
+
+      $("#prev_btn").prop('disabled', is_prev);
+    });
+    delete_dom_obj();
   }
+
 });

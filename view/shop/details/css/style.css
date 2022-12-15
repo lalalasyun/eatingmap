@@ -1,3 +1,9 @@
+.boximg{
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+   background-color: #EEEEEE;
+}
 
 .box1{
     overflow: scroll;
@@ -5,4 +11,8 @@
 }
 .box1::-webkit-scrollbar-thumb {
     background: #ff8095;
+  }
+  .box2{
+    overflow: scroll;
+    overflow-x: hidden;
   }

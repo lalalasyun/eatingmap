@@ -59,19 +59,3 @@
     margin: 0; 
     padding: 0;
 }
-
-
-.user_icon1{
-    height:  100px;             /* 高さ指定 */
-    width:  100px;              /* 幅指定 */
-    position:  relative;        /* 位置指定 */
-    z-index: 10;                /* 重なり順指定 */
-}
-
-.user_icon2{
-    height:  100px;             /* 高さ指定 */
-    width:  100px;              /* 幅指定 */
-    position:  absolute;        /* 位置指定 */
-    z-index: 100;               /* 重なり順指定 */
-    opacity: 0;
-}

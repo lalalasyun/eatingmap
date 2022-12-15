@@ -4,68 +4,20 @@
         <div class="mt-3 d-flex justify-content-center">
             <h1>お気に入りのお店一覧</h1>
         </div>
-        <div class="box1 border border-dark p-5" style="overflow: scroll;">
+        <div class="box1 border rounded p-5">
+            <div id="fav_list"></div>
 
-            <div>
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item mb-4 w-100">
-                        <div class="fs-2 border-bottom d-flex justify-content-between">
-                            <p>店名</p>
-                            <p>名無し亭　名無しのお店</p>
-                            <div></div>
-                        </div>
-                        <div>
-                            ただの余<br>
-                            白
-                        </div>
-                    </li>
-                    <li class="list-group-item mb-4">
-                        <div class="d-flex align-items-center h-100">
-                            <button type="button" class="btn btn-danger " onclick="confirm_test()" style="width:70px">削除</button>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item mb-4 w-100">
-                        <div class="fs-2 border-bottom d-flex justify-content-between">
-                            <p>店名</p>
-                            <p>名無し亭　名無しのお店</p>
-                            <div></div>
-                        </div>
-                        <div>
-                            ただの余<br>
-                            白
-                        </div>
-                    </li>
-                    <li class="list-group-item mb-4">
-                        <div class="d-flex align-items-center h-100">
-                            <button type="button" class="btn btn-danger " onclick="confirm_test()" style="width:70px">削除</button>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item mb-4 w-100">
-                        <div class="fs-2 border-bottom d-flex justify-content-between">
-                            <p>店名</p>
-                            <p>名無し亭　名無しのお店</p>
-                            <div></div>
-                        </div>
-                        <div>
-                            ただの余<br>
-                            白
-                        </div>
-                    </li>
-                    <li class="list-group-item mb-4">
-                        <div class="d-flex align-items-center h-100">
-                            <button type="button" class="btn btn-danger " onclick="confirm_test()" style="width:70px">削除</button>
-                        </div>
-                    </li>
-                </ul>
-
-
-
+            <div class="d-flex justify-content-center w-100 m-3">
+                <div class="me-5">
+                    <input type="button" class="btn btn-primary btn-lg" id="prev_btn" name="prev_page" value="前へ">
+                </div>
+                <div class="ms-5">
+                    <input type="button" class="btn btn-success btn-lg" id="next_btn" name="next_page" value="次へ">
+                </div>
             </div>
         </div>
+
+
 
     </div>
 </div>

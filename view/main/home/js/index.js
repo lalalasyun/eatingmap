@@ -30,8 +30,4 @@ $(function () {
         let price = $("#price").val()
         window.location.href = `/view/search/name?code=1&name=${name}&pref=${pref}&city=${city}&price=${price}`;
     });
-    $(".user_icon2").click(function() {
-        console.log('click')
-        window.location.href = `/user/${user_account_id}`;
-    });
 })

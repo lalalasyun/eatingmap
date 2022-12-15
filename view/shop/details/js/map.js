@@ -77,7 +77,7 @@ function initMap() {
       }else if(km<25){
         z=12;
       }else{
-        z=11;
+        z=10;
       }
 
       map = new google.maps.Map(document.getElementById('map'), { // #mapに地図を埋め込む
@@ -153,16 +153,10 @@ function initMap() {
   
   
     }
-
-
-
-
-
-
-   
-  
   }
   //window.clickbutton = clickbutton;
   window.initMap = initMap;
+
+  
   
   

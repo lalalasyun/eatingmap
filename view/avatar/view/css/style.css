@@ -1,5 +1,5 @@
 .user_icon1{
-    position:  relative;        /* 位置指定 */
+    position:  absolute;        /* 位置指定 */
     z-index: 0;                /* 重なり順指定 */
 }
 
@@ -32,4 +32,24 @@
     position:  absolute;        /* 位置指定 */
     z-index: 40;               /* 重なり順指定 */
     top: 60px;
+}
+
+img{
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+.icon_area{
+    position:relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    transform: scale(1);
+    transform-origin: 0px 0px;
+}
+
+html{
+    width: 100px;
+    height: 100px;
 }
