@@ -2,9 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>   
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="js/index.js"></script>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <title>エラー画面</title>
 </head>
 

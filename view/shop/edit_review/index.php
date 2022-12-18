@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>   
-    <script src="https://kit.fontawesome.com/2947a18ded.js" crossorigin="anonymous"></script>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>  
     <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="/libs/js/bootstrap/star-rating.min.js" type="text/javascript"></script>
     <script src="/view/shop/edit_review/js/index.js"></script>

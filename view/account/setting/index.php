@@ -9,13 +9,9 @@
     <link rel="stylesheet" href="/libs/css/bootstrap/bootstrap.min.css">
     <script src="/libs/js/bootstrap/bootstrap.min.js"></script>
     <script src="/libs/js/jquery/jquery-3.6.0.min.js"></script>
-
-    <script src="/libs/js/jquery/jquery.validate.min.js"></script>
-    <script src="/libs/js/jquery/additional-methods.min.js"></script>
-    <script src="/view/account/setting/js/validate_rules.js"></script>
    
 
-    <title>メイン画面</title>
+    <title>アカウント設定</title>
 </head>
 
 <body>

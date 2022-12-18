@@ -79,3 +79,11 @@
     margin: 0; 
     padding: 0;
 }
+
+.fa{
+    font-size:20px;
+    color:gold;
+  }
+  #rating{
+    font-size:0;
+  }

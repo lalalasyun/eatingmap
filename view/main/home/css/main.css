@@ -59,3 +59,15 @@
     margin: 0; 
     padding: 0;
 }
+
+.input-group .btn {
+
+    z-index: 0;
+}
+
+.shop_div{
+    width: 100px;
+    height: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

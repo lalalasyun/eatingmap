@@ -3,7 +3,7 @@ $(function () {
     $("#next_btn").click(async function () {
         console.log(page_index)
         page_index += 1;
-        let res = await get_review(user_account_id, page_index);
+        let res = await get_review(page_user_id, page_index);
 
         $("#prev_btn").prop("disabled", false);
         $(this).prop("disabled", !res);
@@ -14,7 +14,7 @@ $(function () {
             $(this).prop("disabled", page_index == 0);
             $("#next_btn").prop("disabled", false);
             page_index -= 1;
-            get_review(user_account_id, page_index);
+            get_review(page_user_id, page_index);
         }
         if(page_index == 0){
             $(this).prop("disabled", true);
@@ -22,7 +22,7 @@ $(function () {
     });
 
     $(document).ready(function () {
-        get_review(user_account_id, page_index);
+        get_review(page_user_id, page_index);
         $("#prev_btn").prop("disabled", true);
     });
 
@@ -75,20 +75,28 @@ $(function () {
     function set_review(review) {
         $("#review_list").append(`<div id=${review.id}>`);
         //templateをloadし各種データを埋め込む
-        $(`#${review.id}`).load("/view/account/review/main/template.html", async function (myData, myStatus) {
-            $(`#${review.id}`).find("#score").html(review.score);
+        $(`#${review.id}`).load("/view/profile/description/main/template.html", async function (myData, myStatus) {
+            set_star(review.id,review.score)
             $(`#${review.id}`).find("#review").html(review.text.substr(0, 50));
             $(`#${review.id}`).find("#create").html(review.create_time);
             $(`#${review.id}`).find("#update").html(review.update_time);
             $(`#${review.id}`).find("#name").html(await get_shop(review.shop_id));
         });
-        //buttonにshopページへのリンクイベントを付与
-        $(`#${review.id}`).on("click", ".change_btn", function () {
-            window.location.href = `/view/shop/edit_review/index.php?id=${review.shop_id}`;
-        });
-        $(`#${review.id}`).on("click", ".delete_btn", function () {
-            window.location.href = `/view/account/review/index.php?id=${review.shop_id}`;
-        });
+        $(`#${review.id}`).click(function() {
+            window.location.href = `/shop/${review.shop_id}`;
+        })
+    }
+
+    function set_star(id,score) {
+        for (let i = 1; i < 6; i++) {
+            if (i == score) {
+                $(`#${id}`).find("#rating").append(`<span class="fa fa-star active" data-name="${i}">`);
+            } else if (i < score) {
+                $(`#${id}`).find("#rating").append(`<span class="fa fa-star " data-name="${i}">`);
+            } else {
+                $(`#${id}`).find("#rating").append(`<span class="fa fa-star-o" data-name="${i}">`);
+            }
+        }
     }
 
 });

@@ -17,6 +17,9 @@ $_SESSION['prev_page'] = "/search/genre";
     <script src="/view/search/genre/js/select_box.js"></script>
     <link rel="stylesheet" type="text/css" href="/view/search/genre/css/select_box.css" />
 
+    <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="/libs/js/bootstrap/star-rating.min.js" type="text/javascript"></script>
+
     <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
     <script src="/libs/js/accordion.js"></script>
 

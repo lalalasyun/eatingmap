@@ -8,6 +8,9 @@
 
     <script src="/view/shop/details/js/map.js"></script>
     <script src="/view/shop/details/js/favorite.js"></script>
+    <script src="/view/shop/details/js/script.js"></script>
+
+    <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
     
     <title>店舗詳細</title>
 </head>

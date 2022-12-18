@@ -12,11 +12,15 @@ if (!$isMobile) {
 ?>
 <script>
     let shop_id = null;
-    let loc = null;
+    let shop = null;
     <?php if (isset($SHOP_DATA)) { ?>
-        loc = {
+        shop = {
+            "name": "<?= $SHOP_DATA["name"] ?>",
             "lat": "<?= $SHOP_DATA["latitude"] ?>",
-            "lng": "<?= $SHOP_DATA["longitude"] ?>"
+            "lng": "<?= $SHOP_DATA["longitude"] ?>",
+            "url": "<?= "/shop/" . $SHOP_DATA["id"] ?>",
+            "image": "<?= $SHOP_DATA['image'] ?>",
+            "id": "<?= $SHOP_DATA['id'] ?>"
         };
         shop_id = "<?= $SHOP_DATA["id"] ?>";
     <?php } ?>
@@ -48,26 +52,76 @@ if (!$isMobile) {
         </h1>
         <div class="d-flex justify-content-center">
             <div class="box1 border border-dark rounded p-3 w-100">
-
                 <div>住所 : <?= $SHOP_DATA["location1"] ?></div>
+
                 <hr>
-                <div class="d-flex justify-content-start">
-                    <div>評価 : <?= $SHOP_DATA["score"] ?></div>
-                    <div class="ms-5">市区町村 : <?= $SHOP_DATA["area"] ?></div>
-                    <div class="ms-5">予算 : <?= $SHOP_DATA["price"] ?><?php echo ("~") ?></div>
-                    <div class="ms-5">電話番号 : <?= $SHOP_DATA["phone"] ?></div>
-                    <div class="ms-5">最寄り駅：<?= $SHOP_DATA['close_station'] ?></div>
+
+                <div class="d-flex">
+                    <div>評価 : </div>
+                    <div id="rating" class="ms-2 w-75">
+                        <?php for ($i = 1; $i < 6; $i++) { ?>
+                            <?php if ($i == $SHOP_DATA['score']) { ?>
+                                <span class="fa fa-star active" data-name="<?= $i ?>"></span>
+                            <?php } else if ($i < $SHOP_DATA['score']) { ?>
+                                <span class="fa fa-star " data-name="<?= $i ?>"></span>
+                            <?php } else { ?>
+                                <span class="fa fa-star-o" data-name="<?= $i ?>"></span>
+                            <?php } ?>
+                        <?php } ?>
+                    </div>
                 </div>
+
                 <hr>
-                <div class="d-flex justify-content-start">
+
+                <?php if (!$isMobile) { ?>
+                    <div class="d-flex justify-content-start">
+                        <?php if ($SHOP_DATA["price"]) { ?>
+                            <div>予算：<?= $SHOP_DATA["price"] . "~" ?></div>
+                        <?php } ?>
+
+                        <?php if ($SHOP_DATA["phone"]) { ?>
+                            <div class="ms-5">電話番号：<?= $SHOP_DATA["phone"] ?></div>
+                        <?php } ?>
+
+                        <?php if ($SHOP_DATA['close_station']) { ?>
+                            <div class="ms-5">最寄り駅：<?= $SHOP_DATA['close_station'] ?></div>
+                        <?php } ?>
+                    </div>
+                    <hr>
+                <?php } else { ?>
+                    <?php if ($SHOP_DATA["price"]) { ?>
+                        <div>予算：<?= $SHOP_DATA["price"] . "~" ?></div>
+                        <hr>
+                    <?php } ?>
+
+                    <?php if ($SHOP_DATA["phone"]) { ?>
+                        <div>電話番号：<?= $SHOP_DATA["phone"] ?></div>
+                        <hr>
+                    <?php } ?>
+
+                    <?php if ($SHOP_DATA['close_station']) { ?>
+                        <div>最寄り駅：<?= $SHOP_DATA['close_station'] ?></div>
+                        <hr>
+                    <?php } ?>
+
+                <?php } ?>
+                <?php if (!$isMobile) { ?>
+                    <div class="d-flex justify-content-start">
+                        <?php foreach ($TAG_DATA as $TAG) { ?>
+                            <div class="me-5"><?php print_r($TAG['name'] . "：" . preg_split('/[\[\"\]]/', $TAG['value'])[2]); ?></div>
+                        <?php } ?>
+                    </div>
+                <?php } else { ?>
                     <?php foreach ($TAG_DATA as $TAG) { ?>
                         <div class="me-5"><?php print_r($TAG['name'] . "：" . preg_split('/[\[\"\]]/', $TAG['value'])[2]); ?></div>
                     <?php } ?>
-                </div>
-                <hr>
-                <div style="background-color:#FFD9D7;">説明文</div>
-                <div><?= $SHOP_DATA["info1"] ?></div>
+                <?php } ?>
+                <?php if (count($TAG_DATA)) { ?>
+                    <hr>
+                <?php } ?>
 
+                <div style="background-color:#FFD9D7;">説明文</div>
+                <div><?= str_replace(PHP_EOL, '<br>', $SHOP_DATA["info1"]); ?></div>
             </div>
         </div>
         <div class="mt-5">
@@ -87,49 +141,44 @@ if (!$isMobile) {
 
         </div>
         <div class="mt-5 w-100 d-flex">
-            <?php if ($_SESSION['auth']) { ?>
-                <?php if (check_user_review($dbh, $_SESSION['account'], $SHOP_DATA["id"])) { ?>
-                    <div>
-                        <button class="btn btn-info btn-lg" onclick="location.href=`/view/shop/edit_review/index.php?id=<?= $SHOP_DATA['id'] ?>`">
-                            レビュー編集
-                        </button>
-                    </div>
-                <?php } else { ?>
-                    <div>
+            <?php if ($_SESSION['auth'] && check_user_review($dbh, $_SESSION['account'], $SHOP_DATA["id"])) { ?>
+                <div>
+                    <button class="btn btn-info btn-lg" onclick="location.href=`/view/shop/edit_review/index.php?id=<?= $SHOP_DATA['id'] ?>`">
+                        レビュー編集
+                    </button>
+                </div>
+            <?php } else { ?>
+                <div>
+                    <?php if ($_SESSION['auth']) { ?>
                         <button class="btn btn-info btn-lg" onclick="location.href='/view/shop/register_review/index.php?id=<?= $SHOP_DATA['id'] ?>'">
                             レビュー登録
                         </button>
-                    </div>
-                <?php } ?>
-                <div class="ms-3">
-                    <?php
-                    $add = "";
-                    $del = "";
-                    if (is_user_shop_favorite($dbh, $_SESSION['account'], $SHOP_DATA["id"])) {
-                        $add = "style='display:none'";
-                    } else {
-                        $del = "style='display:none'";
-                    }
-
-                    ?>
-                    <button id="add_fav" class="btn btn-info btn-lg" <?= $add ?>>
-                        ★お気に入り追加
-                    </button>
-                    <button id="del_fav" class="btn btn-info btn-lg " <?= $del ?>>
-                        ★お気に入り解除
-                    </button>
+                    <?php } else { ?>
+                        <button class="btn btn-info btn-lg" onclick="location.href='/view/authority/login/'">
+                            レビュー登録
+                        </button>
+                    <?php } ?>
                 </div>
+
             <?php } ?>
+            <div class="ms-3">
+                <?php
+                $is_fav = is_user_shop_favorite($dbh, $_SESSION['account'], $SHOP_DATA["id"]);
+                ?>
+                <button id="add_fav" class="btn btn-info btn-lg" style="display:<?= $is_fav ? "none" : "block" ?>">
+                    ★お気に入り追加
+                </button>
+                <button id="del_fav" class="btn btn-info btn-lg " style="display:<?= $is_fav ? "block" : "none" ?>">
+                    ★お気に入り解除
+                </button>
+            </div>
         </div>
 
         <div class="d-flex justify-content-center mt-2">
             <div class="border box1 border-dark py-2 px-3 w-100 h-100">
 
                 <?php foreach ($REVIEW_DATA as $REVIEW) { ?>
-                    <div class="d-flex justify-content-between mb-4">ユーザー名 : <?= get_userid_user($dbh, $REVIEW['user_id'])['name'] ?>
-                        <div>投稿日 : <?= $REVIEW['create_time'] ?></div>
-                        <div>更新日 : <?= $REVIEW['update_time'] ?></div>
-                    </div>
+                    <div class="d-flex justify-content-between mb-4">ユーザー名 : <?= get_userid_user($dbh, $REVIEW['user_id'])['name'] ?></div>
                     <div>
                         <?php
 
@@ -148,16 +197,30 @@ if (!$isMobile) {
 
 
                         <div class="d-flex justify-content-between">
-                            <div>
-                                評価 : <?= $REVIEW['score'] ?>
+                            <div class="w-75 d-flex">
+                                <div>
+                                    評価 :
+                                </div>
+                                <div id="rating" class="ms-2 w-75">
+                                    <?php for ($i = 1; $i < 6; $i++) { ?>
+                                        <?php if ($i == $REVIEW['score']) { ?>
+                                            <span class="fa fa-star active" data-name="<?= $i ?>"></span>
+                                        <?php } else if ($i < $REVIEW['score']) { ?>
+                                            <span class="fa fa-star " data-name="<?= $i ?>"></span>
+                                        <?php } else { ?>
+                                            <span class="fa fa-star-o" data-name="<?= $i ?>"></span>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </div>
                             </div>
+
                             <div>
                                 <button class="btn btn-info btn-sm" onclick="location.href='/user/<?= $REVIEW['user_id'] ?>'">
                                     プロフィール
                                 </button>
                             </div>
-
                         </div>
+                        <div>最終更新日 : <?= $REVIEW['update_time'] ?></div>
                         <hr>
                     </div>
 

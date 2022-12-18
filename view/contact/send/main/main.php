@@ -1,66 +1,42 @@
 <?php
 $json = "";
 if (isset($_POST['name'])) {
+    $dbh = con();
     $req =  $_POST['select1'];
     $del =  $_POST['select2'];
     $add =  $_POST['select3'];
     $data = null;
+    $user_id = "0";
+    if(isset($USER_DATA['id'])){
+        $user_id = $USER_DATA['id'];
+    }
     if ($req == "question") {
-        $data = array(
-            "request" => "question",
-            "account" => $_POST['name'],
-            "text" =>  $_POST['question'],
-        );
+        send_ask_form($dbh,$user_id,$_POST['name'],$_POST['question']);
     }
     if ($req == "del" && $del == "shop") {
-        $data = array(
-            "request" => "del_shop",
-            "account" => $_POST['name'],
-            "shop_name" =>  $_POST['shop_name'],
-            "text" => $_POST['note'],
-        );
+        send_del_shop_form($dbh,$user_id,$_POST['note'],$_POST['shop_name'],$_POST['name']);
     }
     if ($req == "del" && $del == "emp") {
-        $data = array(
-            "request" => "del_emp",
-            "account" => $_POST['name'],
-            "shop_name" =>  $_POST['shop_name'],
-            "text" => $_POST['note'],
-        );
+        send_del_emp_form($dbh,$user_id,$_POST['note'],$_POST['shop_id'],$_POST['shop_name'],$_POST['name']);
     }
     if ($req == "add" && $add == "shop") {
-        $data = array(
-            "request" => "add_shop",
-            "account" => $_POST['name'],
-            "shop_name" =>  $_POST['shop_name'],
-            "address" => $_POST['shop_address'],
-            "text" => $_POST['note'],
-        );
+        send_add_shop_form($dbh,$user_id,$_POST['note'],$_POST['shop_name'],$_POST['name'],$_POST['shop_address']);
     }
     if ($req == "add" && $add == "emp") {
-        $data = array(
-            "request" => "add_emp",
-            "account" => $_POST['name'],
-            "shop_name" =>  $_POST['shop_name'],
-            "phone" => $_POST['phone'],
-            "text" => $_POST['note'],
-        );
+        send_add_emp_form($dbh,$user_id,$_POST['note'],$_POST['shop_name'],$_POST['name'],$_POST['phone']);
     }
     if ($req == "other") {
-        $data = array(
-            "request" => "other",
-            "account" => $_POST['name'],
-            "text" => $_POST['message'],
-        );
+        send_other_form($dbh,$user_id,$_POST['name'],$_POST['message']);
     }
-    $json = json_encode($data);
+
+    header('Location: /view/contact/send');
 }
 ?>
 <script>
-    let json = null;
-    <?php if ($json) {
-        echo "json = " . $json;
-    } ?>
+    let shop_id = null;
+    <?php if (isset($USER_DATA['shop_id']) && $USER_DATA['shop_id']) { ?>
+    shop_id = "<?= $USER_DATA['shop_id'] ?>";
+    <?php } ?>
 </script>
 <div class="container my-3">
     <div class="col-md-6 offset-md-3">
@@ -68,9 +44,8 @@ if (isset($_POST['name'])) {
 
         <form action="" method="post" id="input_area">
             <div class="mb-3">
-                <input type="text" class="form-control" name="name" id="user_name" placeholder="お名前" value="<?php echo $name; ?>">
+                <input type="text" class="form-control" name="name" id="user_name" placeholder="お名前">
             </div>
-
 
             <div class="mb-3">
                 <select class="form-select form-control" name="select1" id="sample" onchange="viewChange();">
@@ -86,11 +61,13 @@ if (isset($_POST['name'])) {
                 <textarea class="form-control" name="question" id="i_question" placeholder="質問"></textarea>
             </div>
 
+            <input type="hidden" name="shop_id" value="" id="shop_id">
+
 
             <div class="mb-4 box" id="del">
 
                 <select class="form-select form-control" id="select_del" name="select2" onchange="del_viewChange();">
-                    <option value="" class="text-muted">項目を選択してください</option>
+                    <option value="0" class="text-muted">項目を選択してください</option>
                     <option value="shop">店舗削除</option>
                     <option value="emp" class="d-none" id="del_emp">店員削除</option>
                 </select>
@@ -98,9 +75,9 @@ if (isset($_POST['name'])) {
 
             <div class="mb-4 box" id="add">
                 <select class="form-select form-control" name="select3" id="select_add" onchange="add_viewChange();">
-                    <option value="" class="text-muted">項目を選択してください</option>
+                    <option value="0" class="text-muted">項目を選択してください</option>
                     <option value="shop">店舗登録</option>
-                    <option value="emp" class="d-none"  id="add_emp">店員登録</option>
+                    <option value="emp" class="d-none" id="add_emp">店員登録</option>
                 </select>
             </div>
 

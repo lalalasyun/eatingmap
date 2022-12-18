@@ -16,3 +16,10 @@
     overflow: scroll;
     overflow-x: hidden;
   }
+  .fa{
+    font-size:20px;
+    color:gold;
+  }
+  #rating{
+    font-size:0;
+  }

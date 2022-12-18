@@ -5,6 +5,8 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/account/review/css/style.css" />
     <script src="/view/account/review/js/index.js"></script>
+    <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="/libs/js/bootstrap/star-rating.min.js" type="text/javascript"></script>
     <title>レビュー履歴</title>
 </head>
 

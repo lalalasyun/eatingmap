@@ -19,14 +19,16 @@ if (isset($_POST["submit"]) && $_POST["submit"] == "click") {
     $data = json_decode($res, true);
     if ($data['code'] === 1) {
         $_SESSION['register_event'] = false;
+
         header('Location: /view/authority/register_complite/');
         exit;
-    }else{
+    } else {
         header('Location: /view/error/500/');
         exit;
     }
-    
 }
+
+
 
 ?>
 <!DOCTYPE html>

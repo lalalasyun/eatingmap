@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&family=Reggae+One&family=DotGothic16&display=swap" rel="stylesheet">
     
+    <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="/libs/js/bootstrap/star-rating.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="/libs/icon/icon.css" />
 
     <script src="/view/profile/description/js/index.js"></script>

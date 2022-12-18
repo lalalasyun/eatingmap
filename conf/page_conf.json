@@ -35,6 +35,12 @@
             "routing": "view/account/pass_change/",
             "level": "2",
             "description": "パスワード変更画面"
+        },
+        "shop_data":{
+            "url": "/setting/shop",
+            "routing": "view/shop/edit_data/",
+            "level": "3",
+            "description": "パスワード変更画面"
         }
     },
     "authority": {
@@ -119,6 +125,12 @@
         "not_login":{
             "url": "/error/login",
             "routing": "view/error/not_login/",
+            "level": "1",
+            "description": "エラー画面"
+        },
+        "not_employee":{
+            "url": "/error/employee",
+            "routing": "view/error/not_employee/",
             "level": "1",
             "description": "エラー画面"
         }

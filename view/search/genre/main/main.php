@@ -29,20 +29,26 @@ $data = get_category($dbh);
                                 <option value="">市区町村</option>
                             </select>
                         </div>
-                        <div class="ms-3">
+                        <div class="ms-2">
                             <select id="price" class="form-select form-select w-100">
                                 <option value="">予算</option>
-                                <option value="1500">1000円以下</option>
+                                <option value="1500">1000円</option>
                                 <option value="1500">1500円</option>
                                 <option value="3000">3000円</option>
                                 <option value="5000">5000円</option>
                                 <option value="10000">10000円</option>
-                                <option value="1000000000">10000円以上</option>
+                                <option value="50000">50000円</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </section>
+        </div>
+
+        <div class="d-flex">
+            <div>検索結果</div>
+            <div id="search_count" class="ms-1 fw-bold"></div>
+            <div>件</div>
         </div>
         <div id="shop_list">
 

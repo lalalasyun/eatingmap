@@ -7,7 +7,7 @@ $data = get_category($dbh);
 </div>
 <div class="d-flex justify-content-center">
 
-  <div class="d-flex">
+  <div class="d-flex fs-4">
     <div>
       <label>ジャンル検索</label>
       <select id="genre">

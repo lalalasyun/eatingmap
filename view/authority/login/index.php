@@ -5,7 +5,12 @@ $page = $path[count($path) - 1];
 if (isset($_GET['user_account_id'])) {
     $_SESSION['auth'] = true;
     $_SESSION['account'] = $_GET['user_account_id'];
-    header("Location: /view/main/home/");
+    
+    if(isset($_GET['ref'])){
+        header("Location: ".$_GET['ref']);
+    }else{
+        header("Location: /view/main/home/");
+    }
     exit;
 }
 ?>

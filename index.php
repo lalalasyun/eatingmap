@@ -31,31 +31,42 @@ $USER_DATA = "";
 if ($_SESSION['auth'] && $_SESSION['account'] != "") {
     $USER_DATA = get_userid_user($dbh, $_SESSION['account']);
     echo "<script>let user_account_id = '';user_account_id = '" . $USER_DATA['id'] . "';</script>";
-}else{
+} else {
     echo "<script>let user_account_id = '';</script>";
 }
 
 
 //index.phpを消す
-$sp_url = explode("/", $REQUEST_URI);
 
-$GET_PARAM = "";
-if ($sp_url[count($sp_url) - 1] !== "") {
-    $FILENAME = $sp_url[count($sp_url) - 1];
-    //getパラメータがあれば保存する
-    if (preg_match("/\?/", $FILENAME)) {
-        $GET_PARAM = explode("&", explode("?", $FILENAME)[1]);
-        $sp_url[count($sp_url) - 1] = explode("?", $FILENAME)[0];
-    }
-    if (preg_match("/index\.php/", $FILENAME)) {
-        $sp_url[count($sp_url) - 1] = "";
-    }
+$sp_url_param = explode("?", $REQUEST_URI, 2);
+
+$sp_url = $sp_url_param[0];
+$sp_param = null;
+if (count($sp_url_param) == 2) {
+    $sp_param = $sp_url_param[1];
 }
+
+$sp_url = explode("/", $sp_url);
+
+$GET_PARAM = null;
+
+
+$FILENAME = $sp_url[count($sp_url) - 1];
+$sp_url[count($sp_url) - 1] = explode("?", $FILENAME)[0];
+
+//getパラメータがあれば保存する
+if (isset($sp_param)) {
+    $GET_PARAM = explode("&", $sp_param);
+}
+if (preg_match("/index\.php/", $FILENAME)) {
+    $sp_url[count($sp_url) - 1] = "";
+}
+
 
 // /shop/:id にアクセスが来るとルーティング
 if ($sp_url[1] === "shop") {
     $SHOP_DATA = get_id_shop_data($dbh, $sp_url[2]);
-    if ($SHOP_DATA !== []) {
+    if ($SHOP_DATA) {
         include "view/shop/details/index.php";
         die();
     }
@@ -90,16 +101,20 @@ $MAP = json_decode($PAGECONF, true);
 foreach ($MAP as $key) {
     foreach ($key as $pages) {
         if (($pages['url'] === $REQUEST_URI) || ("/" . $pages['routing'] === $REQUEST_URI)) {
-            if ($pages['level'] == 2 && !$_SESSION['auth']) {
+            if (($pages['level'] == 2 || $pages['level'] == 3) && !$_SESSION['auth']) {
                 //ログイン状態じゃないと見れないサイトはエラー画面に移動
                 header('Location: /error/login');
             }
+            if ($pages['level'] == 3 && !isset($USER_DATA['shop_id'])) {
+                //店員ログイン状態じゃないと見れないサイトはエラー画面に移動
+                header('Location: /error/employee');
+            }
         }
         if ($pages['url'] === $REQUEST_URI) {
-
             if ($GET_PARAM) {
                 include $pages['routing'] . 'index.php';
                 foreach ($GET_PARAM as $param) {
+                    
                     $_GET[explode('=', $param)[0]] = explode('=', $param)[1];
                 }
             } else {

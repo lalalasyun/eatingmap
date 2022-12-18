@@ -10,13 +10,13 @@ $(function () {
     });
     $("#prev_btn").click(async function () {
         console.log(page_index)
-        if(page_index > 0){
+        if (page_index > 0) {
             $(this).prop("disabled", page_index == 0);
             $("#next_btn").prop("disabled", false);
             page_index -= 1;
             get_review(user_account_id, page_index);
         }
-        if(page_index == 0){
+        if (page_index == 0) {
             $(this).prop("disabled", true);
         }
     });
@@ -35,14 +35,14 @@ $(function () {
         }).done(async function (data) {
             if (data.code) {
                 $("#review_list").html("");
-                if(data.data.length == 5){
+                if (data.data.length == 5) {
                     result = true;
                 }
                 for (review of data.data) {
                     if (review.shop_id != "") {
                         set_review(review);
                         $(".main_area").show();
-                    }else{
+                    } else {
                         $(".main_area").hide();
                     }
                 }
@@ -76,7 +76,7 @@ $(function () {
         $("#review_list").append(`<div id=${review.id}>`);
         //templateをloadし各種データを埋め込む
         $(`#${review.id}`).load("/view/account/review/main/template.html", async function (myData, myStatus) {
-            $(`#${review.id}`).find("#score").html(review.score);
+            set_star(review.id,review.score);
             $(`#${review.id}`).find("#review").html(review.text.substr(0, 50));
             $(`#${review.id}`).find("#create").html(review.create_time);
             $(`#${review.id}`).find("#update").html(review.update_time);
@@ -89,6 +89,18 @@ $(function () {
         $(`#${review.id}`).on("click", ".delete_btn", function () {
             window.location.href = `/view/account/review/index.php?id=${review.shop_id}`;
         });
+    }
+
+    function set_star(id,score) {
+        for (let i = 1; i < 6; i++) {
+            if (i == score) {
+                $(`#${id}`).find("#rating").append(`<span class="fa fa-star active" data-name="${i}">`);
+            } else if (i < score) {
+                $(`#${id}`).find("#rating").append(`<span class="fa fa-star " data-name="${i}">`);
+            } else {
+                $(`#${id}`).find("#rating").append(`<span class="fa fa-star-o" data-name="${i}">`);
+            }
+        }
     }
 
 });

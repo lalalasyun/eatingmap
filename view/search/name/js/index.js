@@ -1,3 +1,4 @@
+
 $(function () {
     let name = "";
     let shop_data;
@@ -15,20 +16,7 @@ $(function () {
         let pref = params.get('pref');
         let city = params.get('city');
         let price = params.get('price');
-
-        if (name != null) {
-            // session 格納
-            window.sessionStorage.setItem(['name'], [name]);
-            window.sessionStorage.setItem(['pref'], [pref]);
-            window.sessionStorage.setItem(['city'], [city]);
-            window.sessionStorage.setItem(['price'], [price]);
-            window.location.href = `/view/search/name`;
-        } else {
-            name = window.sessionStorage.getItem(['name']);
-            pref = window.sessionStorage.getItem(['pref']);
-            city = window.sessionStorage.getItem(['city']);
-            price = window.sessionStorage.getItem(['price']);
-        }
+        page_index = params.get('code') * 5;
 
         $(".title").next(".box").slideToggle();
 
@@ -39,14 +27,13 @@ $(function () {
             change_pref();
             $('#select-city').val(city);
             $('#price').val(price);
-            get_shop(name);
+            get_shop(name, page_index);
         }, 100);
     });
 
     //onメソッドを使ったkeyupイベント処理
     $("#search_name").keypress(function (e) {
         if (e.keyCode == 13) {
-            page_index = 0;
             name = $("#search_name").val();
             get_shop(name);
         }
@@ -55,14 +42,12 @@ $(function () {
     //細部選択ボタンイベント処理
     $("#search_btn,.title").click(async function () {
         if ($(".box").css('display') == 'block') {
-            page_index = 0
             name = $("#search_name").val();
             get_shop(name);
         }
     });
 
     $('#select-pref,#select-city,#price').change(function () {
-        page_index = 0
         get_shop(name);
     });
 
@@ -72,7 +57,6 @@ $(function () {
 
             set_shop(shop_data);
             $("#prev_btn").prop('disabled', false);
-            console.log(shop_data.length - page_index)
             if (shop_data.length - page_index < 6) {
                 $(this).prop('disabled', true);
             }
@@ -92,21 +76,31 @@ $(function () {
 
 
     async function set_shop(shop_data) {
-        const start = Date.now();
+        screenLock();
         let count = 0;
         $('#shop_list').attr('id', 'shop_list_prev');
         $('#shop_list_prev').after('<div id="shop_list" style="display:none;"></div>');
+        if (page_index > shop_data.length) {
+            page_index = Math.floor(shop_data.length / 5) * 5;
+        }
         for (let i = page_index; i < shop_data.length; i++) {
             let shop = shop_data[i];
             $("#shop_list").append(`<div id=${shop.id} class="shop_data">`);
             //templateをloadし各種データを埋め込む
-            await $(`#${shop.id}`).load("/view/search/genre/main/template.html", async function (myData, myStatus) {
-                $(`#${shop.id}`).find(".shopname").html(shop.name);
-                $(`#${shop.id}`).find(".shopscore").html(shop.score);
-                $(`#${shop.id}`).find(".shopimage").attr('src', `/images/shopImage/${shop.image}`);
-            });
+            await sampleResolve();
+            function sampleResolve() {
+                return new Promise(resolve => {
+                    $(`#shop_list #${shop.id}`).load("/view/search/name/main/template.html", async function (myData, myStatus) {
+                        $(`#shop_list #${shop.id}`).find(".shopname").html(shop.name);
+                        $(`#shop_list #${shop.id}`).find(".shopscore").html(shop.score);
+                        $(`#shop_list #${shop.id}`).find(".shopimage").attr('src', `/images/shopImage/${shop.image}`);
+                        set_star(shop.id, shop.score);
+                        resolve(true);
+                    });
+                })
+            }
             //buttonにshopページへのリンクイベントを付与
-            $(`#${shop.id}`).on("click", ".shopbtn", function () {
+            $(`#shop_list #${shop.id}`).on("click", ".shopbtn", function () {
                 window.location.href = `/shop/${shop.id}`;
             });
             if (count == 4) {
@@ -114,13 +108,17 @@ $(function () {
             }
             count++;
         }
+        if (count < 4) {
+            $("#next_btn").prop('disabled', true);
+        }
         $('#shop_list').show();
         $('#shop_list_prev').remove();
-        console.log(Date.now() - start)
+        delete_dom_obj();
     }
 
-    function get_shop(name) {
-        screenLock();
+    function get_shop(name, page = 0) {
+        change_url();
+        page_index = page;
         let pref = $("#select-pref").find("option").eq(Number($("#select-pref").val())).html();
         let city = $("#select-city").val() != "" ? $("#select-city").find("option").eq(Number($("#select-city").val()) + 1).html() : "市区町村";
         let price = $("#price").val();
@@ -139,19 +137,52 @@ $(function () {
             json['price'] = price;
         }
 
+
+        shop_data = null;
         $.get("https://app.eatingmap.fun/api/shop/search/index.php", json
         ).done(async function (data) {
             shop_data = data;
-            await set_shop(shop_data);
-
             if (shop_data.length < 6) {
                 $("#next_btn").prop('disabled', true);
-                $("#prev_btn").prop('disabled', true);
             } else {
                 $("#next_btn").prop('disabled', false);
             }
-            delete_dom_obj();
+            if (page_index > 4) {
+                $("#prev_btn").prop('disabled', false);
+            }
+            await set_shop(shop_data);
+            $("#search_count").html(shop_data.length);
+
         });
 
     }
+
+    function set_star(id, score) {
+        for (let i = 1; i < 6; i++) {
+            if (i == score) {
+                $(`#shop_list #${id}`).find("#rating").append(`<span class="fa fa-star active" data-name="${i}">`);
+            } else if (i < score) {
+                $(`#shop_list #${id}`).find("#rating").append(`<span class="fa fa-star " data-name="${i}">`);
+            } else {
+                $(`#shop_list #${id}`).find("#rating").append(`<span class="fa fa-star-o" data-name="${i}">`);
+            }
+        }
+    }
+    function change_url() {
+        let name = $("#search_name").val();
+        let pref = $("#select-pref").val();
+        let city = $("#select-city").val();
+        let price = $("#price").val();
+        let code = Math.floor(page_index / 5);
+        const keys = ["name", "pref", "city", "price"]
+        let params = [name, pref, city, price];
+        let url = `/search/name?code=${code}`;
+        for (var i in keys) {
+            if (params[i] != "") {
+                url += `&${keys[i]}=${params[i]}`;
+            }
+        }
+        history.replaceState('', '', url);
+    }
 });
+

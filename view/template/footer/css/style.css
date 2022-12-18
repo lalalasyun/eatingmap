@@ -8,3 +8,8 @@
     color: black;
     text-decoration: underline;
 }
+
+.fixed-bottom{
+    right:0;
+    left: auto;
+}

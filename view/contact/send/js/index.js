@@ -1,5 +1,7 @@
 function viewChange() {
     if (document.getElementById('sample')) {
+        $('#i_shop_name').val("");
+        $('#i_shop_name').attr('readonly',false);
         $("#input_area").find(".box").hide();
         $('#shop_address').removeClass('d-flex');
         id = document.getElementById('sample').value;
@@ -9,14 +11,17 @@ function viewChange() {
             $('#other').show();
         } else if (id == 'del') {
             $('#del').show();
+            $('#select_del').val(0);
         } else if (id == 'add') {
             $('#add').show();
+            $('#select_add').val(0);
         }
     }
-    window.onload = viewChange;
 }
 function add_viewChange() {
     if (document.getElementById('add')) {
+        $('#i_shop_name').val("");
+        $('#i_shop_name').attr('readonly',false);
         $("#input_area").find(".box").hide();
         $('#shop_address').removeClass('d-flex');
         id = document.getElementById('select_add').value;
@@ -31,45 +36,25 @@ function add_viewChange() {
             $('#note').show();
         }
     }
-    window.onload = add_viewChange;
 }
 function del_viewChange() {
     if (document.getElementById('del')) {
+
         $("#input_area").find(".box").hide();
         id = document.getElementById('select_del').value;
         $('#del').show();
         if (id == 'shop') {
+            $('#i_shop_name').val('');
+            $('#i_shop_name').attr('readonly',false);
             $('#shop_name').show();
             $('#note').show();
         } else if (id == 'emp') {
+            if (shop_name) {
+                $('#i_shop_name').val(shop_name);
+                $('#i_shop_name').attr('readonly',true);
+            }
             $('#shop_name').show();
             $('#note').show();
         }
     }
-    window.onload = add_viewChange;
-}
-function geocode() {//緯度経度変換の関数
-    /////住所から緯度経度返還
-    var geocoder;
-    var map;
-    geocoder = new google.maps.Geocoder(); //giocoderの宣言
-
-    var from = document.getElementById("from").value;//変換する住所
-    if (geocoder) {
-        geocoder.geocode({
-            'address': from,
-            'region': 'jp'
-        }, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                for (var r in results) {
-                    if (results[r].geometry) {
-                        var lat_lng = results[r].geometry.location;
-                        lat_lng.lat();//緯度
-                        lat_lng.lng();//経度
-                    }
-                }
-            }
-        });
-    }
-
 }

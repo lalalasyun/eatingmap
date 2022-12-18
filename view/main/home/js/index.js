@@ -1,33 +1,34 @@
-$(function () { 
-    $(document).ready(function () {
-        const id = user_account_id;
-        if (!id) {
-            $('#user_name').html("guest");
-        } else {
-            $.ajax({
-                type: 'get',
-                url: `https://app.eatingmap.fun/user/${id}`,
-            }).done(function (data) {
-                console.log(data)
-                if (data.code) {
-                    $('#user_name').html(data.data.name);
-                } else {
-                    $('#user_name').html("guest");
-                }
-
-            })
-                // Ajaxリクエストが失敗した場合
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                    window.location.href = '/view/error/500';
-                });
-
-        }
-    });
-    $("#search_btn").click(function() {
+$(function () {
+    $("#search_btn").click(function () {
         let name = $("#search_name").val();
         let pref = $("#select-pref").val();
         let city = $("#select-city").val();
-        let price = $("#price").val()
-        window.location.href = `/view/search/name?code=1&name=${name}&pref=${pref}&city=${city}&price=${price}`;
+        let price = $("#price").val();
+        let keys = ["name", "pref", "city", "price"]
+        let params = [name, pref, city, price];
+        let url = "/view/search/name?code=0";
+        for (var i in keys) {
+            if (params[i] != "") {
+                url += `&${keys[i]}=${params[i]}`;
+            }
+        }
+
+        window.location.href = url;
+    });
+
+    $(document).ready(async function () {
+        if(sessionStorage.getItem('recently')){
+            json = JSON.parse(sessionStorage.getItem('recently'));
+            
+            for(let id in json){
+                $("#recently_shop").append(`<div id="${id}"class="shop_div">`);
+                $(`#${id}`).append(`<img class="mx-2" src="/images/shopImage/${json[id].image}" width="80px" height="80px">`)
+                $(`#${id}`).append(`<div>${json[id].name}`)
+                $(`#${id}`).click(function () {
+                    window.location.href = `/shop/${id}`;
+                });
+            }
+            
+        }
     });
 })

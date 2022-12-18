@@ -10,6 +10,9 @@
 
     <script src="/libs/js/load_city/load_city.js"></script>
     <script src="/libs/js/load_city/pref_city.js"></script>
+
+    <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="/libs/js/bootstrap/star-rating.min.js" type="text/javascript"></script>
     
     <script src="/view/search/name/js/index.js"></script>
 

@@ -47,3 +47,11 @@ div p {
 .haikei{
   background-image: url("images/background/banner.jpg");
 }
+
+.fa{
+  font-size:15px;
+  color:gold;
+}
+#rating{
+  font-size:0;
+}

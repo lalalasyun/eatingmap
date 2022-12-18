@@ -83,3 +83,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.fa{
+    font-size:15px;
+    color:gold;
+  }
+  #rating{
+    font-size:0;
+  }
