@@ -11,6 +11,8 @@ require_once dirname(__FILE__) . "/libs/php/Mobile_Detect.php";
 $detect = new Mobile_Detect;
 $isMobile = $detect->isMobile();
 
+
+
 session_start();
 $REQUEST_URI = $_SERVER["REQUEST_URI"];
 if (!isset($page)) {
@@ -26,13 +28,19 @@ if (!isset($_SESSION['account'])) {
 }
 
 
-
+//js用変数
 $USER_DATA = "";
 if ($_SESSION['auth'] && $_SESSION['account'] != "") {
     $USER_DATA = get_userid_user($dbh, $_SESSION['account']);
     echo "<script>let user_account_id = '';user_account_id = '" . $USER_DATA['id'] . "';</script>";
 } else {
     echo "<script>let user_account_id = '';</script>";
+}
+
+if($isMobile){
+    echo "<script>const isMobile = true;</script>";
+}else{
+    echo "<script>const isMobile = false;</script>";
 }
 
 

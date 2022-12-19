@@ -44,18 +44,15 @@ $dbh = con();
             <div>検索結果</div>
             <div id="search_count" class="ms-1 fw-bold"></div>
             <div>件</div>
+            <div id="search_page"></div>
         </div>
         <div id="shop_list">
 
 
         </div>
-        <div class="d-flex justify-content-center w-100 m-3">
-            <div class="me-5">
-                <input type="button" class="btn btn-primary btn-lg" id="prev_btn" name="prev_page" value="前へ">
-            </div>
-            <div class="ms-5">
-                <input type="button" class="btn btn-success btn-lg" id="next_btn" name="next_page" value="次へ">
-            </div>
+        
+        <div class="d-flex justify-content-center w-100 my-3">
+            <ul class="style_pages"></ul>
         </div>
     </div>
 </div>

@@ -1,8 +1,9 @@
-
 $(function () {
     let name = "";
     let shop_data;
-    let page_index = 0;
+    let shop_index = 0;
+    let shop_length = 0;
+    const PAGE = 5;
 
     $(document).ready(function () {
         // URLを取得
@@ -16,8 +17,9 @@ $(function () {
         let pref = params.get('pref');
         let city = params.get('city');
         let price = params.get('price');
-        page_index = params.get('code') * 5;
-
+        if (params.get('p') > 0) {
+            shop_index = (params.get('p') - 1) * PAGE;
+        }
         $(".title").next(".box").slideToggle();
 
         //詳細選択画面に埋め込み
@@ -27,7 +29,7 @@ $(function () {
             change_pref();
             $('#select-city').val(city);
             $('#price').val(price);
-            get_shop(name, page_index);
+            get_shop(name);
         }, 100);
     });
 
@@ -51,39 +53,23 @@ $(function () {
         get_shop(name);
     });
 
-    $("#next_btn").click(async function () {
-        if (shop_data.length > page_index + 5) {
-            page_index += 5;
-
-            set_shop(shop_data);
-            $("#prev_btn").prop('disabled', false);
-            if (shop_data.length - page_index < 6) {
-                $(this).prop('disabled', true);
-            }
-        }
-
-    });
-    $("#prev_btn").click(async function () {
-        if (page_index > 4) {
-            page_index -= 5;
-            set_shop(shop_data);
-            $("#next_btn").prop('disabled', false);
-            if (page_index < 4) {
-                $(this).prop('disabled', true);
-            }
-        }
-    });
-
 
     async function set_shop(shop_data) {
+        let page_index = Math.floor(shop_index / PAGE) + 1;
+        let page_length = Math.floor((shop_length - 1) / PAGE) + 1;
+        $("#search_count").html(shop_length);
+        $("#search_page").html(`(${shop_index}〜${shop_index + PAGE}件)`);
+        set_page_btn(page_index, page_length);
+        set_page_click();
+        change_url();
         screenLock();
         let count = 0;
         $('#shop_list').attr('id', 'shop_list_prev');
         $('#shop_list_prev').after('<div id="shop_list" style="display:none;"></div>');
-        if (page_index > shop_data.length) {
-            page_index = Math.floor(shop_data.length / 5) * 5;
+        if (shop_index > shop_length) {
+            shop_index = Math.floor(shop_length / PAGE) * PAGE;
         }
-        for (let i = page_index; i < shop_data.length; i++) {
+        for (let i = shop_index; i < shop_length; i++) {
             let shop = shop_data[i];
             $("#shop_list").append(`<div id=${shop.id} class="shop_data">`);
             //templateをloadし各種データを埋め込む
@@ -103,22 +89,17 @@ $(function () {
             $(`#shop_list #${shop.id}`).on("click", ".shopbtn", function () {
                 window.location.href = `/shop/${shop.id}`;
             });
-            if (count == 4) {
+            if (count == PAGE - 1) {
                 break;
             }
             count++;
-        }
-        if (count < 4) {
-            $("#next_btn").prop('disabled', true);
         }
         $('#shop_list').show();
         $('#shop_list_prev').remove();
         delete_dom_obj();
     }
 
-    function get_shop(name, page = 0) {
-        change_url();
-        page_index = page;
+    function get_shop(name) {
         let pref = $("#select-pref").find("option").eq(Number($("#select-pref").val())).html();
         let city = $("#select-city").val() != "" ? $("#select-city").find("option").eq(Number($("#select-city").val()) + 1).html() : "市区町村";
         let price = $("#price").val();
@@ -141,18 +122,20 @@ $(function () {
         shop_data = null;
         $.get("https://app.eatingmap.fun/api/shop/search/index.php", json
         ).done(async function (data) {
+            if (!data) {
+                shop_data = [];
+                shop_length = 0;
+                return;
+            }
             shop_data = data;
-            if (shop_data.length < 6) {
-                $("#next_btn").prop('disabled', true);
-            } else {
-                $("#next_btn").prop('disabled', false);
-            }
-            if (page_index > 4) {
-                $("#prev_btn").prop('disabled', false);
-            }
-            await set_shop(shop_data);
-            $("#search_count").html(shop_data.length);
+            shop_length = shop_data.length
 
+            if (shop_index > shop_length) {
+                let index = shop_length - PAGE;
+                shop_index = index > -1 ? index : 0;
+            }
+
+            await set_shop(shop_data);
         });
 
     }
@@ -173,16 +156,48 @@ $(function () {
         let pref = $("#select-pref").val();
         let city = $("#select-city").val();
         let price = $("#price").val();
-        let code = Math.floor(page_index / 5);
+        let code = Math.floor(shop_index / PAGE) + 1;
         const keys = ["name", "pref", "city", "price"]
         let params = [name, pref, city, price];
-        let url = `/search/name?code=${code}`;
+        let url = `/search/name?p=${code}`;
         for (var i in keys) {
             if (params[i] != "") {
                 url += `&${keys[i]}=${params[i]}`;
             }
         }
-        history.replaceState('', '', url);
+        history.pushState('', '', url);
+    }
+
+    function set_page_click() {
+        /* page_button */
+        $(".style_pages li").click(function () {
+            let index = $(this).find('a').data('index');
+            if (index == 'prev') {
+                if (shop_index >= PAGE) {
+                    shop_index -= PAGE;
+                    set_shop(shop_data);
+                }
+                return
+            }
+            if (index == 'next') {
+                if (shop_length > shop_index + PAGE) {
+                    shop_index += PAGE;
+                    set_shop(shop_data);
+                }
+                return
+            }
+            if (index == 'last') {
+                shop_index = Math.floor((shop_length - 1) / PAGE) * PAGE;
+                console.log(shop_index)
+                set_shop(shop_data);
+                return
+            }
+            if (shop_index != index * PAGE) {
+                shop_index = index * PAGE;
+                set_shop(shop_data);
+            }
+
+        })
     }
 });
 

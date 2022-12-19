@@ -1,4 +1,5 @@
 // ロック用関数
+let timer;
 function screenLock() {
     var element = document.createElement('div');
     element.id = "loader";
@@ -12,13 +13,14 @@ function screenLock() {
     element.style.opacity = '0';
     element.style.background = 'gray';
 
-    
+
 
     var objBody = document.getElementsByTagName("body").item(0);
     objBody.appendChild(element);
 
-    
-
+    timer = setTimeout(() => {
+        element.style.cursor = 'wait';
+    }, 500);
 }
 
 // div削除関数
@@ -26,4 +28,5 @@ function delete_dom_obj() {
     var dom_obj = document.getElementById('loader');
     var dom_obj_parent = dom_obj.parentNode;
     dom_obj_parent.removeChild(dom_obj);
+    clearTimeout(timer);
 }
