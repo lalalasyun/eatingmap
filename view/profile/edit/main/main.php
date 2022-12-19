@@ -49,7 +49,7 @@ if(isset($_POST['name']) && isset($_POST['text'])){
 
                     <div class="d-flex justify-content-center m-4">
                         <div class="d-flex">
-                        <button type="button" class="btn btn-dark me-5" style="width:70px" onClick="location.href='/view/account/mypage/'">戻る</button>
+                        <button type="button" class="btn btn-dark me-5" style="width:70px" onClick="History_back()">戻る</button>
                             <input type="submit" class="btn btn-primary ms-5" style="width:70px"></button>
                         </div>
                     </div>

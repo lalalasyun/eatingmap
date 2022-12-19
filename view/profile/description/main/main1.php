@@ -1,6 +1,7 @@
 <?php
 $dbh = con();
 echo '<script>let page_user_id = "'.$USERPAGE_DATA['id'].'";</script>';
+echo '<script>let page_user_account = "'.$USERPAGE_DATA['account'].'";</script>';
 $review_count = get_userid_review_count($dbh, $USERPAGE_DATA['id']);
 ?>
 <div style="background-image:url(/images/background/obentou_frame.jpg)">

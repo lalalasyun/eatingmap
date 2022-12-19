@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" href="/libs/css/bootstrap/bootstrap.min.css">
 <script src="/libs/js/bootstrap/bootstrap.min.js"></script>
+<script src="/libs/js/history.js"></script>
 
 <script src="https://kit.fontawesome.com/2947a18ded.js" crossorigin="anonymous"></script>
 

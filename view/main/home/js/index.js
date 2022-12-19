@@ -17,18 +17,19 @@ $(function () {
     });
 
     $(document).ready(async function () {
-        if(sessionStorage.getItem('recently')){
+        if (sessionStorage.getItem('recently')) {
             json = JSON.parse(sessionStorage.getItem('recently'));
-            
-            for(let id in json){
+
+            for (let id in json) {
                 $("#recently_shop").append(`<div id="${id}"class="shop_div">`);
                 $(`#${id}`).append(`<img class="mx-2" src="/images/shopImage/${json[id].image}" width="80px" height="80px">`)
                 $(`#${id}`).append(`<div>${json[id].name}`)
                 $(`#${id}`).click(function () {
                     window.location.href = `/shop/${id}`;
                 });
+                $(`#${id}`).css('cursor', 'pointer');
             }
-            
+
         }
     });
 })

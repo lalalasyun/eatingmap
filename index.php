@@ -75,16 +75,28 @@ if ($sp_url[1] === "shop") {
 // /user/:id にアクセスが来るとルーティング
 if ($sp_url[1] === "user") {
     $USERPAGE_DATA = get_userid_user($dbh, $sp_url[2]);
-    if ($USERPAGE_DATA !== []) {
+    //なければアカウントで再検索
+    if (!isset($USERPAGE_DATA)) {
+        $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
+    }
+    
+    if (isset($USERPAGE_DATA)) {
         include "view/profile/description/index.php";
         die();
     }
 }
 
+
 // /icon/:id にアクセスが来るとルーティング
 if ($sp_url[1] === "icon") {
     $USERPAGE_DATA = get_userid_user($dbh, $sp_url[2]);
-    if ($USERPAGE_DATA !== []) {
+    //なければアカウントで再検索
+    if (!isset($USERPAGE_DATA)) {
+        $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
+    }
+
+    //アカウントが存在する又は空文字の場合
+    if (isset($USERPAGE_DATA) || $sp_url[2] === "") {
         include "view/avatar/view/index.php";
         die();
     }
@@ -135,7 +147,7 @@ foreach ($MAP as $key) {
 
 
 //ルーティング先が見つからない場合404ページへリダイレクトする
-// header('Location: /error/404');
-// exit;
+header('Location: /error/404');
+exit;
 
 var_dump($REQUEST_URI);

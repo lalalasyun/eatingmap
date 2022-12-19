@@ -22,6 +22,8 @@ $(function () {
     });
 
     $(document).ready(function () {
+        //urlをアカウント名に書き換える
+        history.replaceState('', '', page_user_account);
         get_review(page_user_id, page_index);
         $("#prev_btn").prop("disabled", true);
     });

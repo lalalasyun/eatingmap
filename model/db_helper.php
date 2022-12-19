@@ -27,6 +27,19 @@ function get_userid_user($dbh, $user)
     }
     return $result;
 }
+//ユーザーアカウントでユーザー名を特定
+function get_account_user($dbh, $account)
+{
+    $sql = "SELECT * FROM user WHERE account = :account";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':account', $account, PDO::PARAM_STR);
+    $stmt->execute();
+    $result = null;
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $result = $row;
+    }
+    return $result;
+}
 
 //ユーザーIDのレビュー数
 function get_userid_review_count($dbh, $user)
