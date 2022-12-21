@@ -1,25 +1,33 @@
-.boximg{
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow-y: hidden;
-   background-color: #EEEEEE;
+.boximg {
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #EEEEEE;
 }
 
-.box1{
-    overflow: scroll;
-    overflow-x: hidden;
+.box1 {
+  overflow: scroll;
+  overflow-x: hidden;
 }
+
 .box1::-webkit-scrollbar-thumb {
-    background: #ff8095;
-  }
-  .box2{
-    overflow: scroll;
-    overflow-x: hidden;
-  }
-  .fa{
-    font-size:20px;
-    color:gold;
-  }
-  #rating{
-    font-size:0;
-  }
+  background: #ff8095;
+}
+
+.box2 {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.fa {
+  font-size: 20px;
+  color: gold;
+}
+
+#rating {
+  font-size: 0;
+}
+
+#dir_url {
+  text-decoration:none;
+}

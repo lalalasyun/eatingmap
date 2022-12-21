@@ -18,8 +18,6 @@
     <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
 
     <title>eatingmap</title>
-    <meta name="description" content="飲食店情報サイト【eatingmap】近くのお店から遠いお店まで調べられ一般の方でも
-    申請をすればお店の登録ができる便利なサイトになっております。ぜひご登録下さい！！" />
 </head>
 
 <body>

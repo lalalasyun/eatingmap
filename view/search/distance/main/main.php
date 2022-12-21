@@ -51,3 +51,18 @@ require_once dirname(__FILE__, 5) . "/conf/map_conf.php"
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<?= $KEY; ?>&callback=initMap&v=weekly" defer></script>
 </div>
+<div id="result_list"class="mt-5" style="height:150px;overflow: hidden;"><!--mapに表示されている店を表示 class="slider"-->
+
+<ul>
+  
+          
+
+
+
+
+
+
+                
+  </ul>
+
+</div>

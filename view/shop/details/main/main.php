@@ -138,6 +138,7 @@ if (!$isMobile) {
                     </div>
                 </div>
             </div>
+            <div ><a id="dir_url" href="">Googleマップでルートを表示</a></div>
 
         </div>
         <div class="mt-5 w-100 d-flex">
@@ -181,7 +182,7 @@ if (!$isMobile) {
                     <div class="d-flex justify-content-between mb-4">ユーザー名 : <?= get_userid_user($dbh, $REVIEW['user_id'])['name'] ?></div>
                     <div>
                         <?php
-
+                        
                         $ary_text = mb_str_split($REVIEW['text'], $REVIEW_LENGTH);
                         ?>
 

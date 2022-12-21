@@ -2,14 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/account/setting/css/style.css" />
-    <link rel="stylesheet" href="/libs/css/bootstrap/bootstrap.min.css">
-    <script src="/libs/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/libs/js/jquery/jquery-3.6.0.min.js"></script>
-   
+
 
     <title>アカウント設定</title>
 </head>

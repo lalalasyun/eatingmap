@@ -35,7 +35,7 @@ function initMap() {
       center: mapLatLng, // 地図の中心を指定
       zoom: iti // 地図のズームを指定
     });
-
+    
     // マーカー毎の処理
     markerLatLng = new google.maps.LatLng({
       lat: markerData[0]['lat'],

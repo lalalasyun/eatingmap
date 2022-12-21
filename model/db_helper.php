@@ -299,6 +299,21 @@ function get_shopid_review($dbh, $shop)
 }
 
 //ユーザIDのレビューを検索
+function get_user_review_count($dbh, $user)
+{
+    $sql = "SELECT count(*) as count FROM shop_review WHERE user_id = :user";
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':user', $user, PDO::PARAM_STR);
+
+    $stmt->execute();
+    $result = 0;
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $result = $row["count"];
+    }
+    return $result;
+}
+
 function get_user_review($dbh, $user, $index)
 {
     $offset = $index * 5;

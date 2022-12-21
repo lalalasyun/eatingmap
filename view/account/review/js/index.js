@@ -1,25 +1,7 @@
 $(function () {
     let page_index = 0;
-    $("#next_btn").click(async function () {
-        console.log(page_index)
-        page_index += 1;
-        let res = await get_review(user_account_id, page_index);
-
-        $("#prev_btn").prop("disabled", false);
-        $(this).prop("disabled", !res);
-    });
-    $("#prev_btn").click(async function () {
-        console.log(page_index)
-        if (page_index > 0) {
-            $(this).prop("disabled", page_index == 0);
-            $("#next_btn").prop("disabled", false);
-            page_index -= 1;
-            get_review(user_account_id, page_index);
-        }
-        if (page_index == 0) {
-            $(this).prop("disabled", true);
-        }
-    });
+    let page_length = 0;
+   
 
     $(document).ready(function () {
         get_review(user_account_id, page_index);
@@ -34,6 +16,8 @@ $(function () {
             async: false,
         }).done(async function (data) {
             if (data.code) {
+                page_length = Math.floor(data.count/5);
+                set_page_btn(page_index+1, page_length);
                 $("#review_list").html("");
                 if (data.data.length == 5) {
                     result = true;
@@ -49,7 +33,6 @@ $(function () {
             } else {
                 $('#user_name').html("guest");
             }
-
         })
             // Ajaxリクエストが失敗した場合
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
@@ -73,6 +56,10 @@ $(function () {
     }
 
     function set_review(review) {
+        set_page_btn(page_index+1, page_length+1);
+        set_page_click();
+        
+        console.log(page_index+1, page_length+1)
         $("#review_list").append(`<div id=${review.id}>`);
         //templateをloadし各種データを埋め込む
         $(`#${review.id}`).load("/view/account/review/main/template.html", async function (myData, myStatus) {
@@ -102,5 +89,37 @@ $(function () {
             }
         }
     }
+
+    function set_page_click() {
+        const PAGE = 1;
+        /* page_button */
+        $(".style_pages li").click(function () {
+          let index = $(this).find('a').data('index');
+          if (index == 'prev') {
+            if (page_index >= PAGE) {
+              page_index -= PAGE;
+              get_review(user_account_id, page_index);
+            }
+            return
+          }
+          if (index == 'next') {
+            if (page_length > page_index + PAGE) {
+              page_index += PAGE;
+              get_review(user_account_id, page_index);
+            }
+            return
+          }
+          if (index == 'last') {
+            page_index = Math.floor((page_length - 1) / PAGE) * PAGE;
+            get_review(user_account_id, page_index);
+            return
+          }
+          if (page_index != index * PAGE) {
+            page_index = index * PAGE;
+            get_review(user_account_id, page_index);
+          }
+    
+        })
+      }
 
 });

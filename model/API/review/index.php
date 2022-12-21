@@ -7,6 +7,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/model/db_helper.php';
 if (isset($_GET['id']) && isset($_GET['index'])) {
     $dbh = con();
 
+    $count = get_user_review_count($dbh, $_GET['id']);
     $result = get_user_review($dbh, $_GET['id'], $_GET['index']);
 
     for($i=0;$i<count($result);$i++){
@@ -16,6 +17,7 @@ if (isset($_GET['id']) && isset($_GET['index'])) {
 
     $json = array(
         "code"=>1,
+        "count"=>$count,
         "data"=>$result
     );
     echo json_encode($json);

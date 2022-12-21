@@ -76,7 +76,7 @@ $(function () {
             });
             //buttonにshopページへのリンクイベントを付与
             $(`#${shop.id}`).on("click", "#click_area", function () {
-                del_favorite(shop.id);
+                location.href = `/shop/${shop.id}`;
             });
         }
     }

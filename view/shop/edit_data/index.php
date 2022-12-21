@@ -8,6 +8,10 @@
 
     <script src="/view/shop/edit_data/js/multiple.js"></script>
     <link rel="stylesheet" type="text/css" href="/view/shop/edit_data/css/multiple.css" />
+
+    <script src="/libs/js/jquery/jquery.validate.min.js"></script>
+    <script src="/libs/js/jquery/additional-methods.min.js"></script>
+    <script src="/view/shop/edit_data/js/validate_rules.js"></script>
 </head>
 
 <body>

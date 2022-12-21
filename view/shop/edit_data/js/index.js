@@ -29,7 +29,10 @@ $(function () {
         set_tag_form();
     });
 
-    $(`#submit`).click(function () {
+    $('#submit').on('click', function() {
+        if (!$('#input_area').validate().form()) {
+            return;
+        } 
         let name = $("#name").val();
         let location = $("#location").val();
         let description = $("#description").val();
@@ -60,11 +63,7 @@ $(function () {
             contentType: 'application/json', // リクエストの Content-Type
             dataType: "json"           // レスポンスをJSONとしてパースする
         });
-
-    });
-
-
-
+    })
 });
 async function set_tag_form() {
     const id = $('.tag-form > div').length;

@@ -5,7 +5,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/account/favorite/css/style.css" />
     <script src="/view/account/favorite/js/index.js"></script>
-    <title>メイン画面</title>
+    <title>マイページ画面</title>
 </head>
 
 <body>

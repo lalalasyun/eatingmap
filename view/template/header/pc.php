@@ -9,19 +9,30 @@
                 <?php if (!$_SESSION['auth']) { ?>
                     <?php if (!($page == "register")) { ?>
                         <!--新規登録-->
-                        <button type="button" class="btn btn-primary" onclick="location.href='/view/authority/mail_certification'" style="width:100px;">新規登録</button>
+                        <div class="me-3 mb-2">
+                            <button type="button" class="btn btn-primary" onclick="location.href='/view/authority/mail_certification'" style="width:100px;">新規登録</button>
+                        <?php } ?>
+                        </div>
+
+                        <?php if (!($page == "login")) { ?>
+                            <!--ログイン-->
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-primary" onclick="location.href='/view/authority/login'" style="width:100px;">ログイン</button>
+                            </div>
+                            
+                        <?php } ?>
+                    <?php } else { ?>
+                        <!--ログアウト-->
+                        <div class="headerbtn me-3 mb-2">
+                            <a type="submit"onclick="location.href='?logout=1'">ログアウト</a>
+                        </div>
+                        <div class="headerbtn mb-2">
+                            <!--MyPage-->
+                            <a type="button"  onclick="location.href='/view/account/mypage'">MyPage</a>
+                        </div>
+
                     <?php } ?>
-                    <?php if (!($page == "login")) { ?>
-                        <!--ログイン-->
-                        <button type="button" class="btn btn-primary" onclick="location.href='/view/authority/login'" style="width:100px;">ログイン</button>
-                    <?php } ?>
-                <?php } else { ?>
-                    <!--ログアウト-->
-                    <button type="submit" class="btn btn-primary" onclick="location.href='?logout=1'" style="width:90px;height: 38px;">ログアウト</button>
-                    <!--MyPage-->
-                    <button type="button" class="btn btn-primary" onclick="location.href='/view/account/mypage'" style="width:90px;height: 38px;">MyPage</button>
                 <?php } ?>
-            <?php } ?>
         </div>
     </div>
 </div>

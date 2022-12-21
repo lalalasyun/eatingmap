@@ -1,8 +1,8 @@
 <?php
 $dbh = con();
 $USER_DATA = get_userid_user($dbh, $_SESSION['account']);
-if(isset($_POST['name']) && isset($_POST['text'])){
-    if($USER_DATA['profile'] !== $_POST['text'] || $USER_DATA['name'] !== $_POST['name']){
+if (isset($_POST['name']) && isset($_POST['text'])) {
+    if ($USER_DATA['profile'] !== $_POST['text'] || $USER_DATA['name'] !== $_POST['name']) {
         set_user_prof($dbh, $_SESSION['account'], $_POST['name'], $_POST['text']);
         header("Location: /view/account/mypage/index.php");
         exit();
@@ -35,7 +35,7 @@ if(isset($_POST['name']) && isset($_POST['text'])){
             <div class="<?php if (!$isMobile) {
                             echo "w-75";
                         } ?>">
-                <form id="input_area" action="" method="post">
+                <form id="input_area" action="" method="post" enctype="multipart/form-data">
 
                     <div class="fs-4">
                         <label class="form-label">ニックネーム</label>
@@ -46,10 +46,9 @@ if(isset($_POST['name']) && isset($_POST['text'])){
                         <label class="form-label">自己紹介</label>
                         <textarea class="form-control" name="text"><?= $USER_DATA['profile'] ?></textarea>
                     </div>
-
                     <div class="d-flex justify-content-center m-4">
                         <div class="d-flex">
-                        <button type="button" class="btn btn-dark me-5" style="width:70px" onClick="History_back()">戻る</button>
+                            <button type="button" class="btn btn-dark me-5" style="width:70px" onClick="History_back()">戻る</button>
                             <input type="submit" class="btn btn-primary ms-5" style="width:70px"></button>
                         </div>
                     </div>

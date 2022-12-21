@@ -28,7 +28,7 @@ $(function () {
                                 lat: location.lat,
                                 lng: location.lng
                             });
-                            await new Promise(s => setTimeout(s, 500))
+                        await new Promise(s => setTimeout(s, 500))
                         console.log('登録完了')
                     } else {
                         location = {
@@ -70,6 +70,7 @@ $(function () {
                 center: mapLatLng, // 地図の中心を指定
                 zoom: iti // 地図のズームを指定
             });
+            
 
             hit = [0];
             for (let i = 1; i < markerData.length; i++) {
@@ -78,8 +79,11 @@ $(function () {
                     hit.push(i);
                 }
             }
+            var color='#ff0000';
+            pseudoGCircle(mapLatLng, distance, color); 
 
             infoWindow = [];
+            
             // マーカー毎の処理
             for (var i = 0; i < markerData.length; i++) {
 
@@ -106,13 +110,15 @@ $(function () {
                 }
 
             }
-            function markerEvent(i) {
-                marker[i].addListener('click', function () { // マーカーをクリックしたとき
-                    for (let info of infoWindow) {
-                        info.close();
-                    }
-                    infoWindow[i].open(map, marker[i]); // 吹き出しの表示
 
+             function markerEvent(i) {
+                marker[i].addListener('click',async function () { // マーカーをクリックしたとき
+                    for(let info of infoWindow){
+                        info.close(map,info);
+                    }
+
+                    infoWindow[i].open(map, marker[i]); // 吹き出しの表示
+                    
                     $('#syousai').click(function () {
                         location.href = markerData[i]['url'];
                     });
@@ -128,6 +134,7 @@ $(function () {
         });
 
     });
+    
 
     //2点の緯度、経度から距離を求める関数
     function abc(num1, num2, num3, num4) {
@@ -138,5 +145,21 @@ $(function () {
         num4 *= R;
         return (6371 * Math.acos(Math.cos(num1) * Math.cos(num3) * Math.cos(num4 - num2) + Math.sin(num1) * Math.sin(num3)));
     }
+
+    ///////////////////////////
+    for (var i = 0; i < markerData.length; i++) {
+
+        if (hit.includes(i)) {
+            markerData[i]['name']
+
+        }
+
+    }
+
+
+    /////////////////////////////////
+    
+
+
 
 });

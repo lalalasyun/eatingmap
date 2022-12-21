@@ -1,15 +1,27 @@
 $(function () {
     $(document).ready(async function () {
+        const NOW_TIME = Date.now();
         let data = {
             name: shop.name,
             image: shop.image,
-            id: shop.id
+            id: shop.id,
+            date:NOW_TIME
         };
         let json = {};
-        if(sessionStorage.getItem('recently')){
-            json = JSON.parse(sessionStorage.getItem('recently'));
+
+        if(localStorage.getItem('recently')){
+            json = JSON.parse(localStorage.getItem('recently'));
+            for(let key in json){
+                //86400000 * 7 1週間
+                let diff = NOW_TIME - json[key].date;
+                if(diff > 86400000 * 7){
+                    delete json[key];
+                    console.log(`${key}:del`)
+                }
+            }
         }
+
         json[shop.id] = data;
-        sessionStorage.setItem('recently', JSON.stringify(json));
+        localStorage.setItem('recently', JSON.stringify(json));
     });
 });

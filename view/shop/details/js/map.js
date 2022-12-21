@@ -33,6 +33,10 @@ function initMap() {
       }
     ];
 
+    //経路URLの生成
+    let dir_url = `https://www.google.com/maps/dir/現在地/${shop.lat},${shop.lng}/@${shop.lat},${shop.lng},12z/data=!3m1!4b1!4m9!4m8!1m5!1m1!1s0x6018f5395672a119:0x8604adc834ee0b06!2m2!1d139.6762228!2d35.5993439!1m0!3e3`;
+    $("#dir_url").attr("href", dir_url)
+
     var mapLatLng = new google.maps.LatLng({
       lat: markerData[1]['lat'],
       lng: markerData[1]['lng']
@@ -57,8 +61,6 @@ function initMap() {
         map: map // マーカーを立てる地図を指定
       });
 
-
-
     }
 
     marker[0].setOptions({ // mappin　現在地のマーカーのオプション設定
@@ -70,7 +72,8 @@ function initMap() {
 
     infoWindow[1] = new google.maps.InfoWindow({ // 吹き出しの追加
       content: '<div class="map">' + markerData[1]['name'] + '</div>' +
-        '<a href="' + markerData[1]['url'] + '">' + "詳細" + '</a>'// 吹き出しに表示する内容
+        //'<a href="' + markerData[1]['url'] + '">' + "詳細" + '</a>'// 吹き出しに表示する内容
+        '<a href="' + 'https://www.google.com/maps/place/' +markerData[1]['name']+ '"target="_blank" rel="noopener">' + "google mapへ" + '</a>'// 吹き出しに表示する内容
     });
     markerEvent(1)
 
@@ -100,6 +103,8 @@ function initMap() {
       alert('位置情報の取得に失敗しました。エラーコード：' + error.code);
     }
   }
+
+ 
 
 
 }

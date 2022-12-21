@@ -18,7 +18,7 @@ if (isset($USER_DATA['shop_id'])) {
                                                                         echo "w-75 my-4";
                                                                     } ?>" style="margin:auto;">
     <div class="w-100 mt-3">
-        <div id="input_area">
+        <form id="input_area">
             <div class="form-group form-inline input-group-sm my-3">
                 <span class="col-md-2 text-md-right">店舗名</span>
                 <input type="text" class="form-control col-sm-10" id="name" name="name" value="<?= $SHOP_DATA['name'] ?>" placeholder="店舗名">
@@ -29,7 +29,7 @@ if (isset($USER_DATA['shop_id'])) {
             </div>
             <div class="form-group form-inline input-group-sm my-3">
                 <span class="col-md-2 text-md-right">店舗情報</span>
-                <textarea class="form-control col-sm-10" cols="22" rows="5" id="description" id="description" name="description"  placeholder="店舗情報"><?= $SHOP_DATA['info1'] ?></textarea>
+                <textarea class="form-control col-sm-10" cols="22" rows="5" id="description" name="description" placeholder="店舗情報"><?= $SHOP_DATA['info1'] ?></textarea>
             </div>
             <div class="form-group form-inline input-group-sm my-3">
                 <span class="col-md-2 text-md-right">電話番号</span>
@@ -78,13 +78,14 @@ if (isset($USER_DATA['shop_id'])) {
                     <span class="col-md-2 text-md-right">店舗タグ</span>
                     <button type='button' id="add_btn" class="btn btn-primary btn-sm mx-2 p-1">追加</button>
                 </div>
-                
-                
-            </div>
-            <div class="d-flex justify-content-center my-3">
-                <button id="submit" class="btn btn-info btn-lg mx-2">更新</button>
-            </div>
 
+
+            </div>
+        </form>
+        <div class="d-flex justify-content-center my-3">
+            <button id="submit" class="btn btn-info btn-lg mx-2">更新</button>
         </div>
+
+
     </div>
 </div>

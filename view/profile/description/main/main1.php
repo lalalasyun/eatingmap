@@ -9,7 +9,7 @@ $review_count = get_userid_review_count($dbh, $USERPAGE_DATA['id']);
                                                                                     echo "w-75 my-4";
                                                                                 } ?>" style="background-color:white">
 
-        <div class="w-100 m-3 ">
+        <div class="w-100 m-3">
             <form>
 
                 <div class="u1 user_icon" style="background-image:url(/images/background/b.jpg)">
@@ -70,6 +70,7 @@ $review_count = get_userid_review_count($dbh, $USERPAGE_DATA['id']);
 
                         </div>
                     </div>
+                    
 
                     <div class="d-flex justify-content-center w-100 m-3">
                         <div class="me-5">
