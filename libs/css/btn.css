@@ -1,4 +1,4 @@
-.headerbtn a {
+.search_distance a {
     position: relative;
     display: flex;
     justify-content: space-around;
@@ -10,8 +10,8 @@
     transition: 0.3s ease-in-out;
     font-weight: 600;
 }
-.headerbtn a:before,
-.headerbtn a:after {
+.search_distance a:before,
+.search_distance a:after {
   position: absolute;
   width: 100%;
   height: 3px;
@@ -21,17 +21,17 @@
   background: #000;
 }
 
-.headerbtn a:before {
+.search_distance a:before {
   top: 0;
   left: 0;
 }
 
-.headerbtn a:after {
+.search_distance a:after {
   right: 0;
   bottom: 0;
 }
 
-.headerbtn a:hover:before,
-.headerbtn a:hover:after {
+.search_distance a:hover:before,
+.search_distance a:hover:after {
   width: 0;
 }

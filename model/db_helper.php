@@ -314,10 +314,14 @@ function get_user_review_count($dbh, $user)
     return $result;
 }
 
-function get_user_review($dbh, $user, $index)
+//更新順
+function get_user_review($dbh, $user)
 {
-    $offset = $index * 5;
-    $sql = "SELECT * FROM shop_review WHERE user_id = :user LIMIT " . $offset . ",5";
+    $sql = "SELECT * FROM shop_review AS r 
+    INNER JOIN shop AS s 
+    ON r.shop_id = s.id 
+    WHERE user_id = :user 
+    ORDER BY r.update_time DESC";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);

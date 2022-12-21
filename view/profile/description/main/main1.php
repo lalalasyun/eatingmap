@@ -1,7 +1,7 @@
 <?php
 $dbh = con();
-echo '<script>let page_user_id = "'.$USERPAGE_DATA['id'].'";</script>';
-echo '<script>let page_user_account = "'.$USERPAGE_DATA['account'].'";</script>';
+echo '<script>let page_user_id = "' . $USERPAGE_DATA['id'] . '";</script>';
+echo '<script>let page_user_account = "' . $USERPAGE_DATA['account'] . '";</script>';
 $review_count = get_userid_review_count($dbh, $USERPAGE_DATA['id']);
 ?>
 <div style="background-image:url(/images/background/obentou_frame.jpg)">
@@ -64,21 +64,15 @@ $review_count = get_userid_review_count($dbh, $USERPAGE_DATA['id']);
                     <div class="d-flex justify-content-center">
                         <h1>レビュー一覧</h1>
                     </div>
-                    <div class="container py-2 border rounded main_area" style="display: none;">
+                    <div class="container py-2 border rounded">
 
                         <div id="review_list" class="w-100 m-0">
 
                         </div>
                     </div>
-                    
 
-                    <div class="d-flex justify-content-center w-100 m-3">
-                        <div class="me-5">
-                            <input type="button" class="btn btn-primary btn-lg" id="prev_btn" name="prev_page" value="前へ">
-                        </div>
-                        <div class="ms-5">
-                            <input type="button" class="btn btn-success btn-lg" id="next_btn" name="next_page" value="次へ">
-                        </div>
+                    <div class="d-flex justify-content-center w-100 my-3">
+                        <ul class="style_pages"></ul>
                     </div>
 
                 </div>

@@ -4,11 +4,10 @@ header('Content-Type: application/json; charset=UTF-8');
 
 require $_SERVER['DOCUMENT_ROOT'] . '/model/db_helper.php';
 
-if (isset($_GET['id']) && isset($_GET['index'])) {
+if (isset($_GET['id'])) {
     $dbh = con();
 
-    $count = get_user_review_count($dbh, $_GET['id']);
-    $result = get_user_review($dbh, $_GET['id'], $_GET['index']);
+    $result = get_user_review($dbh, $_GET['id']);
 
     for($i=0;$i<count($result);$i++){
         $result[$i]['user_id'] = (string)$result[$i]['user_id'];
@@ -17,7 +16,7 @@ if (isset($_GET['id']) && isset($_GET['index'])) {
 
     $json = array(
         "code"=>1,
-        "count"=>$count,
+        "count"=>count($result),
         "data"=>$result
     );
     echo json_encode($json);

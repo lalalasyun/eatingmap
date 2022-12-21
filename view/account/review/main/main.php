@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
         <div class="d-flex justify-content-center">
             <h1>履歴</h1>
         </div>
-        <div class="container py-2 border rounded main_area" style="display: none;">
+        <div class="container py-2 border rounded">
 
             <div id="review_list" class="w-100 m-0">
 

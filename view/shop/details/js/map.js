@@ -34,7 +34,7 @@ function initMap() {
     ];
 
     //経路URLの生成
-    let dir_url = `https://www.google.com/maps/dir/現在地/${shop.lat},${shop.lng}/@${shop.lat},${shop.lng},12z/data=!3m1!4b1!4m9!4m8!1m5!1m1!1s0x6018f5395672a119:0x8604adc834ee0b06!2m2!1d139.6762228!2d35.5993439!1m0!3e3`;
+    let dir_url = `https://www.google.com/maps/dir/?api=1&destination=${shop.lat},${shop.lng}`;
     $("#dir_url").attr("href", dir_url)
 
     var mapLatLng = new google.maps.LatLng({
