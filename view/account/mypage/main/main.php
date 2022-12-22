@@ -4,7 +4,7 @@
     <div class="w-100 m-3">
         <div>
             <div class="d-flex justify-content-center mb-5">
-                <h1>MYページ</h1>
+                <h1 class="mozi">my page</h1>
             </div>
 
             <div>

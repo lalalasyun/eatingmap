@@ -53,16 +53,9 @@ require_once dirname(__FILE__, 5) . "/conf/map_conf.php"
 </div>
 <div id="result_list"class="mt-5" style="height:150px;overflow: hidden;"><!--mapに表示されている店を表示 class="slider"-->
 
-<ul>
-  
-          
-
-
-
-
-
-
-                
-  </ul>
+<div class="mt-5" style="height:150px;overflow: hidden;">
+            <ul class="slider" id="list">
+            </ul>
+        </div>
 
 </div>

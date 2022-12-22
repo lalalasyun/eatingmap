@@ -29,7 +29,8 @@ function initMap() {
         name: shop.name,
         lat: parseFloat(shop.lat),
         lng: parseFloat(shop.lng),
-        url:shop.url
+        url:shop.url,
+        icon: '/images/seach_img/nowmark1.PNG'
       }
     ];
 
@@ -69,11 +70,17 @@ function initMap() {
         scaledSize: new google.maps.Size(40, 40)
       }
     });
+    marker[1].setOptions({ // mappin　現在地のマーカーのオプション設定
+      icon: {
+        url: markerData[1]['icon'], // マーカーの画像を変更
+        scaledSize: new google.maps.Size(40, 60)
+      }
+    });
 
     infoWindow[1] = new google.maps.InfoWindow({ // 吹き出しの追加
       content: '<div class="map">' + markerData[1]['name'] + '</div>' +
         //'<a href="' + markerData[1]['url'] + '">' + "詳細" + '</a>'// 吹き出しに表示する内容
-        '<a href="' + 'https://www.google.com/maps/place/' +markerData[1]['name']+ '"target="_blank" rel="noopener">' + "google mapへ" + '</a>'// 吹き出しに表示する内容
+        '<a href="' + `https://www.google.com/maps/dir/?api=1&destination=${shop.lat},${shop.lng}`+ '"target="_blank" rel="noopener">' + "google mapへ" + '</a>'// 吹き出しに表示する内容
     });
     markerEvent(1)
 

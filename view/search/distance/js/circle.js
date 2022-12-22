@@ -9,7 +9,7 @@ function pseudoGCircle(point, radius, color) {//中心地、半径色、
   // π × 赤道半径
   var PI_ER = Math.PI * eradius;
 
-  // 1 - e^2 sin^2 (θ)
+ 
   var TMP = 1 - risin * Math.pow(Math.sin(point.lat() * Math.PI / 180), 2);
 
   // 経度１度あたりの長さ(m)
@@ -17,7 +17,7 @@ function pseudoGCircle(point, radius, color) {//中心地、半径色、
   // π × 赤道半径
   var PI_ER = Math.PI * eradius;
 
-  // 1 - e^2 sin^2 (θ)
+
   var TMP = 1 - risin * Math.pow(Math.sin(point.lat() * Math.PI / 180), 2);
 
   // 経度１度あたりの長さ(m)
@@ -26,7 +26,7 @@ function pseudoGCircle(point, radius, color) {//中心地、半径色、
   // 緯度１度あたりの長さ(m)
   var arc_lng = (PI_ER * Math.cos(point.lat() * Math.PI / 180)) / (180 * Math.pow(TMP, 1 / 2));
 
-  // 半径をｍ単位に
+  // 半径をｍ単位にする
   var r = radius * 1000;
   var weight = 1;
   var opacity = 1.0;

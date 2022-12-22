@@ -9,26 +9,26 @@
                 <?php if (!$_SESSION['auth']) { ?>
                     <?php if (!($page == "register")) { ?>
                         <!--新規登録-->
-                        <div class="me-3 mb-2">
-                            <button type="button" class="btn btn-primary" onclick="location.href='/view/authority/mail_certification'" style="width:100px;">新規登録</button>
+                        <div class="headerbtn2 me-3 mb-2"onclick="location.href='/view/authority/mail_certification'">
+                            <a >新規登録<i class="fa-solid fa-user-pen ms-3"></i></a>
                         <?php } ?>
                         </div>
 
                         <?php if (!($page == "login")) { ?>
                             <!--ログイン-->
-                            <div class="mb-2">
-                                <button type="button" class="btn btn-primary" onclick="location.href='/view/authority/login'" style="width:100px;">ログイン</button>
+                            <div class="headerbtn2 mb-2"onclick="location.href='/view/authority/login'">
+                                <a >ログイン<i class="fa-solid fa-right-to-bracket ms-3"></i></a>
                             </div>
-                            
+
                         <?php } ?>
                     <?php } else { ?>
                         <!--ログアウト-->
-                        <div class="headerbtn me-3 mb-2">
-                            <a type="submit"onclick="location.href='?logout=1'">ログアウト</a>
+                        <div class="headerbtn1 me-3 mb-2"onclick="location.href='?logout=1'">
+                            <a type="submit" >ログアウト<i class="fa-solid fa-right-to-bracket ms-3"></i></a>
                         </div>
-                        <div class="headerbtn mb-2">
+                        <div class="headerbtn1 mb-2"onclick="location.href='/view/account/mypage'">
                             <!--MyPage-->
-                            <a type="button"  onclick="location.href='/view/account/mypage'">MyPage</a>
+                             <a >MyPage<i class="fa-solid fa-user-gear ms-3"></i></a>
                         </div>
 
                     <?php } ?>

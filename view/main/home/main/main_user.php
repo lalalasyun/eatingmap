@@ -91,7 +91,7 @@ $shop_list = get_shop($dbh);
                 <button class="btn btn-info btn-lg" onclick="location.href='/view/search/distance/'">距離検索</button>
             </div>
             <div class="search_genre mx-2">
-                <button class="btn btn-info btn-lg" onclick="location.href='/view/search/genre/'">ジャンルで検索</button>
+                <a onclick="location.href='/view/search/genre/'">ジャンルで検索</a>
             </div>
         </div>
         <p style="background-color:#CCFFFF;">最近見たお店</p>
