@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/view/main/home/css/main.css" />
 
     <script src="/view/main/home/js/index.js"></script>
+    <script src="/view/main/home/js/user_icon.js"></script>
     <script src="/libs/js/load_city/load_city.js"></script>
     <script src="/libs/js/load_city/pref_city.js"></script>
 
@@ -17,7 +17,7 @@
     <script src="/libs/js/accordion.js"></script>
     <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
 
-    <title>eatingmap</title>
+    <title>eatingmap - 飲食店情報サイト</title>
 </head>
 
 <body>
@@ -32,7 +32,6 @@
     <!--初期メイン画面-->
     <div class="main">
         <?php include "main/main_user.php" ?>
-        <!--main_user.phpとmain_owner.phpを切り替える-->
     </div>
 
     <!--フッター-->

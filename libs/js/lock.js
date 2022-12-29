@@ -1,32 +1,19 @@
 // ロック用関数
 let timer;
 function screenLock() {
-    var element = document.createElement('div');
-    element.id = "loader";
-    // ロック用のスタイル
-    element.style.height = '100%';
-    element.style.left = '0px';
-    element.style.position = 'fixed';
-    element.style.top = '0px';
-    element.style.width = '100%';
-    element.style.zIndex = '9999';
-    element.style.opacity = '0';
-    element.style.background = 'gray';
+    var objBody = $("body");
 
-
-
-    var objBody = document.getElementsByTagName("body").item(0);
-    objBody.appendChild(element);
+    var element = $('<div id="loader"></div>');
+    
+    objBody.append(element);
 
     timer = setTimeout(() => {
-        element.style.cursor = 'wait';
+        element.append('<div class="loader"></div>');
     }, 500);
 }
 
 // div削除関数
 function delete_dom_obj() {
-    var dom_obj = document.getElementById('loader');
-    var dom_obj_parent = dom_obj.parentNode;
-    dom_obj_parent.removeChild(dom_obj);
+    $('#loader').remove();
     clearTimeout(timer);
 }

@@ -12,7 +12,7 @@
 
     <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
     
-    <title>店舗詳細</title>
+    <title><?= $SHOP_DATA["name"] ?> - eatingmap</title>
 </head>
 
 <body>

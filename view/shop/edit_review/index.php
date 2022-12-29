@@ -7,6 +7,11 @@
     <script src="/libs/js/bootstrap/star-rating.min.js" type="text/javascript"></script>
     <script src="/view/shop/edit_review/js/index.js"></script>
     <link rel="stylesheet" type="text/css" href="/view/shop/edit_review/css/style.css" />
+    
+    <script src="/libs/js/jquery/jquery.validate.min.js"></script>
+    <script src="/libs/js/jquery/additional-methods.min.js"></script>
+    <script src="/view/shop/edit_review/js/validate_rules.js"></script>
+    
     <title>レビュー編集</title>
 </head>
 

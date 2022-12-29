@@ -462,7 +462,7 @@ function del_shop_favorite($dbh, $user, $shop)
 //ユーザ別お気に入り確認
 function get_shop_favorite_list($dbh, $user)
 {
-    $sql = "SELECT s.id,name,f.create_time FROM shop_favorite as f INNER JOIN shop as s ON f.shop_id = s.id WHERE user_id = :user";
+    $sql = "SELECT s.id,name,f.create_time FROM shop_favorite as f INNER JOIN shop as s ON f.shop_id = s.id WHERE user_id = :user  ORDER BY f.create_time ASC";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
@@ -499,7 +499,7 @@ function is_user_shop_favorite($dbh, $user, $shop)
 //店舗検索(降順)
 function search_shop($dbh, $name, $genre, $pref, $city, $price)
 {
-    $name_sql = " name LIKE :name ";
+    $name_sql = " (name LIKE :name OR info1 LIKE :name) ";
     $genre_sql = " category_id = :genre ";
 
     $pref_sql = " location1 LIKE :pref ";
@@ -569,17 +569,18 @@ function set_geocode($dbh, $user, $lat, $lng)
 }
 
 //お問い合わせフォーム
-function send_ask_form($dbh, $user, $user_name, $content)
+function send_ask_form($dbh, $user, $user_name, $content,$mail)
 {
     $code = str_pad(random_int(0, 999999999999999999), 18, 0, STR_PAD_LEFT);
-    $sql = "INSERT INTO application (id, type,name, content, user_id, status, user_name) 
-    VALUES (:id, '3', '質問', :content,:user, '0', :user_name)";
+    $sql = "INSERT INTO application (id, type,name, content, user_id, status, user_name,mail) 
+    VALUES (:id, '3', '質問', :content,:user, '0', :user_name,:mail)";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':id', $code, PDO::PARAM_STR);
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
     $stmt->bindValue(':content', $content, PDO::PARAM_STR);
     $stmt->bindValue(':user_name', $user_name, PDO::PARAM_STR);
+    $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 
     $stmt->execute();
 }
@@ -651,17 +652,18 @@ function send_add_emp_form($dbh, $user, $content, $shop_name, $user_name, $phone
     $stmt->execute();
 }
 
-function send_other_form($dbh, $user, $user_name, $content)
+function send_other_form($dbh, $user, $user_name, $content,$mail)
 {
     $code = str_pad(random_int(0, 999999999999999999), 18, 0, STR_PAD_LEFT);
-    $sql = "INSERT INTO application (id, type, name, content, user_id,status, user_name) 
-    VALUES (:id, '4', 'その他', :content,:user, '0', :user_name);";
+    $sql = "INSERT INTO application (id, type, name, content, user_id,status, user_name,mail) 
+    VALUES (:id, '4', 'その他', :content,:user, '0', :user_name,:mail);";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':id', $code, PDO::PARAM_STR);
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
     $stmt->bindValue(':content', $content, PDO::PARAM_STR);
     $stmt->bindValue(':user_name', $user_name, PDO::PARAM_STR);
+    $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 
     $stmt->execute();
 }

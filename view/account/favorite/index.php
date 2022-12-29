@@ -5,7 +5,14 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/account/favorite/css/style.css" />
     <script src="/view/account/favorite/js/index.js"></script>
-    <title>マイページ画面</title>
+
+    <script src="/libs/js/lock.js"></script>
+    <link rel="stylesheet" type="text/css" href="/libs/css/loader.css" />
+    
+    <link rel="stylesheet" type="text/css" href="/libs/css/page_button.css" />
+    <script src="/libs/js/page_btn.js" defer></script>
+
+    <title>マイページ</title>
 </head>
 
 <body>

@@ -36,8 +36,7 @@ function initMap() {
 
     //経路URLの生成
     let dir_url = `https://www.google.com/maps/dir/?api=1&destination=${shop.lat},${shop.lng}`;
-    $("#dir_url").attr("href", dir_url)
-
+    $("#dir_url").append(`<a href="${dir_url}"target="_blank" rel="noopener">Googleマップでルートを表示</a>`);
     var mapLatLng = new google.maps.LatLng({
       lat: markerData[1]['lat'],
       lng: markerData[1]['lng']

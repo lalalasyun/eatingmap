@@ -115,6 +115,7 @@ $(function () {
         /* page_button */
         $(".style_pages li").click(function () {
             let index = $(this).find('a').data('index');
+            if(index == null) return;
             if (index == 'prev') {
                 if (review_index >= PAGE) {
                     review_index -= PAGE;

@@ -94,22 +94,21 @@ $(function () {
         $(document).on('click', '.selectMultiple > div .arrow, .selectMultiple > div span', function (e) {
             $(this).parent().parent().toggleClass('open');
         });
-
     });
 });
 function get_val(){
     let tags = [];
-    for(let i=0;i<$('.tag-form > div').length;i++){
-        let name = $(`#${i} #tag_select`).val();
+    $(`.tag_form`).each(function(i) {
+        let name = $(this).find('#tag_select').val();
         let val = [];
-        $(`#${i} .selectMultiple`).find('em').each(function(i, elem) {
+        $(this).find(`.selectMultiple`).find('em').each(function(i, elem) {
             val.push($(elem).text());
         });
         tags.push({
             name:name,
             tags:JSON.stringify(val)
         });
-    }
+      });
     
     return tags;
 }

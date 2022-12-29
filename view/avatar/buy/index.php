@@ -1,7 +1,3 @@
-<?php
-$page = explode("/", __DIR__)[count(explode("/", __DIR__)) - 1];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

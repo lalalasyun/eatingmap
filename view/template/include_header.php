@@ -1,6 +1,6 @@
+<?php
+$this_page = explode("/", $page)[1];
 
-
-<?php 
 if(isset($_GET['logout']) && $_GET['logout'] == 1){
     $_SESSION['account'] = "";
     $_SESSION['auth'] = false;

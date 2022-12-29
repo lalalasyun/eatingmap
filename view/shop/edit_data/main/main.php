@@ -75,14 +75,15 @@ if (isset($USER_DATA['shop_id'])) {
             </div>
             <div class="form-group form-inline input-group-sm my-3 tag-form">
                 <div class="d-flex my-2">
-                    <span class="col-md-2 text-md-right">店舗タグ</span>
-                    <button type='button' id="add_btn" class="btn btn-primary btn-sm mx-2 p-1">追加</button>
+                    <span class="my-auto text-md-right">店舗タグ</span>
+                    <i id="add_btn" class="btn fa-solid fa-plus" title="タグを追加"></i>
                 </div>
 
 
             </div>
         </form>
         <div class="d-flex justify-content-center my-3">
+            <button class="btn btn-info btn-lg mx-2" onclick="History_back();">戻る</button>
             <button id="submit" class="btn btn-info btn-lg mx-2">更新</button>
         </div>
 

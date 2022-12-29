@@ -47,9 +47,17 @@ img{
     overflow: hidden;
     transform: scale(1);
     transform-origin: 0px 0px;
+    cursor: pointer;
 }
 
 html{
     width: 100px;
     height: 100px;
+}
+
+.mask{
+    position:absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 9999;
 }

@@ -1,4 +1,4 @@
-function pseudoGCircle(point, radius, color) {//中心地、半径色、
+function pseudoGCircle(map,point, radius, color) {//中心地、半径色、
   var tex = 360;               // 頂点の数
   var eradius = 6378137; // 赤道半径 
   var ougi = 298.257223563;          // 扁平率の逆数

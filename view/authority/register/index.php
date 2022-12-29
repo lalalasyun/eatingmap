@@ -1,5 +1,4 @@
 <?php
-$page = "mail";
 
 if (isset($_POST["submit"]) && $_POST["submit"] == "click") {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/conf/spring_conf.php';

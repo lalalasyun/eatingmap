@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <?php
 //phpエラー表示用
 ini_set('display_errors', "On");
+
 
 //各変数の初期化
 require 'model/db_helper.php';

@@ -1,16 +1,14 @@
 <ul class="list-group list-group-horizontal">
     <li class="list-group-item mb-4 w-100">
-        <div id="click_area" class="fs-2 border-bottom d-flex justify-content-between">
-            <p>店名</p>
-            <p id="shopname"></p>
-            <div></div>
+        <div id="click_area" class="fs-5 border-bottom" >
+            <p id="shopname" style="text-overflow: ellipsis;cursor: pointer;" title="店舗ページへ"></p>
         </div>
         <div id="date"></div>
 
     </li>
-    <li class="list-group-item mb-4">
+    <li class="list-group-item mb-4 p-0">
         <div class="d-flex align-items-center h-100">
-            <button id="del_btn" type="button" class="btn btn-danger " style="width:70px">削除</button>
+            <div id="del_btn" class="btn"><i class="p-0 btn fa-solid fa-trash-can" title="お気に入りから削除"></i></div>
         </div>
     </li>
 </ul>

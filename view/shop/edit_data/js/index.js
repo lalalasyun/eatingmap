@@ -26,13 +26,19 @@ $(function () {
         console.log(ary);
     });
     $(`#add_btn`).click(function () {
+        $(".selectMultiple > div .arrow, .selectMultiple > div span").parent().parent().removeClass('open');
+        let tags = get_val();
+        if (tags.slice(-1)[0] && tags.slice(-1)[0].tags == '[]') {
+            return;
+        }
+        if(tags.length == TAG_DATA.length) return;
         set_tag_form();
     });
 
-    $('#submit').on('click', function() {
+    $('#submit').on('click', function () {
         if (!$('#input_area').validate().form()) {
             return;
-        } 
+        }
         let name = $("#name").val();
         let location = $("#location").val();
         let description = $("#description").val();
@@ -66,10 +72,19 @@ $(function () {
     })
 });
 async function set_tag_form() {
-    const id = $('.tag-form > div').length;
-    $('.tag-form').append(`<div id="${id}" class="d-flex">`);
+    const id = Date.now();
+    $('.tag-form').append(`<div id="${id}" class="d-flex tag_form">`);
     await $(`#${id}`).load('/view/shop/edit_data/main/template.html', function (myData, myStatus) {
+        let tags = get_val();
         for (let tag of TAG_DATA) {
+            const isTagSet = (name) => {
+                for (let value of tags) {
+                    if (value.name == name) {
+                        return true;
+                    }
+                }
+            }
+            if(isTagSet(tag.name)) continue;
             $(`#${id} #tag_select`).append(`<option value="${tag.name}" data-value='${tag.value}'>${tag.name}</option>`);
         }
         $(`#${id} #del_btn`).click(function () {

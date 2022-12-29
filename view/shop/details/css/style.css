@@ -6,8 +6,7 @@
 }
 
 .box1 {
-  overflow: scroll;
-  overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 .box1::-webkit-scrollbar-thumb {

@@ -4,7 +4,7 @@
 <head>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/search/name/css/style.css" />
-    <title>名前検索</title>
+    <title>eatingmap - 名前検索</title>
 
     <script src="/libs/js/load_city/load_city.js"></script>
     <script src="/libs/js/load_city/pref_city.js"></script>
@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
 
     <script src="/libs/js/lock.js"></script>
+    <link rel="stylesheet" type="text/css" href="/libs/css/loader.css" />
 
 
     <?php if($isMobile){ ?>

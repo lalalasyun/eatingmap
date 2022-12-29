@@ -1,13 +1,10 @@
-<?php
-$dbh = con();
-?>
 <div class="container border rounded d-flex justify-content-center <?php if (!$isMobile) {
                                                                         echo "w-75 my-4";
                                                                     } ?>" style="margin:auto;">
     <div class="w-100 m-3">
 
         <div class="input-group mb-3 d-flex">
-            <input id="search_name" type="text" class="form-control-lg w-75" placeholder="店名を入力">
+            <input id="search_name" type="text" class="form-control-lg w-75" placeholder="店舗名またはキーワードを入力">
             <button class="btn btn-success" type="button" id="search_btn"><i class="fas fa-search"></i> 検索</button>
         </div>
         <div class="accordion-area mx-0">

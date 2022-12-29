@@ -30,13 +30,13 @@ $(function () {
                     continue;
                 }
 
-                $("#recently_shop").append(`<div id="${key}"class="shop_div">`);
-                $(`#${key}`).append(`<img class="mx-2" src="/images/shopImage/${json[key].image}" width="80px" height="80px">`)
-                $(`#${key}`).append(`<div>${json[key].name}`)
-                $(`#${key}`).click(function () {
+                $("#recently_shop").append(`<div id="${key}"class="shop_div" title="${json[key].name}">`);
+                $(`#${key}`).append(`<img class="mx-2" src="/images/shopImage/${json[key].image}" width="80px" height="80px" loading="lazy" alt="recently">`)
+                $(`#${key}`).append(`<div class="recent_shop_name">${json[key].name}`)
+                $(`#${key} img`).click(function () {
                     window.location.href = `/shop/${key}`;
                 });
-                $(`#${key}`).css('cursor', 'pointer');
+                $(`#${key} img`).css('cursor', 'pointer');
             }
 
         }

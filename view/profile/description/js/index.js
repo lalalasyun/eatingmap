@@ -15,7 +15,7 @@ $(function () {
         if (params.get('p') > 0) {
             review_index = (params.get('p') - 1) * PAGE;
         }
-        get_review(user_account_id);
+        get_review(page_user_id);
     });
 
     async function get_review(user) {
@@ -110,6 +110,7 @@ $(function () {
         /* page_button */
         $(".style_pages li").click(function () {
             let index = $(this).find('a').data('index');
+            if(index == null) return;
             if (index == 'prev') {
                 if (review_index >= PAGE) {
                     review_index -= PAGE;

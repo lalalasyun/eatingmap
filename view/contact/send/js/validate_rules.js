@@ -5,6 +5,10 @@ $(function() {
             shop_name: {
                 required: true,
             },
+            user_mail:{
+                required: true,
+                pattern: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/i,
+            },
             phone: {
                 required: true,
                 pattern: /^\d{2,4}-?\d{2,4}-?\d{3,4}$/i
@@ -29,6 +33,10 @@ $(function() {
         messages: {
             shop_name: {
                 required: 'これは必須項目です！',
+            },
+            user_mail:{
+                required: 'これは必須項目です！',
+                pattern: 'メールアドレスが正しくありません',
             },
             phone: {
                 required: 'これは必須項目です！',

@@ -8,7 +8,8 @@ $data = get_category($dbh);
     <div class="w-100 m-3">
         <div class="sel sel--black-panther m-0">
             <select name="select-profession" id="select-profession">
-                <option value="" disabled>ジャンルを選択</option>
+                <option value="">ジャンルを選択</option>
+                <option value="">すべて</option>
                 <?php foreach ($data as list($id, $name)) { ?>
                     <option value="<?= $id ?>"><?= $name ?></option>
                 <?php } ?>

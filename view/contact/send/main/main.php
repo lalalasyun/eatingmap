@@ -1,37 +1,4 @@
-<?php
-$json = "";
-if (isset($_POST['name'])) {
-    $dbh = con();
-    $req =  $_POST['select1'];
-    $del =  $_POST['select2'];
-    $add =  $_POST['select3'];
-    $data = null;
-    $user_id = "0";
-    if(isset($USER_DATA['id'])){
-        $user_id = $USER_DATA['id'];
-    }
-    if ($req == "question") {
-        send_ask_form($dbh,$user_id,$_POST['name'],$_POST['question']);
-    }
-    if ($req == "del" && $del == "shop") {
-        send_del_shop_form($dbh,$user_id,$_POST['note'],$_POST['shop_name'],$_POST['name']);
-    }
-    if ($req == "del" && $del == "emp") {
-        send_del_emp_form($dbh,$user_id,$_POST['note'],$_POST['shop_id'],$_POST['shop_name'],$_POST['name']);
-    }
-    if ($req == "add" && $add == "shop") {
-        send_add_shop_form($dbh,$user_id,$_POST['note'],$_POST['shop_name'],$_POST['name'],$_POST['shop_address']);
-    }
-    if ($req == "add" && $add == "emp") {
-        send_add_emp_form($dbh,$user_id,$_POST['note'],$_POST['shop_name'],$_POST['name'],$_POST['phone']);
-    }
-    if ($req == "other") {
-        send_other_form($dbh,$user_id,$_POST['name'],$_POST['message']);
-    }
 
-    header('Location: /view/contact/send');
-}
-?>
 <script>
     let shop_id = null;
     <?php if (isset($USER_DATA['shop_id']) && $USER_DATA['shop_id']) { ?>
@@ -55,6 +22,10 @@ if (isset($_POST['name'])) {
                     <option value="add">登録申請</option>
                     <option value="other">その他</option>
                 </select>
+            </div>
+
+            <div class="mb-3 box" id="mail">
+                <input type="text" class="form-control w-100" name="user_mail" id="user_mail" placeholder="メールアドレス">
             </div>
 
             <div class="mb-4 box" id="question">

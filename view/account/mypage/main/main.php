@@ -1,10 +1,11 @@
 <div class="container border rounded d-flex justify-content-center <?php if (!$isMobile) {
                                                                         echo "w-75 my-4";
                                                                     } ?>" style="margin:auto;">
+
     <div class="w-100 m-3">
         <div>
             <div class="d-flex justify-content-center mb-5">
-                <h1 class="mozi">my page</h1>
+                <h1 class="mozi user-select-none">my page</h1>
             </div>
 
             <div>
@@ -16,24 +17,25 @@
                         <div class="mb-5">
                             <div class="d-flex mb-0">
                                 <div class="user_icon">
-                                    <iframe src="/icon/<?= $_SESSION['account'] ?>"></iframe>
+                                    <iframe src="/icon/<?= $_SESSION['account'] ?>" width='100px' height='100px' loading="lazy" style='pointer-events: none;'></iframe>
                                     <script>
                                         $(".user_icon").click(function() {
                                             window.location.href = `/user/<?= $_SESSION['account'] ?>`;
                                         });
+                                        $('.user_icon').hover(
+                                            function() {
+                                                $(this).css('cursor', 'pointer');
+                                            },
+                                            function() {
+                                                $(this).css('cursor', 'none');
+                                            }
+                                        );
                                     </script>
-                                    <style>
-                                        .user_icon iframe {
-                                            width: 100px;
-                                            height: 100px;
-                                            pointer-events: none;
-                                        }
-                                    </style>
                                 </div>
                                 <div>
                                     <div class="d-flex px-3 pt-3 pb-1">
                                         <div id="user_name" class="py-0">
-                                            ユーザネーム
+                                            <?= $USER_DATA['name'] ?>
                                         </div>
                                         <div class="px-2 py-0">
                                             さん
@@ -42,14 +44,14 @@
                                     <div class="d-flex align-items-end pt-4">
                                         <div class="p-3 py-0 pe-0">ポイント残高</div>
                                         <div class="p-3 py-0 px-1">:</div>
-                                        <div class="p-3 py-0 px-0" id="user_point">0</div>
+                                        <div class="p-3 py-0 px-0" id="user_point"><?= $USER_DATA['point'] ?></div>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="mt-0 p-0">
-                                <a href="/view/avatar/change/" style="text-decoration: none;">
-                                    <p class="px-2">アバター変更</p>
+                                <a href="/view/avatar/change/" class="px-2">
+                                    アバター変更
                                 </a>
                             </div>
 
@@ -69,15 +71,15 @@
             </div>
 
             <div>
-                <div class="d-flex justify-content-around py-3">
-                    <button type="button" class="btn btn-primary" style="width:150px;height:50px" onclick="location.href='/view/account/favorite/index.php'">お気に入り</button>
-                    <button type="button" class="btn btn-primary" style="width:150px;height:50px" onclick="location.href='/view/account/review/index.php'">レビュー履歴</button>
+                <div class="button_line001 d-flex justify-content-around py-3">
+                    <a href="#" class="button_line001" style="width:160px;height:50px" onclick="location.href='/view/account/favorite/index.php'">お気に入り</a>
+                    <a href="#" class="button_line001" style="width:160px;height:50px" onclick="location.href='/view/account/review/index.php'">レビュー履歴</a>
 
                 </div>
 
-                <div class="d-flex justify-content-around py-3">
-                    <button type="button" class="btn btn-primary" style="width:150px;height:50px" onclick="location.href='/view/avatar/buy/index.php'">アバター購入</button>
-                    <button type="button" class="btn btn-primary " style="width:150px;height:50px" onclick="location.href='/view/profile/edit/'">プロフィール編集</button>
+                <div class="button_line001 d-flex justify-content-around py-3">
+                    <a href="#" class="button_line001" style="width:160px;height:50px" onclick="location.href='/view/avatar/buy/index.php'">アバター購入</a>
+                    <a href="#" class="button_line001 " style="width:160px;height: 50px" onclick="location.href='/view/profile/edit/'">プロフィール編集</a>
 
                 </div>
             </div>

@@ -13,9 +13,10 @@ $_SESSION['prev_page'] = "/search/distance";
     <script src="/libs/js/geolocation.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://cdn.geolonia.com/community-geocoder.js"></script>
-    
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" >
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Swash:700 "rel="stylesheet">
    
-    <title>距離検索</title>
+    <title>eatingmap - 距離検索</title>
 </head>
 
 <body>

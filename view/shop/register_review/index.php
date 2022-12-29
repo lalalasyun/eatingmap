@@ -9,6 +9,11 @@
     <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
     <script src="/libs/js/bootstrap/star-rating.min.js" type="text/javascript"></script>
     <script src="/view/shop/register_review/js/index.js"></script>
+
+    <script src="/libs/js/jquery/jquery.validate.min.js"></script>
+    <script src="/libs/js/jquery/additional-methods.min.js"></script>
+    <script src="/view/shop/register_review/js/validate_rules.js"></script>
+
     <title>レビュー登録</title>
 </head>
 

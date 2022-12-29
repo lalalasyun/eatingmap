@@ -1,6 +1,5 @@
 <?php
 //現在のページの名前を取得
-$page = "mail";
 ?>
 <!DOCTYPE html>
 <html lang="en">

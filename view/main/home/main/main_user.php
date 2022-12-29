@@ -8,22 +8,8 @@ $shop_list = get_shop($dbh);
     <div class="w-100 m-3">
         <div class="d-flex mb-5">
 
-            <div class="user_icon">
-                <iframe src="/icon/<?= $_SESSION['account'] ?>"></iframe>
-                <script>
-                    $(".user_icon").click(function() {
-                        if (user_account_id) {
-                            window.location.href = `/user/${user_account_id}`;
-                        }
-                    });
-                </script>
-                <style>
-                    .user_icon iframe {
-                        width: 100px;
-                        height: 100px;
-                        pointer-events: none;
-                    }
-                </style>
+            <div class="user_icon ">
+                <iframe src="/icon/<?= $_SESSION['account'] ?>" width="100px" height="100px" loading="lazy" style="pointer-events: none;"title="アイコン"></iframe>
             </div>
 
 
@@ -42,7 +28,7 @@ $shop_list = get_shop($dbh);
                 </div>
                 <?php if (isset($USER_DATA['shop_id'])) { ?>
                     <div class="p-3">
-                        <button class="btn btn-info btn-sm p-0" onclick="location.href='/view/shop/edit_data/index.php'">店舗情報更新</button>
+                        <button class="btn btn-info btn-sm p-0"><a id='shop_updata'href='/view/shop/edit_data/index.php'>店舗情報更新</a></button>
                     </div>
                 <?php } ?>
             </div>
@@ -61,24 +47,24 @@ $shop_list = get_shop($dbh);
                     <div class="box">
                         <div class="d-flex">
                             <div class="search_prefectures">
-                                <select id="select-pref" class="form-select form-select w-100">
+                                <select id="select-pref" class="form-select w-100">
                                     <option value="">都道府県</option>
                                 </select>
                             </div>
                             <div class="search_municipalities mx-1">
-                                <select id="select-city" class="form-select form-select w-100">
+                                <select id="select-city" class="form-select w-100">
                                     <option value="">市区町村</option>
                                 </select>
                             </div>
                             <div class="ms-3">
-                                <select id="price" class="form-select form-select w-100">
+                                <select id="price" class="form-select w-100">
                                     <option value="">予算</option>
-                                    <option value="1500">1000円以下</option>
+                                    <option value="1500">1000円</option>
                                     <option value="1500">1500円</option>
                                     <option value="3000">3000円</option>
                                     <option value="5000">5000円</option>
                                     <option value="10000">10000円</option>
-                                    <option value="100000">10000円以上</option>
+                                    <option value="50000">50000円</option>
                                 </select>
                             </div>
                         </div>
@@ -87,25 +73,26 @@ $shop_list = get_shop($dbh);
             </div>
         </div>
         <div class="d-flex mb-4">
-            <div class="search_distance mx-2">
-                <button class="btn btn-info btn-lg" onclick="location.href='/view/search/distance/'">距離検索</button>
+            <div class="search_btn mx-2">
+                <a href="/view/search/distance/"><i class="fa-solid fa-location-dot me-2"></i>距離検索</a>
             </div>
-            <div class="search_genre mx-2">
-                <a onclick="location.href='/view/search/genre/'">ジャンルで検索</a>
+            <div class="search_btn mx-2">
+                <a href='/view/search/genre/'><i class="fa-solid fa-list me-2"></i>ジャンル検索</a>
             </div>
         </div>
         <p style="background-color:#CCFFFF;">最近見たお店</p>
-        <div id="recently_shop" class="d-flex border border-dark rounded px-3 pt-3 pb-5 " style="overflow-y: hidden;">
-            
+        <div id="recently_shop" class="user-select-none d-flex border border-dark rounded px-3 pt-3 pb-5 ">
+
         </div>
+        <p class="mt-3" style="background-color:#CCFFFF;">オススメのお店</p>
         <div class="mt-5" style="height:150px;overflow: hidden;">
             <ul class="slider">
-                <?php for ($i = 0; $i < 5; $i++) { ?>
+                <?php for ($i = 0; $i < 10; $i++) { ?>
                     <?php $shop = $shop_list[$i] ?>
                     <?php if (isset($shop['image'])) { ?>
                         <li title="<?= $shop['name'] ?>">
                             <a href="/shop/<?= $shop['id'] ?>">
-                                <img src="/images/shopImage/<?= $shop['image'] ?>">
+                                <img src="/images/shopImage/<?= $shop['image'] ?>" loading="lazy" width="200px" height="auto" alt="recommend">
                             </a>
                         </li>
                     <?php } ?>

@@ -54,7 +54,7 @@ if ($is_change) {
                         <div class="d-flex justify-content-around">
                             <h1>🎩選択</h1>
                         </div>
-                        <div class="overflow-div">
+                        <div class="overflow-div scrollbar1">
                             <?php for ($i = 0; $i < count($heads); $i++) {  ?><label>
                                     <input type="radio" name="radio1" value="<?= $i; ?>" class="radio" <?= $heads[$i]['is_set_avatar'] == "1" ? "checked" : "" ?>>
                                     <img src="<?= $HEAD_PATH . $heads[$i]['image']; ?> " width="300px" height="450px" class="radio_image" title="<?= $heads[$i]['name']; ?>">
@@ -68,7 +68,7 @@ if ($is_change) {
                         <div class="d-flex justify-content-around">
                             <h1>服選択</h1>
                         </div>
-                        <div class="overflow-div">
+                        <div class="overflow-div scrollbar1">
                             <?php for ($i = 0; $i < count($clothes); $i++) {  ?>
                                 <label>
                                     <input type="radio" name="radio2" value="<?= $i; ?>" class="radio" <?= $clothes[$i]['is_set_avatar'] ? "checked" : "" ?>>
@@ -82,7 +82,7 @@ if ($is_change) {
                         <div class="d-flex justify-content-around">
                             <h1>背景選択</h1>
                         </div>
-                        <div class="overflow-div">
+                        <div class="overflow-div scrollbar1">
                             <?php for ($i = 0; $i < count($backs); $i++) {  ?>
                                 <label>
                                     <input type="radio" name="radio3" value="<?= $i; ?>" class="radio" <?= $backs[$i]['is_set_avatar'] ? "checked" : "" ?>>

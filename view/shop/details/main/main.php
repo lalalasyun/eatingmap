@@ -3,6 +3,7 @@ $dbh = con();
 $REVIEW_DATA = get_shopid_review($dbh, $SHOP_DATA["id"]);
 $TAG_DATA  = get_shop_tag($dbh, $SHOP_DATA["id"]);
 
+
 if (!$isMobile) {
     $REVIEW_LENGTH = 50;
 } else {
@@ -42,7 +43,7 @@ if (!$isMobile) {
             <div class="boximg border border-dark rounded p-3 w-100">
                 <div style="max-height: 400px;overflow: hidden; ">
                     <div class="d-flex justify-content-center d-flex align-items-center">
-                        <img src="/images/shopImage/<?= $SHOP_DATA["image"] ?>" class="w-50">
+                        <img src="/images/shopImage/<?= $SHOP_DATA["image"] ?>" loading="lazy" width='50%' height="auto" alt="店舗画像">
                     </div>
                 </div>
             </div>
@@ -76,7 +77,7 @@ if (!$isMobile) {
                 <?php if (!$isMobile) { ?>
                     <div class="d-flex justify-content-start">
                         <?php if ($SHOP_DATA["price"]) { ?>
-                            <div>予算：<?= $SHOP_DATA["price"] . "~" ?></div>
+                            <div>予算：<?= $SHOP_DATA["price"]."円" ?></div>
                         <?php } ?>
 
                         <?php if ($SHOP_DATA["phone"]) { ?>
@@ -90,7 +91,7 @@ if (!$isMobile) {
                     <hr>
                 <?php } else { ?>
                     <?php if ($SHOP_DATA["price"]) { ?>
-                        <div>予算：<?= $SHOP_DATA["price"] . "~" ?></div>
+                        <div>予算：<?= $SHOP_DATA["price"]."円" ?></div>
                         <hr>
                     <?php } ?>
 
@@ -138,7 +139,7 @@ if (!$isMobile) {
                     </div>
                 </div>
             </div>
-            <div ><a id="dir_url" href="">Googleマップでルートを表示</a></div>
+            <div id="dir_url"></div>
 
         </div>
         <div class="mt-5 w-100 d-flex">
@@ -176,7 +177,7 @@ if (!$isMobile) {
         </div>
 
         <div class="d-flex justify-content-center mt-2">
-            <div class="border box1 border-dark py-2 px-3 w-100 h-100">
+            <div class="border box2 border-dark py-2 px-3 w-100 h-100">
 
                 <?php foreach ($REVIEW_DATA as $REVIEW) { ?>
                     <div class="d-flex justify-content-between mb-4">ユーザー名 : <?= get_userid_user($dbh, $REVIEW['user_id'])['name'] ?></div>

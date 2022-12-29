@@ -13,6 +13,7 @@
     <script src="/libs/js/page_btn.js" defer></script>
 
     <script src="/libs/js/lock.js"></script>
+    <link rel="stylesheet" type="text/css" href="/libs/css/loader.css" />
 </head>
 
 <body>

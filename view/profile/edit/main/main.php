@@ -35,7 +35,7 @@ if (isset($_POST['name']) && isset($_POST['text'])) {
             <div class="<?php if (!$isMobile) {
                             echo "w-75";
                         } ?>">
-                <form id="input_area" action="" method="post" enctype="multipart/form-data">
+                <form id="input_area" action="" method="post">
 
                     <div class="fs-4">
                         <label class="form-label">ニックネーム</label>
@@ -49,7 +49,7 @@ if (isset($_POST['name']) && isset($_POST['text'])) {
                     <div class="d-flex justify-content-center m-4">
                         <div class="d-flex">
                             <button type="button" class="btn btn-dark me-5" style="width:70px" onClick="History_back()">戻る</button>
-                            <input type="submit" class="btn btn-primary ms-5" style="width:70px"></button>
+                            <input type="button" class="btn btn-primary ms-5" style="width:70px" value="変更">
                         </div>
                     </div>
 

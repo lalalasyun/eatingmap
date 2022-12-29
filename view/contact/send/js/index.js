@@ -4,11 +4,17 @@ function viewChange() {
         $('#i_shop_name').attr('readonly',false);
         $("#input_area").find(".box").hide();
         $('#shop_address').removeClass('d-flex');
-        id = document.getElementById('sample').value;
+        const id = $('#sample').val();
         if (id == 'question') {
             $('#question').show();
+            if(!user_account_id ){
+                $('#mail').show();
+            }
         } else if (id == 'other') {
             $('#other').show();
+            if(!user_account_id ){
+                $('#mail').show();
+            }
         } else if (id == 'del') {
             $('#del').show();
             $('#select_del').val(0);

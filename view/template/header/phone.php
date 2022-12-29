@@ -3,7 +3,7 @@
     <div id="navArea">
         <nav>
             <div class="inner">
-                <?php if ($page != 'mail') { ?>
+                <?php if ($this_page != 'mail' && $this_page != 'register' && $this_page != "login") { ?>
                     <?php if (!$_SESSION['auth']) { ?>
                         <!--新規登録-->
                         <button type="button" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='/view/authority/mail_certification/'">新規登録</button>
@@ -16,7 +16,7 @@
                         <button type="button" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='/view/account/setting/index.php'">アカウント設定</button>
                         <!--ログアウト-->
                         <button type="submit" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='?logout=1'">ログアウト</button>
-                        
+
                     <?php } ?>
                 <?php } ?>
             </div>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="header_img my-2" style="width:auto;height:50px;cursor:pointer;">
-        <img src="/images/header/header_icon.png" onclick="location.href='/view/main/home/'" class="w-100 h-100">
+        <a href="/view/main/home/"><img src="/images/header/header_icon.png" class="w-100 h-100" alt="header_icon"></a>
     </div>
     <div style="width:100px;">
 

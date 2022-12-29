@@ -20,17 +20,18 @@ $(function () {
         if (params.get('p') > 0) {
             shop_index = (params.get('p') - 1) * PAGE;
         }
-        $(".title").next(".box").slideToggle();
 
         //詳細選択画面に埋め込み
         $("#search_name").val(name);
-        setTimeout(() => {
+        
+        $(".title").next(".box").toggle(function(){
             $('#select-pref').val(pref);
             change_pref();
             $('#select-city').val(city);
             $('#price').val(price);
             get_shop(name);
-        }, 100);
+        });
+        
     });
 
     //onメソッドを使ったkeyupイベント処理
@@ -172,6 +173,7 @@ $(function () {
         /* page_button */
         $(".style_pages li").click(function () {
             let index = $(this).find('a').data('index');
+            if(index == null) return;
             if (index == 'prev') {
                 if (shop_index >= PAGE) {
                     shop_index -= PAGE;

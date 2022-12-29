@@ -1,6 +1,4 @@
-<?php
-$page = "mail";
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 

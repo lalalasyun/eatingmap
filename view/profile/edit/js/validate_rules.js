@@ -1,4 +1,5 @@
 $(function() {
+    const error_icon = '<i class="fa-solid fa-circle-exclamation"></i>';
     $('#input_area').validate({
         //ルールの設定
         rules: {
@@ -14,22 +15,13 @@ $(function() {
         //エラーメッセージの設定
         messages: {
             name: {
-                required: 'これは必須項目です！',
-                minlength: 'ニックネームは2文字以上で入力してください',
-                maxlength:'ニックネームは20文字以下で入力してください'
+                required: error_icon+'これは必須項目です！',
+                minlength: error_icon+'ニックネームは2文字以上で入力してください',
+                maxlength:error_icon+'ニックネームは20文字以下で入力してください'
             },
             text: {
-                maxlength:'プロフィールは500文字以下で入力してください'
+                maxlength:error_icon+'プロフィールは500文字以下で入力してください'
             }
         }
     });
 });
-function previewFile(hoge){
-  var fileData = new FileReader();
-  fileData.onload = (function() {
-    //id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することで
-    //プレビュー表示している
-    document.getElementById('preview').src = fileData.result;
-  });
-  fileData.readAsDataURL(hoge.files[0]);
-}

@@ -19,8 +19,7 @@
             <button class="btn btn-primary" id="mail_send_btn" name="send" value="send_click">送信</button>
             <div class="sessionsLayout_guide">
                 アカウントを持っている場合は
-                <a href="/view/authority/mail_certification/" rel="nofollow">ログイン</a>
-                から。
+                <a href="/view/authority/login/" rel="nofollow">こちら</a>
             </div>
             <div id="loader" style="display:none;">
                 <div class="loader"></div>

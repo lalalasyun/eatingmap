@@ -27,7 +27,9 @@ $(function () {
     }
 
     $('#submit_btn').on('click', function () {
-        console.log(score);
+        if (!$('#input_area').validate().form()) {
+            return;
+        }
         let text = $('#text').val();
         $.post("https://app.eatingmap.fun/api/review_register.php",
             {

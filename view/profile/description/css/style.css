@@ -55,3 +55,17 @@ div p {
 #rating{
   font-size:0;
 }
+
+.self-introduction{
+  word-wrap: break-word;
+}
+
+.user_icon iframe {
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  border-radius: 50%;
+  background-position: left top;
+  display: inline-block;
+  border: 9px solid #00cc00;
+}

@@ -11,7 +11,7 @@ if (isset($USERPAGE_DATA['id'])) {
     $HEAD = null;
     $CLOTHE = null;
     $BACK = null;
-    
+
     if ($res) {
         $HEAD = $res["image"];
     }
@@ -32,6 +32,9 @@ if (isset($USERPAGE_DATA['id'])) {
 
 ?>
 <div class="icon_area">
+    <div class="mask">
+        
+    </div>
     <div class="user_icon2">
         <img src="/images/user_icon/user_init_icon.png" width="100px" height="100px">
     </div>

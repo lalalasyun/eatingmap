@@ -7,7 +7,7 @@ $_SESSION['prev_page'] = "/search/genre";
 <head>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/search/genre/css/style.css" />
-    <title>ジャンル検索</title>
+    <title>eatingmap - ジャンル検索</title>
 
     <script src="https://kit.fontawesome.com/2947a18ded.js" crossorigin="anonymous"></script>
 
@@ -24,6 +24,7 @@ $_SESSION['prev_page'] = "/search/genre";
     <script src="/libs/js/accordion.js"></script>
 
     <script src="/libs/js/lock.js"></script>
+    <link rel="stylesheet" type="text/css" href="/libs/css/loader.css" />
     
     <link rel="stylesheet" type="text/css" href="/libs/css/page_button.css" />
     <script src="/libs/js/page_btn.js" defer></script>
@@ -35,7 +36,7 @@ $_SESSION['prev_page'] = "/search/genre";
     <?php } ?>
 </head>
 
-<body >
+<body>
     <!--ヘッダー-->
     <header>
         <?php include $_SERVER['DOCUMENT_ROOT']."/view/template/include_header.php"; ?>

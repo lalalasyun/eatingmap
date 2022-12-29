@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /conf/
+Disallow: /images/
+Disallow: /libs/
+Disallow: /model/
+Disallow: /.htaccess

@@ -1,3 +1,9 @@
+<?php
+if(!isset($_GET['code'])){
+    header('Location: /view/main/home/');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +11,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/contact/completion/css/style.css" />
     <script src="/view/contact/completion/js/index.js"></script>
-    <title>テンプレート画面</title>
+    <title>送信完了画面</title>
 </head>
 
 <body>
