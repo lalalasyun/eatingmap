@@ -27,7 +27,7 @@ $(function () {
             },
             async: false,
             type: 'POST',
-            url: `https://app.eatingmap.fun/user/login`,
+            url: `${data_list.apiUrl}/user/login`,
             data: JSON.stringify(json),
         }).done(function (data) {
             if (data.code) {

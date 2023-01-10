@@ -8,6 +8,10 @@ ini_set('display_errors', "On");
 require 'model/db_helper.php';
 $dbh = con();
 
+// apiのURLをjsに実装
+require 'conf/api_conf.php';
+echo '<script data-api-url="'.API_URL.'"></script>';
+
 
 require_once dirname(__FILE__) . "/libs/php/Mobile_Detect.php";
 $detect = new Mobile_Detect;

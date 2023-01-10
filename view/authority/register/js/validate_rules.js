@@ -10,14 +10,14 @@ $(function() {
             mail: {
                 required: true,
                 pattern: /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/i,
-                remote:'https://app.eatingmap.fun/api/check_mail.php'
+                remote:`${data_list.apiUrl}/api/check_mail.php`
             },
             id: {
                 required: true,
                 pattern: /^[a-z\d]{0,20}$/i,
                 minlength:8,
                 maxlength:20,
-                remote:'https://app.eatingmap.fun/api/check_id.php'
+                remote:`${data_list.apiUrl}/api/check_id.php`
             },
             pass: {
                 required: true,

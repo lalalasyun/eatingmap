@@ -31,7 +31,7 @@ $(function () {
             return;
         }
         let text = $('#text').val();
-        $.post("https://app.eatingmap.fun/api/review_register.php",
+        $.post(`${data_list.apiUrl}/api/review_register.php`,
             {
                 user: user_account_id,
                 shop: shop_id,

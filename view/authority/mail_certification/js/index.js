@@ -11,7 +11,7 @@ $(function () {
                 'Content-Type': 'application/json'
             },
             type: 'POST',
-            url: `https://app.eatingmap.fun/user/mail`,
+            url: `${data_list.apiUrl}/user/mail`,
             data: JSON.stringify(json),
         }).done(function (data) {
             console.log(data);

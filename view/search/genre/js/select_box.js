@@ -132,8 +132,9 @@ $(function () {
       }
       count++;
     }
-    $('#shop_list').show();
-    $('#shop_list_prev').remove();
+    //画面表示更新時にちらつきを防ぐ
+    $('#shop_list').fadeIn(200);
+    $('#shop_list_prev').fadeOut(100).remove();
     delete_dom_obj();
 
   }
@@ -159,7 +160,7 @@ $(function () {
       json.price = price;
     }
     screenLock();
-    await $.get("https://app.eatingmap.fun/api/shop/search/index.php", json
+    await $.get(`${data_list.apiUrl}/api/shop/search/index.php`, json
     ).done(async function (data) {
       if (!data) {
         shop_data = [];

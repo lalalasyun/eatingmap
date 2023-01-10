@@ -3,7 +3,7 @@ $(function () {
     $(document).ready(function () {
         $.ajax({
             type: 'get',
-            url: `https://app.eatingmap.fun/user/${user_account_id}`,
+            url: `${data_list.apiUrl}/user/${user_account_id}`,
         }).done(function (data) {
             account = data.data.account;
         })
@@ -27,7 +27,7 @@ $(function () {
                     },
                     async: false,
                     type: 'POST',
-                    url: `https://app.eatingmap.fun/user/login`,
+                    url: `${data_list.apiUrl}/user/login`,
                     data: JSON.stringify(json),
                 }).done(function (data) {
                     console.log(data)
@@ -49,7 +49,7 @@ $(function () {
                 required: true,
                 pattern: /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{0,20}$/i,
                 remote: {
-                    url: "https://app.eatingmap.fun/api/check_pass.php",
+                    url: `${data_list.apiUrl}/api/check_pass.php`,
                     type: "get",
                     data: {
                         account: function() {

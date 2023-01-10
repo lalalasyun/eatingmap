@@ -20,7 +20,7 @@ $(function () {
     function get_user(id) {
         $.ajax({
             type: 'get',
-            url: `https://app.eatingmap.fun/user/${id}`,
+            url: `${data_list.apiUrl}/user/${id}`,
         }).done(function (data) {
             console.log(data)
             if (data.code) {
@@ -42,7 +42,7 @@ $(function () {
         $("#shop_id").val(id);
         $.ajax({
             type: 'get',
-            url: `https://app.eatingmap.fun/api/shop/index.php?id=${id}`,
+            url: `${data_list.apiUrl}/api/shop/index.php?id=${id}`,
         }).done(function (data) {
             shop_name = data.data.name;
         })

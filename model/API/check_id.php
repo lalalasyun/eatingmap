@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json; charset=UTF-8');
 $account = $_GET['id'];
-$url = 'https://app.eatingmap.fun/user/list';
+$url = API_URL.'/user/list';
 // 送信時のオプション
 
 $context = array(

@@ -92,8 +92,8 @@ $(function () {
             }
             count++;
         }
-        $('#shop_list').show();
-        $('#shop_list_prev').remove();
+        $('#shop_list').fadeIn(200);
+        $('#shop_list_prev').fadeOut(100).remove();
         delete_dom_obj();
     }
 
@@ -118,7 +118,7 @@ $(function () {
 
 
         shop_data = null;
-        $.get("https://app.eatingmap.fun/api/shop/search/index.php", json
+        $.get(`${data_list.apiUrl}/api/shop/search/index.php`, json
         ).done(async function (data) {
             if (!data) {
                 shop_data = [];

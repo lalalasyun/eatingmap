@@ -42,7 +42,7 @@ $(function () {
         }
         json.price = price;
 
-        await $.get("https://app.eatingmap.fun/api/shop/search/index.php", json
+        await $.get(`${data_list.apiUrl}/api/shop/search/index.php`, json
         ).done(async function (data) {
 
             try {
@@ -52,7 +52,7 @@ $(function () {
                     if (shop.longitude == 0 || shop.latitude == 0) {
                         location = await geocode(shop.location1);
                         //緯度経度が登録されてなければ登録する
-                        $.get('https://app.eatingmap.fun/api/geolocation/index.php',
+                        $.get(`${data_list.apiUrl}/api/geolocation/index.php`,
                             {
                                 id: shop.id,
                                 lat: location.lat,

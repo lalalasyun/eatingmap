@@ -14,7 +14,7 @@ $(function () {
             },
             async: false,
             type: 'PUT',
-            url: `https://app.eatingmap.fun/user`,
+            url: `${data_list.apiUrl}/user`,
             data: JSON.stringify(json),
         }).done(function (data) {
             if (data.code) {

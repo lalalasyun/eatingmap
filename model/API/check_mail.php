@@ -3,7 +3,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json; charset=UTF-8');
 $mail = $_GET['mail'];
-$url = 'https://app.eatingmap.fun/user/check';
+$url = API_URL.'/user/check';
 // 送信時のオプション
 
 $json = array(

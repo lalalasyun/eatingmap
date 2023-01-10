@@ -65,7 +65,7 @@ $(function () {
 
         $.ajax({
             type: "post",                // method = "POST"
-            url: "https://app.eatingmap.fun/api/shop/edit/index.php",        // POST送信先のURL
+            url: `${data_list.apiUrl}/api/shop/edit/index.php`,        // POST送信先のURL
             data: JSON.stringify(json),  // JSONデータ本体
             contentType: 'application/json', // リクエストの Content-Type
             dataType: "json"           // レスポンスをJSONとしてパースする

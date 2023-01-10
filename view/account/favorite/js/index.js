@@ -24,7 +24,7 @@ $(function () {
         console.log(select)
         if (select) {
             screenLock();
-            await $.get("https://app.eatingmap.fun/api/user_favorite.php", { code: "del", user: user_account_id, shop: id });
+            await $.get(`${data_list.apiUrl}/api/user_favorite.php`, { code: "del", user: user_account_id, shop: id });
             delete_dom_obj();
         }
         return select;
@@ -33,7 +33,7 @@ $(function () {
     async function get_favorite(id) {
         screenLock();
         page_index = 0;
-        await $.get("https://app.eatingmap.fun/api/get_favorite.php", { user: id }
+        await $.get(`${data_list.apiUrl}/api/get_favorite.php`, { user: id }
         ).done(async function (data) {
             if (!data) {
                 fav_data = [];

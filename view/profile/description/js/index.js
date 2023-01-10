@@ -22,7 +22,7 @@ $(function () {
         let result = false;
         $.ajax({
             type: 'get',
-            url: `https://app.eatingmap.fun/api/review/index.php?id=${user}`,
+            url: `${data_list.apiUrl}/api/review/index.php?id=${user}`,
             async: false,
         }).done(async function (data) {
             if (data.code) {

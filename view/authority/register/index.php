@@ -4,7 +4,7 @@ if (isset($_POST["submit"]) && $_POST["submit"] == "click") {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/conf/spring_conf.php';
     $data = array("name" => $_POST["name"], "account" => $_POST["id"], "password" => $_POST["pass"], "mail" => $_POST["mail"], "accessCode" => $CODE);
     $json = json_encode($data);
-    $url = 'https://app.eatingmap.fun/user';
+    $url = `https://app.eatingmap.fun/user`;
     // 送信時のオプション
 
     $context = array(

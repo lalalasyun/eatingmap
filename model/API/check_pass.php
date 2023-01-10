@@ -4,7 +4,7 @@ header('Content-Type: application/json; charset=UTF-8');
 
 $account = $_GET['account'];
 $password = $_GET['password'];
-$url = 'https://app.eatingmap.fun/user/login';
+$url = API_URL.'/user/login';
 // 送信時のオプション
 
 $json = array(
