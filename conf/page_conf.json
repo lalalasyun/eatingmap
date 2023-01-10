@@ -40,7 +40,7 @@
             "url": "/setting/shop",
             "routing": "view/shop/edit_data/",
             "level": "3",
-            "description": "パスワード変更画面"
+            "description": "店舗情報変更画面"
         }
     },
     "authority": {
@@ -97,7 +97,7 @@
             "description": "送信完了画面"
         },
         "send": {
-            "url": "/contact/send",
+            "url": "/contact",
             "routing": "view/contact/send/",
             "level": "1",
             "description": "お問い合わせ画面"

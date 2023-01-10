@@ -9,7 +9,7 @@ if (isset($USER_DATA['shop_id'])) {
 ?>
 <script>
     let shop_id = "<?= $USER_DATA['shop_id'] ?>";
-    let HAS_TAG = null;
+    let HAS_TAG = [];
     <?php if (isset($TAG_DATA)) { ?>
         HAS_TAG = <?= json_encode($TAG_DATA, JSON_UNESCAPED_UNICODE) ?>;
     <?php } ?>

@@ -4,7 +4,7 @@ $(function() {
         rules: {
             text:{
                 required: true,
-                minlength:10,
+                minlength:5,
                 maxlength:1000
             }
         },
@@ -12,7 +12,7 @@ $(function() {
         messages: {
             text: {
                 required: 'これは必須項目です！',
-                minlength:'10文字以上で入力してください',
+                minlength:'5文字以上で入力してください',
                 maxlength:'1000文字以内で入力してください'
             }
         }

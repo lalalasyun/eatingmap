@@ -114,7 +114,7 @@ $(function () {
     $('#shop_list_prev').after('<div id="shop_list" style="display:none;"></div>');
     for (let i = shop_index; i < shop_length; i++) {
       let shop = shop_data[i];
-      $("#shop_list").append(`<div id=${shop.id} class="shop_data">`);
+      $("#shop_list").append($(`<div/ class="shop_data">`).append(`<a/ id=${shop.id}  href="/shop/${shop.id}">`));
       //templateをloadし各種データを埋め込む
       await sampleResolve();
       function sampleResolve() {
@@ -127,11 +127,6 @@ $(function () {
           });
         })
       }
-
-      //buttonにshopページへのリンクイベントを付与
-      $(`#shop_list #${shop.id}`).on("click", ".shopbtn", function () {
-        window.location.href = `/shop/${shop.id}`;
-      });
       if (count == PAGE - 1) {
         break;
       }

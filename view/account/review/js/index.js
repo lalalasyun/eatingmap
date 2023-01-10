@@ -81,7 +81,11 @@ $(function () {
                 window.location.href = `/view/shop/edit_review/index.php?id=${review.shop_id}`;
             });
             $(`#${review.id}`).on("click", ".delete_btn", function () {
-                window.location.href = `/view/account/review/index.php?id=${review.shop_id}`;
+                var select = confirm("削除しますか？");
+                console.log(select)
+                if (select) {
+                    window.location.href = `/view/account/review/index.php?id=${review.shop_id}`;
+                }
             });
             if (count == PAGE) {
                 break;
@@ -115,7 +119,7 @@ $(function () {
         /* page_button */
         $(".style_pages li").click(function () {
             let index = $(this).find('a').data('index');
-            if(index == null) return;
+            if (index == null) return;
             if (index == 'prev') {
                 if (review_index >= PAGE) {
                     review_index -= PAGE;

@@ -26,7 +26,6 @@ $(function () {
             screenLock();
             await $.get("https://app.eatingmap.fun/api/user_favorite.php", { code: "del", user: user_account_id, shop: id });
             delete_dom_obj();
-            get_favorite(user_account_id);
         }
         return select;
     }
@@ -81,8 +80,9 @@ $(function () {
 
                 })
             }
-            $(`#${shop.id}`).on("click", "#del_btn", function () {
-                del_favorite(shop.id);
+            $(`#${shop.id}`).on("click", "#del_btn", async function () {
+                await del_favorite(shop.id);
+                location.reload();
             });
             //buttonにshopページへのリンクイベントを付与
             $(`#${shop.id}`).on("click", "#click_area", function () {

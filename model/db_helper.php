@@ -321,7 +321,7 @@ function get_user_review($dbh, $user)
     INNER JOIN shop AS s 
     ON r.shop_id = s.id 
     WHERE user_id = :user 
-    ORDER BY r.update_time DESC";
+    ORDER BY s.score DESC";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':user', $user, PDO::PARAM_STR);
@@ -691,15 +691,19 @@ function update_shop($dbh, $data)
 function update_shop_tag($dbh, $shop, $tags)
 {
     //全削除
-    $sql = "DELETE  FROM shop_description WHERE shop_id = :shop";
+    $sql = "DELETE FROM shop_description WHERE shop_id = :shop";
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);
     $stmt->execute();
 
     foreach ($tags as $tag) {
-        $sql = "DELETE  FROM shop_description WHERE shop_id = :shop";
+        $id = str_pad(random_int(0, 999999999999999999), 18, 0, STR_PAD_LEFT);
+        $sql = "INSERT INTO shop_description (id,shop_id,name,value) values (:id, :shop, :name,:tag)";
         $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_STR);
         $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);
+        $stmt->bindValue(':name', $tag['name'], PDO::PARAM_STR);
+        $stmt->bindValue(':tag', $tag['tags'], PDO::PARAM_STR);
         $stmt->execute();
     }
 }

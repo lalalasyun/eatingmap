@@ -12,43 +12,40 @@ $review_count = get_userid_review_count($dbh, $USERPAGE_DATA['id']);
                                                                                 } ?>" style="background-color:white">
 
         <div class="w-100 m-3">
-            <form>
 
-                <div class="u1 user_icon" style="background-image:url(/images/background/b.jpg)">
-
-
-                    <iframe src="/icon/<?= $USERPAGE_DATA["id"] ?>"></iframe>
-
-                </div>
+            <div class="u1 user_icon" style="background-image:url(/images/background/b.jpg)">
 
 
-                <hr size="10">
-                <div class="d-flex">
-                    <div class="username"><?= $USERPAGE_DATA["name"] ?></div>
-                    <div class="username">@</div>
-                    <div class="username"><?= $USERPAGE_DATA['account'] ?></div>
-                </div>
+                <iframe src="/icon/<?= $USERPAGE_DATA["id"] ?>"></iframe>
+
+            </div>
+                                                             
+            <hr size="10">
+            <div class="d-flex">
+                <div class="username"><?= $USERPAGE_DATA["name"] ?></div>
+                <div class="username">@</div>
+                <div class="username"><?= $USERPAGE_DATA['account'] ?></div>
+            </div>
 
 
+            <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center">
-                    <div class="d-flex align-items-center">
-                        <div class="h5">
-                            レビュー数：<?= $review_count ?>件
-                        </div>
+                    <div class="h5">
+                        レビュー数：<?= $review_count ?>件
                     </div>
                 </div>
+            </div>
 
-                <div class="self-introduction w-100">
-                    <?php
-                    echo str_replace(PHP_EOL, '<br>', $USERPAGE_DATA["profile"]);
-                    ?>
-                </div>
+            <div class="self-introduction w-100">
                 <?php
-                if ($_SESSION['auth'] && $USERPAGE_DATA['id'] == $_SESSION['account']) {
-                    include 'edit_btn.php';
-                }
+                echo str_replace(PHP_EOL, '<br>', $USERPAGE_DATA["profile"]);
                 ?>
-            </form>
+            </div>
+            <?php
+            if ($_SESSION['auth'] && $USERPAGE_DATA['id'] == $_SESSION['account']) {
+                include 'edit_btn.php';
+            }
+            ?>
             <div class="my-3">
                 <div id="review_list" class="w-100 m-0">
 

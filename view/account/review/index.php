@@ -1,3 +1,11 @@
+<?php
+if (isset($_GET['id'])) {
+    $dbh = con();
+    delete_shop_review($dbh, $_SESSION['account'], $_GET['id']);
+    header("Location: /view/account/review/");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

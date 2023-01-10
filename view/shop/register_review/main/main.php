@@ -47,12 +47,13 @@ if (isset($_GET['id'])) {
             <textarea class="form-control" id="text" name="text"></textarea>
           </div>
 
-          <div class="d-flex justify-content-center my-3">
-            <button class="btn btn-info btn-lg mx-2" onclick="location.href='/shop/<?= $SHOP_DATA['id'] ?>'">お店に戻る</button>
-            <button class="btn btn-info btn-lg mx-2" id="submit_btn">登録</button>
-          </div>
+
         </div>
       </div>
     </form>
+    <div class="d-flex justify-content-center my-3">
+      <button class="btn btn-info btn-lg mx-2" onclick="location.href='/shop/<?= $SHOP_DATA['id'] ?>'">お店に戻る</button>
+      <button class="btn btn-info btn-lg mx-2" id="submit_btn">登録</button>
+    </div>
   </div>
 </div>

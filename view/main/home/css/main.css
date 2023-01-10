@@ -133,7 +133,23 @@ a.btn-border {
     display: none;
 }
 
-#shop_updata{
+a#shop_updata{
     color: #313131;
     font-weight: 600;
+}
+
+a#search_btn{
+    color: #fff;
+}
+
+a#search_btn:link {
+    color: #fff;
+}
+
+a#search_btn:visited {
+    color: #fff;
+}
+
+a#search_btn:hover {
+    color: #fff;
 }

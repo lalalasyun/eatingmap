@@ -45,12 +45,12 @@ if (isset($_GET['id'])) {
                         <label class="form-label">内容</label>
                         <textarea class="form-control" id="text" name="text"><?= $REVIEW_DATA['text'] ?></textarea>
                     </div>
-                    <div class="d-flex justify-content-center my-3">
-                        <button class="btn btn-info btn-lg mx-2" onclick="History_back();">戻る</button>
-                        <button class="btn btn-info btn-lg mx-2" id="submit_btn">編集</button>
-                    </div>
                 </div>
             </div>
         </form>
+        <div class="d-flex justify-content-center my-3">
+            <button class="btn btn-info btn-lg mx-2" onclick="History_back();">戻る</button>
+            <button class="btn btn-info btn-lg mx-2" id="submit_btn">変更</button>
+        </div>
     </div>
 </div>

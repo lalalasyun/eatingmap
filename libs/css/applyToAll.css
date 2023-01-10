@@ -1,6 +1,31 @@
-a{
+body{
+    overflow-x: hidden;
+}
+
+
+a:link {
+    color: #333;
     text-decoration: none;
 }
+
+a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+
+a img {
+    border-width: 0px;
+    border-style: none;
+    border-color: #fff;
+    background: transparent;
+}
+
 
 .icon_btn,
 a,

@@ -1,5 +1,4 @@
 .boximg {
-  overflow: scroll;
   overflow-x: hidden;
   overflow-y: hidden;
   background-color: #EEEEEE;
@@ -9,12 +8,13 @@
   word-wrap: break-word;
 }
 
-.box1::-webkit-scrollbar-thumb {
-  background: #ff8095;
+.box-close{
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .box2 {
-  overflow: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -29,4 +29,8 @@
 
 #dir_url {
   text-decoration:none;
+}
+
+.hr{
+  border-top: 1px solid #aaa;
 }

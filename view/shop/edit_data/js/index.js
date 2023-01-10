@@ -49,7 +49,7 @@ $(function () {
         let type = $("#type").val();
 
         let tags = get_val();
-
+        console.log(tags);
         let json = {
             id: shop_id,
             name: name,
@@ -59,7 +59,8 @@ $(function () {
             station: station,
             price: price,
             genre: genre,
-            type: type
+            type: type,
+            tags: tags
         }
 
         $.ajax({
@@ -69,6 +70,7 @@ $(function () {
             contentType: 'application/json', // リクエストの Content-Type
             dataType: "json"           // レスポンスをJSONとしてパースする
         });
+        window.location.href = `/view/shop/edit_data/index.php?code=1`;
     })
 });
 async function set_tag_form() {

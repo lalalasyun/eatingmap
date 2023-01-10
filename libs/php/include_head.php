@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="ja" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description" content="飲食店情報サイト【eatingmap】近くのお店から遠いお店まで調べられ一般の方でも申請をすればお店の登録ができる便利なサイトになっております。ぜひご登録下さい！！" />

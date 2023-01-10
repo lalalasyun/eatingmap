@@ -1,11 +1,12 @@
 <html lang="en">
-
+    
 <head>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/main/home/css/main.css" />
 
     <script src="/view/main/home/js/index.js"></script>
-    <script src="/view/main/home/js/user_icon.js"></script>
+    <script src="/view/main/home/js/slider.js" defer></script>
+    
     <script src="/libs/js/load_city/load_city.js"></script>
     <script src="/libs/js/load_city/pref_city.js"></script>
 
@@ -38,7 +39,6 @@
     <footer>
         <?php include $_SERVER['DOCUMENT_ROOT']."/view/template/include_footer.php" ?>
     </footer>
-    <script src="/view/main/home/js/slider.js"></script>
 </body>
 
 </html>

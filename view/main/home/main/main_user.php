@@ -7,10 +7,13 @@ $shop_list = get_shop($dbh);
                                                                             } ?>">
     <div class="w-100 m-3">
         <div class="d-flex mb-5">
-
-            <div class="user_icon ">
-                <iframe src="/icon/<?= $_SESSION['account'] ?>" width="100px" height="100px" loading="lazy" style="pointer-events: none;"title="アイコン"></iframe>
-            </div>
+            <?php if ($_SESSION['account']) { ?>
+                <a class="user_icon" href="/user/<?= $_SESSION['account'] ?>">
+                    <iframe src="/icon/<?= $_SESSION['account'] ?>" width="100px" height="100px" loading="lazy" style="pointer-events: none;" title="アイコン"></iframe>
+                </a>
+            <?php } else { ?>
+                <iframe src="/icon/<?= $_SESSION['account'] ?>" width="100px" height="100px" loading="lazy" style="pointer-events: none;" title="アイコン"></iframe>
+            <?php } ?>
 
 
             <div>
@@ -28,18 +31,18 @@ $shop_list = get_shop($dbh);
                 </div>
                 <?php if (isset($USER_DATA['shop_id'])) { ?>
                     <div class="p-3">
-                        <button class="btn btn-info btn-sm p-0"><a id='shop_updata'href='/view/shop/edit_data/index.php'>店舗情報更新</a></button>
+                        <button class="btn btn-info btn-sm p-0"><a id='shop_updata' href='/view/shop/edit_data/index.php'>店舗情報更新</a></button>
                     </div>
                 <?php } ?>
             </div>
 
-
-
         </div>
         <div class="mb-5">
             <div class="input-group mb-3 d-flex">
-                <input id="search_name" type="text" class="form-control-lg w-75" placeholder="店名を入力">
-                <button class="btn btn-success" type="button" id="search_btn"><i class="fas fa-search"></i> 検索</button>
+                <input id="search_name" type="text" class="form-control-lg w-75" placeholder="店舗名またはキーワードを入力">
+                <a class="btn btn-success p-3" type="button" id="search_btn" href='/search/name?p=1'>
+                    <div><i class="fas fa-search"></i> 検索</div>
+                </a>
             </div>
             <div class="accordion-area mx-0">
                 <section class="my-2">

@@ -14,7 +14,7 @@
 
     <script src="/view/profile/description/js/index.js"></script>
 
-    <title>プロフィール画面</title>
+    <title><?= $USERPAGE_DATA["name"] ?> (@<?= $USERPAGE_DATA['account'] ?>)さん / eatingmap</title>
 
     <link rel="stylesheet" type="text/css" href="/libs/css/page_button.css" />
     <script src="/libs/js/page_btn.js" defer></script>
