@@ -367,3 +367,7 @@
         transform: scale(50, 50);
     }
 }
+
+em {
+    font-style: normal;
+}

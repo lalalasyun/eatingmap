@@ -1,3 +1,7 @@
 .g{
     background-image: url("/web/images/background/g.png");
 }
+
+.cnt_area.cnt_danger{
+    color: #FF0000;
+}    

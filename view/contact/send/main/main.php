@@ -1,8 +1,7 @@
-
 <script>
     let shop_id = null;
     <?php if (isset($USER_DATA['shop_id']) && $USER_DATA['shop_id']) { ?>
-    shop_id = "<?= $USER_DATA['shop_id'] ?>";
+        shop_id = "<?= $USER_DATA['shop_id'] ?>";
     <?php } ?>
 </script>
 <div class="container my-3">
@@ -25,7 +24,12 @@
             </div>
 
             <div class="mb-3 box" id="mail">
-                <input type="text" class="form-control w-100" name="user_mail" id="user_mail" placeholder="メールアドレス">
+                <div class="validate-column">
+                    <input type="text" class="form-control w-100" name="user_mail" id="user_mail" placeholder="メールアドレス">
+
+                    <i class="fa-solid fa-xmark form-err-mark"></i>
+                    <i class="fa-solid fa-check form-check-mark"></i>
+                </div>
             </div>
 
             <div class="mb-4 box" id="question">
@@ -38,7 +42,7 @@
             <div class="mb-4 box" id="del">
 
                 <select class="form-select form-control" id="select_del" name="select2" onchange="del_viewChange();">
-                    <option value="0" class="text-muted">項目を選択してください</option>
+                    <option value="" class="text-muted">項目を選択してください</option>
                     <option value="shop">店舗削除</option>
                     <option value="emp" class="d-none" id="del_emp">店員削除</option>
                 </select>
@@ -46,7 +50,7 @@
 
             <div class="mb-4 box" id="add">
                 <select class="form-select form-control" name="select3" id="select_add" onchange="add_viewChange();">
-                    <option value="0" class="text-muted">項目を選択してください</option>
+                    <option value="" class="text-muted">項目を選択してください</option>
                     <option value="shop">店舗登録</option>
                     <option value="emp" class="d-none" id="add_emp">店員登録</option>
                 </select>
@@ -58,12 +62,21 @@
             </div>
 
             <div class="mt-3 box" id="phone">
-                <input type="text" class="form-control w-100" name="phone" id="i_phone" placeholder="電話番号を入力してください。">
+                <div class="validate-column">
+                    <input type="text" class="form-control w-100" name="phone" id="i_phone" placeholder="電話番号を入力してください。">
+
+                    <i class="fa-solid fa-xmark form-err-mark"></i>
+                    <i class="fa-solid fa-check form-check-mark"></i>
+                </div>
             </div>
 
             <div class="mt-3 box none" id="shop_address">
-                <input type="text" class="form-control" name="shop_address" id="i_address" placeholder="店住所を入力してください。">
+                <div class="validate-column">
+                    <input type="text" class="form-control" name="shop_address" id="i_address" placeholder="店住所を入力してください。">
 
+                    <i class="fa-solid fa-xmark form-err-mark"></i>
+                    <i class="fa-solid fa-check form-check-mark"></i>
+                </div>
             </div>
             <div class="mt-3 mb-4 box" id="note">
                 <textarea class="form-control" name="note" rows="5" id="i_note" placeholder="備考"></textarea>

@@ -3,7 +3,7 @@ function viewChange() {
         $('#i_shop_name').val("");
         $('#i_shop_name').attr('readonly',false);
         $("#input_area").find(".box").hide();
-        $('#shop_address').removeClass('d-flex');
+        $('#shop_address').hide();
         const id = $('#sample').val();
         if (id == 'question') {
             $('#question').show();
@@ -17,10 +17,10 @@ function viewChange() {
             }
         } else if (id == 'del') {
             $('#del').show();
-            $('#select_del').val(0);
+            $('#select_del').val('');
         } else if (id == 'add') {
             $('#add').show();
-            $('#select_add').val(0);
+            $('#select_add').val('');
         }
     }
 }
@@ -29,12 +29,12 @@ function add_viewChange() {
         $('#i_shop_name').val("");
         $('#i_shop_name').attr('readonly',false);
         $("#input_area").find(".box").hide();
-        $('#shop_address').removeClass('d-flex');
+        $('#shop_address').hide();
         id = document.getElementById('select_add').value;
         $('#add').show();
         if (id == 'shop') {
             $('#shop_name').show();
-            $('#shop_address').addClass('d-flex');
+            $('#shop_address').show();
             $('#note').show();
         } else if (id == 'emp') {
             $('#shop_name').show();

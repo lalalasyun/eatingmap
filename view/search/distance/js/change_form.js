@@ -34,7 +34,6 @@ $(function () {
                 scaledSize: new google.maps.Size(40, 40)
             }
         });
-        console.log(genre)
 
         let json = {};
         if(genre != 0 && genre != 99){
@@ -59,7 +58,6 @@ $(function () {
                                 lng: location.lng
                             });
                         await new Promise(s => setTimeout(s, 500))
-                        console.log('登録完了')
                     } else {
                         location = {
                             lat: shop.latitude,
@@ -99,7 +97,6 @@ $(function () {
 
                 }
             } catch (error) {
-                console.log(error)
             }
 
             var color = '#ff0000';

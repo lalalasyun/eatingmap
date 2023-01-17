@@ -1,10 +1,4 @@
-<?php
-if (isset($_GET['id'])) {
-    $dbh = con();
-    $SHOP_DATA = get_id_shop_data($dbh, $_GET['id']);
-    $REVIEW_DATA = check_user_review($dbh, $_SESSION['account'], $_GET['id']);
-}
-?>
+
 <script>
     let score = <?= $REVIEW_DATA['score'] ?>;
     let shop_id = "<?= $SHOP_DATA['id'] ?>";

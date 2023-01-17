@@ -1,3 +1,10 @@
+<?php
+if (isset($_GET['id'])) {
+    $dbh = con();
+    $SHOP_DATA = get_id_shop_data($dbh, $_GET['id']);
+    $REVIEW_DATA = check_user_review($dbh, $_SESSION['account'], $_GET['id']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +18,10 @@
     <script src="/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/libs/js/jquery/additional-methods.min.js"></script>
     <script src="/view/shop/edit_review/js/validate_rules.js"></script>
+    <link rel="stylesheet" href="/libs/css/validate_style.css">
     
-    <title>レビュー編集</title>
+    
+    <title>eatingmap - レビュー編集 - <?=$SHOP_DATA['name'] ?></title>
 </head>
 
 <body>

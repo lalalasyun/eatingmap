@@ -17,12 +17,12 @@
         <?php } ?>
         <div class="d-flex justify-content-center">
             <div>
-                <p>Copyright (C) 2022 ☆e-ting map☆ All Rights Reserved.</p>
+                <p>Copyright (C) 2022 eatingmap</p>
             </div>
         </div>
-        <div class="fixed-bottom" id="go_top_btn" style="display:none;height:70px;">
+        <div class="fixed-bottom m-2" id="go_top_btn" style="display:none;height:70px;">
             <div class="d-flex justify-content-end">
-                <p><a href="#"><img src="/images/object_icon/top.jpg" style="height:70px; width:70px;"></a></p>
+                <a href="#" class="btn btn--circle btn--circle-c btn--shadow"><i class="fas fa-arrow-up"></i></a>
             </div>
         </div>
     </div>

@@ -1,6 +1,3 @@
-<?php
-//現在のページの名前を取得
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +5,6 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     
     <title>メールアドレス認証</title>
-    <script src="/view/authority/mail_confirm/js/index.js"></script>
-    <link rel="stylesheet" type="text/css" href="/view/authority/mail_confirm/css/style.css" />
 </head>
 
 <body>

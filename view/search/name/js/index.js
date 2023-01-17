@@ -23,6 +23,10 @@ $(function () {
 
         //詳細選択画面に埋め込み
         $("#search_name").val(name);
+
+        if(name.length > 0){
+            $('.input-xmark').show();
+        }
         
         $(".title").next(".box").toggle(function(){
             $('#select-pref').val(pref);
@@ -40,6 +44,23 @@ $(function () {
             name = $("#search_name").val();
             get_shop(name);
         }
+    });
+
+    $('#search_name').on('input', function(){
+        //文字数を取得
+        var cnt = $(this).val().length;
+        if(cnt > 0 && 25 > cnt){
+            $('.input-xmark').show();
+        }else{
+            let keyword = $(this).val();
+            $(this).val(keyword.slice(0,-1));
+            $('.input-xmark').hide();
+        }
+    });
+
+    $('.input-xmark').click(function (e) {
+        $('#search_name').val('');
+        $('.input-xmark').hide();
     });
 
     //細部選択ボタンイベント処理
@@ -187,7 +208,6 @@ $(function () {
             }
             if (index == 'last') {
                 shop_index = Math.floor((shop_length - 1) / PAGE) * PAGE;
-                console.log(shop_index)
                 set_shop(shop_data);
                 return
             }

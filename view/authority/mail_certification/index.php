@@ -10,10 +10,11 @@
     <script src="/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/libs/js/jquery/additional-methods.min.js"></script>
     <script src="/view/authority/mail_certification/js/validate_rules.js"></script>
+    <link rel="stylesheet" href="/libs/css/validate_style.css">
     
     <script src="/view/authority/mail_certification/js/index.js"></script>
     <script src="/view/authority/mail_certification/js/lock.js"></script>
-    <title>メールアドレス認証</title>
+    <title>eatingmap - メールアドレス認証</title>
 </head>
 
 <body>

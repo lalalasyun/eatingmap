@@ -23,7 +23,6 @@ $(function () {
     });
     $("#tag_select").change(function () {
         let ary = $("#tag_select option:selected").data('value');
-        console.log(ary);
     });
     $(`#add_btn`).click(function () {
         $(".selectMultiple > div .arrow, .selectMultiple > div span").parent().parent().removeClass('open');
@@ -49,7 +48,6 @@ $(function () {
         let type = $("#type").val();
 
         let tags = get_val();
-        console.log(tags);
         let json = {
             id: shop_id,
             name: name,
@@ -72,6 +70,13 @@ $(function () {
         });
         window.location.href = `/view/shop/edit_data/index.php?code=1`;
     })
+
+    $('#back_btn').click(function (e) { 
+        var select = confirm("変更を破棄しますか？");
+        if (select) {
+            History_back();
+        }
+    });
 });
 async function set_tag_form() {
     const id = Date.now();

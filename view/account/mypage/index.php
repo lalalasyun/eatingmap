@@ -8,8 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/animations/shift-toward-subtle.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/themes/light-border.css">
+    <script src="https://unpkg.com/popper.js@1" defer></script>
+    <script src="https://unpkg.com/tippy.js@5" defer></script>
+    <script src="/view/account/mypage/js/tooltip.js" defer></script>
     
-    <title>マイページ</title>
+    <title>eatingmap - マイページ</title>
 </head>
 
 <body >

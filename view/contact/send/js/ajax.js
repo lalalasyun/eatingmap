@@ -3,7 +3,6 @@ $(function () {
 
     $(document).ready(function () {
         const id = user_account_id;
-        console.log(id)
         if (!id) {
             $('#user_name').val("guest");
         } else {
@@ -22,7 +21,6 @@ $(function () {
             type: 'get',
             url: `${data_list.apiUrl}/user/${id}`,
         }).done(function (data) {
-            console.log(data)
             if (data.code) {
                 $('#user_name').val(data.data.name);
                 $('#user_name').attr('readonly',true);
@@ -37,7 +35,6 @@ $(function () {
             });
     }
     function get_shop(id) {
-        console.log(id)
         if (!id) return;
         $("#shop_id").val(id);
         $.ajax({

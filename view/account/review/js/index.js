@@ -82,7 +82,6 @@ $(function () {
             });
             $(`#${review.id}`).on("click", ".delete_btn", function () {
                 var select = confirm("削除しますか？");
-                console.log(select)
                 if (select) {
                     window.location.href = `/view/account/review/index.php?id=${review.shop_id}`;
                 }
@@ -136,7 +135,6 @@ $(function () {
             }
             if (index == 'last') {
                 review_index = Math.floor((review_length - 1) / PAGE) * PAGE;
-                console.log(review_index)
                 set_review(user_account_id);
                 return
             }

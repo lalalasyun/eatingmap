@@ -16,22 +16,9 @@
                         <?php } ?>
                         <div class="mb-5">
                             <div class="d-flex mb-0">
-                                <div class="user_icon">
-                                    <iframe src="/icon/<?= $_SESSION['account'] ?>" width='100px' height='100px' loading="lazy" style='pointer-events: none;'></iframe>
-                                    <script>
-                                        $(".user_icon").click(function() {
-                                            window.location.href = `/user/<?= $_SESSION['account'] ?>`;
-                                        });
-                                        $('.user_icon').hover(
-                                            function() {
-                                                $(this).css('cursor', 'pointer');
-                                            },
-                                            function() {
-                                                $(this).css('cursor', 'none');
-                                            }
-                                        );
-                                    </script>
-                                </div>
+                                <a class="user_icon" href="/user/<?= $USER_DATA['account'] ?>" title="プロフィールページ">
+                                    <iframe src="/icon/<?= $USER_DATA['account'] ?>" width="100px" height="100px" loading="lazy" style="pointer-events: none;" title="アイコン"></iframe>
+                                </a>
                                 <div>
                                     <div class="d-flex px-3 pt-3 pb-1">
                                         <div id="user_name" class="py-0">
@@ -42,15 +29,17 @@
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-end pt-4">
-                                        <div class="p-3 py-0 pe-0">ポイント残高</div>
-                                        <div class="p-3 py-0 px-1">:</div>
-                                        <div class="p-3 py-0 px-0" id="user_point"><?= $USER_DATA['point'] ?></div>
+                                        <div class="d-flex cap" data-tippy-content="レビューを登録するとポイントが貰えます。">
+                                            <div class="p-3 py-0 pe-0">ポイント残高</div>
+                                            <div class="p-3 py-0 px-1">:</div>
+                                            <div class="p-3 py-0 px-0" id="user_point"><?= $USER_DATA['point'] ?></div>
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="mt-0 p-0">
-                                <a href="/view/avatar/change/" class="px-2">
+                                <a href="/view/avatar/change/" class="px-2 change-avatar" title="アバターを変更">
                                     アバター変更
                                 </a>
                             </div>
@@ -58,9 +47,9 @@
                         </div>
                         <?php if (!$isMobile) { ?>
                             <div class="d-flex pt-3 align-items-center">
-                                <div>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/view/account/setting/index.php'">アカウント設定</button>
-                                </div>
+                                <a href='/view/account/setting/index.php'>
+                                    <div class="btn-setting">アカウント設定</div>
+                                </a>
                             </div>
                         <?php } ?>
                         </div>
@@ -72,14 +61,14 @@
 
             <div>
                 <div class="button_line001 d-flex justify-content-around py-3">
-                    <a href="#" class="button_line001" style="width:160px;height:50px" onclick="location.href='/view/account/favorite/index.php'">お気に入り</a>
-                    <a href="#" class="button_line001" style="width:160px;height:50px" onclick="location.href='/view/account/review/index.php'">レビュー履歴</a>
+                    <a href="/view/account/favorite/index.php" class="button_line001" style="width:160px;height:50px">お気に入り</a>
+                    <a href="/view/account/review/index.php" class="button_line001" style="width:160px;height:50px">レビュー履歴</a>
 
                 </div>
 
                 <div class="button_line001 d-flex justify-content-around py-3">
-                    <a href="#" class="button_line001" style="width:160px;height:50px" onclick="location.href='/view/avatar/buy/index.php'">アバター購入</a>
-                    <a href="#" class="button_line001 " style="width:160px;height: 50px" onclick="location.href='/view/profile/edit/'">プロフィール編集</a>
+                    <a href="/view/avatar/buy/index.php" class="button_line001" style="width:160px;height:50px">アバター購入</a>
+                    <a href="/view/profile/edit/" class="button_line001 " style="width:160px;height: 50px">プロフィール編集</a>
 
                 </div>
             </div>

@@ -1,0 +1,79 @@
+/* validatecheckのメッセージ */
+.validate-style{
+    font-size:x-small;
+    color: gray;
+    font-weight: bold;
+}
+
+label.error{
+    color: red;
+    font-size:small;
+    font-weight: bold;
+}
+
+
+.validate-column .form-control.error{
+    border: 1px solid red;
+}
+
+.validate-column .form-control.valid{
+    border: 1px solid green;
+}
+
+.validate-column .form-control:focus{
+    border: 1px solid #ced4da;
+}
+
+
+/* フォーカスされたフォームの隣のエラーを透明に非表示 */
+/* .form-control:focus + .error{
+    opacity: 0;
+} */
+
+
+/* validationの結果のマークを表示 */
+.validate-column{
+    position: relative;
+}
+
+.form-err-mark,.form-check-mark,.form-open-eye-mark,.form-close-eye-mark{
+    position: absolute;
+    margin: 10px;
+    top: 0px;
+    right: 0px;
+    z-index: 20;
+    opacity: 0;
+}
+
+.form-open-eye-mark,.form-close-eye-mark{
+    opacity: 1;
+}
+
+.form-open-eye-mark{
+    display: none;
+}
+
+.form-err-mark{
+    color: red;
+}
+
+.form-check-mark{
+    color: green;
+}
+
+
+.validate-column .form-control.error ~ .form-err-mark{
+    opacity: 1;
+}
+
+.validate-column .form-control.valid ~ .form-check-mark{
+    opacity: 1;
+}
+
+.validate-column .form-control:focus.error ~ .form-err-mark{
+    opacity: 0;
+}
+
+.validate-column .form-control:focus.valid ~ .form-check-mark{
+    opacity: 0;
+}

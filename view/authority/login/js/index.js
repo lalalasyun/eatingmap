@@ -1,4 +1,15 @@
 $(function () {
+    $('.form-open-eye-mark').click(function (e) { 
+        $(this).siblings('input').attr('type','password');
+        $(this).hide();
+        $(this).siblings('.form-close-eye-mark').show();
+    });
+    $('.form-close-eye-mark').click(function (e) { 
+        $(this).siblings('input').attr('type','text');
+        $(this).hide();
+        $(this).siblings('.form-open-eye-mark').show();
+    });
+    
     $("#login_btn").click(async function () {
         let account = $('#id').val();
         let pass = $('#pass').val();
@@ -8,8 +19,6 @@ $(function () {
 
     $(".box5").keypress(function (e) {
         if (e.keyCode == 13) {
-            // ここに処理を記述
-            console.log("enter");
             let account = $('#id').val();
             let pass = $('#pass').val();
             let json = { "account": account, "password": pass };
@@ -32,7 +41,6 @@ $(function () {
         }).done(function (data) {
             if (data.code) {
                 var ref = document.referrer;
-                console.log(ref)
                 window.location.href = `/view/authority/login/index.php?user_account_id=${data.data.id}&ref=${ref}`;
             } else {
                 $('#pass').val("");

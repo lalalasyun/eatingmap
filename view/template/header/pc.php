@@ -1,5 +1,4 @@
 <div class="d-flex justify-content-center">
-
     <div class="d-flex justify-content-between w-75">
         <div class="header_img my-2" style="width:400px;cursor:pointer;" title="トップページへ">
             <a href="/view/main/home/"><img src="/images/header/header_icon.png" height="75px" alt="header_icon"></a>

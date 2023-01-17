@@ -30,7 +30,7 @@ function initMap() {
         lat: parseFloat(shop.lat),
         lng: parseFloat(shop.lng),
         url:shop.url,
-        icon: '/images/seach_img/nowmark1.PNG'
+        icon: '/images/seach_img/pindesu.PNG'
       }
     ];
 
@@ -79,7 +79,7 @@ function initMap() {
     infoWindow[1] = new google.maps.InfoWindow({ // 吹き出しの追加
       content: '<div class="map">' + markerData[1]['name'] + '</div>' +
         //'<a href="' + markerData[1]['url'] + '">' + "詳細" + '</a>'// 吹き出しに表示する内容
-        '<a href="' + `https://www.google.com/maps/dir/?api=1&destination=${shop.lat},${shop.lng}`+ '"target="_blank" rel="noopener">' + "google mapへ" + '</a>'// 吹き出しに表示する内容
+        '<a href="' + `https://www.google.com/maps/search/?api=1&query=${shop.address}${markerData[1]['name']}`+ '"target="_blank" rel="noopener">' + "google mapで開く" + '</a>'// 吹き出しに表示する内容
     });
     markerEvent(1)
 

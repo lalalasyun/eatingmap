@@ -1,6 +1,5 @@
 
     function get(url, data = {}) {
-        console.log($.param(data));
         let res = null;
         $.ajax({
             async: false,

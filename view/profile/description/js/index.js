@@ -127,7 +127,6 @@ $(function () {
             }
             if (index == 'last') {
                 review_index = Math.floor((review_length - 1) / PAGE) * PAGE;
-                console.log(review_index)
                 set_review(user_account_id);
                 return
             }

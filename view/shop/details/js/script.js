@@ -16,7 +16,6 @@ $(function () {
                 let diff = NOW_TIME - json[key].date;
                 if (diff > 86400000 * 7) {
                     delete json[key];
-                    console.log(`${key}:del`)
                 }
             }
         }

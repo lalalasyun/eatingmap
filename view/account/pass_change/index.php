@@ -7,6 +7,7 @@
     <script src="/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/libs/js/jquery/additional-methods.min.js"></script>
     <script src="/view/account/pass_change/js/validate_rules.js"></script>
+    <link rel="stylesheet" href="/libs/css/validate_style.css">
 
     <script src="/view/account/pass_change/js/index.js"></script>
 

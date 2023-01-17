@@ -33,12 +33,24 @@ if (!isset($_SESSION['account'])) {
     $_SESSION['account'] = "";
 }
 
+if(isset($_GET['logout']) && $_GET['logout'] == 1){
+    $_SESSION['account'] = "";
+    $_SESSION['auth'] = false;
+    header("Location: /view/main/home/");
+    exit;
+}
+
 
 //js用変数
 $USER_DATA = "";
 if ($_SESSION['auth'] && $_SESSION['account'] != "") {
     $USER_DATA = get_userid_user($dbh, $_SESSION['account']);
-    echo "<script>let user_account_id = '';user_account_id = '" . $USER_DATA['id'] . "';</script>";
+
+    //shopタグが間違っている場合nullに修正
+    if(!get_id_shop_data($dbh, $USER_DATA['shop_id'])){
+        $USER_DATA['shop_id'] = null;
+    }
+    echo "<script>let user_account_id = '" . $USER_DATA['id'] . "';</script>";
 } else {
     echo "<script>let user_account_id = '';</script>";
 }
@@ -88,11 +100,13 @@ if ($sp_url[1] === "shop") {
 
 // /user/:id にアクセスが来るとルーティング
 if ($sp_url[1] === "user") {
-    $USERPAGE_DATA = get_userid_user($dbh, $sp_url[2]);
-    //なければアカウントで再検索
-    if (!isset($USERPAGE_DATA)) {
-        $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
-    }
+    // $USERPAGE_DATA = get_userid_user($dbh, $sp_url[2]);
+    // //なければアカウントで再検索
+    // if (!isset($USERPAGE_DATA)) {
+    //     $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
+    // }
+    //マッピングをログインIDに統合
+    $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
     
     if (isset($USERPAGE_DATA)) {
         include "view/profile/description/index.php";
@@ -103,11 +117,13 @@ if ($sp_url[1] === "user") {
 
 // /icon/:id にアクセスが来るとルーティング
 if ($sp_url[1] === "icon") {
-    $USERPAGE_DATA = get_userid_user($dbh, $sp_url[2]);
-    //なければアカウントで再検索
-    if (!isset($USERPAGE_DATA)) {
-        $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
-    }
+    // $USERPAGE_DATA = get_userid_user($dbh, $sp_url[2]);
+    // //なければアカウントで再検索
+    // if (!isset($USERPAGE_DATA)) {
+    //     $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
+    // }
+    //マッピングをログインIDに統合
+    $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
 
     //アカウントが存在する又は空文字の場合
     if (isset($USERPAGE_DATA) || $sp_url[2] === "") {

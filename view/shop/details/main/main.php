@@ -21,7 +21,8 @@ if (!$isMobile) {
             "lng": "<?= $SHOP_DATA["longitude"] ?>",
             "url": "<?= "/shop/" . $SHOP_DATA["id"] ?>",
             "image": "<?= $SHOP_DATA['image'] ?>",
-            "id": "<?= $SHOP_DATA['id'] ?>"
+            "id": "<?= $SHOP_DATA['id'] ?>",
+            "address": "<?= $SHOP_DATA['location1'] ?>"
         };
         shop_id = "<?= $SHOP_DATA["id"] ?>";
     <?php } ?>
@@ -48,7 +49,7 @@ if (!$isMobile) {
                 </div>
             </div>
         </div>
-        <h1 style="background-color:#FFD9D7;">
+        <h1 class='headline'>
             詳細
         </h1>
         <div class="d-flex justify-content-center">
@@ -59,7 +60,7 @@ if (!$isMobile) {
 
                 <div class="d-flex">
                     <div>評価 : </div>
-                    <div id="rating" class="ms-2 w-75">
+                    <div id="rating" class="ms-2 cap" data-tippy-content="<?= $SHOP_DATA['score']?>">
                         <?php for ($i = 1; $i < 6; $i++) { ?>
                             <?php if ($i == $SHOP_DATA['score']) { ?>
                                 <span class="fa fa-star active" data-name="<?= $i ?>"></span>
@@ -121,19 +122,19 @@ if (!$isMobile) {
                     <div class="hr my-2"></div>
                 <?php } ?>
 
-                <div style="background-color:#FFD9D7;">説明文</div>
+                <div class="headline">説明文</div>
                 <div><?= str_replace(PHP_EOL, '<br>', $SHOP_DATA["info1"]); ?></div>
             </div>
         </div>
         <div class="mt-5">
-            <h1 style="background-color:#FFD9D7;">マップ</h1>
+            <h1 class="headline">マップ</h1>
             <div class="d-flex justify-content-center">
 
                 <div class="box1 border border-dark rounded p-5  w-100" id="map" style="height:500px;">
 
                     <div>
                         <?php
-                        require_once dirname(__FILE__, 5) . "/conf/map_conf.php"
+                        require_once $_SERVER['DOCUMENT_ROOT'] . "/conf/map_conf.php"
                         ?>
                         <script src="https://maps.googleapis.com/maps/api/js?key=<?= $KEY; ?>&callback=initMap&v=weekly" defer></script>
                     </div>
@@ -145,85 +146,97 @@ if (!$isMobile) {
         <div class="mt-5 w-100 d-flex">
             <?php if ($_SESSION['auth'] && check_user_review($dbh, $_SESSION['account'], $SHOP_DATA["id"])) { ?>
                 <div>
-                    <a class="btn btn-info btn-lg" href="`/view/shop/edit_review/index.php?id=<?= $SHOP_DATA['id'] ?>`">
-                        レビュー編集
+                    <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" href="/view/shop/edit_review/index.php?id=<?= $SHOP_DATA['id'] ?>">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        レビュー<?php if (!$isMobile) { ?>編集<?php } ?>
                     </a>
                 </div>
             <?php } else { ?>
                 <div>
                     <?php if ($_SESSION['auth']) { ?>
-                        <a class="btn btn-info btn-lg" href='/view/shop/register_review/index.php?id=<?= $SHOP_DATA['id'] ?>'>
-                            レビュー登録
+                        <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" href='/view/shop/register_review/index.php?id=<?= $SHOP_DATA['id'] ?>'>
+                            <i class="fa-solid fa-comment"></i>
+                            レビュー<?php if (!$isMobile) { ?>登録<?php } ?>
                         </a>
                     <?php } else { ?>
-                        <a class="btn btn-info btn-lg" href='/view/authority/login/'>
-                            レビュー登録
+                        <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" href='/view/authority/login/'>
+                            <i class="fa-solid fa-comment"></i>
+                            レビュー<?php if (!$isMobile) { ?>登録<?php } ?>
                         </a>
                     <?php } ?>
                 </div>
 
             <?php } ?>
+
             <div class="ms-3">
                 <?php
                 $is_fav = is_user_shop_favorite($dbh, $_SESSION['account'], $SHOP_DATA["id"]);
                 ?>
-                <button id="add_fav" class="btn btn-info btn-lg" style="display:<?= $is_fav ? "none" : "block" ?>">
-                    <span class="fa fa-star active" data-name="<?= $i ?>"></span>お気に入り追加
-                </button>
-                <button id="del_fav" class="btn btn-info btn-lg " style="display:<?= $is_fav ? "block" : "none" ?>">
-                    <span class="fa fa-star active" data-name="<?= $i ?>"></span>お気に入り解除
-                </button>
+                <div id="add_fav" style="display:<?= $is_fav ? "none" : "block" ?>">
+                    <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" data-name="<?= $i ?>">
+                        <i class="fas fa-star"></i>
+                        お気に入り<?php if (!$isMobile) { ?>追加<?php } ?></a>
+                </div>
+                <div id="del_fav" style="display:<?= $is_fav ? "block" : "none" ?>">
+                    <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" data-name="<?= $i ?>">
+                        <i class="fa-regular fa-star"></i></i>
+                        お気に入り<?php if (!$isMobile) { ?>解除<?php } ?></a>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="d-flex justify-content-center mt-2 mb-4">
-            <div class="border box2 box1 border-dark rounded py-2 px-3 w-100 h-100">
-                <?php foreach ($REVIEW_DATA as $counter => $REVIEW) { ?>
-                    <div>
-                        <?php if ($counter != 0) { ?>
-                            <div class="hr my-2"></div>
-                        <?php } ?>
-                        <div class="mb-2" title="プロフィール">
-                            <a href="/user/<?= $REVIEW['user_id'] ?>" class="d-flex">
-                                <div>
-                                    <iframe src="/icon/<?= $REVIEW['user_id'] ?>" width="30px" height="30px" loading="lazy" style="pointer-events: none;" title="アイコン"></iframe>
-                                </div>
-                                <div>
-                                    <?= get_userid_user($dbh, $REVIEW['user_id'])['name'] ?>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <div class="w-75 d-flex">
-                                <div>
-                                    評価 :
-                                </div>
-                                <div id="rating" class="ms-2 w-75">
-                                    <?php for ($i = 1; $i < 6; $i++) { ?>
-                                        <?php if ($i == $REVIEW['score']) { ?>
-                                            <span class="fa fa-star active" data-name="<?= $i ?>"></span>
-                                        <?php } else if ($i < $REVIEW['score']) { ?>
-                                            <span class="fa fa-star " data-name="<?= $i ?>"></span>
-                                        <?php } else { ?>
-                                            <span class="fa fa-star-o" data-name="<?= $i ?>"></span>
-                                        <?php } ?>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        $date = new DateTimeImmutable($REVIEW['update_time']);
-                        ?>
-                        <div><?= $date->format('Y年n月j日') ?>にレビュー済み</div>
+            <?php if (count($REVIEW_DATA) != 0) { ?>
+                <div class="border box2 box1 border-dark rounded py-2 px-3 w-100 h-100">
+                    <?php foreach ($REVIEW_DATA as $counter => $REVIEW) { ?>
                         <div>
-                            <div class="box1 box-close py-2">
-                                <?= str_replace(PHP_EOL, '<br>', $REVIEW["text"]); ?>
+                            <?php if ($counter != 0) { ?>
+                                <div class="hr my-2"></div>
+                            <?php } ?>
+                            <div title="プロフィール">
+                                <a href="/user/<?= $REVIEW['account'] ?>" class="d-flex">
+                                    <div>
+                                        <iframe src="/icon/<?= $REVIEW['account'] ?>" width="30px" height="30px" loading="lazy" style="pointer-events: none;"></iframe>
+                                    </div>
+                                    <div class="ms-2">
+                                        <?= $REVIEW['name'] ?>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="review_more" data-more-flg='true'><i class="fa-solid fa-angle-down"></i>続きを見る</div>
+                            <div class="d-flex justify-content-between">
+                                <div class="w-75 d-flex">
+                                    <div>
+                                        評価 :
+                                    </div>
+                                    <div id="rating" class="ms-2">
+                                        <?php for ($i = 1; $i < 6; $i++) { ?>
+                                            <?php if ($i == $REVIEW['score']) { ?>
+                                                <span class="fa fa-star active" data-name="<?= $i ?>"></span>
+                                            <?php } else if ($i < $REVIEW['score']) { ?>
+                                                <span class="fa fa-star " data-name="<?= $i ?>"></span>
+                                            <?php } else { ?>
+                                                <span class="fa fa-star-o" data-name="<?= $i ?>"></span>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                            $date = new DateTimeImmutable($REVIEW['update_time']);
+                            ?>
+                            <div><?= $date->format('Y年n月j日') ?>にレビュー済み</div>
+                            <div>
+                                <div class="box1 box-close py-2">
+                                    <?= str_replace(PHP_EOL, '<br>', $REVIEW["text"]); ?>
+                                </div>
+                                <div class="review_more" data-more-flg='true'><i class="fa-solid fa-angle-down"></i>続きを見る</div>
+                            </div>
                         </div>
-                    </div>
-                <?php } ?>
-            </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
         </div>
+
     </div>
 </div>

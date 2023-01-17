@@ -8,11 +8,11 @@ $shop_list = get_shop($dbh);
     <div class="w-100 m-3">
         <div class="d-flex mb-5">
             <?php if ($_SESSION['account']) { ?>
-                <a class="user_icon" href="/user/<?= $_SESSION['account'] ?>">
-                    <iframe src="/icon/<?= $_SESSION['account'] ?>" width="100px" height="100px" loading="lazy" style="pointer-events: none;" title="アイコン"></iframe>
+                <a class="user_icon" href="/user/<?= $USER_DATA['account'] ?>" title="プロフィールページ">
+                    <iframe src="/icon/<?= $USER_DATA['account'] ?>" width="100px" height="100px" loading="lazy" style="pointer-events: none;" title="アイコン" class="rounded-3"></iframe>
                 </a>
             <?php } else { ?>
-                <iframe src="/icon/<?= $_SESSION['account'] ?>" width="100px" height="100px" loading="lazy" style="pointer-events: none;" title="アイコン"></iframe>
+                <iframe src="/icon/" width="100px" height="100px" loading="lazy" style="pointer-events: none;" title="アイコン"></iframe>
             <?php } ?>
 
 
@@ -29,9 +29,12 @@ $shop_list = get_shop($dbh);
                         さん
                     </div>
                 </div>
+
                 <?php if (isset($USER_DATA['shop_id'])) { ?>
                     <div class="p-3">
-                        <button class="btn btn-info btn-sm p-0"><a id='shop_updata' href='/view/shop/edit_data/index.php'>店舗情報更新</a></button>
+                        <a href='/view/shop/edit_data/index.php'>
+                            <div id='shop_updata' class="btn-setting">店舗情報更新</div>
+                        </a>
                     </div>
                 <?php } ?>
             </div>
@@ -39,14 +42,17 @@ $shop_list = get_shop($dbh);
         </div>
         <div class="mb-5">
             <div class="input-group mb-3 d-flex">
-                <input id="search_name" type="text" class="form-control-lg w-75" placeholder="店舗名またはキーワードを入力">
+                <div class="input-key">
+                    <input id="search_name" type="text" name="name" class="form-control-lg w-100 h-100" placeholder="店舗名またはキーワードを入力">
+                    <i class="fa-solid fa-circle-xmark input-xmark" style='display:none'></i>
+                </div>
                 <a class="btn btn-success p-3" type="button" id="search_btn" href='/search/name?p=1'>
                     <div><i class="fas fa-search"></i> 検索</div>
                 </a>
             </div>
             <div class="accordion-area mx-0">
                 <section class="my-2">
-                    <div class="title">詳細選択</div>
+                    <div class="title DotGothic">詳細選択</div>
                     <div class="box">
                         <div class="d-flex">
                             <div class="search_prefectures">
@@ -83,11 +89,15 @@ $shop_list = get_shop($dbh);
                 <a href='/view/search/genre/'><i class="fa-solid fa-list me-2"></i>ジャンル検索</a>
             </div>
         </div>
-        <p style="background-color:#CCFFFF;">最近見たお店</p>
+        <p class='DotGothic rounded-1' style="background-color:#CCFFFF;">
+            <i class="fa-solid fa-book ms-1"></i>最近見たお店
+        </p>
         <div id="recently_shop" class="user-select-none d-flex border border-dark rounded px-3 pt-3 pb-5 ">
 
         </div>
-        <p class="mt-3" style="background-color:#CCFFFF;">オススメのお店</p>
+        <p class="mt-3 DotGothic rounded-1" style="background-color:#CCFFFF;">
+            <i class="fa-solid fa-shop ms-1"></i>オススメのお店
+        </p>
         <div class="mt-5" style="height:150px;overflow: hidden;">
             <ul class="slider">
                 <?php for ($i = 0; $i < 10; $i++) { ?>
@@ -95,7 +105,7 @@ $shop_list = get_shop($dbh);
                     <?php if (isset($shop['image'])) { ?>
                         <li title="<?= $shop['name'] ?>">
                             <a href="/shop/<?= $shop['id'] ?>">
-                                <img src="/images/shopImage/<?= $shop['image'] ?>" loading="lazy" width="200px" height="auto" alt="recommend">
+                                <img src="/images/shopImage/<?= $shop['image'] ?>" loading="lazy" width="200px" height="auto" alt="recommend" class="rounded-2">
                             </a>
                         </li>
                     <?php } ?>

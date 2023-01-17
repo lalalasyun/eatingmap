@@ -1,26 +1,10 @@
-<?php
-$dbh = con();
-$USER_DATA = get_userid_user($dbh, $_SESSION['account']);
-if (isset($_POST['name']) && isset($_POST['text'])) {
-    if ($USER_DATA['profile'] !== $_POST['text'] || $USER_DATA['name'] !== $_POST['name']) {
-        set_user_prof($dbh, $_SESSION['account'], $_POST['name'], $_POST['text']);
-        header("Location: /view/account/mypage/index.php");
-        exit();
-    }
-    header("Location: /view/profile/edit/index.php");
-    exit();
-}
-?>
-
 <div class="container border rounded d-flex justify-content-center m-auto <?php if (!$isMobile) {
                                                                                 echo "w-75 my-4";
                                                                             } ?>">
-
-
     <div class="w-100">
         <div class="d-flex justify-content-center m-3">
             <div class="user_icon">
-                <iframe src="/icon/<?= $_SESSION['account'] ?>"></iframe>
+                <iframe src="/icon/<?= $USER_DATA['account'] ?>"></iframe>
                 <style>
                     .user_icon iframe {
                         width: 300px;
@@ -39,26 +23,25 @@ if (isset($_POST['name']) && isset($_POST['text'])) {
 
                     <div class="fs-4">
                         <label class="form-label">ニックネーム</label>
-                        <input type="text" class="form-control" name="name" required value="<?= $USER_DATA['name'] ?>">
+                        <input id="input_name" type="text" class="form-control" name="name" required value="<?= $USER_DATA['name'] ?>">
                     </div>
 
                     <div class="fs-4">
                         <label class="form-label">自己紹介</label>
-                        <textarea class="form-control" name="text"><?= $USER_DATA['profile'] ?></textarea>
-                    </div>
-                    <div class="d-flex justify-content-center m-4">
-                        <div class="d-flex">
-                            <button type="button" class="btn btn-dark me-5" style="width:70px" onClick="History_back()">戻る</button>
-                            <input type="button" class="btn btn-primary ms-5" style="width:70px" value="変更">
+                        <div class="cnt_area d-flex fs-5">
+                            <div class="now_cnt">0</div>
+                            <div>/500</div>
                         </div>
+                        <textarea id='input_text' class="form-control" name="text"><?= $USER_DATA['profile'] ?></textarea>
                     </div>
-
                 </form>
+                <div class="d-flex justify-content-center m-4">
+                    <div class="d-flex">
+                        <button type="button" id="back_btn" class="btn btn-dark me-5" style="width:70px">戻る</button>
+                        <button type="button" id="submit_btn" class="btn btn-primary ms-5" style="width:70px">変更</button>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-
     </div>
-
 </div>

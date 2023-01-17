@@ -285,7 +285,7 @@ function set_user_item($dbh, $user, $genre, $item)
 //店舗IDごとのレビューを検索(降順)
 function get_shopid_review($dbh, $shop)
 {
-    $sql = "SELECT * FROM shop_review WHERE shop_id = :shop ORDER BY score DESC";
+    $sql = "SELECT r.id,user_id,text,score,r.update_time,name,account FROM shop_review as r INNER JOIN user as u ON r.user_id = u.id WHERE r.shop_id = :shop ORDER BY score DESC;";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);

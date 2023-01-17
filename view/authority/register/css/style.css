@@ -1,18 +1,32 @@
-.leftcolor-blue{
-    padding-left: 10px ;
-    border-left-width: 5px ;
-    border-left-style: solid ;
+.leftcolor-blue {
+    padding-left: 10px;
+    border-left-width: 5px;
+    border-left-style: solid;
     border-left-color: #6495ED;
-    margin-bottom:30px;
+    margin-bottom: 30px;
     text-align: left;
     font-size: 30px;
-    
+
 }
+
 body {
     font-family: monospace;
-    
-    }
-    h1:first-letter {
-        font-size: 2em;
-        color: #7172ac;
-      }
+
+}
+
+h1:first-letter {
+    font-size: 2em;
+    color: #7172ac;
+}
+
+/* inputareaが黒くなるのを防ぐ */
+.form-control:disabled{
+    color: #FFF;
+    background: #fff;
+}
+
+/* validateのマークを修正 */
+/* .form-err-mark,.form-check-mark{
+    margin-top: 101px;
+    margin-right: 20px;
+} */

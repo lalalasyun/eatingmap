@@ -17,5 +17,7 @@ if (isset($_GET['user'])) {
         echo json_encode($json);
         exit;
     }
+    echo '{"code":"1","data":[]}';
+    exit;
 }
 echo '{"code":"0"}';

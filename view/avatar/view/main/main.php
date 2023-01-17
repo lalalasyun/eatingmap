@@ -7,11 +7,12 @@ if (isset($USERPAGE_DATA['id'])) {
     $CLOTHE_ID =  get_genre_item_id($dbh, "clothes");
     $BACK_ID =  get_genre_item_id($dbh, "background");
 
-    $res = get_avatar($dbh, $user, $HEAD_ID);
+    
     $HEAD = null;
     $CLOTHE = null;
     $BACK = null;
 
+    $res = get_avatar($dbh, $user, $HEAD_ID);
     if ($res) {
         $HEAD = $res["image"];
     }

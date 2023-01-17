@@ -26,6 +26,13 @@ $(function () {
         });
     }
 
+    $('#back_btn').click(function (e) { 
+        var select = confirm("入力を破棄しますか？");
+        if (select) {
+            window.location.href = `/shop/${shop_id}`;
+        }
+    });
+
     $('#submit_btn').on('click', function () {
         if (!$('#input_area').validate().form()) {
             return;
@@ -40,7 +47,6 @@ $(function () {
             }
         )
             .done(function (data) {
-                console.log(data)
                 if (data) {
                     window.location.href = `/view/shop/register_review/index.php?code=1&id=${shop_id}`;
                 } else {

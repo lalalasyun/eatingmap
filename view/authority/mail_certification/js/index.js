@@ -1,5 +1,14 @@
 $(function () {
+    $(".main").keypress(function (e) {
+        if (e.keyCode == 13) {
+            login();
+        }
+    });
     $("#mail_send_btn").click(async function () {
+        login();
+    })
+
+    function login(){
         const account = $('#id').val();
         const mail = $('#mail').val()
         if(account == "" || mail == "")return;
@@ -14,7 +23,6 @@ $(function () {
             url: `${data_list.apiUrl}/user/mail`,
             data: JSON.stringify(json),
         }).done(function (data) {
-            console.log(data);
             delete_dom_obj()
             if (data.code == 1) {
                 window.location.href = `/view/authority/mail_certification/index.php?code=1`;
@@ -24,9 +32,8 @@ $(function () {
         })
             // Ajaxリクエストが失敗した場合
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                console.log(XMLHttpRequest, textStatus, errorThrown)
                 window.location.href = `/view/error/${XMLHttpRequest.status}`;
             });
-    })
+    }
 
 })

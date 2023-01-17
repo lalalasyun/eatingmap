@@ -30,7 +30,6 @@ $(function () {
                     url: `${data_list.apiUrl}/user/login`,
                     data: JSON.stringify(json),
                 }).done(function (data) {
-                    console.log(data)
                     if (data.code) {
                         resolve(true);
                     }
@@ -70,7 +69,8 @@ $(function () {
             },
             pass3: {
                 required: true,
-                equalTo: "#pass2"
+                equalTo: "#pass2",
+                new_pass: true
             },
         },
         //エラーメッセージの設定
@@ -89,7 +89,8 @@ $(function () {
             },
             pass3: {
                 required: 'これは必須項目です！',
-                equalTo: 'パスワードが間違っています'
+                equalTo: 'パスワードが間違っています',
+                new_pass: '違うパスワードを入力してください'
             },
         }
     });

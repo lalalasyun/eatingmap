@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
     <script src="/view/account/review/js/index.js"></script>
     <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="/libs/js/bootstrap/star-rating.min.js" type="text/javascript"></script>
-    <title>レビュー履歴</title>
+    <title>eatingmap - レビュー履歴</title>
 
     <link rel="stylesheet" type="text/css" href="/libs/css/page_button.css" />
     <script src="/libs/js/page_btn.js" defer></script>

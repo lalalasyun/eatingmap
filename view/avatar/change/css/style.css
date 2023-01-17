@@ -22,9 +22,24 @@
 }
 
 .overflow-div {
-	width: auto;
-	height: 200px;
-	border: solid 1px;
-	overflow-x: hidden;
-	overflow-y: auto;
-  }
+    width: 640px;
+    border: solid 1px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: max-content;
+    max-height: 200px;
+}
+
+
+
+#clothes_area,#backs_area{
+	display: none;
+}
+
+#heads_btn,#clothes_btn,#backs_btn{
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	cursor: pointer;
+}

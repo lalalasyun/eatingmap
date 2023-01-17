@@ -1,10 +1,23 @@
 $(function () {
-    $(document).ready(function () {
-        let params = (new URL(document.location)).searchParams;
-        if (!params.get('mail')) return;
+    $("html").keypress(function (e) {
+        if (e.keyCode == 13) {
+            change();
+        }
+    });
+
+    $('#change_btn').click(function (e) { 
+        change();
+    });
+
+    async function change(){
+        $('#input_area').validate().form();
+        await new Promise(s => setTimeout(s, 500));
+        
+        if(!$('#input_area').validate().form())return;
+        
         const json = {
             id: user_account_id,
-            mail: params.get('mail')
+            mail: $('#mail').val()
         }
 
         $.ajax({
@@ -14,8 +27,8 @@ $(function () {
             },
             async: false,
             type: 'PUT',
-            url: `${data_list.apiUrl}/user`,
-            data: JSON.stringify(json),
+            url: `${data_list.apiUrl}/user/`,
+            data: JSON.stringify(json)
         }).done(function (data) {
             if (data.code) {
                 window.location.href = "/view/account/mail_change/index.php?code=1";
@@ -26,7 +39,7 @@ $(function () {
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
             window.location.href = `/view/error/${XMLHttpRequest.status}`;
         });
-    });
+    }
 
 
 });

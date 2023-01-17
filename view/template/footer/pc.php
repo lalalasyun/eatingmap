@@ -18,13 +18,13 @@
         <div class="d-flex justify-content-between">
             <div style="width:100px"></div>
             <div>
-                <p>Copyright (C) 2022 ☆e-ting map☆ All Rights Reserved.</p>
+                <p>Copyright (C) 2022 eatingmap All Rights Reserved.</p>
             </div>
             <div style="width:100px"></div>
         </div>
         <div id="go_top_btn" style="display:none;">
-            <div class="d-flex justify-content-center">
-                <p><a href="#"><img src="/images/object_icon/top.jpg" style="height:100px; width:100px;"></a></p>
+            <div class="d-flex justify-content-center m-3">
+                <a href="#" class="btn btn--circle btn--circle-c btn--shadow"><i class="fas fa-arrow-up"></i></a>
             </div>
         </div>
     </div>

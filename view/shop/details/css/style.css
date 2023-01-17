@@ -1,3 +1,8 @@
+.headline{
+	background-color:#FFD9D7;
+	border-radius: 5px;
+}
+
 .boximg {
   overflow-x: hidden;
   overflow-y: hidden;
@@ -34,3 +39,133 @@
 .hr{
   border-top: 1px solid #aaa;
 }
+
+
+/* お気に入りボタン */
+.inherited-styles {
+	box-sizing: border-box;
+	color: rgb(255, 255, 255);
+	font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo, メイリオ, YuGothic, "游ゴシック sans-serif";
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	margin: 0px;
+	padding: 12.5px 30px 12.5px 80px;
+}
+
+.fas {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 1;
+	text-rendering: auto
+}
+
+.fa-star:before {
+	content: "\f005"
+}
+
+a {
+	background-color: transparent;
+}
+
+a:active,
+a:hover {
+	outline-width: 0px;
+}
+
+
+i {
+	font-style: italic;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:focus {
+	outline: none;
+}
+
+a:active,
+a:hover {
+	outline: 0px;
+}
+
+.fav-btn,
+a.fav-btn {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	border-radius: 0.7rem;
+	color: rgb(33, 37, 41);
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	line-height: 1.5;
+	padding: 1rem 4rem;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.3s ease 0s;
+	user-select: none;
+	vertical-align: middle;
+}
+
+.fav-btn:hover {
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+}
+
+a.btn-tag {
+	padding: 0.8rem 1.25rem 0.8rem 80px;
+}
+
+a.btn-tag::before {
+	border-radius: 0.5rem 0px 0px 0.5rem;
+	content: "";
+	height: 100%;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width: 50px;
+}
+
+a.btn-tag--favorite,
+a.btn-tag:hover {
+	color: rgb(255, 255, 255);
+}
+
+a.btn-tag--favorite {
+	background: rgb(243, 152, 0);
+}
+
+a.btn-tag--favorite::before {
+	background: #f9fafb;
+}
+
+a.btn-tag--favorite i {
+	color: rgb(243, 152, 0);
+	font-size: 120%;
+	left: 0px;
+	letter-spacing: 0px;
+	opacity: 0.5;
+	padding: 1rem 0px;
+	position: absolute;
+	text-align: center;
+	top: 0px;
+	transition: all 0.3s ease 0s;
+	width: 50px;
+}
+
+a.btn-tag--favorite:hover {
+	background: rgb(255, 165, 14);
+}
+
+a.btn-tag--favorite:hover i {
+	opacity: 1;
+	transform: scale(1.1);
+}
+

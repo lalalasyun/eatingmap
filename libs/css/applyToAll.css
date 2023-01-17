@@ -1,5 +1,5 @@
 body{
-    overflow-x: hidden;
+    overflow-x: auto;
     display: none;
 }
 
@@ -65,4 +65,9 @@ img {
 
 .scrollbar1::-webkit-scrollbar-corner {
     display: none;
+}
+
+/* bootstrapのフォームの影を修正 */
+.form-control:focus{
+    box-shadow: none;
 }

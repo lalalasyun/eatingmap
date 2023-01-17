@@ -21,7 +21,6 @@ $(function () {
 
     async function del_favorite(id) {
         var select = confirm("削除しますか？");
-        console.log(select)
         if (select) {
             screenLock();
             await $.get(`${data_list.apiUrl}/api/user_favorite.php`, { code: "del", user: user_account_id, shop: id });
@@ -69,12 +68,20 @@ $(function () {
             let shop = data[i];
             $("#fav_list").append(`<div id=${shop.id} class="shop_data">`);
             //templateをloadし各種データを埋め込む
+            date = new Date(shop.create_time);
+            function formatDate (date, format) {
+                format = format.replace(/yyyy/g, date.getFullYear());
+                format = format.replace(/M/g, (date.getMonth() + 1));
+                format = format.replace(/d/g, (date.getDate()));
+                return format;
+              };
+              
             await sampleResolve();
             function sampleResolve() {
                 return new Promise(resolve => {
                     $(`#${shop.id}`).load("/view/account/favorite/main/template.html", function (myData, myStatus) {
                         $(`#${shop.id}`).find("#shopname").html(shop.name);
-                        $(`#${shop.id}`).find("#date").html(shop.create_time);
+                        $(`#${shop.id}`).find("#date").html(formatDate(date, '追加日:yyyy年M月d日'));
                         resolve(true);
                     });
 

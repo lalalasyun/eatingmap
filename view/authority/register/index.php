@@ -1,10 +1,9 @@
 <?php
-
 if (isset($_POST["submit"]) && $_POST["submit"] == "click") {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/conf/spring_conf.php';
     $data = array("name" => $_POST["name"], "account" => $_POST["id"], "password" => $_POST["pass"], "mail" => $_POST["mail"], "accessCode" => $CODE);
     $json = json_encode($data);
-    $url = `https://app.eatingmap.fun/user`;
+    $url = API_URL."/user/";
     // 送信時のオプション
 
     $context = array(
@@ -26,21 +25,22 @@ if (isset($_POST["submit"]) && $_POST["submit"] == "click") {
         exit;
     }
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
-    <link rel="stylesheet" type="text/css" href="/view/authority/register/css/style.css" />
+
     <script src="/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/libs/js/jquery/additional-methods.min.js"></script>
     <script src="/view/authority/register/js/validate_rules.js"></script>
+    <link rel="stylesheet" href="/libs/css/validate_style.css">
+    
     <script src="/view/authority/register/js/no_automatic.js"></script>
-    <title>新規登録</title>
+
+    <link rel="stylesheet" type="text/css" href="/view/authority/register/css/style.css" />
+    <title>eatingmap - 新規登録</title>
 </head>
 
 <body>

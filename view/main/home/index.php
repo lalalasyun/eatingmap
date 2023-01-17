@@ -4,7 +4,7 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/main/home/css/main.css" />
 
-    <script src="/view/main/home/js/index.js"></script>
+    <script src="/view/main/home/js/index.js" defer></script>
     <script src="/view/main/home/js/slider.js" defer></script>
     
     <script src="/libs/js/load_city/load_city.js"></script>
@@ -14,9 +14,10 @@
     <link rel="stylesheet" type="text/css" href="/view/main/home/css/slider.css">
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-
     <script src="/libs/js/accordion.js"></script>
     <link rel="stylesheet" type="text/css" href="/libs/css/accordion.css" />
+
+
 
     <title>eatingmap - 飲食店情報サイト</title>
 </head>

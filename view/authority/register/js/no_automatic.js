@@ -1,14 +1,10 @@
 $(function () {
   $(document).ready(function () {
     //ブラウザの自動入力を強制的に削除
-    let cnt = 0
-    const timerId = setInterval(() => {
-      if (cnt++ === 50) { 
-        clearInterval(timerId);
-      }
+    setTimeout(function(){
       $('#input_area').find('input').each(function () {
-        $(this).val("");
+        $(this).prop('disabled', false);
       })
-    }, 10);
+    },1000)
   });
 });

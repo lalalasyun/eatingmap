@@ -11,9 +11,9 @@ $(function() {
         //エラーメッセージの設定
         messages: {
             text: {
-                required: 'これは必須項目です！',
-                minlength:'5文字以上で入力してください',
-                maxlength:'1000文字以内で入力してください'
+                required: 'レビューを入力してください。',
+                minlength:'5文字以上で入力してください。',
+                maxlength:'1000文字以内で入力してください。'
             }
         }
     });

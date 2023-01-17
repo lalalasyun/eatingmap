@@ -3,12 +3,17 @@
         <h3 class="mb-5 text-center">アカウント設定</h3>
         <div class="d-flex justify-content-between mb-3">
             <div class="fs-3">メールアドレス</div>
-            <button class="btn btn-outline-primary" onclick="location.href='/view/account/mail_change/'">変更</button>
+            <a href='/view/account/mail_change/'>
+                <button class="btn btn-outline-primary">変更</button>
+            </a>
         </div>
 
         <div class="d-flex justify-content-between mb-3">
             <div class="fs-3">パスワード</div>
-            <button class="btn btn-outline-primary" onclick="location.href='/view/account/pass_change/'">変更</button>
+            <a href="/view/account/pass_change/">
+                <button class="btn btn-outline-primary">変更</button>
+            </a>
+
         </div>
     </div>
 </div>

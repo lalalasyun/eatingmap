@@ -45,3 +45,30 @@
 .i {
     background-image: url("/var/www/html/images/background/onigiri.png");
 }
+
+
+.btn-setting{
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    padding: 0 30px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 7px;
+    background-color: #0070f3;
+    color: white;
+    font-weight: 400;
+    font-size: 13px;
+    box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+    transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
+}
+
+.btn-setting:hover{
+    background: rgba(0,118,255,0.9);
+    box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
+}
+
+.change-avatar:hover{
+    color:#000;
+}

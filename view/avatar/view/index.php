@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/libs/css/bootstrap/bootstrap.min.css">
     <script src="/libs/js/bootstrap/bootstrap.min.js"></script>
 
-    <title>アバター画面</title>
+    <title>eatingmap - ユーザーアイコン</title>
 </head>
 
 <body class="m-0 p-0">

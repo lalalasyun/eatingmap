@@ -11,9 +11,14 @@
             </div>
             <div class="d-flex flex-column bd-highlight mb-2">
                 <label class="form-label">パスワード</label>
-                <input type="password" class="form-control mb-2" id="pass" required>
-                <div id="err_mess" class="mb-2"></div>
+                <div class="password-column">
+                    <input type="password" class="form-control mb-2" id="pass" required>
+                    <i class="fa-regular fa-eye form-open-eye-mark"></i>
+                    <i class="fa-regular fa-eye-slash form-close-eye-mark"></i>
+                </div>
+
             </div>
+            <div id="err_mess" class="mb-2"></div>
             <button class="btn btn-primary" name="login" value="login_click" id="login_btn">ログイン</button>
             <div class="sessionsLayout_guide">
                 アカウントを持っていない場合は

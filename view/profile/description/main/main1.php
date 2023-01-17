@@ -16,7 +16,7 @@ $review_count = get_userid_review_count($dbh, $USERPAGE_DATA['id']);
             <div class="u1 user_icon" style="background-image:url(/images/background/b.jpg)">
 
 
-                <iframe src="/icon/<?= $USERPAGE_DATA["id"] ?>"></iframe>
+                <iframe src="/icon/<?= $USERPAGE_DATA["account"] ?>" width="200px" height="200px" loading="lazy"></iframe>
 
             </div>
                                                              

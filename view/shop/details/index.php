@@ -4,14 +4,19 @@
 
 <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
-    <link rel="stylesheet" type="text/css" href="/view/shop/details/css/style.css" />
 
     <script src="/view/shop/details/js/map.js"></script>
     <script src="/view/shop/details/js/favorite.js"></script>
     <script src="/view/shop/details/js/script.js"></script>
     <script src="/view/shop/details/js/more_review.js" defer></script>
 
-    <link href="/libs/css/bootstrap/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/view/shop/details/css/style.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/animations/shift-toward-subtle.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/themes/light-border.css">
+    <script src="https://unpkg.com/popper.js@1" defer></script>
+    <script src="https://unpkg.com/tippy.js@5" defer></script>
+    <script src="/view/shop/details/js/tooltip.js" defer></script>
     
     <title><?= $SHOP_DATA["name"] ?> - eatingmap</title>
 </head>

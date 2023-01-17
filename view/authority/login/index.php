@@ -22,7 +22,7 @@ if (isset($_GET['user_account_id'])) {
     <link rel="stylesheet" type="text/css" href="/view/authority/login/css/style.css" />
     <script src="/libs/js/ajax.js"></script>
     <script src="/view/authority/login/js/index.js"></script>
-    <title>ログイン</title>
+    <title>eatingmap - ログイン</title>
 </head>
 
 <body>

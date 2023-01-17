@@ -55,9 +55,10 @@ $path = explode("/", __DIR__);
     <script src="/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/libs/js/jquery/additional-methods.min.js"></script>
     <script src="/view/contact/send/js/validate_rules.js"></script>
+    <link rel="stylesheet" href="/libs/css/validate_style.css">
 
 
-    <title>お問い合わせフォーム</title>
+    <title>eatingmap - お問い合わせフォーム</title>
 </head>
 
 <body>

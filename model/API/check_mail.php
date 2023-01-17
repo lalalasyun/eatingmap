@@ -1,8 +1,10 @@
 <?php
+require $_SERVER['DOCUMENT_ROOT'] . '/conf/api_conf.php';
 //https://app.eatingmap.fun/user/check
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json; charset=UTF-8');
 $mail = $_GET['mail'];
+'https://app.eatingmap.fun/user/check';
 $url = API_URL.'/user/check';
 // 送信時のオプション
 

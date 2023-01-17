@@ -46,7 +46,7 @@ $data = get_category($dbh);
 
 <div id="map" class="w-100" style="height:500px;"></div>
 <?php
-require_once dirname(__FILE__, 5) . "/conf/map_conf.php"
+require_once  $_SERVER['DOCUMENT_ROOT'] . "/conf/map_conf.php"
 ?>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<?= $KEY; ?>&callback=initMap&v=weekly" defer></script>

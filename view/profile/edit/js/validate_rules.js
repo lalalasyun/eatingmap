@@ -17,10 +17,10 @@ $(function() {
             name: {
                 required: error_icon+'これは必須項目です！',
                 minlength: error_icon+'ニックネームは2文字以上で入力してください',
-                maxlength:error_icon+'ニックネームは20文字以下で入力してください'
+                maxlength:error_icon+'ニックネームは20文字以内で入力してください'
             },
             text: {
-                maxlength:error_icon+'プロフィールは500文字以下で入力してください'
+                maxlength:error_icon+'プロフィールは500文字以内で入力してください'
             }
         }
     });

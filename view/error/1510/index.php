@@ -4,7 +4,7 @@
 <head>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/error/1510/css/style.css" />
-    <title>エラー</title>
+    <title>eatingmap - エラー</title>
 </head>
 
 <body>

@@ -3,5 +3,20 @@ a{
 }
 a:hover {
     text-decoration: underline;
-    color: #0a58ca;
+}
+
+.password-column{
+    position: relative;
+}
+
+.form-open-eye-mark,.form-close-eye-mark{
+    position: absolute;
+    margin: 10px;
+    top: 0px;
+    right: 0px;
+    z-index: 20;
+}
+
+.form-open-eye-mark{
+    display: none;
 }

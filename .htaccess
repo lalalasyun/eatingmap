@@ -7,4 +7,8 @@
     RewriteCond %{REQUEST_URI} !^/model/API/
 
     RewriteRule ^(.*)$ index.php/$1 [L]
+
+    ErrorDocument 403 /view/error/403/index.php
+    ErrorDocument 404 /view/error/404/index.php
+    ErrorDocument 500 /view/error/500/index.php
 </IfModule>

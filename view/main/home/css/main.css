@@ -153,3 +153,64 @@ a#search_btn:visited {
 a#search_btn:hover {
     color: #fff;
 }
+
+.input-key{
+    position: relative;
+}
+
+#search_name{
+    position: absolute;
+}
+
+.input-xmark{
+    position: absolute;
+    z-index: 10;
+    top:20px;
+    right: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+.DotGothic{
+    font-family: 'DotGothic16', sans-serif;
+    font-weight: bold;
+}
+
+.btn-setting{
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 7px;
+    background-color: #0070f3;
+    color: white;
+    font-weight: 400;
+    font-size: 13px;
+    transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
+}
+
+.btn-setting:hover{
+    background: rgba(0,118,255,0.9);
+}
+
+#search_name{
+    border-bottom-color: black;
+    min-height: calc(1.5em + 1rem + 2px);
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    border-right: none;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    font-size:medium;
+}
+
+#search_name:focus-visible{
+    outline:none;
+}
+
+.input-key{
+    width: calc(100% - 86px);
+}

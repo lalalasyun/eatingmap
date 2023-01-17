@@ -1,4 +1,14 @@
 $(function () {
+    $('.form-open-eye-mark').click(function (e) { 
+        $(this).siblings('input').attr('type','password');
+        $(this).hide();
+        $(this).siblings('.form-close-eye-mark').show();
+    });
+    $('.form-close-eye-mark').click(function (e) { 
+        $(this).siblings('input').attr('type','text');
+        $(this).hide();
+        $(this).siblings('.form-open-eye-mark').show();
+    });
     $(document).ready(function () {
         let params = (new URL(document.location)).searchParams;
         if (!params.get('pass3')) return;

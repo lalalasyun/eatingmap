@@ -1,12 +1,4 @@
-<?php
-if (isset($USER_DATA['shop_id'])) {
-    $dbh = con();
-    $SHOP_DATA = get_id_shop_data($dbh, $USER_DATA['shop_id']);
-    $GENRE_DATA = get_category($dbh);
-    $TYPE_DATA = get_type($dbh);
-    $TAG_DATA  = get_shop_tag($dbh, $SHOP_DATA["id"]);
-}
-?>
+
 <script>
     let shop_id = "<?= $USER_DATA['shop_id'] ?>";
     let HAS_TAG = [];
@@ -83,7 +75,7 @@ if (isset($USER_DATA['shop_id'])) {
             </div>
         </form>
         <div class="d-flex justify-content-center my-3">
-            <button class="btn btn-info btn-lg mx-2" onclick="History_back();">戻る</button>
+            <button id="back_btn" class="btn btn-info btn-lg mx-2">戻る</button>
             <button id="submit" class="btn btn-info btn-lg mx-2">更新</button>
         </div>
 

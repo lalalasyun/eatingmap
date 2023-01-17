@@ -8,11 +8,20 @@
             <form id="input_area">
                 <div class="d-flex flex-column bd-highlight mb-3">
                     <label for="validationDefault01" class="form-label">ユーザネーム</label>
-                    <input type="text" class="form-control" id="id" name="name"><br>
+                    <div class="validate-column">
+                        <input type="text" class="form-control" id="id" name="name">
+                        <i class="fa-solid fa-xmark form-err-mark"></i>
+                        <i class="fa-solid fa-check form-check-mark"></i>
+                    </div>
                 </div>
                 <div class="d-flex flex-column bd-highlight mb-5">
                     <label for="validationDefault02" class="form-label">メールアドレス</label>
-                    <input type="text" class="form-control" id="mail" name="mail">
+                    <div class="validate-column">
+                        <input type="text" class="form-control" id="mail" name="mail">
+                        <i class="fa-solid fa-xmark form-err-mark"></i>
+                        <i class="fa-solid fa-check form-check-mark"></i>
+                    </div>
+
                 </div>
             </form>
 

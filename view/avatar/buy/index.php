@@ -5,7 +5,7 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/avatar/buy/css/style.css" />
     <script src="/view/avatar/buy/js/index.js"></script>
-    <title>アイテム購入画面</title>
+    <title>eatingmap - アイテム購入</title>
 
 </head>
 
