@@ -1,15 +1,15 @@
 $(function () {
-    $('.form-open-eye-mark').click(function (e) { 
-        $(this).siblings('input').attr('type','password');
+    $('.form-open-eye-mark').click(function (e) {
+        $(this).siblings('input').attr('type', 'password');
         $(this).hide();
         $(this).siblings('.form-close-eye-mark').show();
     });
-    $('.form-close-eye-mark').click(function (e) { 
-        $(this).siblings('input').attr('type','text');
+    $('.form-close-eye-mark').click(function (e) {
+        $(this).siblings('input').attr('type', 'text');
         $(this).hide();
         $(this).siblings('.form-open-eye-mark').show();
     });
-    
+
     $("#login_btn").click(async function () {
         let account = $('#id').val();
         let pass = $('#pass').val();
@@ -40,7 +40,9 @@ $(function () {
             data: JSON.stringify(json),
         }).done(function (data) {
             if (data.code) {
-                var ref = document.referrer;
+                let url = new URL(window.location.href);
+                let params = url.searchParams;
+                var ref = params.get('is_logged_in') ? "/view/main/home/" : document.referrer;
                 window.location.href = `/view/authority/login/index.php?user_account_id=${data.data.id}&ref=${ref}`;
             } else {
                 $('#pass').val("");

@@ -36,7 +36,7 @@ if (!$isMobile) {
         <div class="d-flex justify-content-center">
 
             <div class="d-flex align-items-end">
-                <p class="fs-1"><?= $SHOP_DATA['name'] ?></p>
+                <div class="fs-1 font-kosugi"><?= $SHOP_DATA['name'] ?></div>
             </div>
         </div>
 
@@ -44,7 +44,7 @@ if (!$isMobile) {
             <div class="boximg border border-dark rounded p-3 w-100">
                 <div style="max-height: 400px;overflow: hidden; ">
                     <div class="d-flex justify-content-center d-flex align-items-center">
-                        <img src="/images/shopImage/<?= $SHOP_DATA["image"] ?>" loading="lazy" width='50%' height="auto" alt="店舗画像">
+                        <img src="/images/shopImage/<?= $SHOP_DATA["image"] ?>" loading="lazy" width='50%' height="auto" alt="店舗画像" title="<?= $SHOP_DATA['name'] ?>">
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@ if (!$isMobile) {
 
                 <div class="d-flex">
                     <div>評価 : </div>
-                    <div id="rating" class="ms-2 cap" data-tippy-content="<?= $SHOP_DATA['score']?>">
+                    <div id="rating" class="ms-2 cap" data-tippy-content="<?= $SHOP_DATA['score'] ? "".$SHOP_DATA['score']."" : "データが登録されていません。" ?>">
                         <?php for ($i = 1; $i < 6; $i++) { ?>
                             <?php if ($i == $SHOP_DATA['score']) { ?>
                                 <span class="fa fa-star active" data-name="<?= $i ?>"></span>
@@ -118,14 +118,20 @@ if (!$isMobile) {
                         <div class="me-5"><?php print_r($TAG['name'] . "：" . preg_split('/[\[\"\]]/', $TAG['value'])[2]); ?></div>
                     <?php } ?>
                 <?php } ?>
-                <?php if (count($TAG_DATA)) { ?>
-                    <div class="hr my-2"></div>
-                <?php } ?>
 
-                <div class="headline">説明文</div>
-                <div><?= str_replace(PHP_EOL, '<br>', $SHOP_DATA["info1"]); ?></div>
+
             </div>
         </div>
+        <?php if ($SHOP_DATA["info1"] != "") { ?>
+            <div class="mt-5">
+                <h1 class="headline">説明</h1>
+                <div class="box1 border border-dark rounded p-3 w-100">
+                    <div><?= str_replace(PHP_EOL, '<br>', $SHOP_DATA["info1"]); ?></div>
+                </div>
+            </div>
+        <?php } ?>
+
+
         <div class="mt-5">
             <h1 class="headline">マップ</h1>
             <div class="d-flex justify-content-center">
@@ -146,7 +152,7 @@ if (!$isMobile) {
         <div class="mt-5 w-100 d-flex">
             <?php if ($_SESSION['auth'] && check_user_review($dbh, $_SESSION['account'], $SHOP_DATA["id"])) { ?>
                 <div>
-                    <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" href="/view/shop/edit_review/index.php?id=<?= $SHOP_DATA['id'] ?>">
+                    <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" href="/view/shop/edit_review/index.php?id=<?= $SHOP_DATA['id'] ?>&click=/shop/<?= $SHOP_DATA["id"] ?>">
                         <i class="fa-solid fa-pen-to-square"></i>
                         レビュー<?php if (!$isMobile) { ?>編集<?php } ?>
                     </a>

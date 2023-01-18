@@ -32,6 +32,7 @@ $(function () {
         }
         if(tags.length == TAG_DATA.length) return;
         set_tag_form();
+        $(".tag-form #tag-error").remove();
     });
 
     $('#submit').on('click', function () {
@@ -48,6 +49,10 @@ $(function () {
         let type = $("#type").val();
 
         let tags = get_val();
+        if(tags[tags.length-1].tags == "[]"){
+            $(".tag-form").append(`<label id="tag-error" class="error" >タグが設定されていません。</label>`);
+            return;
+        }
         let json = {
             id: shop_id,
             name: name,
@@ -71,12 +76,13 @@ $(function () {
         window.location.href = `/view/shop/edit_data/index.php?code=1`;
     })
 
-    $('#back_btn').click(function (e) { 
+    $('#back_btn').on('click', function () {
         var select = confirm("変更を破棄しますか？");
         if (select) {
             History_back();
         }
     });
+
 });
 async function set_tag_form() {
     const id = Date.now();

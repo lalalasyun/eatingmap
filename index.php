@@ -10,7 +10,7 @@ $dbh = con();
 
 // apiのURLをjsに実装
 require 'conf/api_conf.php';
-echo '<script data-api-url="'.API_URL.'"></script>';
+echo '<script data-api-url="' . API_URL . '"></script>';
 
 
 require_once dirname(__FILE__) . "/libs/php/Mobile_Detect.php";
@@ -33,11 +33,11 @@ if (!isset($_SESSION['account'])) {
     $_SESSION['account'] = "";
 }
 
-if(isset($_GET['logout']) && $_GET['logout'] == 1){
+//ログアウト処理
+if (isset($_GET['logout']) && $_GET['logout'] == 1) {
     $_SESSION['account'] = "";
     $_SESSION['auth'] = false;
-    header("Location: /view/main/home/");
-    exit;
+    header("Location: ?logout=0");
 }
 
 
@@ -47,7 +47,7 @@ if ($_SESSION['auth'] && $_SESSION['account'] != "") {
     $USER_DATA = get_userid_user($dbh, $_SESSION['account']);
 
     //shopタグが間違っている場合nullに修正
-    if(!get_id_shop_data($dbh, $USER_DATA['shop_id'])){
+    if (!get_id_shop_data($dbh, $USER_DATA['shop_id'])) {
         $USER_DATA['shop_id'] = null;
     }
     echo "<script>let user_account_id = '" . $USER_DATA['id'] . "';</script>";
@@ -55,9 +55,9 @@ if ($_SESSION['auth'] && $_SESSION['account'] != "") {
     echo "<script>let user_account_id = '';</script>";
 }
 
-if($isMobile){
+if ($isMobile) {
     echo "<script>const isMobile = true;</script>";
-}else{
+} else {
     echo "<script>const isMobile = false;</script>";
 }
 
@@ -107,7 +107,7 @@ if ($sp_url[1] === "user") {
     // }
     //マッピングをログインIDに統合
     $USERPAGE_DATA = get_account_user($dbh, $sp_url[2]);
-    
+
     if (isset($USERPAGE_DATA)) {
         include "view/profile/description/index.php";
         die();
@@ -140,23 +140,33 @@ $PAGECONF = file_get_contents("conf/page_conf.json");
 $PAGECONF = mb_convert_encoding($PAGECONF, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 $MAP = json_decode($PAGECONF, true);
 
+$is_logged_in = false;
+
 foreach ($MAP as $key) {
     foreach ($key as $pages) {
         if (($pages['url'] === $REQUEST_URI) || ("/" . $pages['routing'] === $REQUEST_URI)) {
             if (($pages['level'] == 2 || $pages['level'] == 3) && !$_SESSION['auth']) {
                 //ログイン状態じゃないと見れないサイトはエラー画面に移動
-                header('Location: /error/login');
+                if (isset($_GET['logout'])) {
+                    header('Location: /view/main/home/');
+                } else {
+                    header('Location: /error/login');
+                }
             }
             if ($pages['level'] == 3 && !isset($USER_DATA['shop_id'])) {
                 //店員ログイン状態じゃないと見れないサイトはエラー画面に移動
                 header('Location: /error/employee');
+            }
+            //ログイン転送用フラグ
+            if (isset($pages['is_logged_in'])) {
+                $is_logged_in = true;
             }
         }
         if ($pages['url'] === $REQUEST_URI) {
             if ($GET_PARAM) {
                 include $pages['routing'] . 'index.php';
                 foreach ($GET_PARAM as $param) {
-                    
+
                     $_GET[explode('=', $param)[0]] = explode('=', $param)[1];
                 }
             } else {
@@ -179,5 +189,3 @@ foreach ($MAP as $key) {
 //ルーティング先が見つからない場合404ページへリダイレクトする
 header('Location: /error/404');
 exit;
-
-var_dump($REQUEST_URI);

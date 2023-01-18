@@ -9,9 +9,12 @@
 
 }
 
-body {
+.leftcolor-blue {
     font-family: monospace;
+}
 
+.form-control{
+    font-family: 'Kosugi Maru', sans-serif;
 }
 
 h1:first-letter {

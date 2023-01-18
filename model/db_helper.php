@@ -317,7 +317,7 @@ function get_user_review_count($dbh, $user)
 //更新順
 function get_user_review($dbh, $user)
 {
-    $sql = "SELECT * FROM shop_review AS r 
+    $sql = "SELECT shop_id,name,r.text,r.score,s.id,user_id FROM shop_review AS r 
     INNER JOIN shop AS s 
     ON r.shop_id = s.id 
     WHERE user_id = :user 

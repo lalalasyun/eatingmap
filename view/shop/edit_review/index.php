@@ -1,6 +1,9 @@
 <?php
+if(!isset($_GET['click']) || $_GET['click'] == ""){
+    header('Location: /error/403');
+    exit;
+}
 if (isset($_GET['id'])) {
-    $dbh = con();
     $SHOP_DATA = get_id_shop_data($dbh, $_GET['id']);
     $REVIEW_DATA = check_user_review($dbh, $_SESSION['account'], $_GET['id']);
 }

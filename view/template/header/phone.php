@@ -6,17 +6,28 @@
                 <?php if ($this_page != 'mail' && $this_page != 'register' && $this_page != "login") { ?>
                     <?php if (!$_SESSION['auth']) { ?>
                         <!--新規登録-->
-                        <button type="button" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='/view/authority/mail_certification/'">新規登録</button>
+                        <a href="/view/authority/mail_certification/">
+                            <button type="button" class="btn btn-primary btn-sm w-100 my-1">新規登録</button>
+                        </a>
                         <!--ログイン-->
-                        <button type="button" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='/view/authority/login/'">ログイン</button>
+                        <a href="/view/authority/login/<?= $is_logged_in ? "?is_logged_in=true" : "" ?>">
+                            <button type="button" class="btn btn-primary btn-sm w-100 my-1">ログイン</button>
+                        </a>
                     <?php } else { ?>
-                        <button type="button" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='/user/<?= $USER_DATA['id'] ?>'">プロフィール画面</button>
+                        <a href="/user/<?= $USER_DATA['id'] ?>">
+                            <button type="button" class="btn btn-primary btn-sm w-100 my-1">プロフィール画面</button>
+                        </a>
+                        <a href="/view/account/mypage/">
+                            <button type="button" class="btn btn-primary btn-sm w-100 my-1">MyPage</button>
+                        </a>
                         <!--MyPage-->
-                        <button type="button" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='/view/account/mypage/'">MyPage</button>
-                        <button type="button" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='/view/account/setting/index.php'">アカウント設定</button>
+                        <a href="/view/account/setting/index.php">
+                            <button type="button" class="btn btn-primary btn-sm w-100 my-1">アカウント設定</button>
+                        </a>
                         <!--ログアウト-->
-                        <button type="submit" class="btn btn-primary btn-sm w-100 my-1" onclick="location.href='?logout=1'">ログアウト</button>
-
+                        <a href="?logout=1">
+                            <button type="submit" class="btn btn-primary btn-sm w-100 my-1">ログアウト</button>
+                        </a>
                     <?php } ?>
                 <?php } ?>
             </div>

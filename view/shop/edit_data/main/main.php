@@ -38,7 +38,6 @@
             <div class="form-group form-inline input-group-sm my-3">
                 <span class="col-md-2 text-md-right">店舗ジャンル</span>
                 <select class="form-select" id="genre" name="genre">
-                    <option value="0">ジャンルを選択</option>
                     <?php foreach ($GENRE_DATA as list($id, $name)) { ?>
                         <?php
                         $selected = "";

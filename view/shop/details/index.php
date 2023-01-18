@@ -17,7 +17,7 @@
     <script src="https://unpkg.com/popper.js@1" defer></script>
     <script src="https://unpkg.com/tippy.js@5" defer></script>
     <script src="/view/shop/details/js/tooltip.js" defer></script>
-    
+
     <title><?= $SHOP_DATA["name"] ?> - eatingmap</title>
 </head>
 

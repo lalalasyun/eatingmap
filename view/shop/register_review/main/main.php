@@ -49,7 +49,7 @@
       </div>
     </form>
     <div class="d-flex justify-content-center my-3">
-      <a class="btn_18"><i class="fa-solid fa-shop"></i> お店に戻る</a>
+      <a class="btn_18" id="back_btn"><i class="fa-solid fa-shop"></i> お店に戻る</a>
       <a class="btn_18" id="submit_btn"><i class="fa-solid fa-user-pen"></i> 登録する</a>
     </div>
   </div>

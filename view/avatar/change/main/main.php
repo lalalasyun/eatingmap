@@ -33,36 +33,35 @@ if ($res) {
         <div class="d-flex justify-content-center">
             <h1>アバター選択</h1>
         </div>
-        <div class="d-flex justify-content-center">
-            <div style="width: 300px;">
-                <div class="icon_area">
-                    <div class="mask">
-
-                    </div>
-                    <div class="user_icon2">
-                        <img src="/images/user_icon/user_init_icon.png" width="100px" height="100px">
-                    </div>
-                    <?php if ($HEAD) { ?>
-                        <div class="user_icon3">
-                            <img id="heads_icon" src="<?= $HEAD_PATH . $HEAD ?>" width="100px" height="100px">
-                        </div>
-                    <?php } ?>
-                    <?php if ($CLOTHE) { ?>
-                        <div class="user_icon4">
-                            <img id="clothes_icon" src="<?= $CLOTHE_PATH . $CLOTHE ?>" width="100px" height="100px">
-                        </div>
-                    <?php } ?>
-                    <?php if ($BACK) { ?>
-                        <div class="user_icon1">
-                            <img id="backs_icon" src="<?= $BACK_PATH . $BACK ?>" width="100px" height="100px">
-                        </div>
-                    <?php } ?>
-                </div>
-            </div>
-
-        </div>
-
         <?php if (count($heads) + count($backs) + count($clothes) != 0) { ?>
+            <div class="d-flex justify-content-center">
+                <div style="width: 300px;">
+                    <div class="icon_area">
+                        <div class="mask">
+
+                        </div>
+                        <div class="user_icon2">
+                            <img src="/images/user_icon/user_init_icon.png" width="100px" height="100px">
+                        </div>
+                        <?php if ($HEAD) { ?>
+                            <div class="user_icon3">
+                                <img id="heads_icon" src="<?= $HEAD_PATH . $HEAD ?>" width="100px" height="100px">
+                            </div>
+                        <?php } ?>
+                        <?php if ($CLOTHE) { ?>
+                            <div class="user_icon4">
+                                <img id="clothes_icon" src="<?= $CLOTHE_PATH . $CLOTHE ?>" width="100px" height="100px">
+                            </div>
+                        <?php } ?>
+                        <?php if ($BACK) { ?>
+                            <div class="user_icon1">
+                                <img id="backs_icon" src="<?= $BACK_PATH . $BACK ?>" width="100px" height="100px">
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+
+            </div>
             <!-- test -->
             <form action="" method="post" style="margin-top:300px;">
                 <div class="d-flex justify-content-center">
@@ -84,7 +83,7 @@ if ($res) {
                             <div class="overflow-div scrollbar1" id="clothes_area">
                                 <?php for ($i = 0; $i < count($clothes); $i++) {  ?>
                                     <label>
-                                        <input type="radio" name="radio2" value="<?= $i; ?>" class="radio" data-item_id="clothes_icon" data-item_image="<?= $CLOTHE_PATH . $clothes[$i]['image']; ?>"   <?= $clothes[$i]['is_set_avatar'] ? "checked" : "" ?>>
+                                        <input type="radio" name="radio2" value="<?= $i; ?>" class="radio" data-item_id="clothes_icon" data-item_image="<?= $CLOTHE_PATH . $clothes[$i]['image']; ?>" <?= $clothes[$i]['is_set_avatar'] ? "checked" : "" ?>>
                                         <img src="<?= $CLOTHE_PATH . $clothes[$i]['image']; ?> " width="300px" height="450px" class="radio_image" title="<?= $clothes[$i]['name']; ?>" loading="lazy">
                                     </label>
                                 <?php } ?>

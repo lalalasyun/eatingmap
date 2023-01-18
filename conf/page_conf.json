@@ -48,31 +48,37 @@
             "url": "/login",
             "routing": "view/authority/login/",
             "level": "1",
-            "description": "ログイン画面"
+            "description": "ログイン画面",
+            "is_logged_in":"1"
         },
         "mail_certification": {
             "url": "/mail",
             "routing": "view/authority/mail_certification/",
             "level": "1",
-            "description": "メール認証画面"
+            "description": "メール認証画面",
+            "is_logged_in":"1"
         },
         "mail_confirm": {
             "url": "/mail/confirm",
             "routing": "view/authority/mail_confirm/",
             "level": "1",
-            "description": "メール認証完了画面"
+            "description": "メール認証完了画面",
+            "is_logged_in":"1"
         },
         "register": {
             "url": "/register",
             "routing": "view/authority/register/",
             "level": "1",
-            "description": "新規登録画面"
+            "description": "新規登録画面",
+            "is_logged_in":"1"
         },
         "register_complite": {
             "url": "/register/complite",
             "routing": "view/authority/register_complite/",
             "level": "1",
-            "description": "新規登録完了画面"
+            "description": "新規登録完了画面",
+            "not_login":"1",
+            "is_logged_in":"1"
         }
     },
     "avatar": {
@@ -94,7 +100,8 @@
             "url": "/contact/complite",
             "routing": "view/contact/completion/",
             "level": "1",
-            "description": "送信完了画面"
+            "description": "送信完了画面",
+            "is_logged_in":"1"
         },
         "send": {
             "url": "/contact",
@@ -104,35 +111,47 @@
         }
     },
     "error": {
+        "403": {
+            "url": "/error/403",
+            "routing": "view/error/403/",
+            "level": "1",
+            "description": "エラー画面",
+            "is_logged_in":"1"
+        },
         "404": {
             "url": "/error/404",
             "routing": "view/error/404/",
             "level": "1",
-            "description": "エラー画面"
+            "description": "エラー画面",
+            "is_logged_in":"1"
         },
         "500": {
             "url": "/error/500",
             "routing": "view/error/500/",
             "level": "1",
-            "description": "エラー画面"
+            "description": "エラー画面",
+            "is_logged_in":"1"
         },
         "1510": {
             "url": "/error/1510",
             "routing": "view/error/1510/",
             "level": "1",
-            "description": "エラー画面"
+            "description": "エラー画面",
+            "is_logged_in":"1"
         },
         "not_login":{
             "url": "/error/login",
             "routing": "view/error/not_login/",
             "level": "1",
-            "description": "エラー画面"
+            "description": "エラー画面",
+            "is_logged_in":"1"
         },
         "not_employee":{
             "url": "/error/employee",
             "routing": "view/error/not_employee/",
             "level": "1",
-            "description": "エラー画面"
+            "description": "エラー画面",
+            "is_logged_in":"1"
         }
     },
     "main": {

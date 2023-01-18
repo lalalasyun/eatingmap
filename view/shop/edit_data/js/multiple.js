@@ -25,6 +25,7 @@ $(function () {
             var select = $(this).parent().parent();
             var li = $(this);
             if (!select.hasClass('clicked')) {
+                $('#submit').prop('disabled', true);
                 select.addClass('clicked');
                 li.prev().addClass('beforeRemove');
                 li.next().addClass('afterRemove');
@@ -53,6 +54,7 @@ $(function () {
                         li.remove();
                         select.removeClass('clicked');
                     });
+                    $('#submit').prop('disabled', false);
                 }, 600);
             }
             

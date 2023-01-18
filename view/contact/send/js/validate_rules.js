@@ -16,6 +16,9 @@ $(function() {
             question: {
                 required: true,
             },
+            message:{
+                required: true,
+            },
             select1: {
                 required: true,
             },
@@ -44,6 +47,9 @@ $(function() {
                 
             },
             question: {
+                required: 'これは必須項目です！',
+            },
+            message:{
                 required: 'これは必須項目です！',
             },
             select1: {

@@ -1,43 +1,47 @@
 .headline{
-	background-color:#FFD9D7;
+	font-family: 'Kosugi Maru', sans-serif;
+}
+
+.headline {
+	background-color: #FFD9D7;
 	border-radius: 5px;
 }
 
 .boximg {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  background-color: #EEEEEE;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	background-color: #EEEEEE;
 }
 
 .box1 {
-  word-wrap: break-word;
+	word-wrap: break-word;
 }
 
-.box-close{
-  max-height: 200px;
-  overflow: hidden;
+.box-close {
+	max-height: 200px;
+	overflow: hidden;
 }
 
 .box2 {
-  overflow-y: auto;
-  overflow-x: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .fa {
-  font-size: 20px;
-  color: gold;
+	font-size: 20px;
+	color: gold;
 }
 
 #rating {
-  font-size: 0;
+	font-size: 0;
 }
 
 #dir_url {
-  text-decoration:none;
+	text-decoration: none;
 }
 
-.hr{
-  border-top: 1px solid #aaa;
+.hr {
+	border-top: 1px solid #aaa;
 }
 
 
@@ -120,7 +124,7 @@ a.fav-btn {
 }
 
 a.btn-tag {
-	padding: 0.8rem 1.25rem 0.8rem 80px;
+	padding: 0.8rem 15px 0.8rem 65px;
 }
 
 a.btn-tag::before {
@@ -168,4 +172,5 @@ a.btn-tag--favorite:hover i {
 	opacity: 1;
 	transform: scale(1.1);
 }
+
 

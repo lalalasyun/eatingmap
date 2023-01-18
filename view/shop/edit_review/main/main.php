@@ -43,8 +43,8 @@
             </div>
         </form>
         <div class="d-flex justify-content-center my-3">
-            <button class="btn btn-info btn-lg mx-2" onclick="History_back();">戻る</button>
-            <button class="btn btn-info btn-lg mx-2" id="submit_btn">変更</button>
+            <a class="btn_18" id="back_btn" href="<?= $_GET['click'] ?>"><i class="fa-solid fa-eraser"></i>戻る</a>
+            <a class="btn_18" id="submit_btn"><i class="fa-solid fa-pen-to-square"></i>変更する</a>
         </div>
     </div>
 </div>

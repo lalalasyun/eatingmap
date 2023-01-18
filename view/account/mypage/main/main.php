@@ -29,7 +29,7 @@
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-end pt-4">
-                                        <div class="d-flex cap" data-tippy-content="レビューを登録するとポイントが貰えます。">
+                                        <div class="d-flex cap" data-tippy-content="<i class='fa-brands fa-product-hunt'></i>レビューを登録するとポイントが貰えます。">
                                             <div class="p-3 py-0 pe-0">ポイント残高</div>
                                             <div class="p-3 py-0 px-1">:</div>
                                             <div class="p-3 py-0 px-0" id="user_point"><?= $USER_DATA['point'] ?></div>

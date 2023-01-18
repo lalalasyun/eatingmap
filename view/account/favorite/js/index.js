@@ -34,12 +34,13 @@ $(function () {
         page_index = 0;
         await $.get(`${data_list.apiUrl}/api/get_favorite.php`, { user: id }
         ).done(async function (data) {
-            if (!data) {
+            console.log(data)
+            if (!data || !data.code) {
                 fav_data = [];
                 fav_length = 0;
                 return;
             }
-            if (data.code == "1") {
+            if (data.data.length) {
                 fav_data = data.data;
                 fav_length = fav_data.length;
 
@@ -47,10 +48,13 @@ $(function () {
                     let index = fav_length - PAGE;
                     fav_index = index > -1 ? index : 0;
                 }
+                set_favorite(fav_data);
+            }else{
+                $("#fav_list").load('/view/account/favorite/main/template1.html')
             }
         })
         delete_dom_obj();
-        set_favorite(fav_data);
+        
 
     }
 

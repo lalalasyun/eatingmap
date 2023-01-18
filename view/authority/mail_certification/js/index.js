@@ -9,6 +9,7 @@ $(function () {
     })
 
     function login(){
+        $('#input_area').valid();
         const account = $('#id').val();
         const mail = $('#mail').val()
         if(account == "" || mail == "")return;

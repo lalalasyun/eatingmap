@@ -25,7 +25,9 @@ $(function () {
             url: `${data_list.apiUrl}/api/review/index.php?id=${user}`,
             async: false,
         }).done(async function (data) {
-            if (data.code) {
+            if (!data.code) return;
+
+            if(data.count){
                 review_data = data.data;
                 review_length = data.count;
                 page_length = Math.floor(data.count / PAGE);
@@ -34,8 +36,8 @@ $(function () {
                     result = true;
                 }
                 set_review();
-            } else {
-                $('#user_name').html("guest");
+            }else{
+                $("#review_list").load('/view/account/review/main/template1.html')
             }
         })
             // Ajaxリクエストが失敗した場合
@@ -58,6 +60,7 @@ $(function () {
         $('#review_list_prev').after('<div id="review_list" style="display:none;"></div>');
         for (let i = review_index; i < review_length; i++) {
             let review = review_data[i];
+            console.log(review)
             $("#review_list").append(`<div id=${review.id}>`);
             //templateをloadし各種データを埋め込む
             await sampleResolve();
@@ -78,7 +81,7 @@ $(function () {
                 window.location.href = `/shop/${review.shop_id}`;
             });
             $(`#${review.id}`).on("click", ".change_btn", function () {
-                window.location.href = `/view/shop/edit_review/index.php?id=${review.shop_id}`;
+                window.location.href = `/view/shop/edit_review/index.php?id=${review.shop_id}&click=/setting/review?p=${page_index}`;
             });
             $(`#${review.id}`).on("click", ".delete_btn", function () {
                 var select = confirm("削除しますか？");

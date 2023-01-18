@@ -169,12 +169,6 @@ a#search_btn:hover {
     right: 10px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
-
-.DotGothic{
-    font-family: 'DotGothic16', sans-serif;
-    font-weight: bold;
-}
 
 .btn-setting{
     display: inline-block;

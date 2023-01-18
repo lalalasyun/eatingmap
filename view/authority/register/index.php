@@ -17,7 +17,7 @@ if (isset($_POST["submit"]) && $_POST["submit"] == "click") {
     $data = json_decode($res, true);
     if ($data['code'] === 1) {
         $_SESSION['register_event'] = false;
-
+        $_GET['ref'] = null;
         header('Location: /view/authority/register_complite/');
         exit;
     } else {

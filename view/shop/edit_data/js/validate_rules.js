@@ -27,6 +27,9 @@ $(function() {
                 required: true,
                 number: true,
                 check_price:true
+            },
+            genre:{
+                required: true,
             }
         },
         //エラーメッセージの設定
@@ -49,6 +52,9 @@ $(function() {
             price: {
                 required: 'これは必須項目です！',
                 number:'価格を入力してください',
+            },
+            genre:{
+                required: 'これは必須項目です！',
             }
         }
     });

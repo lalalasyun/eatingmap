@@ -13,12 +13,12 @@
                     </div>
                     <!--ログイン-->
                     <div class="header_btn mb-2 btn">
-                        <a href='/view/authority/login'>ログイン<i class="fa-solid fa-right-to-bracket ms-3"></i></a>
+                        <a href='/view/authority/login<?= isset($is_logged_in)?"?is_logged_in=true":""?>'>ログイン<i class="fa-solid fa-right-to-bracket ms-3"></i></a>
                     </div>
                 <?php } else { ?>
                     <!--ログアウト-->
                     <div class="header_btn me-3 mb-2 btn">
-                        <a href='?logout=1' type="submit">ログアウト<i class="fa-solid fa-right-to-bracket ms-3"></i></a>
+                        <a href='?logout=1'>ログアウト<i class="fa-solid fa-right-to-bracket ms-3"></i></a>
                     </div>
                     <div class="header_btn mb-2 btn">
                         <!--MyPage-->

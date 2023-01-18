@@ -41,10 +41,12 @@ $(function () {
             score: score
         })
             .done(function (data) {
+                let url = new URL(window.location.href);
+                let params = url.searchParams;
                 if (data) {
-                    window.location.href = `/view/shop/edit_review/index.php?code=1&id=${shop_id}`;
+                    window.location.href = `/view/shop/edit_review/index.php?code=1&id=${shop_id}&click=${params.get('click')}`;
                 } else {
-                    window.location.href = `/view/shop/edit_review/index.php?code=0&id=${shop_id}`;
+                    window.location.href = `/view/shop/edit_review/index.php?code=0&id=${shop_id}&click=${params.get('click')}`;
                 }
             })
 

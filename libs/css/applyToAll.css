@@ -71,3 +71,24 @@ img {
 .form-control:focus{
     box-shadow: none;
 }
+
+
+
+.font-tester {
+	font-family: 'Bungee Inline', cursive;
+	font-family: 'DotGothic16', sans-serif;
+	font-family: 'Klee One', cursive;
+	font-family: 'Kosugi Maru', sans-serif;
+	font-family: 'Rampart One', cursive;
+	font-family: 'Sawarabi Mincho', serif;
+	font-family: 'Train One', cursive;
+	font-family: 'Yomogi', cursive;
+}
+
+.font-klee{
+    font-family: 'Klee One', cursive;
+}
+
+.font-kosugi{
+    font-family: 'Kosugi Maru', sans-serif;
+}

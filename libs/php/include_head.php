@@ -44,3 +44,8 @@
 <meta name="twitter:site" content="@eatingmap" />
 <meta name="twitter:creator" content="@eatingmap" />
 <meta name="twitter:domain" content="www.eatingmap.fun">
+
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=DotGothic16&family=Klee+One&family=Kosugi+Maru&family=Rampart+One&family=Sawarabi+Mincho&family=Train+One&family=Yomogi&display=swap" rel="stylesheet">
