@@ -10,6 +10,7 @@ if (isset($_GET['id'])) {
     $result = get_user_review($dbh, $_GET['id']);
 
     for($i=0;$i<count($result);$i++){
+        $result[$i]['id'] = (string)$result[$i]['id'];
         $result[$i]['user_id'] = (string)$result[$i]['user_id'];
         $result[$i]['shop_id'] = (string)$result[$i]['shop_id'];
     }

@@ -22,10 +22,10 @@ $(function () {
         });
 
         $(document).on('click', '.selectMultiple ul li', function (e) {
+            $('#submit').prop("disabled", true);
             var select = $(this).parent().parent();
             var li = $(this);
             if (!select.hasClass('clicked')) {
-                $('#submit').prop('disabled', true);
                 select.addClass('clicked');
                 li.prev().addClass('beforeRemove');
                 li.next().addClass('afterRemove');
@@ -55,7 +55,7 @@ $(function () {
                         select.removeClass('clicked');
                     });
                     $('#submit').prop('disabled', false);
-                }, 600);
+                }, 1200);
             }
             
             
@@ -94,6 +94,9 @@ $(function () {
         });
 
         $(document).on('click', '.selectMultiple > div .arrow, .selectMultiple > div span', function (e) {
+            if($(this).parent().parent().attr("class") == 'selectMultiple'){
+                $('.selectMultiple').removeClass('open');
+            }
             $(this).parent().parent().toggleClass('open');
         });
     });

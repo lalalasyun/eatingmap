@@ -44,7 +44,7 @@ $(function () {
                 fav_data = data.data;
                 fav_length = fav_data.length;
 
-                if (fav_index > fav_length) {
+                if (fav_index >= fav_length) {
                     let index = fav_length - PAGE;
                     fav_index = index > -1 ? index : 0;
                 }

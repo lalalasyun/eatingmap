@@ -33,7 +33,7 @@ $(function () {
                 page_length = Math.floor(data.count / PAGE);
                 $("#review_list").html("");
                 if (review_length == PAGE) {
-                    result = true;
+                    review_index = 0;
                 }
                 set_review();
             }else{
@@ -44,7 +44,6 @@ $(function () {
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                 window.location.href = '/view/error/500';
             });
-        return result;
     }
 
 
@@ -75,7 +74,7 @@ $(function () {
                     });
                 })
             }
-            $(".more_horiz").html("more_horiz");
+            
             //buttonにshopページへのリンクイベントを付与
             $(`#${review.id}`).on("click", ".shop_data", function () {
                 window.location.href = `/shop/${review.shop_id}`;
@@ -93,7 +92,7 @@ $(function () {
             $(`#${review.id}`).on("click", ".delete_btn", function () {
                 var select = confirm("削除しますか？");
                 if (select) {
-                    window.location.href = `/view/account/review/index.php?p=${page_index}`;
+                    window.location.href = `/view/account/review/index.php?id=${review.shop_id}&p=${page_index}`;
                 }
             });
             if (count == PAGE) {
@@ -101,9 +100,14 @@ $(function () {
             }
             count++;
         }
+        
         $('#review_list').show();
         $('#review_list_prev').remove();
         delete_dom_obj();
+        setTimeout(function(){
+            $(".more_horiz").css("opacity", "1");
+        },100)
+        
     }
 
     function set_star(id, score) {

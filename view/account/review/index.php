@@ -1,8 +1,7 @@
 <?php
 if (isset($_GET['id'])) {
-    $dbh = con();
     delete_shop_review($dbh, $_SESSION['account'], $_GET['id']);
-    header("Location: /view/account/review/");
+    header("Location: /view/account/review/index.php?p=".$_GET['p']);
     exit;
 }
 ?>

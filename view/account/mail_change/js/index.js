@@ -17,7 +17,8 @@ $(function () {
         
         const json = {
             id: user_account_id,
-            mail: $('#mail').val()
+            mail: $('#mail').val(),
+            point:point
         }
 
         $.ajax({

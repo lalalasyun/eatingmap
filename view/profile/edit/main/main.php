@@ -37,8 +37,8 @@
                 </form>
                 <div class="d-flex justify-content-center m-4">
                     <div class="d-flex">
-                        <button type="button" id="back_btn" class="btn btn-dark me-5" style="width:70px">戻る</button>
-                        <button type="button" id="submit_btn" class="btn btn-primary ms-5" style="width:70px">変更</button>
+                        <button type="button" id="back_btn" class="btn_18 me-5" style="width:70px">戻る</button>
+                        <button type="button" id="submit_btn" class="btn_18 ms-5" style="width:70px">変更</button>
                     </div>
                 </div>
             </div>

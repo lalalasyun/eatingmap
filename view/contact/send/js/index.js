@@ -19,15 +19,13 @@ function viewChange() {
             if(user_account_id){
                 $('#del').show();
                 $('#select_del').val('');
-            }else{
-                window.location.href = 'a';
             }
         } else if (id == 'add') {
             if(user_account_id){
-                
+                $('#add').show();
+                $('#select_add').val('');
             }
-            $('#add').show();
-            $('#select_add').val('');
+            
         }
     }
 }

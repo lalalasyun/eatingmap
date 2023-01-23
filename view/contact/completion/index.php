@@ -4,12 +4,10 @@ if(!isset($_GET['code'])){
 }
 
 ?>
-<!DOCTYPE html>
 <html lang="ja">
 
 <head>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
-    <link rel="stylesheet" type="text/css" href="/view/contact/completion/css/style.css" />
     <script src="/view/contact/completion/js/index.js"></script>
     <title>eatingmap - 送信完了</title>
 </head>

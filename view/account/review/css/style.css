@@ -135,3 +135,7 @@
     color: #333;
     text-decoration: none;
 }
+
+.more_horiz{
+    opacity: 0;
+}

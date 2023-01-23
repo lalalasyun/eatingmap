@@ -1,6 +1,6 @@
 <?php
 $USER_NAME = "guest";
-if (isset($USER_DATA['shop_id'])) {
+if (isset($USER_DATA['name'])) {
     $USER_NAME = $USER_DATA['name'];
 }
 ?>

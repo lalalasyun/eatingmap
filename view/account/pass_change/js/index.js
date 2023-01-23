@@ -14,7 +14,8 @@ $(function () {
         if (!params.get('pass3')) return;
         const json = {
             id: user_account_id,
-            password: params.get('pass3')
+            password: params.get('pass3'),
+            point:point
         }
 
         $.ajax({

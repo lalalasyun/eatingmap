@@ -79,8 +79,8 @@
                             <div id="point"><?= $USER_DATA['point'] ?></div>
                         </div>
                         <div class="d-flex justify-content-center">
-                            <a href="/view/account/mypage/" class="btn btn-primary btn-lg" type="button" style="color:azure">戻る</a>
-                            <input id="submit_btn" class="btn btn-primary btn-lg mx-2" type="submit" value="購入" disabled>
+                            <a href="/view/account/mypage/" class="btn_18" type="button">戻る</a>
+                            <input id="submit_btn" class="btn_18 mx-2" type="submit" value="購入" disabled>
                         </div>
                     </form>
                 </fieldset>
@@ -90,7 +90,7 @@
                 <h4>購入できるアイテムはありません</h4>
             </div>
             <div class="d-flex justify-content-center">
-                <a href="/view/account/mypage/" class="btn btn-primary btn-lg" type="button" style="color:azure">戻る</a>
+                <a href="/view/account/mypage/" class="btn_18" type="button">戻る</a>
             </div>
         <?php } ?>
     </div>

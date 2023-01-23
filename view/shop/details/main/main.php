@@ -95,6 +95,9 @@ $FAVORITE_COUNT = get_shop_favorites_count($dbh, $SHOP_DATA["id"]);
                             <div class="ms-5">最寄り駅：<?= $SHOP_DATA['close_station'] ?></div>
                         <?php } ?>
                     </div>
+                    <?php if (count($TAG_DATA)) { ?>
+                        <div class="hr my-2"></div>
+                    <?php } ?>
                 <?php } else { ?>
                     <?php if ($SHOP_DATA["price"]) { ?>
                         <div>予算：<?= $SHOP_DATA["price"] . "円" ?></div>
@@ -112,19 +115,12 @@ $FAVORITE_COUNT = get_shop_favorites_count($dbh, $SHOP_DATA["id"]);
                     <?php } ?>
 
                 <?php } ?>
-                <?php if (count($TAG_DATA)) { ?>
-                    <div class="hr my-2"></div>
-                <?php } ?>
-                <?php if (!$isMobile) { ?>
-                    <div class="d-flex justify-content-start">
-                        <?php foreach ($TAG_DATA as $TAG) { ?>
-                            <div class="me-5"><?php print_r($TAG['name'] . "：" . preg_split('/[\[\"\]]/', $TAG['value'])[2]); ?></div>
+                <?php foreach ($TAG_DATA as $TAG) { ?>
+                    <div class="me-2"><?= $TAG['name'] . "：" ?>
+                        <?php foreach (preg_split('/[\[\"\]]/', $TAG['value']) as $val) { ?>
+                            <?= $val ?>
                         <?php } ?>
                     </div>
-                <?php } else { ?>
-                    <?php foreach ($TAG_DATA as $TAG) { ?>
-                        <div class="me-5"><?php print_r($TAG['name'] . "：" . preg_split('/[\[\"\]]/', $TAG['value'])[2]); ?></div>
-                    <?php } ?>
                 <?php } ?>
 
 

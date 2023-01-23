@@ -74,8 +74,8 @@
             </div>
         </form>
         <div class="d-flex justify-content-center my-3">
-            <button id="back_btn" class="btn btn-info btn-lg mx-2">戻る</button>
-            <button id="submit" class="btn btn-info btn-lg mx-2">更新</button>
+            <button id="back_btn" class="btn_18 mx-2">戻る</button>
+            <button id="submit" class="btn_18 mx-2">更新</button>
         </div>
 
 

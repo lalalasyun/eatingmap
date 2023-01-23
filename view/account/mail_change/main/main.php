@@ -1,3 +1,6 @@
+<script>
+    const point = <?= $USER_DATA['point'] ?>;
+</script>
 <div class="container mt-3">
     <div class="col-md-6 offset-md-3">
         <h3 class="mb-5 text-center">メールアドレス変更</h3>
@@ -15,7 +18,7 @@
             <input type="text" name="dummy" style="display:none;">
         </form>
         <div class="d-flex justify-content-center mb-5">
-            <button type="button" class="btn btn-primary" id="change_btn">変更を適用</button>
+            <button type="button" class="btn_18" id="change_btn">変更を適用</button>
         </div>
     </div>
 </div>

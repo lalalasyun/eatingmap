@@ -1,3 +1,6 @@
+<script>
+    const point = <?= $USER_DATA['point'] ?>;
+</script>
 <div class="container mt-3">
     <div class="col-md-6 offset-md-3">
         <h3 class="mb-5 text-center">パスワード変更</h3>
@@ -28,7 +31,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center mb-5">
-                <input type="submit" class="btn btn-primary" value="変更を適用">
+                <input type="submit" class="btn_18" value="変更を適用">
             </div>
 
 

@@ -55,7 +55,7 @@ if ($res) {
                             <?php if ($CLOTHE) { ?>
                                 <img id="clothes_icon" src="<?= $CLOTHE_PATH . $CLOTHE ?>" width="100px" height="100px">
                             <?php } else { ?>
-                                <img id="heads_icon" src="/images/user_icon/mask.png" width="100px" height="100px">
+                                <img id="clothes_icon" src="/images/user_icon/mask.png" width="100px" height="100px">
                             <?php } ?>
                         </div>
 
@@ -63,7 +63,7 @@ if ($res) {
                             <?php if ($BACK) { ?>
                                 <img id="backs_icon" src="<?= $BACK_PATH . $BACK ?>" width="100px" height="100px">
                             <?php } else { ?>
-                                <img id="heads_icon" src="/images/user_icon/mask.png" width="100px" height="100px">
+                                <img id="backs_icon" src="/images/user_icon/mask.png" width="100px" height="100px">
                             <?php } ?>
                         </div>
                     </div>
