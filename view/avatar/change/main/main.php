@@ -97,6 +97,10 @@ if ($res) {
                                         <img src="<?= $HEAD_PATH . $heads[$i]['image']; ?> " width="300px" height="450px" class="radio_image" title="<?= $heads[$i]['name']; ?>">
                                     </label>
                                 <?php } ?>
+                                <label class="item-img">
+                                    <input type="radio" name="radio1" value="999" class="radio" data-item_id="heads_icon" data-item_image="/images/user_icon/mask.png">
+                                    <img src="/images/user_icon/x-mark.png" width="300px" height="450px" class="radio_image" title="アイテムを外す">
+                                </label>
                             </div>
 
                             <div class="overflow-div scrollbar1" id="clothes_area">
@@ -106,6 +110,10 @@ if ($res) {
                                         <img src="<?= $CLOTHE_PATH . $clothes[$i]['image']; ?> " width="300px" height="450px" class="radio_image" title="<?= $clothes[$i]['name']; ?>">
                                     </label>
                                 <?php } ?>
+                                <label class="item-img">
+                                    <input type="radio" name="radio2" value="999" class="radio" data-item_id="clothes_icon" data-item_image="/images/user_icon/mask.png">
+                                    <img src="/images/user_icon/x-mark.png" width="300px" height="450px" class="radio_image" title="アイテムを外す">
+                                </label>
                             </div>
 
                             <div class="overflow-div scrollbar1" id="backs_area">
@@ -115,6 +123,10 @@ if ($res) {
                                         <img src="<?= $BACK_PATH . $backs[$i]['image']; ?> " width="300px" height="450px" class="radio_image" title="<?= $backs[$i]['name']; ?>">
                                     </label>
                                 <?php } ?>
+                                <label class="item-img">
+                                    <input type="radio" name="radio3" value="999" class="radio" data-item_id="backs_icon" data-item_image="/images/user_icon/mask.png">
+                                    <img src="/images/user_icon/x-mark.png" width="300px" height="450px" class="radio_image" title="アイテムを外す">
+                                </label>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center mt-3">
@@ -138,7 +150,7 @@ if ($res) {
                 <h4>アイテムはありません</h4>
             </div>
             <div class="d-flex justify-content-center">
-                <a class="btn_18 w-25" href="/view/account/mypage/"><i class="fa-solid fa-user-pen"></i> 戻る</a>
+                <a class="btn_18" href="/view/account/mypage/">戻る</a>
             </div>
         <?php } ?>
     </div>

@@ -11,17 +11,30 @@ $backs = get_genre_has_item($dbh, $BACK_ID, $user);
 
 $is_change = false;
 if (isset($_POST["radio1"]) && $_POST["radio1"] != "") {
-    set_user_item($dbh, $user, $HEAD_ID, $heads[$_POST["radio1"]]['id']);
+    if($_POST["radio1"] != 999){
+        set_user_item($dbh, $user, $HEAD_ID, $heads[$_POST["radio1"]]['id']);
+    }else{
+        set_user_item($dbh, $user, $HEAD_ID, -1);
+    }
+    
     $is_change = true;
 }
 
 if (isset($_POST["radio2"]) && $_POST["radio2"] != "") {
-    set_user_item($dbh, $user, $CLOTHE_ID, $clothes[$_POST["radio2"]]['id']);
+    if($_POST["radio2"] != 999){
+        set_user_item($dbh, $user, $CLOTHE_ID, $clothes[$_POST["radio2"]]['id']);
+    }else{
+        set_user_item($dbh, $user, $CLOTHE_ID, -1);
+    }
     $is_change = true;
 }
 
 if (isset($_POST["radio3"]) && $_POST["radio3"] != "") {
-    set_user_item($dbh, $user, $BACK_ID, $backs[$_POST["radio3"]]['id']);
+    if($_POST["radio3"] != 999){
+        set_user_item($dbh, $user, $BACK_ID, $backs[$_POST["radio3"]]['id']);
+    }else{
+        set_user_item($dbh, $user, $BACK_ID, -1);
+    }
     $is_change = true;
 }
 
@@ -30,7 +43,6 @@ if ($is_change) {
     exit;
 }
 ?>
-<!DOCTYPE html>
 <html lang="ja">
 
 <head>
