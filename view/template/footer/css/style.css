@@ -1,36 +1,38 @@
 .inquiry {
-    font-weight: 700;
-    color: black;
-    text-decoration: none;
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
 }
 
 .inquiry:hover {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }
 
-.fixed-bottom{
-    right:0;
-    left: auto;
+.fixed-bottom {
+  right: 0;
+  left: auto;
 }
 
 a.btn--circle {
-    width: 60px;
-    height: 60px;
-    padding: 0;
-    background: #fff;
-    border-radius: 50%;
-    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-  }
-  
-  a.btn--circle i {
-    font-size: 150%;
-    line-height: 60px;
-    -webkit-transition: all .3s;
-    transition: all .3s;
-    letter-spacing: 0;
-  }
-  a.btn--circle:hover i {
-    line-height: 55px;
-  }
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+a.btn--circle i {
+  font-size: 150%;
+  line-height: 60px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  letter-spacing: 0;
+}
+
+a.btn--circle:hover i {
+  line-height: 55px;
+}
+

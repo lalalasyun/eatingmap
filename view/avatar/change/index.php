@@ -31,14 +31,15 @@ if ($is_change) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
     <link rel="stylesheet" type="text/css" href="/view/avatar/change/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/view/avatar/change/css/icon.css" />
     <script src="/view/avatar/change/js/index.js" defer></script>
-    <title>eatingmap - アイテム変更</title>
+
+    <title>eatingmap - アバター変更</title>
 </head>
 
 <body>

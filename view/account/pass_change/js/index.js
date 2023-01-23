@@ -1,11 +1,11 @@
 $(function () {
     $('.form-open-eye-mark').click(function (e) { 
-        $(this).siblings('input').attr('type','password');
+        $(this).siblings('input').attr('type','text');
         $(this).hide();
         $(this).siblings('.form-close-eye-mark').show();
     });
     $('.form-close-eye-mark').click(function (e) { 
-        $(this).siblings('input').attr('type','text');
+        $(this).siblings('input').attr('type','password');
         $(this).hide();
         $(this).siblings('.form-open-eye-mark').show();
     });

@@ -60,7 +60,6 @@ $(function () {
         $('#review_list_prev').after('<div id="review_list" style="display:none;"></div>');
         for (let i = review_index; i < review_length; i++) {
             let review = review_data[i];
-            console.log(review)
             $("#review_list").append(`<div id=${review.id}>`);
             //templateをloadし各種データを埋め込む
             await sampleResolve();
@@ -76,17 +75,25 @@ $(function () {
                     });
                 })
             }
+            $(".more_horiz").html("more_horiz");
             //buttonにshopページへのリンクイベントを付与
             $(`#${review.id}`).on("click", ".shop_data", function () {
                 window.location.href = `/shop/${review.shop_id}`;
             });
-            $(`#${review.id}`).on("click", ".change_btn", function () {
-                window.location.href = `/view/shop/edit_review/index.php?id=${review.shop_id}&click=/setting/review?p=${page_index}`;
+            $(`#${review.id}`).on("click", `.more_horiz`, function () {
+                if($(`#${review.id} .more_horiz-modal`).is(':visible')){
+                    $('.more_horiz-modal').hide();
+                    $(`#${review.id} .more_horiz-modal`).hide();
+                }else{
+                    $('.more_horiz-modal').hide();
+                    $(`#${review.id} .more_horiz-modal`).show();
+                }
             });
+            $(`#${review.id} .change_btn`).attr("href",`/view/shop/edit_review/index.php?id=${review.shop_id}&click=/setting/review?p=${page_index}`);
             $(`#${review.id}`).on("click", ".delete_btn", function () {
                 var select = confirm("削除しますか？");
                 if (select) {
-                    window.location.href = `/view/account/review/index.php?id=${review.shop_id}`;
+                    window.location.href = `/view/account/review/index.php?p=${page_index}`;
                 }
             });
             if (count == PAGE) {

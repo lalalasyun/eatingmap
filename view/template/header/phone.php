@@ -10,9 +10,11 @@
                             <button type="button" class="btn btn-primary btn-sm w-100 my-1">新規登録</button>
                         </a>
                         <!--ログイン-->
-                        <a href="/view/authority/login/<?= $is_logged_in ? "?is_logged_in=true" : "" ?>">
-                            <button type="button" class="btn btn-primary btn-sm w-100 my-1">ログイン</button>
-                        </a>
+                        <?php if (isset($is_logged_in) && $is_logged_in) { ?>
+                            <a href='/view/authority/login?is_logged_in=true'><button type="button" class="btn btn-primary btn-sm w-100 my-1">ログイン</button></a>
+                        <?php } else { ?>
+                            <a href='/view/authority/login'><button type="button" class="btn btn-primary btn-sm w-100 my-1">ログイン</button></a>
+                        <?php } ?>
                     <?php } else { ?>
                         <a href="/user/<?= $USER_DATA['id'] ?>">
                             <button type="button" class="btn btn-primary btn-sm w-100 my-1">プロフィール画面</button>

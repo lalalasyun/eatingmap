@@ -2,7 +2,7 @@
 $_SESSION['prev_page'] = "/search/distance";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>

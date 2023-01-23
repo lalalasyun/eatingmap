@@ -29,6 +29,13 @@ $(function () {
         });
     }
 
+    $('#back_btn').click(function (e) { 
+        var select = confirm("入力を破棄しますか？");
+        if (select) {
+            window.location.href = $('#back_btn').data("href");
+        }
+    });
+
     $('#submit_btn').on('click', function () {
         if (!$('#input_area').validate().form()) {
             return;

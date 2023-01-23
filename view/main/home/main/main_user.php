@@ -86,7 +86,7 @@ $shop_list = get_shop($dbh);
                 <a href="/view/search/distance/"><i class="fa-solid fa-location-dot me-2"></i>距離検索</a>
             </div>
             <div class="search_btn mx-2">
-                <a href='/view/search/genre/'><i class="fa-solid fa-list me-2"></i>ジャンル検索</a>
+                <a href='/view/search/genre/index.php?genre=0'><i class="fa-solid fa-list me-2"></i>ジャンル検索</a>
             </div>
         </div>
         <p class='DotGothic rounded-1' style="background-color:#CCFFFF;">
@@ -105,7 +105,7 @@ $shop_list = get_shop($dbh);
                     <?php if (isset($shop['image'])) { ?>
                         <li title="<?= $shop['name'] ?>">
                             <a href="/shop/<?= $shop['id'] ?>">
-                                <img src="/images/shopImage/<?= $shop['image'] ?>" loading="lazy" width="200px" height="auto" alt="recommend" class="rounded-2">
+                                <img src="/images/shopImage/<?= $shop['image'] ?>"  width="200px" height="auto" alt="recommend" class="rounded-2">
                             </a>
                         </li>
                     <?php } ?>

@@ -4,11 +4,11 @@
     <div class="w-100 m-3">
 
         <div class="input-group mb-3 d-flex">
-            <div class="input-key w-75">
-                <input id="search_name" type="text" name="name" class="form-control-lg w-100 h-100" placeholder="店舗名またはキーワードを入力">
+            <div class="input-key">
+                <input id="search_name" type="text" name="name" class="form-control-lg" placeholder="店舗名またはキーワードを入力">
                 <i class="fa-solid fa-circle-xmark input-xmark" style='display:none'></i>
             </div>
-            <button class="btn btn-success btn-lg" type="button" id="search_btn"><i class="fas fa-search"></i> 検索</button>
+            <button class="btn btn-success btn-lg search-btn" type="button" id="search_btn"><i class="fas fa-search"></i> 検索</button>
         </div>
         <div class="accordion-area mx-0">
             <section class="my-2">

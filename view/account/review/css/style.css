@@ -91,3 +91,47 @@
   #rating{
     font-size:0;
   }
+
+.material-symbols-outlined {
+    font-size:xxx-large;
+    cursor: pointer;
+}
+
+.more_horiz-modal{
+    display: none;
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    bottom: -20px;
+    background-color: white;
+    border-color: #333;
+    border-radius: 5px;
+    box-shadow:  1px 1px 1px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    
+}
+
+
+.more_horiz-modal  a{
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 10px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.more_horiz-modal  a:link {
+    color: #333;
+    text-decoration: none;
+}
+
+.more_horiz-modal  a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+.more_horiz-modal  a:hover {
+    color: #333;
+    text-decoration: none;
+}

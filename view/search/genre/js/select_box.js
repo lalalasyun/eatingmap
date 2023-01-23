@@ -16,7 +16,7 @@ $(function () {
     let params = url.searchParams;
 
     // getメソッド
-    if (params.get('genre') != -1) {
+    if (params.get('genre') && (params.get('genre') != "null") && params.get('genre') != -1) {
       select = params.get('genre');
       change_genre(select);
     }

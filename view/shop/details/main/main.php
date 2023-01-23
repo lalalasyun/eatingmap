@@ -1,5 +1,4 @@
 <?php
-$dbh = con();
 $REVIEW_DATA = get_shopid_review($dbh, $SHOP_DATA["id"]);
 $TAG_DATA  = get_shop_tag($dbh, $SHOP_DATA["id"]);
 
@@ -10,6 +9,7 @@ if (!$isMobile) {
     $REVIEW_LENGTH = 30;
 }
 
+$FAVORITE_COUNT = get_shop_favorites_count($dbh, $SHOP_DATA["id"]);
 ?>
 <script>
     let shop_id = null;
@@ -60,7 +60,7 @@ if (!$isMobile) {
 
                 <div class="d-flex">
                     <div>評価 : </div>
-                    <div id="rating" class="ms-2 cap" data-tippy-content="<?= $SHOP_DATA['score'] ? "".$SHOP_DATA['score']."" : "データが登録されていません。" ?>">
+                    <div id="rating" class="ms-2 cap" data-tippy-content="<?= $SHOP_DATA['score'] ? "" . $SHOP_DATA['score'] . "" : "データが登録されていません。" ?>">
                         <?php for ($i = 1; $i < 6; $i++) { ?>
                             <?php if ($i == $SHOP_DATA['score']) { ?>
                                 <span class="fa fa-star active" data-name="<?= $i ?>"></span>
@@ -71,6 +71,12 @@ if (!$isMobile) {
                             <?php } ?>
                         <?php } ?>
                     </div>
+                </div>
+
+                <div class="hr my-2"></div>
+
+                <div class="d-flex">
+                    <div>お気に入り登録 : <?= $FAVORITE_COUNT ?>件</div>
                 </div>
 
                 <div class="hr my-2"></div>
@@ -89,7 +95,6 @@ if (!$isMobile) {
                             <div class="ms-5">最寄り駅：<?= $SHOP_DATA['close_station'] ?></div>
                         <?php } ?>
                     </div>
-                    <div class="hr my-2"></div>
                 <?php } else { ?>
                     <?php if ($SHOP_DATA["price"]) { ?>
                         <div>予算：<?= $SHOP_DATA["price"] . "円" ?></div>
@@ -106,6 +111,9 @@ if (!$isMobile) {
                         <div class="hr my-2"></div>
                     <?php } ?>
 
+                <?php } ?>
+                <?php if (count($TAG_DATA)) { ?>
+                    <div class="hr my-2"></div>
                 <?php } ?>
                 <?php if (!$isMobile) { ?>
                     <div class="d-flex justify-content-start">
@@ -165,7 +173,7 @@ if (!$isMobile) {
                             レビュー<?php if (!$isMobile) { ?>登録<?php } ?>
                         </a>
                     <?php } else { ?>
-                        <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" href='/view/authority/login/'>
+                        <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" href='/view/authority/login/index.php?href=/shop/<?= $SHOP_DATA['id'] ?>'>
                             <i class="fa-solid fa-comment"></i>
                             レビュー<?php if (!$isMobile) { ?>登録<?php } ?>
                         </a>
@@ -180,12 +188,12 @@ if (!$isMobile) {
                 ?>
                 <div id="add_fav" style="display:<?= $is_fav ? "none" : "block" ?>">
                     <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" data-name="<?= $i ?>">
-                        <i class="fas fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
                         お気に入り<?php if (!$isMobile) { ?>追加<?php } ?></a>
                 </div>
                 <div id="del_fav" style="display:<?= $is_fav ? "block" : "none" ?>">
                     <a class="fav-btn btn-tag btn-tag--favorite inherited-styles" data-name="<?= $i ?>">
-                        <i class="fa-regular fa-star"></i></i>
+                        <i class="fas fa-star"></i></i>
                         お気に入り<?php if (!$isMobile) { ?>解除<?php } ?></a>
                     </a>
                 </div>

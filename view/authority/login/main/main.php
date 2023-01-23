@@ -13,8 +13,8 @@
                 <label class="form-label">パスワード</label>
                 <div class="password-column">
                     <input type="password" class="form-control mb-2" id="pass" required>
-                    <i class="fa-regular fa-eye form-open-eye-mark"></i>
-                    <i class="fa-regular fa-eye-slash form-close-eye-mark"></i>
+                    <i class="fa-regular fa-eye form-open-eye-mark" title="パスワードを表示"></i>
+                    <i class="fa-regular fa-eye-slash form-close-eye-mark" title="パスワードを非表示"></i>
                 </div>
 
             </div>

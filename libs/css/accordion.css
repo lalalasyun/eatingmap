@@ -17,6 +17,7 @@
 
 .accordion-area section {
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 /*アコーディオンタイトル*/

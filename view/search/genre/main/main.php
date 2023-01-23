@@ -1,5 +1,4 @@
 <?php
-$dbh = con();
 $data = get_category($dbh);
 ?>
 <div class="container border rounded d-flex justify-content-center <?php if (!$isMobile) {

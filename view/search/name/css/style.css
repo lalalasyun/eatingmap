@@ -108,10 +108,33 @@
 
 .input-key {
     position: relative;
+    width: calc(100% - 86px);
 }
 
 #search_name {
     position: absolute;
+    border-bottom-color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    border-right: none;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    font-size: medium;
+    font-family: 'Sawarabi Mincho', serif;
+    width: 100%;
+}
+
+.shop_font{
+    font-family: 'Kosugi Maru', sans-serif;
+}
+
+.search-btn{
+    font-size: medium;
+    height: 44px;
+}
+
+#search_name:focus-visible {
+    outline: none;
 }
 
 .input-xmark {
@@ -119,4 +142,8 @@
     z-index: 10;
     top: 15px;
     right: 10px;
+}
+
+.btn:focus,.btn-success:focus{
+    box-shadow:none;
 }

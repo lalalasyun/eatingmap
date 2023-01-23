@@ -431,6 +431,26 @@ function get_shop_tag($dbh, $shop)
     return $result;
 }
 
+//店舗お気に入り数確認
+function get_shop_favorites_count($dbh, $shop)
+{
+    try {
+        $sql = "SELECT count(*) as count FROM shop_favorite where shop_id = :shop";
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':shop', $shop, PDO::PARAM_STR);
+
+        $stmt->execute();
+        $result = "";
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result = $row;
+        }
+        return $result['count'];
+    } catch (PDOException $e) {
+        //uniqueエラー回避用
+    }
+}
+
 //お気に入り追加
 function add_shop_favorite($dbh, $user, $shop)
 {
@@ -569,7 +589,7 @@ function set_geocode($dbh, $user, $lat, $lng)
 }
 
 //お問い合わせフォーム
-function send_ask_form($dbh, $user, $user_name, $content,$mail)
+function send_ask_form($dbh, $user, $user_name, $content, $mail)
 {
     $code = str_pad(random_int(0, 999999999999999999), 18, 0, STR_PAD_LEFT);
     $sql = "INSERT INTO application (id, type,name, content, user_id, status, user_name,mail) 
@@ -652,7 +672,7 @@ function send_add_emp_form($dbh, $user, $content, $shop_name, $user_name, $phone
     $stmt->execute();
 }
 
-function send_other_form($dbh, $user, $user_name, $content,$mail)
+function send_other_form($dbh, $user, $user_name, $content, $mail)
 {
     $code = str_pad(random_int(0, 999999999999999999), 18, 0, STR_PAD_LEFT);
     $sql = "INSERT INTO application (id, type, name, content, user_id,status, user_name,mail) 

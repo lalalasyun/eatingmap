@@ -199,10 +199,15 @@ a#search_btn:hover {
     border-top-right-radius: unset;
     border-bottom-right-radius: unset;
     font-size:medium;
+    font-family: 'Sawarabi Mincho', serif;
 }
 
 #search_name:focus-visible{
     outline:none;
+}
+
+.btn:focus,.btn-success:focus{
+    box-shadow:none;
 }
 
 .input-key{

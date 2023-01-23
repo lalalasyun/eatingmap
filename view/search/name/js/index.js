@@ -24,7 +24,7 @@ $(function () {
         //詳細選択画面に埋め込み
         $("#search_name").val(name);
 
-        if(name.length > 0){
+        if(name){
             $('.input-xmark').show();
         }
         
@@ -101,7 +101,6 @@ $(function () {
                 return new Promise(resolve => {
                     $(`#shop_list #${shop.id}`).load("/view/search/name/main/template.html", async function (myData, myStatus) {
                         $(`#shop_list #${shop.id}`).find(".shopname").html(shop.name);
-                        $(`#shop_list #${shop.id}`).find(".shopscore").html(shop.score);
                         $(`#shop_list #${shop.id}`).find(".shopimage").attr('src', `/images/shopImage/${shop.image}`);
                         set_star(shop.id, shop.score);
                         resolve(true);

@@ -1,1 +1,6 @@
 User-agent: *
+Disallow: /view/shop/
+Disallow: /view/profile/
+Disallow: /view/error/
+Disallow: /view/avatar/
+Disallow: /view/account/

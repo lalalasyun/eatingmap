@@ -16,5 +16,16 @@ $(function () {
         $(`#${$(this).data('item_id')}`).attr('src', $(this).data('item_image'));
     });
 
+    $('#back_btn').click(function (e) { 
+        var select = confirm("変更を破棄しますか？");
+        if (select) {
+            window.location.href = `/mypage`;
+        }
+    });
+    $('#change_btn').click(function (e) {
+        $('#set_form').submit();
+    });
+    
+
 });
 

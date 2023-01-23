@@ -1,7 +1,15 @@
+<?php
+$USER_NAME = "guest";
+if (isset($USER_DATA['shop_id'])) {
+    $USER_NAME = $USER_DATA['name'];
+}
+?>
 <script>
     let shop_id = null;
+    let shop_name = "";
     <?php if (isset($USER_DATA['shop_id']) && $USER_DATA['shop_id']) { ?>
         shop_id = "<?= $USER_DATA['shop_id'] ?>";
+        shop_name = "<?= get_id_shop_name($dbh, $USER_DATA['shop_id']) ?>";
     <?php } ?>
 </script>
 <div class="container my-3">
@@ -10,17 +18,28 @@
 
         <form action="" method="post" id="input_area">
             <div class="mb-3">
-                <input type="text" class="form-control" name="name" id="user_name" placeholder="お名前">
+                <input type="text" class="form-control" name="name" id="user_name" placeholder="お名前" value="<?= $USER_NAME ?>">
             </div>
 
             <div class="mb-3">
                 <select class="form-select form-control" name="select1" id="sample" onchange="viewChange();">
                     <option value="" class="text-muted">項目を選択してください</option>
-                    <option value="question">質問</option>
-                    <option value="del">削除申請</option>
-                    <option value="add">登録申請</option>
-                    <option value="other">その他</option>
+
+                    <?php if ($_SESSION['auth']) { ?>
+                        <option value="question">質問</option>
+                        <option value="del">削除申請</option>
+                        <option value="add">登録申請</option>
+                        <option value="other">その他</option>
+                    <?php } else { ?>
+                        <option value="question">質問</option>
+                        <option value="other">その他</option>
+                        <option value="del" disabled>※削除申請</option>
+                        <option value="add" disabled>※登録申請</option>
+                    <?php } ?>
                 </select>
+                <?php if (!$_SESSION['auth']) { ?>
+                    <div>※各種申請をするにはログインしてください。</div>
+                <?php } ?>
             </div>
 
             <div class="mb-3 box" id="mail">
@@ -46,6 +65,7 @@
                     <option value="shop">店舗削除</option>
                     <option value="emp" class="d-none" id="del_emp">店員削除</option>
                 </select>
+                
             </div>
 
             <div class="mb-4 box" id="add">
@@ -85,6 +105,10 @@
             <div class="mb-4 box" id="other">
                 <textarea class="form-control" name="message" rows="5" id="i_other" placeholder="要件を入力してください"></textarea>
             </div>
+
+
+
+
 
             <div class="d-grid">
                 <button type="submit" class="btn btn-success">送信</button>

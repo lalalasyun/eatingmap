@@ -44,7 +44,7 @@ $data = get_category($dbh);
   </div>
 </div>
 
-<div id="map" class="w-100" style="height:500px;"></div>
+<div id="map" class="w-100" style="height: 800px;"></div>
 <?php
 require_once  $_SERVER['DOCUMENT_ROOT'] . "/conf/map_conf.php"
 ?>

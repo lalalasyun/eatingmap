@@ -16,9 +16,16 @@ function viewChange() {
                 $('#mail').show();
             }
         } else if (id == 'del') {
-            $('#del').show();
-            $('#select_del').val('');
+            if(user_account_id){
+                $('#del').show();
+                $('#select_del').val('');
+            }else{
+                window.location.href = 'a';
+            }
         } else if (id == 'add') {
+            if(user_account_id){
+                
+            }
             $('#add').show();
             $('#select_add').val('');
         }

@@ -43,7 +43,7 @@
             </div>
         </form>
         <div class="d-flex justify-content-center my-3">
-            <a class="btn_18" id="back_btn" href="<?= $_GET['click'] ?>"><i class="fa-solid fa-eraser"></i>戻る</a>
+            <a class="btn_18" id="back_btn" data-href="<?= $_GET['click'] ?>"><i class="fa-solid fa-eraser"></i>戻る</a>
             <a class="btn_18" id="submit_btn"><i class="fa-solid fa-pen-to-square"></i>変更する</a>
         </div>
     </div>

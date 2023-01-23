@@ -37,7 +37,7 @@ include dirname(__FILE__, 4) . "/conf/map_conf.php";
 $path = explode("/", __DIR__);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/libs/php/include_head.php" ?>
@@ -49,8 +49,6 @@ $path = explode("/", __DIR__);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <script src="https://cdn.geolonia.com/community-geocoder.js"></script>
-    <script src="https://maps.google.com/maps/api/js?key=<?= $KEY; ?>"></script>
 
     <script src="/libs/js/jquery/jquery.validate.min.js"></script>
     <script src="/libs/js/jquery/additional-methods.min.js"></script>

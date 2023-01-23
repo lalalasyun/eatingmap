@@ -7,24 +7,24 @@
                 <label  class="form-label">現在のパスワード</label>
                 <div class="validate-column">
                     <input type="password" class="form-control" id="pass1" name="pass1" rows="5" placeholder="現在のパスワード">
-                    <i class="fa-regular fa-eye form-open-eye-mark"></i>
-                    <i class="fa-regular fa-eye-slash form-close-eye-mark"></i>
+                    <i class="fa-regular fa-eye form-open-eye-mark" title="パスワードを表示"></i>
+                    <i class="fa-regular fa-eye-slash form-close-eye-mark" title="パスワードを非表示"></i>
                 </div>
             </div>
             <div class="mb-4" id="hid">
                 <label  class="form-label">新しいパスワード</label>
                 <div class="validate-column">
                     <input type="password" class="form-control" id="pass2" name="pass2" rows="5" placeholder="新しいパスワード">
-                    <i class="fa-regular fa-eye form-open-eye-mark"></i>
-                    <i class="fa-regular fa-eye-slash form-close-eye-mark"></i>
+                    <i class="fa-regular fa-eye form-open-eye-mark" title="パスワードを表示"></i>
+                    <i class="fa-regular fa-eye-slash form-close-eye-mark" title="パスワードを非表示"></i>
                 </div>
             </div>
             <div class="mb-4" id="hid2">
                 <label  class="form-label">新しいパスワード(確認)</label>
                 <div class="validate-column">
                     <input type="password" class="form-control" id="pass3" name="pass3" rows="5" placeholder="新しいパスワード(確認)">
-                    <i class="fa-regular fa-eye form-open-eye-mark"></i>
-                    <i class="fa-regular fa-eye-slash form-close-eye-mark"></i>
+                    <i class="fa-regular fa-eye form-open-eye-mark" title="パスワードを表示"></i>
+                    <i class="fa-regular fa-eye-slash form-close-eye-mark" title="パスワードを非表示"></i>
                 </div>
             </div>
             <div class="d-flex justify-content-center mb-5">

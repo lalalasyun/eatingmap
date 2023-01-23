@@ -47,7 +47,6 @@ img{
     overflow: hidden;
     transform: scale(3);
     transform-origin: 0px 0px;
-    cursor: pointer;
 }
 
 .mask{
