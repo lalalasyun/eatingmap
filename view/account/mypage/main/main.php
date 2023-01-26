@@ -68,7 +68,7 @@
 
                 <div class="button_line001 d-flex justify-content-around py-3">
                     <a href="/view/avatar/buy/index.php" class="button_line001" style="width:160px;height:50px">アバター購入</a>
-                    <a href="/view/profile/edit/" class="button_line001 " style="width:160px;height: 50px">プロフィール編集</a>
+                    <a href="/view/profile/edit/" class="button_line001 " style="width:160px;height:50px">プロフィール編集</a>
 
                 </div>
             </div>

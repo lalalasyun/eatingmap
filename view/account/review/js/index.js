@@ -32,7 +32,7 @@ $(function () {
                 review_length = data.count;
                 page_length = Math.floor(data.count / PAGE);
                 $("#review_list").html("");
-                if (review_length == PAGE) {
+                if (review_length <= review_index) {
                     review_index = 0;
                 }
                 set_review();
